@@ -1,0 +1,12 @@
+{
+  "name": "@paperwork/ui-styles",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {},
+  "scripts": {
+    "build": "node-sass src/index.scss build/index.css"
+  },
+  "devDependencies": {
+    "node-sass": "^4.13.1"
+  }
+}

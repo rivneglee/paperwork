@@ -1,0 +1,93 @@
+{
+  "name": "@paperwork/ui-widgets",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {},
+  "main": "build/index.js",
+  "types": "build/types/src/index.d.ts",
+  "scripts": {
+    "storybook": "start-storybook -p 9009",
+    "build-storybook": "build-storybook",
+    "build": "webpack --config ./config/webpack.config.js",
+    "test": "node scripts/test.js --env=jsdom",
+    "test:watch": "node scripts/test.js --watch --env=jsdom",
+    "lint": "tslint --force --fix \"src/**/*.tsx\" \"**/__tests__/**/*.spec.tsx\" -e \"**/node_modules/**\""
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@storybook/addon-actions": "^5.3.13",
+    "@storybook/addon-info": "^5.3.13",
+    "@storybook/addon-links": "^5.3.13",
+    "@storybook/addons": "^5.3.13",
+    "@storybook/react": "^5.3.13",
+    "babel-jest": "20.0.3",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.4.2",
+    "jest": "20.0.4",
+    "react-docgen-typescript-loader": "^3.6.0",
+    "source-map-loader": "^0.2.4",
+    "ts-jest": "22.0.1",
+    "ts-loader": "^6.2.1",
+    "tslint": "^5.7.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "tslint-config-prettier": "^1.10.0",
+    "tslint-react": "^3.2.0",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "node-sass": "^4.11.0",
+    "postcss-flexbugs-fixes": "3.2.0",
+    "postcss-loader": "2.0.8",
+    "pre-push": "^0.1.1",
+    "sass-loader": "^7.1.0",
+    "autoprefixer": "7.1.6"
+  },
+  "resolutions": {
+    "@types/react": "^16.8.8"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!**/*.d.ts"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/polyfills.js",
+      "<rootDir>/config/jest/enzyme.js"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.ts?(x)",
+      "<rootDir>/src/**/?(*.)(spec|test).ts?(x)"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.tsx?$": "<rootDir>/config/jest/typescriptTransform.js",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|ts|tsx)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web"
+    },
+    "moduleFileExtensions": [
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "web.js",
+      "js",
+      "web.jsx",
+      "jsx",
+      "json",
+      "node",
+      "mjs"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.test.json"
+      }
+    }
+  }
+}

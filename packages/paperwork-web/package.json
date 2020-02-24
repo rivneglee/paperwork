@@ -1,0 +1,73 @@
+{
+  "name": "paperwork-web",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@paperwork/ui-widgets": "0.1.0"
+  },
+  "scripts": {
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js --env=jsdom",
+    "test:watch": "node scripts/test.js --watch --env=jsdom",
+    "lint": "tslint --force --fix \"src/**/*.tsx\" \"**/__tests__/**/*.spec.tsx\" -e \"**/node_modules/**\""
+  },
+  "devDependencies": {
+    "babel-jest": "20.0.3",
+    "jest": "20.0.4",
+    "ts-jest": "22.0.1",
+    "tslint": "^5.7.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "tslint-config-prettier": "^1.10.0",
+    "tslint-react": "^3.2.0"
+  },
+  "resolutions": {
+    "@types/react": "^16.8.8"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!**/*.d.ts"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/polyfills.js",
+      "<rootDir>/config/jest/enzyme.js"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.ts?(x)",
+      "<rootDir>/src/**/?(*.)(spec|test).ts?(x)"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.tsx?$": "<rootDir>/config/jest/typescriptTransform.js",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|ts|tsx)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web"
+    },
+    "moduleFileExtensions": [
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "web.js",
+      "js",
+      "web.jsx",
+      "jsx",
+      "json",
+      "node",
+      "mjs"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.test.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "extends": "../tsconfig.settings.json",
+  "compilerOptions": {
+    "rootDirs": [
+      "src",
+      "stories"
+    ],
+    "outDir": "build",
+    "allowJs": true,
+    "skipLibCheck": true
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "defaultSeverity": "error",
+  "extends": "tslint-config-airbnb",
+  "jsRules": {},
+  "rules": {
+    "eofline": false,
+    "curly": false,
+    "import-name": false,
+    "prefer-array-literal": false,
+    "variable-name": [true, "allow-pascal-case"],
+    "max-line-length": [
+      true,
+      {
+        "limit": 130
+      }
+    ],
+    "align": [false, "parameters"]
+  },
+  "rulesDirectory": [],
+  "linterOptions": {
+    "exclude": [
+      "packages/**/config/*.js",
+      "packages/**/config/**/*.js",
+      "packages/**/scripts/*.js",
+      "packages/**/node_modules/*.*",
+      "node_modules"
+    ]
+  }
+}

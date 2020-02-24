@@ -1,0 +1,14 @@
+{
+  "extends": "../tsconfig.settings.json",
+  "compilerOptions": {
+    "rootDirs": [
+      "src",
+      "stories"
+    ],
+    "outDir": "./build",
+    "declaration": true,
+    "declarationDir": "./build/types",
+    "skipLibCheck": true
+  },
+  "exclude": ["node_modules", "build"]
+}
