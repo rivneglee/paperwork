@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@paperwork/ui-widgets": "0.1.0"
+    "@paperwork/ui-widgets": "0.1.0",
+    "@paperwork/ui-styles": "0.1.0"
   },
   "scripts": {
     "start": "node scripts/start.js",

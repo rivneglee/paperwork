@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 
 import { Card } from '@paperwork/ui-widgets';
+import '@paperwork/ui-styles';
 
 ReactDOM.render(<div>Paperwork<Card /></div>,
   document.body as HTMLElement,
