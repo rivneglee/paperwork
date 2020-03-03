@@ -50,7 +50,6 @@
       "!**/*.d.ts"
     ],
     "setupFiles": [
-      "<rootDir>/config/polyfills.js",
       "<rootDir>/config/jest/enzyme.js"
     ],
     "testMatch": [

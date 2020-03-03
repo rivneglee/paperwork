@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  webapp-build:
+    image: node:11.10.1
+    container_name: webapp-build
+    working_dir: /paperwork
+    build:
+      context: ../
+      dockerfile: ./buildtasks/Dockerfile.build
+    volumes:
+      - ../builds/paperwork-web/:/paperwork/packages/paperwork-web/build
+#      - ../builds/ui-widgets/:/paperwork/packages/ui-widgets/build
+#      - ../builds/ui-styles/:/paperwork/packages/ui-styles/build

@@ -1,7 +1,7 @@
 {
   "name": "paperwork",
   "engines": {
-    "node": ">=10.*"
+    "node": ">=11.10.1"
   },
   "version": "0.1.0",
   "private": true,
@@ -47,7 +47,7 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
-    "postinstall": "lerna bootstrap && lerna run build",
+    "postinstall": "lerna bootstrap",
     "test": "lerna run test",
     "build": "lerna run build",
     "lint": "tslint --force --fix \"packages/**/src/**/*.tsx\" \"packages/**/test/**/*.tsx\" -e \"**/node_modules/**\""
