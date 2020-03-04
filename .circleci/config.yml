@@ -1,0 +1,40 @@
+version: 2
+jobs:
+  test:
+    docker:
+      - image: circleci/node:11.10.1
+    steps:
+      - checkout
+      - run:
+          command: yarn install
+      - run:
+          command: yarn lint
+      - run:
+          command: yarn test
+  build:
+    docker:
+      - image: circleci/node:11.10.1
+    filters:
+      branches:
+        - master
+    steps:
+      - checkout
+      - run:
+          command: ./buildtasks/build.sh
+      - store_artifacts:
+          path: ./builds/paperwork-web
+          destination: paperwork-web
+      - deploy:
+          command: ./buildtasks/deploy.sh
+workflows:
+  version: 2
+  test_and_build:
+    jobs:
+      - test
+      - hold:
+          type: approval
+          requires:
+            - test
+      - build:
+          requires:
+            - hold

@@ -1,7 +1,0 @@
-FROM node:11.10.1
-
-WORKDIR /paperwork
-
-COPY . /paperwork
-
-RUN yarn install

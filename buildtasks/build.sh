@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
 
-docker-compose -f buildtasks/docker-compose.yml run --rm --entrypoint "yarn build" webapp-build
+rm -rf builds
+mkdir builds
+mkdir builds/paperwork-web
+
+yarn install
+yarn build
+
+cp -r packages/paperwork-web/build/* builds/paperwork-web
