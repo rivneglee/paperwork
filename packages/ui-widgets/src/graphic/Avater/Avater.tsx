@@ -1,8 +1,7 @@
-import React, { ReactComponentElement, FunctionComponent } from 'react';
+import React, { FunctionComponent } from 'react';
 import classNames from 'classnames';
 
 interface Props {
-  children: ReactComponentElement<any> | string;
   shadow?: boolean;
   className?: string;
   size?: 'small' | 'medium' | 'large';
