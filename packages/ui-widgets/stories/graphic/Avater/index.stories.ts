@@ -7,4 +7,4 @@ import WithShadowEffect from './WithShadowEffect';
 storiesOf('Avater', module)
   .add('default', Default)
   .add('withShadowEffect', WithShadowEffect)
-  .add('withCustomCSS', WithCustomCSS)
+  .add('withCustomCSS', WithCustomCSS);
