@@ -14,9 +14,6 @@ jobs:
   build:
     docker:
       - image: circleci/node:11.10.1
-    filters:
-      branches:
-        - master
     steps:
       - checkout
       - run:
@@ -32,9 +29,15 @@ workflows:
     jobs:
       - test
       - hold:
+          filters:
+            branches:
+              only: master
           type: approval
           requires:
             - test
       - build:
+          filters:
+            branches:
+              only: master
           requires:
             - hold
