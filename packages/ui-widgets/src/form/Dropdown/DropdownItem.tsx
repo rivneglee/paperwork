@@ -1,7 +1,6 @@
 import React, { ReactComponentElement, SyntheticEvent, FunctionComponent } from 'react';
 
 interface Props {
-  children: ReactComponentElement<any> | string;
   icon?: ReactComponentElement<any>;
   onClick?: (e: SyntheticEvent) => void;
 }

@@ -5,14 +5,13 @@ import 'rc-tooltip/assets/bootstrap.css';
 interface Props {
   placement?: 'left' | 'right' | 'top' | 'bottom';
   content: ReactComponentElement<any> | string;
-  children: ReactComponentElement<any>;
 }
 
 const Tooltip: FunctionComponent<Props> = ({
+ children,
  placement = 'left',
  content,
- children,
-}: Props) => (
+}) => (
   <ReactTooltip
     placement={placement}
     overlay={content}

@@ -2,14 +2,13 @@ import React, { ReactComponentElement, useState, FunctionComponent } from 'react
 import DropdownItem, { DropdownItemComponent } from './DropdownItem';
 
 interface Props {
-  children: ReactComponentElement<any> | string;
   items: ReactComponentElement<DropdownItemComponent>[];
   align?: 'right' | 'left';
 }
 
 interface DropdownComponent extends FunctionComponent<Props> {
   Item: DropdownItemComponent;
-};
+}
 
 const Dropdown: DropdownComponent = ({ children, items, align = 'left' }) => {
   const [showMenu, setMenuShowState] = useState(false);

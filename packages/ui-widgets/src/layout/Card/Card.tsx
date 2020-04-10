@@ -1,7 +1,6 @@
 import React, { ReactComponentElement, FunctionComponent } from 'react';
 
 interface Props {
-  children: ReactComponentElement<any> | string;
   header?: ReactComponentElement<any> | string;
   footer?: ReactComponentElement<any> | string;
 }

@@ -27,7 +27,6 @@ module.exports = {
       // css & scss
       {
         test: /\.(css|scss)$/,
-        exclude: [/node_modules/],
         use: [
           require.resolve('style-loader'),
           {
