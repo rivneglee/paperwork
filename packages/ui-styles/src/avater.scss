@@ -1,0 +1,29 @@
+.pw-avater {
+  border-radius: 50%;
+  margin: 0 10px 0 10px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  flex-shrink: 0;
+  user-select: none;
+  justify-content: center;
+  cursor: pointer;
+  background: $pw-palette-storm-50;
+
+  &--small {
+    width: 30px;
+    height: 30px;
+  }
+  &--medium {
+    width: 40px;
+    height: 40px;
+  }
+  &--large {
+    width: 60px;
+    height: 60px;
+  }
+  &--shadow {
+    box-shadow: 0 0 8px rgba(0,0,0,.2);
+  }
+}

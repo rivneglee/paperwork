@@ -3,7 +3,13 @@
   "version": "0.1.0",
   "main": "build/index.css",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "@types/classnames": "^2.2.10",
+    "@types/enzyme": "^3.10.5",
+    "classnames": "^2.2.6",
+    "enzyme": "^3.11.0",
+    "enzyme-to-json": "^3.4.4"
+  },
   "scripts": {
     "build": "node-sass src/index.scss build/index.css"
   },

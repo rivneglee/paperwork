@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tooltip should render for default props 1`] = `
+<ForwardRef(Tooltip)
+  overlay="This is tooltip"
+  overlayClassName="pw-tooltip__overlay"
+  placement="left"
+  trigger={
+    Array [
+      "hover",
+      "focus",
+      "click",
+    ]
+  }
+>
+  <span>
+    <Trigger />
+  </span>
+</ForwardRef(Tooltip)>
+`;

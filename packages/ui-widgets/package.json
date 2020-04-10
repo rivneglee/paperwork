@@ -2,7 +2,10 @@
   "name": "@paperwork/ui-widgets",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "rc-tooltip": "^4.0.3"
+  },
   "main": "build/index.js",
   "types": "build/types/src/index.d.ts",
   "scripts": {
@@ -20,11 +23,19 @@
     "@storybook/addon-links": "^5.3.13",
     "@storybook/addons": "^5.3.13",
     "@storybook/react": "^5.3.13",
+    "@types/classnames": "^2.2.10",
+    "@types/rc-tooltip": "^3.7.2",
+    "autoprefixer": "7.1.6",
     "babel-jest": "20.0.3",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.4.2",
     "jest": "20.0.4",
+    "node-sass": "^4.11.0",
+    "postcss-flexbugs-fixes": "3.2.0",
+    "postcss-loader": "2.0.8",
+    "pre-push": "^0.1.1",
     "react-docgen-typescript-loader": "^3.6.0",
+    "sass-loader": "^7.1.0",
     "source-map-loader": "^0.2.4",
     "ts-jest": "22.0.1",
     "ts-loader": "^6.2.1",
@@ -33,16 +44,10 @@
     "tslint-config-prettier": "^1.10.0",
     "tslint-react": "^3.2.0",
     "webpack": "^4.41.6",
-    "webpack-cli": "^3.3.11",
-    "node-sass": "^4.11.0",
-    "postcss-flexbugs-fixes": "3.2.0",
-    "postcss-loader": "2.0.8",
-    "pre-push": "^0.1.1",
-    "sass-loader": "^7.1.0",
-    "autoprefixer": "7.1.6"
+    "webpack-cli": "^3.3.11"
   },
   "resolutions": {
-    "@types/react": "^16.8.8"
+    "@types/react": "^16.9.6"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -87,6 +92,7 @@
       "ts-jest": {
         "tsConfigFile": "tsconfig.test.json"
       }
-    }
+    },
+    "snapshotSerializers": ["enzyme-to-json/serializer"]
   }
 }

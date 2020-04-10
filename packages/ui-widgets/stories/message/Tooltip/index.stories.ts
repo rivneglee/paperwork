@@ -2,5 +2,5 @@ import { storiesOf } from '@storybook/react';
 
 import Default from './Default';
 
-storiesOf('Card', module)
+storiesOf('Tooltip', module)
   .add('default', Default);

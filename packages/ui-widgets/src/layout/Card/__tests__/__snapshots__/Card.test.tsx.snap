@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should render with header and footer 1`] = `
+<div
+  className="pw-card"
+>
+  <div
+    className="pw-card__header"
+  >
+    <Header />
+  </div>
+  <div
+    className="pw-card__body"
+  >
+    <Content />
+  </div>
+  <div
+    className="pw-card__footer"
+  >
+    <Footer />
+  </div>
+</div>
+`;
+
+exports[`Card should render without header and footer 1`] = `
+<div
+  className="pw-card"
+>
+  <div
+    className="pw-card__body"
+  >
+    <Content />
+  </div>
+</div>
+`;

@@ -1,0 +1,41 @@
+.pw-dropdown {
+  position: relative;
+
+  &__menu {
+    list-style: none;
+    position: absolute;
+    background: white;
+    box-shadow: 0 0.125em 0.25em rgba(0,0,0,.2);
+    padding: 0.5rem;
+    margin: 0.1rem 0.3rem;
+    min-width: 11rem;
+
+    &--right {
+      right: 0;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 0.3rem;
+    color: $pw-color-text-link;
+    transition: background-color 0.4s ease;
+    cursor: pointer;
+    &:hover {
+      background-color: $pw-palette-storm-28;
+    }
+  }
+
+  &__icon {
+    padding-right: 0.5rem;
+    display: flex;
+
+    svg {
+      fill: $pw-color-text-link;
+      width: 14px;
+      height: 14px;
+    }
+  }
+}
+
