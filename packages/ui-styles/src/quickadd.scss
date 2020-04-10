@@ -1,0 +1,62 @@
+.pw-quickadd {
+  display: inline-block;
+  position: relative;
+
+  &__trigger {
+    cursor: pointer;
+    transition: transform 0.3s;
+    background-color: $pw-palette-dusk-80;
+    > svg {
+      fill: white;
+      width: 20px;
+      height: 20px;
+    }
+
+    &--expanded {
+      transform: rotate(45deg);
+      transition: transform 0.3s;
+    }
+  }
+
+  &__items {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    flex-grow: 1;
+    height: 0px;
+    transition: all 1s;
+    opacity: 0;
+
+    &--expanded {
+      height: auto;
+      opacity: 1;
+      transition: all 1s;
+    }
+  }
+}
+
+.pw-quickadd-item {
+  margin-top: 5px;
+
+  .pw-avater {
+    background-color: #333f48;
+    width: 40px;
+    height: 40px;
+    transition: all 0.2s;
+
+    &:hover {
+      width: 45px;
+      height: 45px;
+      transition: all 0.2s;
+    }
+  }
+
+  .pw-icon {
+    fill: white;
+    width: 25px;
+    height: 25px;
+  }
+}
