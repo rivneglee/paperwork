@@ -1,4 +1,4 @@
-import React, {FunctionComponent, ReactElement, SyntheticEvent} from 'react';
+import React, { FunctionComponent, ReactElement, SyntheticEvent } from 'react';
 import ListItemIcon from './ListItemIcon';
 
 interface Props {
