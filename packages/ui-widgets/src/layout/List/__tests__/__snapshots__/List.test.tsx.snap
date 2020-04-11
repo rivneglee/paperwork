@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List should render with icons 1`] = `
+<ul
+  className="pw-list"
+>
+  <ListItem
+    icon={<Unknown />}
+  >
+    Forms
+  </ListItem>
+  <ListItem
+    icon={<Unknown />}
+  >
+    Reports
+  </ListItem>
+</ul>
+`;
+
+exports[`List should render without icons 1`] = `
+<ul
+  className="pw-list"
+>
+  <ListItem>
+    Forms
+  </ListItem>
+  <ListItem>
+    Reports
+  </ListItem>
+</ul>
+`;
