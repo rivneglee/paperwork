@@ -1,3 +1,33 @@
 @import "./_dropdown";
 @import "./_quickadd";
 @import "./_iconbutton";
+@import "./_toggle";
+
+.pw-field-group {
+  margin-bottom: 0.8rem;
+
+  &__label {
+    margin-bottom: 0.4rem;
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+
+    &__label {
+      margin-bottom: 0rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      float: left;
+      width: 50%;
+      padding-right: 1rem;
+      box-sizing: border-box;
+      color: $pw-color-text-darker;
+    }
+
+    &__input {
+      float: left;
+      width: 50%;
+    }
+  }
+}

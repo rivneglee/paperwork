@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FieldGroup should render field group with label 1`] = `
+<div
+  className="pw-field-group"
+>
+  <div
+    className="pw-field-group__label"
+  >
+    <Label />
+  </div>
+  <div
+    className="pw-field-group__input"
+  >
+    <Input />
+  </div>
+</div>
+`;
+
+exports[`FieldGroup should render field group without label 1`] = `
+<div
+  className="pw-field-group"
+>
+  <div
+    className="pw-field-group__label"
+  />
+  <div
+    className="pw-field-group__input"
+  >
+    <Input />
+  </div>
+</div>
+`;

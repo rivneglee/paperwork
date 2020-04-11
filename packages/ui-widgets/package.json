@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/react-toggle": "^4.0.2",
     "classnames": "^2.2.6",
-    "rc-tooltip": "^4.0.3"
+    "rc-tooltip": "^4.0.3",
+    "react-toggle": "^4.1.1"
   },
   "main": "build/index.js",
   "types": "build/types/src/index.d.ts",
@@ -93,6 +95,8 @@
         "tsConfigFile": "tsconfig.test.json"
       }
     },
-    "snapshotSerializers": ["enzyme-to-json/serializer"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }
