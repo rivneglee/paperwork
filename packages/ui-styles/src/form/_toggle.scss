@@ -1,0 +1,31 @@
+.pw-toggle {
+  .react-toggle-thumb {
+    background-color: $pw-palette-storm-11;
+    border: 0;
+    box-shadow: 0 0 8px rgba(0,0,0,.5);
+  }
+
+  .react-toggle-track {
+    background-color: $pw-palette-storm-28;
+  }
+
+  &.react-toggle--focus .react-toggle-thumb {
+    box-shadow: 0 0 8px rgba(0,0,0,.5);
+  }
+
+  &.react-toggle:active:not(.react-toggle--disabled) .react-toggle-thumb {
+    box-shadow: 0 0 8px rgba(0,0,0,.5);
+  }
+
+  &.react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
+    background-color: $pw-palette-storm-28;
+  }
+
+  &.react-toggle--checked .react-toggle-track {
+    background-color: $pw-palette-dusk-80;
+  }
+
+  &.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
+    background-color: $pw-palette-dusk-80;
+  }
+}
