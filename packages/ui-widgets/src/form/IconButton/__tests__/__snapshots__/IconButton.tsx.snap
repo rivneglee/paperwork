@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconButton should render icon button correct 1`] = `
+<span>
+  <Avater
+    className="pw-icon-button"
+    shadow={false}
+    size="medium"
+  >
+    <Component />
+  </Avater>
+</span>
+`;
