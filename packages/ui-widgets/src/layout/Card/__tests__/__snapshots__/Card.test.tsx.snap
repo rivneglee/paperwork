@@ -2,7 +2,7 @@
 
 exports[`Card should render with header and footer 1`] = `
 <div
-  className="pw-card"
+  className="pw-card "
 >
   <div
     className="pw-card__header"
@@ -24,7 +24,7 @@ exports[`Card should render with header and footer 1`] = `
 
 exports[`Card should render without header and footer 1`] = `
 <div
-  className="pw-card"
+  className="pw-card "
 >
   <div
     className="pw-card__body"

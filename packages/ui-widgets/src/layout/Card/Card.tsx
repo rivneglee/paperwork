@@ -3,12 +3,13 @@ import React, { ReactComponentElement, FunctionComponent } from 'react';
 interface Props {
   header?: ReactComponentElement<any> | string;
   footer?: ReactComponentElement<any> | string;
+  className?: string;
 }
 
 const Card: FunctionComponent<Props> = ({
- children, header, footer,
+ children, header, footer, className = '',
 }) => (
-  <div className="pw-card">
+  <div className={`pw-card ${className}`}>
     {
       header && (
         <div className="pw-card__header">
@@ -20,7 +21,7 @@ const Card: FunctionComponent<Props> = ({
       {children}
     </div>
     {
-      header && (
+      footer && (
         <div className="pw-card__footer">
           {footer}
         </div>
