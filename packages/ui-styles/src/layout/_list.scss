@@ -1,0 +1,32 @@
+.pw-list {
+  padding: 8px 0;
+  background-color: white;
+}
+
+.pw-list-item {
+  padding: 8px 16px;
+  min-height: 48px;
+  transition: background-color 0.4s ease;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  text-align: left;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $pw-palette-storm-28;
+  }
+}
+
+.pw-list-icon {
+  min-width: 56px;
+
+  .pw-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}

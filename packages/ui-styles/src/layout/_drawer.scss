@@ -1,0 +1,35 @@
+.pw-drawer {
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  width: 100vw;
+  height: 100vh;
+  transition: transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+  border-radius: 0;
+
+  &--left {
+    left: 0;
+    transform: translateX(-100%);
+  }
+
+  &--right {
+    right: 0;
+    transform: translateX(100%);
+  }
+
+  &--opened {
+    transform: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .pw-drawer {
+    width: auto;
+    min-width: 200px;
+  }
+}
+
+.pw-drawer-header {
+  flex-grow: 1;
+}
+
