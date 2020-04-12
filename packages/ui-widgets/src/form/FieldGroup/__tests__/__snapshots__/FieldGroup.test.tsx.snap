@@ -7,7 +7,12 @@ exports[`FieldGroup should render field group with label 1`] = `
   <div
     className="pw-field-group__label"
   >
-    <Label />
+    <label>
+      <Label />
+    </label>
+    <span
+      className="pw-field-group__accessory"
+    />
   </div>
   <div
     className="pw-field-group__input"
@@ -23,7 +28,12 @@ exports[`FieldGroup should render field group without label 1`] = `
 >
   <div
     className="pw-field-group__label"
-  />
+  >
+    <label />
+    <span
+      className="pw-field-group__accessory"
+    />
+  </div>
   <div
     className="pw-field-group__input"
   >

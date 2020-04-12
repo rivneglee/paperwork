@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Toggle should render toggle when checked 1`] = `
-<FieldGroup>
+<FieldGroup
+  isRequired={false}
+>
   <Toggle
     checked={true}
     className="pw-toggle"
@@ -16,7 +18,9 @@ exports[`Toggle should render toggle when checked 1`] = `
 `;
 
 exports[`Toggle should render toggle when disabled 1`] = `
-<FieldGroup>
+<FieldGroup
+  isRequired={false}
+>
   <Toggle
     checked={true}
     className="pw-toggle"
@@ -31,7 +35,9 @@ exports[`Toggle should render toggle when disabled 1`] = `
 `;
 
 exports[`Toggle should render toggle when unchecked 1`] = `
-<FieldGroup>
+<FieldGroup
+  isRequired={false}
+>
   <Toggle
     checked={false}
     className="pw-toggle"

@@ -9,6 +9,8 @@ interface Props {
   onChange?: (e: SyntheticEvent) => void;
   label?: ReactElement<any> | string;
   disabled?: boolean;
+  isRequired?: boolean;
+  labelAccessory?: ReactElement;
 }
 
 const Toggle: FunctionComponent<Props> = ({
@@ -16,8 +18,10 @@ const Toggle: FunctionComponent<Props> = ({
   onChange,
   label,
   disabled = false,
+  isRequired = false,
+  labelAccessory,
 }) => (
-  <FieldGroup label={label}>
+  <FieldGroup label={label} isRequired={isRequired} labelAccessory={labelAccessory}>
     <ReactToggle
       className="pw-toggle"
       disabled={disabled}

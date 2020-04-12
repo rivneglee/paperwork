@@ -13,7 +13,9 @@ exports[`Tooltip should render for default props 1`] = `
     ]
   }
 >
-  <span>
+  <span
+    className="pw-tooltip__trigger"
+  >
     <Trigger />
   </span>
 </ForwardRef(Tooltip)>
