@@ -1,5 +1,12 @@
-.pw-tooltip__overlay {
-  .rc-tooltip-inner {
-    min-height: 0;
+.pw-tooltip {
+  &__overlay {
+    .rc-tooltip-inner {
+      min-height: 0;
+    }
+  }
+
+  &__trigger {
+    cursor: pointer;
   }
 }
+

@@ -7,6 +7,8 @@ import ArrowLeft from './ArrowLeft';
 import ArrowRight from './ArrowRight';
 import ArrowUp from './ArrowUp';
 import ArrowDown from './ArrowDown';
+import QuestionMark from './QuestionMark';
+import Info from './Info';
 
 export default {
   Add,
@@ -18,4 +20,6 @@ export default {
   Document,
   Form,
   Menu,
+  QuestionMark,
+  Info,
 };

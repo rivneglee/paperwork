@@ -4,10 +4,20 @@
 @import "./_toggle";
 
 .pw-field-group {
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
 
   &__label {
     margin-bottom: 0.4rem;
+    position: relative;
+  }
+
+  &__accessory {
+    padding-left: .2rem;
+  }
+
+  &__asterisk {
+    color: $pw-palette-berry;
+    padding-left: .2rem;
   }
 
   @media (min-width: 768px) {
