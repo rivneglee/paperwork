@@ -10,5 +10,6 @@ export * from './form/Dropdown';
 export * from './form/QuickAdd';
 export * from './form/IconButton';
 export * from './form/Toggle';
+export * from './form/Select';
 
 export * from './message/Tooltip';

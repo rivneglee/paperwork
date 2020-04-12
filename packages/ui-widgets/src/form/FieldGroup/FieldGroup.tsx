@@ -1,10 +1,12 @@
 import React, { FunctionComponent, ReactElement } from 'react';
+import classNames from 'classnames';
 import 'react-toggle/style.css';
 
 interface Props {
   label?: ReactElement | string;
   isRequired?: boolean;
   labelAccessory?: ReactElement;
+  size?: 'xs' | 's' | 'm' | 'l' | 'xl' | undefined;
 }
 
 const FieldGroup: FunctionComponent<Props> = ({
@@ -12,6 +14,7 @@ const FieldGroup: FunctionComponent<Props> = ({
   isRequired = false,
   children,
   labelAccessory,
+  size,
 }) => (
     <div className="pw-field-group">
       <div className="pw-field-group__label">
@@ -21,7 +24,10 @@ const FieldGroup: FunctionComponent<Props> = ({
           {isRequired && <span className="pw-field-group__asterisk">*</span>}
         </span>
       </div>
-      <div className="pw-field-group__input">
+      <div className={classNames(
+        'pw-field-group__input',
+        size && `pw-field-group__input--${size}`,
+      )}>
         {children}
       </div>
     </div>
