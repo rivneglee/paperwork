@@ -40,4 +40,24 @@
       width: 50%;
     }
   }
+
+  &__input--xs {
+    width: $pw-field-size-xs;
+  }
+
+  &__input--s {
+    width: $pw-field-size-s;
+  }
+
+  &__input--m {
+    width: $pw-field-size-m;
+  }
+
+  &__input--l {
+    width: $pw-field-size-l;
+  }
+
+  &__input--xl {
+    width: $pw-field-size-xl;
+  }
 }
