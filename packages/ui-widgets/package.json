@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/react-toggle": "^4.0.2",
     "classnames": "^2.2.6",
     "rc-tooltip": "^4.0.3",
+    "react-select": "^3.1.0",
     "react-toggle": "^4.1.1"
   },
   "main": "build/index.js",
@@ -27,6 +27,8 @@
     "@storybook/react": "^5.3.13",
     "@types/classnames": "^2.2.10",
     "@types/rc-tooltip": "^3.7.2",
+    "@types/react-select": "^3.0.11",
+    "@types/react-toggle": "^4.0.2",
     "autoprefixer": "7.1.6",
     "babel-jest": "20.0.3",
     "babel-loader": "^8.0.6",
