@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Drawer, Icons, List } from '../../../src';
+import { Drawer, Icons, List, IconButton } from '../../../src';
 
 export default () => {
   const [isShow, setIsShow] = useState(false);
@@ -8,9 +8,9 @@ export default () => {
   const open = () => setIsShow(true);
   return (
     <div style={{ background: '#ebeef1', padding: '2.4rem' }}>
-      <div onClick={open}>
+      <IconButton onClick={open}>
         <Icons.Menu />
-      </div>
+      </IconButton>
       <Drawer header={
         <h3>Paperwork</h3>
       } isShow={isShow} onClose={close}>

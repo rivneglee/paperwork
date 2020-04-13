@@ -1,6 +1,7 @@
 export * from './layout/Card';
 export * from './layout/List';
 export * from './layout/Drawer';
+export * from './layout/Scrollable';
 
 export * from './graphic/Avater';
 export { default as Icons } from './graphic/Icons';

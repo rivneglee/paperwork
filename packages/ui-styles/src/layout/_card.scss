@@ -13,7 +13,9 @@
     border-bottom: 1px solid $pw-palette-storm-11;
   }
 
-  &__body {}
+  &__body {
+    height: 100vh;
+  }
 
   &__footer {
     border-top: 1px solid $pw-palette-storm-11;
