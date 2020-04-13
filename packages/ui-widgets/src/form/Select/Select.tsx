@@ -60,8 +60,8 @@ const Select: FunctionComponent<Props> = ({
       <ReactSelect
         isMulti={isMultipleSelect}
         options={options}
-        className="basic-multi-select"
-        classNamePrefix="select"
+        className="pw-select"
+        classNamePrefix="pw-select"
         onChange={onValueChange}
         defaultValue={selection}
         isDisabled={disabled}
