@@ -7,22 +7,24 @@ export default () => (
     <Card header={
       <h3>Beautiful scroll bar</h3>
     }>
-      <Scrollable>
-        <List>
-          {
-            Array.from({ length: 10 }).map(() => (
-              <>
-                <List.Item onClick={close} icon={<Icons.Form/>}>
-                  Forms
-                </List.Item>
-                <List.Item onClick={close} icon={<Icons.Chart/>}>
-                  Reports
-                </List.Item>
-              </>
-            ))
-          }
-        </List>
-      </Scrollable>
+      <div style={{ height: 200 }}>
+        <Scrollable>
+          <List>
+            {
+              Array.from({ length: 10 }).map(() => (
+                <>
+                  <List.Item onClick={close} icon={<Icons.Form/>}>
+                    Forms
+                  </List.Item>
+                  <List.Item onClick={close} icon={<Icons.Chart/>}>
+                    Reports
+                  </List.Item>
+                </>
+              ))
+            }
+          </List>
+        </Scrollable>
+      </div>
     </Card>
   </div>
 );
