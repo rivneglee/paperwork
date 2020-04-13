@@ -1,0 +1,33 @@
+.pw-select {
+  .pw-select__control--is-focused {
+    border-color: $pw-palette-dusk-70;
+    box-shadow: 0 0 0 1px $pw-palette-dusk-70;
+  }
+
+  .pw-select__control--is-focused:hover  {
+    border-color: $pw-palette-dusk-70;
+    box-shadow: 0 0 0 1px $pw-palette-dusk-70;
+  }
+
+  .pw-select__multi-value {
+    background-color: $pw-palette-dusk-100;
+    color: white;
+  }
+
+  .pw-select__multi-value__label {
+    color: white;
+  }
+
+  .pw-select__multi-value__remove:hover {
+    background-color: $pw-palette-dusk-70;
+    color: white;
+  }
+
+  .pw-select__option--is-focused {
+    background-color: $pw-palette-dusk-50;
+  }
+
+  .pw-select__option--is-selected {
+    background-color: $pw-palette-dusk-70;
+  }
+}
