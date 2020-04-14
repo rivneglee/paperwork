@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should render button with left icon 1`] = `
+<button
+  className="pw-button"
+>
+  <span
+    className="pw-button__icon pw-button__icon--left"
+  >
+    <span>
+      icon
+    </span>
+  </span>
+  <span>
+    Button
+  </span>
+</button>
+`;
+
+exports[`Button should render button with right icon 1`] = `
+<button
+  className="pw-button pw-button--reversed"
+>
+  <span
+    className="pw-button__icon pw-button__icon--right"
+  >
+    <span>
+      icon
+    </span>
+  </span>
+  <span>
+    Button
+  </span>
+</button>
+`;
+
+exports[`Button should render default button 1`] = `
+<button
+  className="pw-button"
+>
+  <span>
+    Button
+  </span>
+</button>
+`;
+
+exports[`Button should render disabled button 1`] = `
+<button
+  className="pw-button pw-button--disabled"
+  disabled={true}
+>
+  <span>
+    Button
+  </span>
+</button>
+`;
+
+exports[`Button should render link button 1`] = `
+<button
+  className="pw-button pw-button--text"
+>
+  <span>
+    Button
+  </span>
+</button>
+`;
+
+exports[`Button should render outlined button 1`] = `
+<button
+  className="pw-button pw-button--outlined"
+>
+  <span>
+    Button
+  </span>
+</button>
+`;
+
+exports[`Button should render primary color button 1`] = `
+<button
+  className="pw-button pw-button--color-primary"
+>
+  <span>
+    Button
+  </span>
+</button>
+`;
+
+exports[`Button should render secondary color button 1`] = `
+<button
+  className="pw-button pw-button--color-secondary"
+>
+  <span>
+    Button
+  </span>
+</button>
+`;
+
+exports[`Button should render text button 1`] = `
+<button
+  className="pw-button pw-button--text"
+>
+  <span>
+    Button
+  </span>
+</button>
+`;
