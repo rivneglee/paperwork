@@ -9,6 +9,15 @@ import ArrowUp from './ArrowUp';
 import ArrowDown from './ArrowDown';
 import QuestionMark from './QuestionMark';
 import Info from './Info';
+import Unlink from './Unlink';
+import BlockQuote from './BlockQuote';
+import Bold from './Bold';
+import H2 from './H2';
+import OL from './OL';
+import Italic from './Italic';
+import Close from './Close';
+import Link from './Link';
+import UL from './UL';
 
 export default {
   Add,
@@ -22,4 +31,13 @@ export default {
   Menu,
   QuestionMark,
   Info,
+  Unlink,
+  BlockQuote,
+  H2,
+  OL,
+  Italic,
+  Close,
+  Bold,
+  Link,
+  UL,
 };

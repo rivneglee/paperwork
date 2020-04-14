@@ -17,15 +17,20 @@ const FieldGroup: FunctionComponent<Props> = ({
   size,
 }) => (
     <div className="pw-field-group">
-      <div className="pw-field-group__label">
-        <label>{label}</label>
-        <span className="pw-field-group__accessory">
-          {labelAccessory}
-          {isRequired && <span className="pw-field-group__asterisk">*</span>}
-        </span>
-      </div>
+      {
+        label && (
+          <div className="pw-field-group__label">
+            <label>{label}</label>
+            <span className="pw-field-group__accessory">
+              {labelAccessory}
+              {isRequired && <span className="pw-field-group__asterisk">*</span>}
+             </span>
+          </div>
+        )
+      }
       <div className={classNames(
         'pw-field-group__input',
+        !label && 'pw-field-group__input--full',
         size && `pw-field-group__input--${size}`,
       )}>
         {children}
