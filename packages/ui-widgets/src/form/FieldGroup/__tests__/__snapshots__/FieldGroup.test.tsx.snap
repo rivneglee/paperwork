@@ -27,15 +27,7 @@ exports[`FieldGroup should render field group without label 1`] = `
   className="pw-field-group"
 >
   <div
-    className="pw-field-group__label"
-  >
-    <label />
-    <span
-      className="pw-field-group__accessory"
-    />
-  </div>
-  <div
-    className="pw-field-group__input"
+    className="pw-field-group__input pw-field-group__input--full"
   >
     <Input />
   </div>

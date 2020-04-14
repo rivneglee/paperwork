@@ -1,6 +1,7 @@
+@import "./mixins";
 @import "./global";
 @import "./theme";
-@import "./graphic/_graphic";
-@import "./layout/_layout";
-@import "./form/_form";
-@import "./message/_message";
+@import "./graphic/graphic";
+@import "./layout/layout";
+@import "./form/form";
+@import "./message/message";

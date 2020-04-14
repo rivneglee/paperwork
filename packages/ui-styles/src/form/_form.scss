@@ -1,12 +1,14 @@
-@import "./_dropdown";
-@import "./_quickadd";
-@import "./_iconbutton";
-@import "./_toggle";
-@import "./_select";
-@import "./_button";
+@import "./dropdown";
+@import "./quickadd";
+@import "./iconbutton";
+@import "./toggle";
+@import "./select";
+@import "./button";
+@import "./richeditor";
 
 .pw-field-group {
   margin-bottom: 0.5rem;
+  width: 100%;
 
   &__label {
     margin-bottom: 0.4rem;
@@ -40,6 +42,10 @@
     &__input {
       float: left;
       width: 50%;
+      &--full {
+        float: none;
+        width: 100%;
+      }
     }
   }
 
