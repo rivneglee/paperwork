@@ -4,6 +4,7 @@ export * from './layout/Drawer';
 export * from './layout/Scrollable';
 
 export * from './graphic/Avater';
+export * from './graphic/Spinner';
 export { default as Icons } from './graphic/Icons';
 
 export * from './form/FieldGroup';

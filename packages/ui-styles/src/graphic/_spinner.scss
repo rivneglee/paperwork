@@ -1,0 +1,172 @@
+.pw-spinner {
+  //position: fixed;
+  //right: 0;
+  //left: 0;
+  //top: 0;
+  //bottom: 0;
+  //margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem;
+
+  &__animation {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 20px;
+
+    &--size-s {
+      transform: scale(0.7, 0.7);
+      margin-bottom: 10px;
+    }
+
+    &--size-l {
+      transform: scale(1.3, 1.3);
+      margin-bottom: 30px;
+    }
+  }
+
+  &__text {
+    color: $pw-palette-dusk-80;
+    font-size: 10px;
+    font-weight: bolder;
+    animation-name: fade-in-out;
+    animation-duration: 2.5s;
+    animation-delay: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    padding-left: 10px;
+  }
+
+  @keyframes fade-in-out {
+    0% {
+      opacity: 0.05;
+    }
+    100% {
+      opacity: 0.75;
+    }
+  }
+}
+
+.pw-spinner-waterbox {
+  &__box {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border: 4px solid $pw-palette-dusk-80;
+    top: 50%;
+    animation: rotate 4s infinite ease;
+  }
+
+  &__inner {
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    background-color: $pw-palette-dusk-80;
+    animation: fill-in 4s infinite ease-in;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    25% {
+      transform: rotate(180deg);
+    }
+
+    50% {
+      transform: rotate(180deg);
+    }
+
+    75% {
+      transform: rotate(360deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes fill-in {
+    0% {
+      height: 0%;
+    }
+
+    25% {
+      height: 0%;
+    }
+
+    50% {
+      height: 100%;
+    }
+
+    75% {
+      height: 100%;
+    }
+
+    100% {
+      height: 0%;
+    }
+  }
+}
+
+.pw-spinner-donut {
+  &__donut {
+    border: 5px solid #dddddd;
+    border-radius: 100px;
+    transform-origin: center center;
+    animation: donut 1.3s linear infinite;
+    height: 100%;
+    width: 100%;
+    border-left-color: $pw-palette-dusk-80;
+  }
+
+  @keyframes donut {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.pw-spinner-ellipsis {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  width: 150%;
+  margin-left: -5px;
+  margin-top: 15px;
+
+  &__dot {
+    display: inline-block;
+    background-color: $pw-palette-dusk-80;
+    float: left;
+    position: relative;
+    height: 6px;
+    width: 6px;
+    margin: 15px 5px;
+    border-radius: 100%;
+    animation: fade 1s infinite ease-in-out;
+  }
+
+  &__dot:nth-child(2) {
+    animation-delay: .16s;
+  }
+
+  &__dot:nth-child(3) {
+    animation-delay: .33s;
+  }
+
+  @keyframes fade {
+    0%, 100% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 0;
+    }
+  }
+}
