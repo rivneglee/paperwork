@@ -2,6 +2,7 @@ export * from './layout/Card';
 export * from './layout/List';
 export * from './layout/Drawer';
 export * from './layout/Scrollable';
+export * from './layout/Accordion';
 
 export * from './graphic/Avater';
 export * from './graphic/Spinner';
