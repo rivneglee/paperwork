@@ -1367,6 +1367,12 @@
   version "2.2.10"
   resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.2.10.tgz#cc658ca319b6355399efc1f5b9e818f1a24bf999"
 
+"@types/cleave.js@^1.4.1":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@types/cleave.js/-/cleave.js-1.4.1.tgz#1eaa12dcbd1f2187fc580f0bf84dbc9f8834e333"
+  dependencies:
+    "@types/react" "*"
+
 "@types/color-name@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@types/color-name/-/color-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"
@@ -2969,6 +2975,10 @@ clean-css@^4.2.3:
 clean-stack@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/clean-stack/-/clean-stack-2.2.0.tgz#ee8472dbb129e727b31e8a10a427dee9dfe4008b"
+
+cleave.js@^1.5.10:
+  version "1.5.10"
+  resolved "https://registry.yarnpkg.com/cleave.js/-/cleave.js-1.5.10.tgz#04444703713d89eb6e2f7f75240061fa29d72722"
 
 cli-boxes@^2.2.0:
   version "2.2.0"
