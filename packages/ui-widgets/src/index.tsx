@@ -6,6 +6,7 @@ export * from './layout/Accordion';
 
 export * from './graphic/Avater';
 export * from './graphic/Spinner';
+export * from './graphic/Badge';
 export { default as Icons } from './graphic/Icons';
 
 export * from './form/FieldGroup';

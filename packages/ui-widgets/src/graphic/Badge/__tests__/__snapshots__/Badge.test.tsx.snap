@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge should render default spinner 1`] = `
+<div
+  className="pw-badge"
+>
+  <span
+    className="pw-badge__label"
+  >
+    default
+  </span>
+</div>
+`;
+
+exports[`Badge should render with colours 1`] = `
+<div
+  className="pw-badge pw-badge--color-primary"
+>
+  <span
+    className="pw-badge__label"
+  >
+    default
+  </span>
+</div>
+`;
+
+exports[`Badge should render with left and right element 1`] = `
+<div
+  className="pw-badge"
+>
+  left
+  <span
+    className="pw-badge__label"
+  >
+    default
+  </span>
+  right
+</div>
+`;
