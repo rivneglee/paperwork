@@ -1,5 +1,7 @@
 import React, { ReactElement } from 'react';
 import { Editor, EditorState, ContentState, convertToRaw, convertFromHTML } from 'draft-js';
+import classNames from 'classnames';
+
 import Toolbar from './Toolbar';
 import decorator from './defaultDecorator';
 // @ts-ignore
@@ -35,7 +37,7 @@ class BangEditor extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    const { contentHtml = '<p>Text</p>' } = props;
+    const { contentHtml = '' } = props;
     const blocksFromHTML = convertFromHTML(contentHtml);
     const contentState = blocksFromHTML.contentBlocks ? ContentState.createFromBlockArray(
       blocksFromHTML.contentBlocks,
@@ -80,18 +82,26 @@ class BangEditor extends React.Component<Props, State> {
   }
 
   render() {
-    const { editorState } = this.state;
+    const { editorState, hasFocus } = this.state;
     const { className, alignment, label, isRequired, labelAccessory, size } = this.props;
     return (
       <FieldGroup label={label} isRequired={isRequired} labelAccessory={labelAccessory} size={size}>
-        <div className={`pw-text-editor pw-text-editor--align-${alignment} ${className}`}
+        <div className={classNames(
+          'pw-text-editor',
+          hasFocus && 'pw-text-editor--active',
+          `pw-text-editor--align-${alignment}`,
+          className,
+        )}
              ref={(el) => { this.editorEl = el; }}
              onBlur={this.handleBlur}
              onFocus={this.handleFocus}>
           <Editor
             ref={(el) => {
               this.draftEl = el;
-            }} editorState={editorState} onChange={this.onChange} onBlur={this.onBlur}
+            }}
+            editorState={editorState}
+            onChange={this.onChange}
+            onBlur={this.onBlur}
             readOnly={this.props.disabled}></Editor>
           <Toolbar
             editor={this.editorEl}
@@ -99,7 +109,8 @@ class BangEditor extends React.Component<Props, State> {
             editorState={this.state.editorState}
             editorHasFocus={this.state.hasFocus}
             readOnly={this.props.disabled}
-            onChange={this.onChange}/>
+            onChange={this.onChange}
+          />
         </div>
       </FieldGroup>
     );
