@@ -1,0 +1,35 @@
+.pw-badge {
+  display: inline-flex;
+  white-space: nowrap;
+  background-color: $pw-palette-storm-28;
+  align-items: center;
+  justify-content: center;
+  border-radius: .8rem;
+  margin: 0.2rem;
+  padding: .4rem .5rem;
+  line-height: 1;
+
+  &--color-primary {
+    background-color: $pw-palette-dusk-80;
+    color: white;
+    svg {
+      fill: white;
+    }
+  }
+
+  &--color-secondary {
+    background-color: $pw-palette-golf;
+    color: white;
+    svg {
+      fill: white;
+    }
+  }
+
+  &__label {
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: .4em;
+    padding-right: .4rem;
+    text-overflow: ellipsis;
+  }
+}
