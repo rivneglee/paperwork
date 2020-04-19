@@ -17,5 +17,6 @@ export * from './form/Toggle';
 export * from './form/Select';
 export * from './form/Button';
 export * from './form/RichEditor';
+export * from './form/Input';
 
 export * from './message/Tooltip';
