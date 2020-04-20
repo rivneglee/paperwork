@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal should render modal when it not opened 1`] = `
+<Modal
+  ariaHideApp={false}
+  bodyOpenClassName="ReactModal__Body--open"
+  className="pw-modal-dialog"
+  closeTimeoutMS={0}
+  isOpen={false}
+  overlayClassName="pw-modal-dialog__overlay"
+  parentSelector={[Function]}
+  portalClassName="ReactModalPortal"
+  role="dialog"
+  shouldCloseOnEsc={true}
+  shouldCloseOnOverlayClick={true}
+  shouldFocusAfterRender={true}
+  shouldReturnFocusAfterClose={true}
+>
+  <div
+    className="pw-modal-dialog__header"
+  >
+    Foo
+  </div>
+  <div
+    className="pw-modal-dialog__content"
+  >
+    <Content />
+  </div>
+  <div
+    className="pw-modal-dialog__footer"
+  >
+    <div
+      className="pw-modal-dialog__flap pw-modal-dialog__flap--left"
+    />
+    <div
+      className="pw-modal-dialog__flap pw-modal-dialog__flap--right"
+    />
+  </div>
+</Modal>
+`;
+
+exports[`Modal should render modal when it opened 1`] = `
+<Modal
+  ariaHideApp={false}
+  bodyOpenClassName="ReactModal__Body--open"
+  className="pw-modal-dialog"
+  closeTimeoutMS={0}
+  isOpen={true}
+  overlayClassName="pw-modal-dialog__overlay"
+  parentSelector={[Function]}
+  portalClassName="ReactModalPortal"
+  role="dialog"
+  shouldCloseOnEsc={true}
+  shouldCloseOnOverlayClick={true}
+  shouldFocusAfterRender={true}
+  shouldReturnFocusAfterClose={true}
+>
+  <div
+    className="pw-modal-dialog__header"
+  >
+    Foo
+  </div>
+  <div
+    className="pw-modal-dialog__content"
+  >
+    <Content />
+  </div>
+  <div
+    className="pw-modal-dialog__footer"
+  >
+    <div
+      className="pw-modal-dialog__flap pw-modal-dialog__flap--left"
+    />
+    <div
+      className="pw-modal-dialog__flap pw-modal-dialog__flap--right"
+    />
+  </div>
+</Modal>
+`;
+
+exports[`Modal should render modal with buttons 1`] = `
+<Modal
+  ariaHideApp={false}
+  bodyOpenClassName="ReactModal__Body--open"
+  className="pw-modal-dialog"
+  closeTimeoutMS={0}
+  isOpen={true}
+  overlayClassName="pw-modal-dialog__overlay"
+  parentSelector={[Function]}
+  portalClassName="ReactModalPortal"
+  role="dialog"
+  shouldCloseOnEsc={true}
+  shouldCloseOnOverlayClick={true}
+  shouldFocusAfterRender={true}
+  shouldReturnFocusAfterClose={true}
+>
+  <div
+    className="pw-modal-dialog__header"
+  >
+    Foo
+  </div>
+  <div
+    className="pw-modal-dialog__content"
+  >
+    <Content />
+  </div>
+  <div
+    className="pw-modal-dialog__footer"
+  >
+    <div
+      className="pw-modal-dialog__flap pw-modal-dialog__flap--left"
+    />
+    <Button
+      className="pw-modal-dialog__button"
+      key="button_0"
+    >
+      OK
+    </Button>
+    <div
+      className="pw-modal-dialog__flap pw-modal-dialog__flap--right"
+    />
+  </div>
+</Modal>
+`;

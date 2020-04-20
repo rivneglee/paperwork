@@ -13,7 +13,9 @@ interface Props {
   disabled?: boolean;
 }
 
-const Button: FunctionComponent<Props> = ({
+export type ButtonComponent = FunctionComponent<Props>;
+
+const Button: ButtonComponent = ({
   children,
   onClick,
   shadow,
