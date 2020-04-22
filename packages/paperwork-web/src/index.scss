@@ -1,0 +1,14 @@
+.pwapp-root {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.pwapp-page {
+  position: relative;
+  top: 80px;
+  max-width: 76.8rem;
+  min-height: calc(100vh - 169px);
+  position: relative;
+  z-index: 1;
+}

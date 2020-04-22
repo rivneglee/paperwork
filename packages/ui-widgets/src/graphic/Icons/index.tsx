@@ -18,6 +18,9 @@ import Italic from './Italic';
 import Close from './Close';
 import Link from './Link';
 import UL from './UL';
+import DataSource from './DataSource';
+import Template from './Template';
+import Logo from './Logo';
 
 export default {
   Add,
@@ -40,4 +43,7 @@ export default {
   Bold,
   Link,
   UL,
+  DataSource,
+  Template,
+  Logo,
 };

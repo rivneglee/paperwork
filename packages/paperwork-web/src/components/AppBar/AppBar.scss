@@ -1,0 +1,42 @@
+.pwapp-appbar {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 3px 8px 0 rgba(116, 129, 141, 0.1);
+  border-bottom: 1px solid #d4dadf;
+  background-color: #FFFFFF;
+  height: 60px;
+  width: 100%;
+  z-index: 9;
+  &__left {
+    position: relative;
+    padding: 1rem;
+    &:after {
+      top: 50%;
+      right: 0;
+      height: 40px;
+      content: " ";
+      position: absolute;
+      transform: translateY(-50%);
+      border-left: 1px solid #E8EAEC;
+    }
+  }
+
+  &__center {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__menu-icon {
+    fill: #8241AA;
+  }
+
+  &__logo {
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: #8F69E8;
+    padding-right: .5rem;
+  }
+}
