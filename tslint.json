@@ -19,6 +19,7 @@
   "rulesDirectory": [],
   "linterOptions": {
     "exclude": [
+      "packages/**/*.json",
       "packages/**/config/*.js",
       "packages/**/config/**/*.js",
       "packages/**/scripts/*.js",
