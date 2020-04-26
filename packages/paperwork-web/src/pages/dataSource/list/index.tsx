@@ -1,7 +1,7 @@
 import React from 'react';
 // import { connect } from 'react-redux';
 
-import ListProvider, { IntegrationState } from '../../../service/dataSource/ListProvider';
+import { ListProvider, ListProviderState } from '../../../service/dataSource';
 import DataSourceListPage from './components/DataSourceListPage';
 
 /** Data provider can be used via redux or props **/
@@ -29,7 +29,7 @@ import DataSourceListPage from './components/DataSourceListPage';
 export default () => (
   <ListProvider>
     {
-      ({ dataSourceList }: IntegrationState) => (
+      ({ dataSourceList }: ListProviderState) => (
         <DataSourceListPage dataSourceList={dataSourceList}/>
       )
     }

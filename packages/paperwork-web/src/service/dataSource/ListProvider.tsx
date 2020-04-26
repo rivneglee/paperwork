@@ -1,22 +1,20 @@
 import React, { ReactElement } from 'react';
-
-import * as mappings from './mappings';
 import { LOAD_DATASOURCE_LIST } from './intents';
 import { DataSourceList } from '../../schema/DataSource';
-import { Integration, withIntegration } from '../../integration';
+import { Integration } from '../../integration';
 
-export interface IntegrationState {
+export interface ListProviderState {
   dataSourceList: DataSourceList;
   list?: () => Promise<void>;
 }
 
 interface Props {
-  children: (integrationState: IntegrationState) => ReactElement;
+  children: (integrationState: ListProviderState) => ReactElement;
   onLoadList?: (dataSourceList: DataSourceList) => void;
   integration: Integration;
 }
 
-class Provider extends React.PureComponent<Props> {
+export default class extends React.Component<Props> {
   state = {
     dataSourceList: [],
   };
@@ -48,5 +46,3 @@ class Provider extends React.PureComponent<Props> {
     );
   }
 }
-
-export default withIntegration(Provider, mappings);

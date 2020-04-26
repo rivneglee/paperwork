@@ -20,7 +20,7 @@ ReactDOM.render(
     <Scrollable className="pwapp-page">
       <Provider store={store}>
         <HashRouter>
-          <Route exact component={DataSourceListPage} />
+          <Route exact component={DataSourceListPage} path="/:userId/datasource/"/>
         </HashRouter>
       </Provider>
     </Scrollable>

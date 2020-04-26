@@ -5,7 +5,7 @@ import Spinner from '../components/PageTransitionSpinner/Spinner';
 
 interface Props {
   mappings: any;
-  children: (integration: Integration) => ReactElement;
+  children: (integration: Integration) => ReactElement | null;
   spinner?: ReactElement;
 }
 
