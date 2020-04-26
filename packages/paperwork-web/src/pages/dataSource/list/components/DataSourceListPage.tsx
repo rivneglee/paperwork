@@ -1,13 +1,16 @@
 import React, { FunctionComponent } from 'react';
-import { Card, List } from '@paperwork/ui-widgets';
+import { List, BaseTemplate, Card } from '@paperwork/ui-widgets';
 import { DataSourceList } from '../../../../schema/DataSource';
+import AppBar from '../../../../components/AppBar/AppBar';
 
 interface Props {
   dataSourceList: DataSourceList;
 }
 
 const DataSourceListPage: FunctionComponent<Props> = ({ dataSourceList = [] }) => (
-  <div>
+  <BaseTemplate
+    header={<AppBar />}
+  >
     <Card header={<h3>My Datasource</h3>}>
       <List>
         {
@@ -17,7 +20,7 @@ const DataSourceListPage: FunctionComponent<Props> = ({ dataSourceList = [] }) =
         }
       </List>
     </Card>
-  </div>
+  </BaseTemplate>
 );
 
 export default DataSourceListPage;
