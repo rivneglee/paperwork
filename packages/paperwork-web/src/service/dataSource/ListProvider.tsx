@@ -1,11 +1,11 @@
 import React, { ReactElement } from 'react';
 
 import * as mappings from './mappings';
-import createIntegration from '../../integration';
 import { LOAD_DATASOURCE_LIST } from './intents';
 import { DataSourceList } from '../../schema/DataSource';
+import { Integration, withIntegration } from '../../integration';
 
-interface IntegrationState {
+export interface IntegrationState {
   dataSourceList: DataSourceList;
   list?: () => Promise<void>;
 }
@@ -13,34 +13,22 @@ interface IntegrationState {
 interface Props {
   children: (integrationState: IntegrationState) => ReactElement;
   onLoadList?: (dataSourceList: DataSourceList) => void;
-  spinner: ReactElement;
+  integration: Integration;
 }
 
-export default class extends React.PureComponent<Props> {
-  private integration = createIntegration(mappings);
-
+class Provider extends React.PureComponent<Props> {
   state = {
-    isLoading: true,
     dataSourceList: [],
   };
 
-  constructor(props: Props) {
-    super(props);
-  }
-
   private list = async () => {
-    const { onLoadList } = this.props;
-    this.setState({
-      isLoading: true,
-      dataSourceList: [],
-    });
-    const dataSourceList = await this.integration.read({
+    const { onLoadList, integration } = this.props;
+    const dataSourceList = await integration.read({
       intent: LOAD_DATASOURCE_LIST,
       method: 'GET',
     });
     this.setState({
       dataSourceList,
-      isLoading: false,
     });
     onLoadList && onLoadList(dataSourceList);
   }
@@ -50,13 +38,15 @@ export default class extends React.PureComponent<Props> {
   }
 
   render() {
-    const { isLoading, dataSourceList = [] } = this.state;
-    const { children, spinner } = this.props;
+    const { dataSourceList = [] } = this.state;
+    const { children } = this.props;
     return (
-      isLoading ? spinner : children({
+      children({
         dataSourceList,
         list: this.list,
       })
     );
   }
 }
+
+export default withIntegration(Provider, mappings);

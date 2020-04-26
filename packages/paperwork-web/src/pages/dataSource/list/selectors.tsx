@@ -1,1 +1,1 @@
-export const getDataSouceList = (state: any) => state.dataSourceList;
+export const getDataSourceList = (state: any) => state.dataSourceList;
