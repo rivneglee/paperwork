@@ -30,8 +30,6 @@
     "tslint-config-airbnb": "^5.11.1",
     "tslint-config-prettier": "^1.10.0",
     "tslint-react": "^3.2.0",
-    "enzyme": "^3.11.0",
-    "enzyme-to-json": "^3.4.4",
     "@types/classnames": "^2.2.10",
     "@types/react-redux": "^7.0.6",
     "@types/react-router": "^5.0.1",
