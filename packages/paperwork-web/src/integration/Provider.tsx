@@ -1,11 +1,10 @@
 import React, { ReactElement } from 'react';
 import createIntegration from './createIntegration';
 import { Integration, ReadRequest, WriteRequest } from './types';
-import Spinner from '../components/PageTransitionSpinner/Spinner';
 
 interface Props {
   mappings: any;
-  children: (integration: Integration) => ReactElement | null;
+  children: (integration: Integration, isProcessing: boolean) => ReactElement | null;
   spinner?: ReactElement;
 }
 
@@ -49,7 +48,7 @@ export default class extends React.Component<Props, State> {
   }
 
   render() {
-    const { children, spinner = <Spinner /> } = this.props;
+    const { children, spinner = null } = this.props;
     const { isProcessing } = this.state;
     return (
       <>
@@ -58,7 +57,7 @@ export default class extends React.Component<Props, State> {
           children({
             read: this.read,
             write: this.write,
-          })
+          }, isProcessing)
         }
       </>
     );
