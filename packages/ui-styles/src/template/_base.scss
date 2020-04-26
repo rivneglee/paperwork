@@ -1,0 +1,22 @@
+.pw-template {
+  display: flex;
+  flex-direction: column;
+  background-color: $pw-palette-storm-10;
+  height: 100vh;
+  &__scrollwrapper {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  &__inner {
+    max-width: 76.8rem;
+    flex-grow: 1;
+  }
+}
