@@ -3,6 +3,7 @@ import React from 'react';
 
 import { ListProvider, ListProviderState } from '../../../service/dataSource';
 import DataSourceListPage from './components/DataSourceListPage';
+import Spinner from '../../../components/PageTransitionSpinner/Spinner';
 
 /** Data provider can be used via redux or props **/
 // import { DataSourceList } from '../../../schema/DataSource';
@@ -27,7 +28,7 @@ import DataSourceListPage from './components/DataSourceListPage';
 // );
 
 export default () => (
-  <ListProvider>
+  <ListProvider spinner={<Spinner />}>
     {
       ({ dataSourceList }: ListProviderState) => (
         <DataSourceListPage dataSourceList={dataSourceList}/>

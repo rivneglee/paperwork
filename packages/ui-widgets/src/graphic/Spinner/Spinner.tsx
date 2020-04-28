@@ -26,7 +26,7 @@ const Ellipsis: FunctionComponent = () => (
 );
 
 const Spinner: FunctionComponent<Props> = ({
-  title = 'LOADING',
+  title,
   type = 'box',
   size = 'm',
 }) => (
@@ -39,7 +39,9 @@ const Spinner: FunctionComponent<Props> = ({
       { type === 'donut' && <Donut /> }
       { type === 'ellipsis' && <Ellipsis /> }
     </div>
-    <div className="pw-spinner__text">{title}</div>
+    {
+      title && <div className="pw-spinner__text">{title}</div>
+    }
   </div>
 );
 

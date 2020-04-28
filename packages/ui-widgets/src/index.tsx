@@ -20,4 +20,6 @@ export * from './form/Button';
 export * from './form/RichEditor';
 export * from './form/Input';
 
+export * from './template/BaseTemplate';
+
 export * from './message/Tooltip';

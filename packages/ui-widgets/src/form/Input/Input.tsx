@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactElement, SyntheticEvent, useState } from 'react';
+import React, { ReactElement, SyntheticEvent } from 'react';
 import Cleave from 'cleave.js/react';
 import classNames from 'classnames';
 
@@ -19,63 +19,71 @@ interface Props {
   right?: ReactElement;
 }
 
-const Input: FunctionComponent<Props> = ({
-  type = 'outlined',
-  value,
-  placeholder,
-  label,
-  isRequired,
-  labelAccessory,
-  disabled = false,
-  options = {},
-  onChange,
-  size,
-  left,
-  right,
-}) => {
-  const [hasFocus, setHasFocus] = useState(false);
-
-  const onInputFocus = () => {
-    setHasFocus(true);
+class Input extends React.Component<Props> {
+  state = {
+    hasFocus: false,
   };
 
-  const onInputBlur = () => {
-    setHasFocus(false);
-  };
+  private onInputFocus = () => this.setState({
+    hasFocus: true,
+  })
 
-  return (
-    <FieldGroup label={label} isRequired={isRequired} labelAccessory={labelAccessory} size={size}>
-      <div
-        className={
-          classNames(
-            'pw-input',
-            hasFocus && 'pw-input--active',
-            type && `pw-input--type-${type}`,
-          )
-        }>
-        {
-          left && <span className="pw-input__left">{left}</span>
-        }
-        <Cleave
+  private onInputBlur = () => this.setState({
+    hasFocus: false,
+  })
+
+  render() {
+    const {
+      type = 'outlined',
+      value,
+      placeholder,
+      label,
+      isRequired,
+      labelAccessory,
+      disabled = false,
+      options = {},
+      onChange,
+      size,
+      left,
+      right,
+    } = this.props;
+
+    const { hasFocus } = this.state;
+
+    return (
+      <FieldGroup label={label} isRequired={isRequired} labelAccessory={labelAccessory} size={size}>
+        <div
           className={
             classNames(
-              'pw-input__control',
+              'pw-input',
+              hasFocus && 'pw-input--active',
+              type && `pw-input--type-${type}`,
             )
+          }>
+          {
+            left && <span className="pw-input__left">{left}</span>
           }
-          value={value}
-          placeholder={placeholder}
-          onChange={onChange}
-          onFocus={onInputFocus}
-          onBlur={onInputBlur}
-          options={options}
-          disabled={disabled}
-        />
-        {
-          right && <span className="pw-input__right">{right}</span>
-        }
-      </div>
-    </FieldGroup>
-  );
-};
+          <Cleave
+            className={
+              classNames(
+                'pw-input__control',
+              )
+            }
+            value={value}
+            placeholder={placeholder}
+            onChange={onChange}
+            onFocus={this.onInputFocus}
+            onBlur={this.onInputBlur}
+            options={options}
+            disabled={disabled}
+          />
+          {
+            right && <span className="pw-input__right">{right}</span>
+          }
+        </div>
+      </FieldGroup>
+    );
+  }
+}
 
 export default Input;
