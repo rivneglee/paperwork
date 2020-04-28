@@ -1,0 +1,8 @@
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEzMzksInN1cGVydmlzb3JVaWQiOi0xLCJyb2xlcyI6WyJTdGFuZGFyZFVzZXIiXSwiaWF0IjoxNTg3OTAzOTYyLCJleHAiOjE1ODc5NjM5NjJ9.srJ5h2XylszeBmYT_vSZlUKKzXNVj_kCTNbUEg6ZnmA",
+  "user": {
+    "id": 1234,
+    "username": "rivneg",
+    "displayName": "LI,CHENG"
+  }
+}

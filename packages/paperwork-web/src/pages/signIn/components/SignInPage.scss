@@ -1,0 +1,50 @@
+.pwapp-logon-page {
+  $left-color:  #242e4d;
+  $right-color: #897e79;
+
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  background: linear-gradient(135deg, rgba($left-color, .9), rgba($right-color, .9));
+
+  &__form {
+    @media screen and (min-width: 600px) {
+      width: 50vw;
+      max-width: 35rem;
+      padding: 2rem;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0px; left: 0;
+      height: 2px; width: 100%;
+      background: #5f00a8 linear-gradient(135deg, #5f00a8 35%, #ed005f 100%);
+      display: none;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__logo {
+    width: 30px;
+    height: 30px;
+    padding-right: 1rem;
+  }
+
+  .pw-spinner {
+    margin: 0;
+  }
+}

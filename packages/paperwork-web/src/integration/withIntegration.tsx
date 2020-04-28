@@ -7,8 +7,8 @@ export default (CompositeComponent: React.ComponentType<any>, mappings: any) => 
   return (
     <Provider mappings={mappings} spinner={spinner}>
       {
-        (integration: Integration) => (
-          <CompositeComponent integration={integration} {...restProps} />
+        (integration: Integration, isProcessing) => (
+          <CompositeComponent integration={integration} isProcessing={isProcessing} {...restProps} />
         )
       }
     </Provider>
