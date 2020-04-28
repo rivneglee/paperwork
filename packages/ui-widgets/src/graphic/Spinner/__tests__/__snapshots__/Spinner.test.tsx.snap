@@ -9,11 +9,6 @@ exports[`Spinner should render default spinner 1`] = `
   >
     <Box />
   </div>
-  <div
-    className="pw-spinner__text"
-  >
-    LOADING
-  </div>
 </div>
 `;
 
@@ -25,11 +20,6 @@ exports[`Spinner should render donut 1`] = `
     className="pw-spinner__animation pw-spinner__animation--size-m"
   >
     <Donut />
-  </div>
-  <div
-    className="pw-spinner__text"
-  >
-    LOADING
   </div>
 </div>
 `;
@@ -43,11 +33,6 @@ exports[`Spinner should render ellipsis 1`] = `
   >
     <Ellipsis />
   </div>
-  <div
-    className="pw-spinner__text"
-  >
-    LOADING
-  </div>
 </div>
 `;
 
@@ -59,11 +44,6 @@ exports[`Spinner should render large size spinner 1`] = `
     className="pw-spinner__animation pw-spinner__animation--size-l"
   >
     <Box />
-  </div>
-  <div
-    className="pw-spinner__text"
-  >
-    LOADING
   </div>
 </div>
 `;
@@ -77,11 +57,6 @@ exports[`Spinner should render medium size spinner 1`] = `
   >
     <Box />
   </div>
-  <div
-    className="pw-spinner__text"
-  >
-    LOADING
-  </div>
 </div>
 `;
 
@@ -93,11 +68,6 @@ exports[`Spinner should render small size spinner 1`] = `
     className="pw-spinner__animation pw-spinner__animation--size-s"
   >
     <Box />
-  </div>
-  <div
-    className="pw-spinner__text"
-  >
-    LOADING
   </div>
 </div>
 `;
