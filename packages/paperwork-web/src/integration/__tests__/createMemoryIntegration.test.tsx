@@ -14,12 +14,17 @@ describe('createMemoryIntegration', () => {
     name: 'foo',
   };
 
+  const params = {
+    name: 'bar',
+  };
+
   describe('read', () => {
     let response: Promise<string>;
 
     beforeAll(() => {
       response = integration.read({
         urlParams,
+        params,
         intent: 'READ_SOMETHING',
         method: 'GET',
       });
@@ -33,7 +38,10 @@ describe('createMemoryIntegration', () => {
     });
 
     it('should call request handler with correct params', () => {
-      expect(read).toBeCalledWith(urlParams);
+      expect(read).toBeCalledWith({
+        urlParams,
+        params,
+      });
     });
   });
 
@@ -43,6 +51,7 @@ describe('createMemoryIntegration', () => {
     beforeAll(() => {
       response = integration.write({
         urlParams,
+        params,
         intent: 'WRITE_SOMETHING',
         method: 'POST',
       });
@@ -56,7 +65,10 @@ describe('createMemoryIntegration', () => {
     });
 
     it('should call request handler with correct params', () => {
-      expect(write).toBeCalledWith(urlParams);
+      expect(write).toBeCalledWith({
+        urlParams,
+        params,
+      });
     });
   });
 });

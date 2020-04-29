@@ -1,7 +1,7 @@
-export type UserIdentifier = string | number;
+export type UserIdentifier = string;
 
 export interface User {
-  id: string | number;
+  id: string;
   username: string;
   displayName: string;
 }

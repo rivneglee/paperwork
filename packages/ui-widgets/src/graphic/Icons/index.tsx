@@ -21,6 +21,7 @@ import UL from './UL';
 import DataSource from './DataSource';
 import Template from './Template';
 import Logo from './Logo';
+import Search from './Search';
 
 export default {
   Add,
@@ -46,4 +47,5 @@ export default {
   DataSource,
   Template,
   Logo,
+  Search,
 };

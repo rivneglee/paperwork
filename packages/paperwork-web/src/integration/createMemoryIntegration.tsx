@@ -3,10 +3,13 @@ import { ReadRequest, Integration, RequestFunctionMapping, WriteRequest } from '
 const sleep = (duration: number) => new Promise(resolve => setTimeout(resolve, duration));
 
 const invoke = async (mapping: RequestFunctionMapping, request: ReadRequest | WriteRequest) => {
-  const { intent, urlParams = {} } = request;
+  const { intent, urlParams, params } = request;
   const integrationFunction = mapping[intent];
   if (!integrationFunction) throw new Error(`Unknown intent ${intent} is used.`);
-  const response = await integrationFunction({ ...urlParams });
+  const response = await integrationFunction({
+    urlParams,
+    params,
+  });
   await sleep(3000);
   return response;
 };

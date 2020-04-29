@@ -19,7 +19,9 @@ export * from './form/Select';
 export * from './form/Button';
 export * from './form/RichEditor';
 export * from './form/Input';
+export * from './form/Search';
 
 export * from './template/BaseTemplate';
 
 export * from './message/Tooltip';
+export * from './message/PageState';

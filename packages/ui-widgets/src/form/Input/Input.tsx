@@ -11,12 +11,14 @@ interface Props {
   isRequired?: boolean;
   labelAccessory?: ReactElement;
   onChange?: (e: SyntheticEvent) => void;
+  onKeyDown?: (e: SyntheticEvent) => void;
   size?: 'xs' | 's' | 'm' | 'l' | 'xl';
   placeholder?: string;
   options?: object;
   type?: 'outlined' | 'underlined';
   left?: ReactElement;
   right?: ReactElement;
+  className?: string;
 }
 
 class Input extends React.Component<Props> {
@@ -43,9 +45,11 @@ class Input extends React.Component<Props> {
       disabled = false,
       options = {},
       onChange,
+      onKeyDown,
       size,
       left,
       right,
+      className,
     } = this.props;
 
     const { hasFocus } = this.state;
@@ -58,6 +62,7 @@ class Input extends React.Component<Props> {
               'pw-input',
               hasFocus && 'pw-input--active',
               type && `pw-input--type-${type}`,
+              className,
             )
           }>
           {
@@ -71,6 +76,7 @@ class Input extends React.Component<Props> {
             }
             value={value}
             placeholder={placeholder}
+            onKeyDown={onKeyDown}
             onChange={onChange}
             onFocus={this.onInputFocus}
             onBlur={this.onInputBlur}

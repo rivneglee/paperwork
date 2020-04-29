@@ -38,9 +38,6 @@
     "@types/redux-batched-actions": "^0.1.5",
     "@types/reselect": "^2.2.0"
   },
-  "resolutions": {
-    "@types/react": "^16.9.6"
-  },
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",

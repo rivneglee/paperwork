@@ -5,3 +5,4 @@ import * as mappings from './mappings';
 export const AuthenticationProvider = withIntegration(Authenticator, mappings);
 export * from './AuthenticationProvider';
 export { default as withAuthValidation } from './withAuthValidation';
+export { default as authenticationStorge } from './AuthenticationStorage';
