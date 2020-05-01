@@ -5,7 +5,9 @@ import { Avater } from '../../graphic/Avater';
 import Icons from '../../graphic/Icons';
 import QuickAddItem, { QuickAddItemComponent } from './QuickAddItem';
 
-interface Props {}
+interface Props {
+  color?: 'primary' | 'secondary';
+}
 
 interface State {
   isExpanded: boolean;
@@ -31,7 +33,7 @@ const QuickAdd: QuickAddComponent = class extends Component<Props, State> {
 
   render() {
     const { isExpanded } = this.state;
-    const { children } = this.props;
+    const { children, color } = this.props;
     return (
       <div className="pw-quickadd">
         <div onClick={this.toggleState}>
@@ -39,8 +41,10 @@ const QuickAdd: QuickAddComponent = class extends Component<Props, State> {
             size="large"
             shadow
             className={classNames(
-              'pw-quickadd__trigger', {
+              'pw-quickadd__trigger',
+              {
                 ['pw-quickadd__trigger--expanded']: isExpanded,
+                [`pw-quickadd__trigger--color-${color}`]: color,
               },
             )}>
             <Icons.Add />

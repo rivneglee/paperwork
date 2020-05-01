@@ -2,7 +2,7 @@ import { Authentication } from '../../schema/User';
 
 export interface AuthenticationStorage {
   set: (authentication: Authentication) => void;
-  get: () => Authentication | null;
+  get: () => Authentication | undefined | null;
 }
 
 export default {
@@ -14,7 +14,7 @@ export default {
 
   get: () => {
     const accessToken = localStorage.getItem('Authorization');
-    if (!accessToken) return null;
+    if (!accessToken) return;
     const user = JSON.parse(localStorage.getItem('Client') || '');
     return {
       accessToken,

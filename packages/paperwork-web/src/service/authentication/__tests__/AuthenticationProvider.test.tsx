@@ -23,7 +23,7 @@ describe('AuthenticationProvider', () => {
 
   describe('when have no authentication', () => {
     const storage = {
-      get: jest.fn(() => null),
+      get: jest.fn(() => undefined),
       set: jest.fn(),
     };
 

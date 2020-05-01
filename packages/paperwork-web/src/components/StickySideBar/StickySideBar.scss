@@ -1,0 +1,11 @@
+.pwapp-sticky-sidebar {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  margin: -45px;
+  z-index: 9;
+
+  .pw-avater {
+    margin: 0;
+  }
+}

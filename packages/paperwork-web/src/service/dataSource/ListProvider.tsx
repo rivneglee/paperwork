@@ -5,13 +5,17 @@ import { Integration } from '../../integration';
 
 export interface ListProviderState {
   dataSourceList: DataSourceList;
-  list?: () => Promise<void>;
+  list: (options?: ListOptions) => Promise<DataSourceList>;
 }
 
 interface Props {
-  children: (integrationState: ListProviderState) => ReactElement;
+  children: (integrationState: ListProviderState) => ReactElement | null;
   onLoadList?: (dataSourceList: DataSourceList) => void;
   integration: Integration;
+}
+
+export interface ListOptions {
+  keyword?: string;
 }
 
 export default class extends React.Component<Props> {
@@ -19,16 +23,20 @@ export default class extends React.Component<Props> {
     dataSourceList: [],
   };
 
-  private list = async () => {
-    const { onLoadList, integration } = this.props;
+  private list = async (options: ListOptions = {}) => {
+    const { keyword } = options;
+    const { integration } = this.props;
     const dataSourceList = await integration.read({
       intent: LOAD_DATASOURCE_LIST,
       method: 'GET',
+      params: {
+        keyword,
+      },
     });
     this.setState({
       dataSourceList,
     });
-    onLoadList && onLoadList(dataSourceList);
+    return dataSourceList;
   }
 
   async componentDidMount() {

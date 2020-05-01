@@ -1,12 +1,16 @@
 import { combineReducers, createStore as createReduxStore } from 'redux';
 import { enableBatching } from 'redux-batched-actions';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { dataSourceListReducer } from '../pages/dataSource/list/reducers';
+import { pageReducer, authenticationReducer } from './reducers';
+import { StoreState } from './types';
 
-export const createStore = (initState: any) => createReduxStore(
+export const createStore = (initState: StoreState) => createReduxStore(
   enableBatching(combineReducers({
-    dataSourceList: dataSourceListReducer,
+    page: pageReducer,
+    authentication: authenticationReducer,
   })),
   initState,
   composeWithDevTools(),
 );
+
+export * from './types';

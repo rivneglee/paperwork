@@ -1,15 +1,27 @@
 .pw-quickadd {
   display: inline-block;
   position: relative;
+  $containerSize: 50px;
 
   &__trigger {
+    width: $containerSize;
+    height: $containerSize;
     cursor: pointer;
     transition: transform 0.3s;
-    background-color: $pw-palette-dusk-80;
+    background-color: $pw-palette-dusk-100;
+    box-shadow: 0 0 8px rgba(0,0,0,0.6);
     > svg {
       fill: white;
       width: 20px;
       height: 20px;
+    }
+
+    &--color-primary {
+      background-color: $pw-palette-dusk-100;
+    }
+
+    &--color-secondary {
+      background-color: $pw-palette-golf;
     }
 
     &--expanded {
@@ -20,7 +32,7 @@
 
   &__items {
     position: absolute;
-    width: 100%;
+    width: $containerSize;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search should render properly 1`] = `
+<Input
+  className="pw-search extra-class"
+  left={<Unknown />}
+  onKeyDown={[Function]}
+  placeholder="abc"
+  right={
+    <Button
+      className="pw-search__apply"
+      onClick={undefined}
+      type="link"
+    >
+      Apply
+    </Button>
+  }
+  value="value"
+/>
+`;

@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataSourceListPage should render when result is empty 1`] = `
+<ei
+  header={<AppBar />}
+>
+  <i
+    header={
+      <h3>
+        My Datasource
+      </h3>
+    }
+  >
+    <StickySideBar>
+      <Qo
+        onApply={[Function]}
+        onChange={[Function]}
+        placeholder="Search"
+      />
+      <t
+        color="secondary"
+      >
+        <Component
+          icon={<DataSource />}
+          onClick={[Function]}
+          tooltip="Create empty datasource"
+        />
+      </t>
+    </StickySideBar>
+    <ti
+      description="Please try to improve your filter and create some data"
+      image="no-results-found.svg"
+      title="No results found"
+    />
+  </i>
+</ei>
+`;
+
+exports[`DataSourceListPage should render when result is not empty 1`] = `
+<ei
+  header={<AppBar />}
+>
+  <i
+    header={
+      <h3>
+        My Datasource
+      </h3>
+    }
+  >
+    <StickySideBar>
+      <Qo
+        onApply={[Function]}
+        onChange={[Function]}
+        placeholder="Search"
+      />
+      <t
+        color="secondary"
+      >
+        <Component
+          icon={<DataSource />}
+          onClick={[Function]}
+          tooltip="Create empty datasource"
+        />
+      </t>
+    </StickySideBar>
+    <s>
+      <Component
+        key="1"
+      >
+        <Link
+          className="pwapp-datasource-list__row"
+          to="/1/dataSource/1"
+        >
+          DS_1
+          <Component
+            content="You are not the owner of this datasource, but you have limited access to this datasource"
+            key="Collaborative"
+            placement="top"
+          >
+            <M
+              color="secondary"
+            >
+              Collaborative
+            </M>
+          </Component>
+        </Link>
+      </Component>
+      <Component
+        key="2"
+      >
+        <Link
+          className="pwapp-datasource-list__row"
+          to="/1/dataSource/2"
+        >
+          DS_2
+        </Link>
+      </Component>
+    </s>
+  </i>
+</ei>
+`;

@@ -18,7 +18,12 @@ export interface WriteRequest extends Request {
   content?: any;
 }
 
-export type RequestFunction = (params: { [key: string]: string|number }) => Promise<any>;
+export interface RequestFunctionOptions {
+  urlParams?: object;
+  params?: object;
+}
+
+export type RequestFunction = (options: RequestFunctionOptions) => Promise<any>;
 
 export type RequestFunctionMapping = {[key: string]: RequestFunction};
 

@@ -1,0 +1,10 @@
+.pwapp-datasource-list {
+  &__row {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    color: inherit;
+    text-decoration: none;
+    align-items: center;
+  }
+}

@@ -1,0 +1,23 @@
+.pw-page-state {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  &__image {
+    margin-bottom: 1.6rem;
+  }
+
+  &__action {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (min-width: 500px) {
+    &__image {
+      width: 22rem;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+.pw-search {
+  border-radius: 30px;
+  line-height: 20px;
+  outline: none;
+  background-color: $pw-palette-dusk-100;
+  cursor: pointer;
+  border: 0;
+  transition: width 0.5s;
+  width: 25px;
+  height: 37px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.6);
+  overflow: hidden;
+
+  input::-webkit-input-placeholder {
+    color: white;
+  }
+
+  &__apply {
+    color: white;
+    &:hover {
+      color: $pw-palette-azure-light;
+    }
+  }
+
+  &:hover {
+    width: 260px;
+  }
+
+  .pw-icon {
+    fill: white;
+  }
+
+  &.pw-input--active.pw-input--type-outlined {
+    box-shadow: 0 0 8px rgba(0,0,0,0.6);
+    border: 0;
+    width: 260px;
+  }
+
+  .pw-input__control {
+    background-color: $pw-palette-dusk-100;
+    color: white;
+  }
+
+  .pw-input__left {
+    padding-left: 5px;
+    padding-right: 2px;
+  }
+}
