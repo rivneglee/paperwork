@@ -20,14 +20,19 @@ export default connect()(({ dispatch }: any) => (
     {({ dataSourceList, list }: ListProviderState) => {
       dispatch(createLoadDataSourceAction(dataSourceList));
 
-      // list()
-      //   .then(data => dispatch(createLoadDataSourceAction(data)));
+      const onCreateNew = () => window.location.href = `${window.location.href}/new`;
+
       const onFilterChange
         = (option: FilterOption) => dispatch(createUpdateFilterOptionAction(option));
 
       const onApplyFilter = (filterOptions: FilterOptions) => list(filterOptions);
 
-      return <PageView onFilterChange={onFilterChange} onApplyFilter={onApplyFilter}/>;
+      return (
+        <PageView
+          onCreateNew={onCreateNew}
+          onFilterChange={onFilterChange}
+          onApplyFilter={onApplyFilter}
+        />);
     }}
   </ListProvider>
 ));

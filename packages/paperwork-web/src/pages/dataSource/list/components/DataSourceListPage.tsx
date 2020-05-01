@@ -35,11 +35,18 @@ interface Props {
   filterOptions: FilterOptions;
   onFilterChange: (option: FilterOption) => void;
   onApplyFilter: (filterOptions: FilterOptions) => void;
+  onCreateNew: () => void;
 }
 
 const handleFilterChange = (key: string, handler: any) => (e: any) => handler({ key, value: e.target.value });
 
-const DataSourceListPage: FunctionComponent<Props> = ({ entries = [], filterOptions = {}, onFilterChange, onApplyFilter }) => (
+const DataSourceListPage: FunctionComponent<Props> = ({
+  entries = [],
+  filterOptions = {},
+  onFilterChange,
+  onApplyFilter,
+  onCreateNew,
+}) => (
   <BaseTemplate
     header={<AppBar />}
   >
@@ -52,7 +59,7 @@ const DataSourceListPage: FunctionComponent<Props> = ({ entries = [], filterOpti
           onApply={() => onApplyFilter(filterOptions)}
         />
         <QuickAdd color="secondary">
-          <QuickAdd.Item icon={<Icons.DataSource />} tooltip="Create empty datasource"/>
+          <QuickAdd.Item onClick={onCreateNew} icon={<Icons.DataSource />} tooltip="Create empty datasource"/>
         </QuickAdd>
       </StickySideBar>
       {

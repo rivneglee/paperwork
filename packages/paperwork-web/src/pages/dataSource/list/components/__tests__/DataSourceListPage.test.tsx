@@ -8,10 +8,11 @@ describe('DataSourceListPage', () => {
   const filterOptions = {};
   const onApplyFilter = jest.fn();
   const onFilterChange = jest.fn();
-
+  const onCreateNew = jest.fn();
   it('should render when result is empty', () => {
     const wrapper: ShallowWrapper = shallow(
       <DataSourceListPage
+        onCreateNew={onCreateNew}
         onApplyFilter={onApplyFilter}
         onFilterChange={onFilterChange}
         entries={[]} filterOptions={filterOptions}
@@ -23,6 +24,7 @@ describe('DataSourceListPage', () => {
   it('should render when result is not empty', () => {
     const wrapper: ShallowWrapper = shallow(
       <DataSourceListPage
+        onCreateNew={onCreateNew}
         onApplyFilter={onApplyFilter}
         onFilterChange={onFilterChange}
         entries={[
