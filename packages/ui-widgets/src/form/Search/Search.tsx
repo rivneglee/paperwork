@@ -43,6 +43,6 @@ const Search: FunctionComponent<Props> = ({
       right={<Button onClick={onApply} className="pw-search__apply" type="link">{applyButtonText}</Button>}
     />
   );
-}
+};
 
 export default Search;
