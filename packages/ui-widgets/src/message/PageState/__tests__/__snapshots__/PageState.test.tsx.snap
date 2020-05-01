@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageState should render properly when has image and buttons 1`] = `
+<div
+  className="pw-page-state"
+>
+  <div
+    className="pw-page-state__image"
+  >
+    <img
+      src="http://foo"
+    />
+  </div>
+  <div
+    className="pw-page-state__context"
+  >
+    <div
+      className="pw-page-state__title"
+    >
+      <h3>
+        Title
+      </h3>
+    </div>
+    <div
+      className="pw-page-state__description"
+    >
+      desc
+    </div>
+  </div>
+  <div
+    className="pw-page-state__action"
+  >
+    <button />
+    <button />
+  </div>
+</div>
+`;
+
+exports[`PageState should render properly without button and image 1`] = `
+<div
+  className="pw-page-state"
+>
+  <div
+    className="pw-page-state__context"
+  >
+    <div
+      className="pw-page-state__title"
+    >
+      <h3>
+        Title
+      </h3>
+    </div>
+    <div
+      className="pw-page-state__description"
+    >
+      desc
+    </div>
+  </div>
+  <div
+    className="pw-page-state__action"
+  />
+</div>
+`;
