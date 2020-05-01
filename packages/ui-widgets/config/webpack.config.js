@@ -4,15 +4,15 @@ const autoprefixer = require('autoprefixer');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-  entry: "./src/index.tsx",
+  entry: paths.appIndexJs,
   output: {
     path: paths.appBuild,
     filename: "index.js",
     library: ['react', 'react-dom'],
     libraryTarget: 'umd',
   },
-  // Enable sourcemaps for debugging webpack's output.
-  devtool: "source-map",
+
+  mode: 'production',
 
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.

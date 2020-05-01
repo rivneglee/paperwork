@@ -44,4 +44,6 @@ module.exports = {
   appTsConfig: resolveApp('tsconfig.json'),
   appTsProdConfig: resolveApp('tsconfig.prod.json'),
   appTsLint: resolveApp('../../tslint.json'),
+  appSrc: resolveApp('src'),
+  appIndexJs: resolveApp('src/index.tsx'),
 };
