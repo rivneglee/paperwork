@@ -16,7 +16,7 @@
     transition: background-color 0.4s ease;
 
     &:hover {
-      background-color: $pw-palette-storm-28;
+      background-color: $pw-palette-storm-11;
     }
 
     @supports (display: grid) {
@@ -67,7 +67,7 @@
     flex: 1;
     padding: .2rem;
     text-align: left;
-    align-self: start;
+    align-self: center;
     justify-content: flex-start;
 
     &:before {
@@ -75,6 +75,7 @@
       font-weight: 600;
       margin-right: 6px;
       display: block;
+      padding-bottom: 10px;
     }
 
     @media (min-width: $screen-sm-min) {
@@ -83,5 +84,38 @@
         display: none;
       }
     }
+
+    &--hide-label {
+      &:before {
+        visibility: hidden;
+      }
+    }
+  }
+}
+
+.pw-line-item-table {
+  &__row {
+    &:last-child {
+      opacity: 0.4;
+      .pw-line-item-table__remove-button {
+        visibility: hidden;
+      }
+    }
+  }
+
+  &__remove-button {
+    cursor: pointer;
+    background-color: transparent;
+    &:hover {
+      background-color: transparent;
+      svg {
+        fill: $pw-palette-dusk-100;
+      }
+    }
+  }
+
+  &__remove {
+    flex: 0 0 auto;
+    width: 3rem;
   }
 }

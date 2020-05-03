@@ -1,11 +1,15 @@
 import React, { FunctionComponent } from 'react';
 
-interface Props {}
+import classNames from 'classnames';
+
+interface Props {
+  className?: string;
+}
 
 export type HeaderComponent = FunctionComponent<Props>;
 
-const Header: HeaderComponent = ({ children }) => (
-  <div className="pw-table__header">
+const Header: HeaderComponent = ({ children, className }) => (
+  <div className={classNames('pw-table__header', className)}>
     <div className="pw-table__row">
       {children}
     </div>

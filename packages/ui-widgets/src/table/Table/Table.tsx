@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import classNames from 'classnames';
 
 import Body, { BodyComponent } from './Body';
 import Row, { RowComponent } from './Row';
@@ -6,7 +7,9 @@ import Header, { HeaderComponent } from './Header';
 import RowItem, { RowItemComponent } from './RowItem';
 import HeaderItem, { HeaderItemComponent } from './HeaderItem';
 
-interface Props {}
+interface Props {
+  className?: string;
+}
 
 interface TableComponent extends FunctionComponent<Props> {
   Body: BodyComponent;
@@ -16,8 +19,8 @@ interface TableComponent extends FunctionComponent<Props> {
   HeaderItem: HeaderItemComponent;
 }
 
-const Table: TableComponent = ({ children }) => (
-  <div className="pw-table__container">
+const Table: TableComponent = ({ children, className }) => (
+  <div className={classNames('pw-table__container', className)}>
     { children }
   </div>
 );
