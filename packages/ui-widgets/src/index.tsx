@@ -4,6 +4,7 @@ export * from './layout/Drawer';
 export * from './layout/Scrollable';
 export * from './layout/Accordion';
 export * from './layout/Modal';
+export * from './layout/Table';
 
 export * from './graphic/Avater';
 export * from './graphic/Spinner';

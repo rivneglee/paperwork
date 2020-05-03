@@ -22,6 +22,7 @@ import DataSource from './DataSource';
 import Template from './Template';
 import Logo from './Logo';
 import Search from './Search';
+import Trash from './Trash';
 
 export default {
   Add,
@@ -48,4 +49,5 @@ export default {
   Template,
   Logo,
   Search,
+  Trash,
 };
