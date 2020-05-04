@@ -7,7 +7,7 @@ interface Props {
 
 export type ButtonComponent = FunctionComponent<Props>;
 
-const ButtonRow: ButtonComponent = ({ primary = [], secondary = []}) => (
+const ButtonRow: ButtonComponent = ({ primary = [], secondary = [] }) => (
   <div className="pw-button-row">
     <div className="pw-button-row__primary">
       {primary}

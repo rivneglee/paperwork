@@ -1,4 +1,5 @@
 import { getEntries } from '../selectors';
+import { RouterState } from 'connected-react-router';
 
 describe('dataSourceListPage', () => {
   const state = {
@@ -25,6 +26,7 @@ describe('dataSourceListPage', () => {
       ],
       filterOptions: {},
     },
+    router: {} as RouterState,
   };
 
   describe('getEntries', () => {

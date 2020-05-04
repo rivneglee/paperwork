@@ -10,6 +10,6 @@ const LineItemTableRowItem: LineItemTableRowItemComponent = ({ children }) => {
       {children}
     </>
   );
-}
+};
 
 export default LineItemTableRowItem;

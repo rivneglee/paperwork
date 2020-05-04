@@ -22,6 +22,6 @@ const RowItem: RowItemComponent = ({ children, columnName, className, style = {}
       {children}
     </div>
   );
-}
+};
 
 export default RowItem;
