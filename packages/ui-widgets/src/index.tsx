@@ -21,6 +21,7 @@ export * from './form/Button';
 export * from './form/RichEditor';
 export * from './form/Input';
 export * from './form/Search';
+export * from './form/ButtonRow';
 
 export * from './template/BaseTemplate';
 

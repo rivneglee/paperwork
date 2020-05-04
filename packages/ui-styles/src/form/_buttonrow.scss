@@ -1,0 +1,14 @@
+.pw-button-row {
+  @media (min-width: $screen-sm-min) {
+    display: flex;
+    flex-direction: row-reverse;
+    &__primary, &__secondary {
+      flex-grow: 1;
+      display: flex;
+    }
+
+    &__primary {
+      justify-content: flex-end;
+    }
+  }
+}
