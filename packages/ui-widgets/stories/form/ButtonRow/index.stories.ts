@@ -2,5 +2,5 @@ import { storiesOf } from '@storybook/react';
 
 import Default from './Default';
 
-storiesOf('Button', module)
+storiesOf('ButtonRow', module)
   .add('default', Default);

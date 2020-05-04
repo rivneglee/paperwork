@@ -8,6 +8,9 @@ export default () => (
       <Input label="OUTLINED" value="INPUT WIDGET"/>
       <Input label="UNDERLINED" type="underlined" />
     </Card>
+    <Card header={<h3>Label placement</h3>}>
+      <Input label="OUTLINED" labelPlacement="top" />
+    </Card>
     <Card header={<h3>Input left & right</h3>}>
       <Input label="OUTLINED" left={<Icons.Form />} />
       <Input label="UNDERLINED" right={<Icons.Form />} type="underlined" />

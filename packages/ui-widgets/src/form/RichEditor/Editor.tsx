@@ -12,6 +12,7 @@ export interface Props {
   onChange?: (contentHtml: string) => void;
   contentHtml?: string;
   alignment?: 'left' | 'right' | 'center';
+  labelPlacement?: 'left' | 'top';
   className?: string;
   disabled: boolean;
   label?: ReactElement | string;
@@ -83,9 +84,15 @@ class BangEditor extends React.Component<Props, State> {
 
   render() {
     const { editorState, hasFocus } = this.state;
-    const { className, alignment, label, isRequired, labelAccessory, size } = this.props;
+    const { className, alignment, label, isRequired, labelAccessory, size, labelPlacement = 'left' } = this.props;
     return (
-      <FieldGroup label={label} isRequired={isRequired} labelAccessory={labelAccessory} size={size}>
+      <FieldGroup
+        label={label}
+        isRequired={isRequired}
+        labelAccessory={labelAccessory}
+        size={size}
+        labelPlacement={labelPlacement}
+      >
         <div className={classNames(
           'pw-text-editor',
           hasFocus && 'pw-text-editor--active',

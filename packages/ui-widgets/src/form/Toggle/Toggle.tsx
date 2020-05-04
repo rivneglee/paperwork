@@ -11,6 +11,7 @@ interface Props {
   disabled?: boolean;
   isRequired?: boolean;
   labelAccessory?: ReactElement;
+  labelPlacement?: 'left' | 'top';
 }
 
 const Toggle: FunctionComponent<Props> = ({
@@ -19,9 +20,15 @@ const Toggle: FunctionComponent<Props> = ({
   label,
   disabled = false,
   isRequired = false,
+  labelPlacement = 'left',
   labelAccessory,
 }) => (
-  <FieldGroup label={label} isRequired={isRequired} labelAccessory={labelAccessory}>
+  <FieldGroup
+    label={label}
+    isRequired={isRequired}
+    labelAccessory={labelAccessory}
+    labelPlacement={labelPlacement}
+  >
     <ReactToggle
       className="pw-toggle"
       disabled={disabled}

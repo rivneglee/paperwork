@@ -1,7 +1,9 @@
 import {
   LOAD_DATASOURCE_LIST,
+  LOAD_DATASOURCE_DETAIL,
 } from '../intents';
 import loadDataSource from './data/loadDataSource.json';
+import loadDataSourceDetail from './data/loadDataSourceDetail.json';
 import { ListOptions } from '../ListProvider';
 
 const MemoryMapping = {
@@ -12,6 +14,7 @@ const MemoryMapping = {
     }
     return loadDataSource;
   },
+  [LOAD_DATASOURCE_DETAIL]: () => loadDataSourceDetail,
 };
 
 export default MemoryMapping;

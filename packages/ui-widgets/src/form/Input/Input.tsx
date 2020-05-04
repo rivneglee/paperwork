@@ -10,6 +10,7 @@ interface Props {
   disabled?: boolean;
   isRequired?: boolean;
   labelAccessory?: ReactElement;
+  labelPlacement?: 'left' | 'top';
   onChange?: (e: SyntheticEvent) => void;
   onKeyDown?: (e: SyntheticEvent) => void;
   size?: 'xs' | 's' | 'm' | 'l' | 'xl';
@@ -40,6 +41,7 @@ class Input extends React.Component<Props> {
       label,
       isRequired,
       labelAccessory,
+      labelPlacement,
       options,
       size,
       left,
@@ -66,7 +68,13 @@ class Input extends React.Component<Props> {
     ) : <input {...inputProps} />;
 
     return (
-      <FieldGroup label={label} isRequired={isRequired} labelAccessory={labelAccessory} size={size}>
+      <FieldGroup
+        label={label}
+        isRequired={isRequired}
+        labelAccessory={labelAccessory}
+        size={size}
+        labelPlacement={labelPlacement}
+      >
         <div
           className={
             classNames(

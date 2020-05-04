@@ -42,6 +42,26 @@
   @media (min-width: 768px) {
     min-width: 64px;
     width: auto;
+
+    &--size-xs {
+      width: 3rem;
+    }
+
+    &--size-s {
+      width: 5rem;
+    }
+
+    &--size-m {
+      width: 7rem;
+    }
+
+    &--size-l {
+      width: 10rem;
+    }
+
+    &--size-xl {
+      width: 13rem;
+    }
   }
 
   &--color-primary {
@@ -247,26 +267,6 @@
         fill: $pw-color-text-link;
       }
     }
-  }
-
-  &--size-xs {
-    width: 3rem;
-  }
-
-  &--size-s {
-    width: 5rem;
-  }
-
-  &--size-m {
-    width: 7rem;
-  }
-
-  &--size-l {
-    width: 10rem;
-  }
-
-  &--size-xl {
-    width: 13rem;
   }
 
   &--disabled {

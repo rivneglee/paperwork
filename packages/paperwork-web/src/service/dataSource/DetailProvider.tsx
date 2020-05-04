@@ -1,55 +1,51 @@
 import React, { ReactElement } from 'react';
-import { LOAD_DATASOURCE_LIST } from './intents';
-import { DataSourceList } from '../../schema/DataSource';
+import { DataSource } from '../../schema/DataSource';
 import { Integration } from '../../integration';
+import { LOAD_DATASOURCE_DETAIL } from './intents';
 
-export interface ListProviderState {
-  dataSourceList: DataSourceList;
-  list: (options?: ListOptions) => Promise<DataSourceList>;
+export interface DetailProviderState {
+  dataSource?: DataSource;
 }
 
 interface Props {
-  children: (integrationState: ListProviderState) => ReactElement | null;
-  onLoadList?: (dataSourceList: DataSourceList) => void;
+  userId: string;
+  dataSourceId: string;
+  children: (integrationState: DetailProviderState) => ReactElement | null;
   integration: Integration;
-}
-
-export interface ListOptions {
-  keyword?: string;
 }
 
 export default class extends React.Component<Props> {
   state = {
-    dataSourceList: [],
+    dataSource: undefined,
   };
 
-  private list = async (options: ListOptions = {}) => {
-    const { keyword } = options;
+  private load = async (userId: string, dataSourceId: string) => {
     const { integration } = this.props;
-    const dataSourceList = await integration.read({
-      intent: LOAD_DATASOURCE_LIST,
+    const dataSource = await integration.read({
+      intent: LOAD_DATASOURCE_DETAIL,
       method: 'GET',
-      params: {
-        keyword,
+      urlParams: {
+        userId,
+        dataSourceId,
       },
     });
     this.setState({
-      dataSourceList,
+      dataSource,
     });
-    return dataSourceList;
+    return dataSource;
   }
 
   async componentDidMount() {
-    return this.list();
+    const { dataSourceId, userId } = this.props;
+    return this.load(userId, dataSourceId);
   }
 
   render() {
-    const { dataSourceList = [] } = this.state;
+    const { dataSource } = this.state;
     const { children } = this.props;
     return (
       children({
-        dataSourceList,
-        list: this.list,
+        dataSource,
       })
     );
   }

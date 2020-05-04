@@ -7,6 +7,7 @@ interface Props {
   isRequired?: boolean;
   labelAccessory?: ReactElement;
   size?: 'xs' | 's' | 'm' | 'l' | 'xl' | undefined;
+  labelPlacement?: 'left' | 'top';
 }
 
 const FieldGroup: FunctionComponent<Props> = ({
@@ -14,9 +15,10 @@ const FieldGroup: FunctionComponent<Props> = ({
   isRequired = false,
   children,
   labelAccessory,
+  labelPlacement = 'left',
   size,
 }) => (
-    <div className="pw-field-group">
+    <div className={classNames('pw-field-group', labelPlacement && `pw-field-group--place-${labelPlacement}`)}>
       {
         label && (
           <div className="pw-field-group__label">
