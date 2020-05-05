@@ -3,6 +3,7 @@ import { Table } from '../Table';
 
 export interface LineItemTableColumnConfig {
   columnName: string;
+  textWrap?: string;
   className?: string;
   hideLabel?: boolean;
 }

@@ -19,7 +19,7 @@ interface Props {
 export default class extends React.Component<Props> {
   private authenticate = async (username: string, password: string) => {
     const { integration, storage = defaultStorage } = this.props;
-    const response = await integration.read({
+    const response = await integration.send({
       intent: AUTHENTICATE,
       params: {
         username,

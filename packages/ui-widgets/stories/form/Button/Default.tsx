@@ -60,6 +60,18 @@ export default () => (
       <Button color="secondary" type="link">
         Secondary
       </Button>
+      <Button color="danger">
+        Danger
+      </Button>
+      <Button color="danger" type="outlined">
+        Danger
+      </Button>
+      <Button color="danger" type="text">
+        Danger
+      </Button>
+      <Button color="danger" type="link">
+        Danger
+      </Button>
     </Card>
     <Card header={<h3>Button sizes</h3>}>
       <Button color="primary" size="xs" type="outlined">

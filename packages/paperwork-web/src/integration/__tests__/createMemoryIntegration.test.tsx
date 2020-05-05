@@ -22,7 +22,7 @@ describe('createMemoryIntegration', () => {
     let response: Promise<string>;
 
     beforeAll(() => {
-      response = integration.read({
+      response = integration.send({
         urlParams,
         params,
         intent: 'READ_SOMETHING',
@@ -49,7 +49,7 @@ describe('createMemoryIntegration', () => {
     let response: Promise<string>;
 
     beforeAll(() => {
-      response = integration.write({
+      response = integration.send({
         urlParams,
         params,
         intent: 'WRITE_SOMETHING',

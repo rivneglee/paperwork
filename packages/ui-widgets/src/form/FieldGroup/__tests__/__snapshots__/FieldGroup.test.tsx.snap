@@ -2,7 +2,7 @@
 
 exports[`FieldGroup should render field group with label 1`] = `
 <div
-  className="pw-field-group"
+  className="pw-field-group pw-field-group--place-left"
 >
   <div
     className="pw-field-group__label"
@@ -24,7 +24,7 @@ exports[`FieldGroup should render field group with label 1`] = `
 
 exports[`FieldGroup should render field group without label 1`] = `
 <div
-  className="pw-field-group"
+  className="pw-field-group pw-field-group--place-left"
 >
   <div
     className="pw-field-group__input pw-field-group__input--full"

@@ -23,6 +23,10 @@ import Template from './Template';
 import Logo from './Logo';
 import Search from './Search';
 import Trash from './Trash';
+import Save from './Save';
+import Delete from './Delete';
+import Cancel from './Cancel';
+import Duplicate from './Duplicate';
 
 export default {
   Add,
@@ -50,4 +54,8 @@ export default {
   Logo,
   Search,
   Trash,
+  Save,
+  Duplicate,
+  Delete,
+  Cancel,
 };

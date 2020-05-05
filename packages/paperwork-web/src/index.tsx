@@ -5,9 +5,9 @@ import { Route } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import '@paperwork/ui-styles';
 
-import { createStore, StoreState, history } from './store';
+import { createStore, history } from './store';
 import registerServiceWorker from './registerServiceWorker';
-import { withAuthValidation, authenticationStorge } from './service/authentication';
+import { withAuthValidation } from './service/authentication';
 
 import DataSourceListPage from './pages/dataSource/list';
 import DataSourceDetailPage from './pages/dataSource/detail';
@@ -15,12 +15,7 @@ import SignInPage from './pages/signIn';
 
 import './index.scss';
 
-const authentication = authenticationStorge.get();
-const initState: StoreState = {
-  authentication,
-  page: {},
-};
-const store: any = createStore(initState);
+const store: any = createStore();
 
 ReactDOM.render(
   <div className="pwapp-root">

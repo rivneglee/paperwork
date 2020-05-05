@@ -61,14 +61,17 @@
   }
 
   &__item {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     flex: 1;
     padding: .2rem;
     text-align: left;
     align-self: center;
     justify-content: flex-start;
+
+    &--nowrap {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
 
     &:before {
       content: attr(data-label);

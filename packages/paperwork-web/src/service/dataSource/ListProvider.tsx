@@ -12,6 +12,7 @@ interface Props {
   children: (integrationState: ListProviderState) => ReactElement | null;
   onLoadList?: (dataSourceList: DataSourceList) => void;
   integration: Integration;
+  userId: string;
 }
 
 export interface ListOptions {
@@ -25,10 +26,13 @@ export default class extends React.Component<Props> {
 
   private list = async (options: ListOptions = {}) => {
     const { keyword } = options;
-    const { integration } = this.props;
-    const dataSourceList = await integration.read({
+    const { integration, userId } = this.props;
+    const dataSourceList = await integration.send({
       intent: LOAD_DATASOURCE_LIST,
       method: 'GET',
+      urlParams: {
+        userId,
+      },
       params: {
         keyword,
       },

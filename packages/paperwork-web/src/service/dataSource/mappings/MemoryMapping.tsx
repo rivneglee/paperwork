@@ -1,6 +1,8 @@
 import {
   LOAD_DATASOURCE_LIST,
   LOAD_DATASOURCE_DETAIL,
+  UPDATE_DATASOURCE,
+  CREATE_DATASOURCE,
 } from '../intents';
 import loadDataSource from './data/loadDataSource.json';
 import loadDataSourceDetail from './data/loadDataSourceDetail.json';
@@ -15,6 +17,10 @@ const MemoryMapping = {
     return loadDataSource;
   },
   [LOAD_DATASOURCE_DETAIL]: () => loadDataSourceDetail,
+  [UPDATE_DATASOURCE]: ({ content }: any) => {
+    console.log(content);
+  },
+  [CREATE_DATASOURCE]: () => {},
 };
 
 export default MemoryMapping;

@@ -3,6 +3,7 @@
 exports[`Toggle should render toggle when checked 1`] = `
 <FieldGroup
   isRequired={false}
+  labelPlacement="left"
 >
   <Toggle
     checked={true}
@@ -20,6 +21,7 @@ exports[`Toggle should render toggle when checked 1`] = `
 exports[`Toggle should render toggle when disabled 1`] = `
 <FieldGroup
   isRequired={false}
+  labelPlacement="left"
 >
   <Toggle
     checked={true}
@@ -37,6 +39,7 @@ exports[`Toggle should render toggle when disabled 1`] = `
 exports[`Toggle should render toggle when unchecked 1`] = `
 <FieldGroup
   isRequired={false}
+  labelPlacement="left"
 >
   <Toggle
     checked={false}

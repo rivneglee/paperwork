@@ -1,8 +1,13 @@
 import { createSelector } from 'reselect';
 
 import { Authentication, User, UserIdentifier } from '../../../../schema/User';
-import { getAuthentication, getPage } from '../../../../store/selectors';
+import { getAuthentication, getPageSection } from '../../../../store/selectors';
 import { DataSourceListPageState } from './reducers';
+
+const getPage = createSelector(
+  getPageSection,
+  page => page.dataSourceList,
+);
 
 const getBadges = (user: User, datasource: { owner: UserIdentifier }) => {
   const badges = [];
