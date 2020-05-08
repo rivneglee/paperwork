@@ -1,22 +1,29 @@
 import React, { FunctionComponent, ReactElement } from 'react';
 import ReactModal from 'react-modal';
 import classNames from 'classnames';
+import ModalHeader, { ModalHeaderComponent } from './ModalHeader';
+import ModalFooter, { ModalFooterComponent } from './ModalFooter';
 
 interface Props {
-  title: string;
   isOpen: boolean;
   className?: string;
   onClose?: () => void;
-  buttons?: ReactElement[];
+  footer: ReactElement;
+  header: ReactElement;
 }
 
-const Modal: FunctionComponent<Props> = ({
-  title,
+interface ModalComponent extends FunctionComponent<Props>{
+  Header: ModalHeaderComponent;
+  Footer: ModalFooterComponent;
+}
+
+const Modal: ModalComponent = ({
   isOpen,
   className,
   children,
   onClose,
-  buttons = [],
+  footer,
+  header,
 }) => (
   <ReactModal
     isOpen={isOpen}
@@ -24,21 +31,15 @@ const Modal: FunctionComponent<Props> = ({
     ariaHideApp={false}
     className={classNames('pw-modal-dialog', className)}
     overlayClassName="pw-modal-dialog__overlay">
-    <div className="pw-modal-dialog__header">{title}</div>
-    <div className="pw-modal-dialog__content">{children}</div>
-    <div className="pw-modal-dialog__footer">
-      <div className="pw-modal-dialog__flap pw-modal-dialog__flap--left"></div>
-        {
-          buttons.map((button, i) =>
-            React.cloneElement(button, {
-              key: `button_${i}`,
-              className: classNames(button.props.className, 'pw-modal-dialog__button'),
-            }),
-          )
-        }
-      <div className="pw-modal-dialog__flap pw-modal-dialog__flap--right"></div>
-    </div>
+    {header}
+    {
+      children && <div className="pw-modal-dialog__content">{children}</div>
+    }
+    {footer}
   </ReactModal>
 );
+
+Modal.Header = ModalHeader;
+Modal.Footer = ModalFooter;
 
 export default Modal;

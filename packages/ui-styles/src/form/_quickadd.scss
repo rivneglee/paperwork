@@ -8,7 +8,7 @@
     height: $containerSize;
     cursor: pointer;
     transition: transform 0.3s;
-    background-color: $pw-palette-dusk-100;
+    background-color: $pw-palette-dusk-130;
     box-shadow: 0 0 8px rgba(0,0,0,0.6);
     margin: 0;
     > svg {
@@ -18,7 +18,7 @@
     }
 
     &--color-primary {
-      background-color: $pw-palette-dusk-100;
+      background-color: $pw-palette-dusk-130;
     }
 
     &--color-secondary {

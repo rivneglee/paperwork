@@ -66,58 +66,58 @@
 
   &--color-primary {
     color: white;
-    background-color: $pw-palette-dusk-80;
+    background-color: $pw-palette-dusk-130;
     svg {
       fill: white;
     }
 
     &.pw-button--outlined {
-      border-color: $pw-palette-dusk-80;
-      color: $pw-palette-dusk-80;
+      border-color: $pw-palette-dusk-130;
+      color: $pw-palette-dusk-130;
       svg {
-        fill: $pw-palette-dusk-80;
+        fill: $pw-palette-dusk-130;
       }
       &:hover{
         background-color: $pw-palette-dusk-50;
-        color: $pw-palette-dusk-80;
+        color: $pw-palette-dusk-130;
         svg {
-          fill: $pw-palette-dusk-80;
+          fill: $pw-palette-dusk-130;
         }
       }
       &:active {
         background-color: $pw-palette-dusk-60;
-        color: $pw-palette-dusk-80;
+        color: $pw-palette-dusk-130;
         svg {
-          fill: $pw-palette-dusk-80;
+          fill: $pw-palette-dusk-130;
         }
       }
     }
 
     &.pw-button--text {
-      color: $pw-palette-dusk-80;
+      color: $pw-palette-dusk-130;
       svg {
-        fill: $pw-palette-dusk-80;
+        fill: $pw-palette-dusk-130;
       }
       &:hover{
         background-color: $pw-palette-dusk-50;
-        color: $pw-palette-dusk-80;
+        color: $pw-palette-dusk-130;
         svg {
-          fill: $pw-palette-dusk-80;
+          fill: $pw-palette-dusk-130;
         }
       }
       &:active {
         background-color: $pw-palette-dusk-60;
-        color: $pw-palette-dusk-80;
+        color: $pw-palette-dusk-130;
         svg {
-          fill: $pw-palette-dusk-80;
+          fill: $pw-palette-dusk-130;
         }
       }
     }
 
     &.pw-button--link {
-      color: $pw-palette-dusk-80;
+      color: $pw-palette-dusk-130;
       svg {
-        fill: $pw-palette-dusk-80;
+        fill: $pw-palette-dusk-130;
       }
     }
 

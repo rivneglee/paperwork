@@ -13,7 +13,7 @@ import {
 
 import AppBar from '../../../../components/AppBar/AppBar';
 import { DataSource, Field } from '../../../../schema/DataSource';
-import ConfirmationModal from './ConfirmationModal';
+import { UnsavedModal } from '../../../../components/Modal';
 
 interface Props {
   dataSource: DataSource;
@@ -110,13 +110,11 @@ const DataSourceDetailPage: FunctionComponent<Props> = ({
         ]}
         secondary={secondaryButtons}
       />
-      {modalType && (
-          <ConfirmationModal
-            onCloseModal={onCloseModal}
-            onConfirmCancel={onCancel}
-            modalType={modalType}
-          />
-        )
+      {modalType === 'unsave' && (
+        <UnsavedModal
+          onCancel={onCloseModal}
+          onConfirm={onCancel}
+        />)
       }
     </BaseTemplate>
   );

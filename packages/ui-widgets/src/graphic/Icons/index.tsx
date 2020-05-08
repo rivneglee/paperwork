@@ -27,6 +27,8 @@ import Save from './Save';
 import Delete from './Delete';
 import Cancel from './Cancel';
 import Duplicate from './Duplicate';
+import Confirm from './Confirm';
+import Error from './Error';
 
 export default {
   Add,
@@ -58,4 +60,6 @@ export default {
   Duplicate,
   Delete,
   Cancel,
+  Confirm,
+  Error,
 };

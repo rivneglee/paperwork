@@ -3,14 +3,17 @@ import { shallow, ShallowWrapper } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
 import Modal from '../Modal';
-import { Button } from '../../../form/Button';
+import Icons from '../../../graphic/Icons';
 
 describe('Modal', () => {
   const Content = () => <>Content</>;
 
   it('should render modal when it not opened', () => {
     const wrapper: ShallowWrapper = shallow(
-      <Modal title="Foo" isOpen={false}>
+      <Modal
+        header={<Modal.Header title="foo"/>}
+        footer={<Modal.Footer>Footer</Modal.Footer>}
+        isOpen={false}>
         <Content />
       </Modal>);
     expect(toJson(wrapper)).toMatchSnapshot();
@@ -18,17 +21,23 @@ describe('Modal', () => {
 
   it('should render modal when it opened', () => {
     const wrapper: ShallowWrapper = shallow(
-      <Modal title="Foo" isOpen={true}>
+      <Modal
+        isOpen={true}
+        header={<Modal.Header title="foo"/>}
+        footer={<Modal.Footer>Footer</Modal.Footer>}
+      >
         <Content />
       </Modal>);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it('should render modal with buttons', () => {
+  it('should render modal with header icon', () => {
     const wrapper: ShallowWrapper = shallow(
-      <Modal title="Foo" isOpen={true} buttons={[
-        <Button>OK</Button>,
-      ]}>
+      <Modal
+        isOpen={true}
+        header={<Modal.Header title="foo" icon={<Icons.Confirm/>}/>}
+        footer={<Modal.Footer>Footer</Modal.Footer>}
+      >
         <Content />
       </Modal>);
     expect(toJson(wrapper)).toMatchSnapshot();
