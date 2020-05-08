@@ -34,7 +34,7 @@ export default connect(mapStateToProviderProps)(({ dispatch, params }: any) => (
     dataSourceId={params.dataSourceId}
   >
     {
-      ({ dataSource, update, create }: DetailProviderState) => {
+      ({ dataSource, update, create, remove }: DetailProviderState) => {
         if (dataSource) {
           dispatch(createLoadDataSourceDetailAction(dataSource));
         }
@@ -63,6 +63,11 @@ export default connect(mapStateToProviderProps)(({ dispatch, params }: any) => (
           navigateToList();
         };
 
+        const onDelete = async () => {
+          await remove();
+          navigateToList();
+        };
+
         return (
           <View
             onSave={onSave}
@@ -71,6 +76,7 @@ export default connect(mapStateToProviderProps)(({ dispatch, params }: any) => (
             onUpdateField={onUpdateField}
             onRemoveField={onRemoveField}
             onCancel={navigateToList}
+            onDelete={onDelete}
           />
         );
       }

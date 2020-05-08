@@ -7,13 +7,13 @@ interface Props {
   onCancel: () => void;
 }
 
-const UnsavedModal: FunctionComponent<Props> = ({ onConfirm, onCancel }) => (
+const DeleteModal: FunctionComponent<Props> = ({ onConfirm, onCancel }) => (
   <Modal
     header={
       <Modal.Header
         icon={<Icons.Confirm />}
-        title="Discard unsaved change?"
-        subTitle="You've made changes that will be lost if you don't go back and save them."
+        title="Delete this data?"
+        subTitle="This can't be undone, or recovered later."
       />
     }
     isOpen={true}
@@ -28,4 +28,4 @@ const UnsavedModal: FunctionComponent<Props> = ({ onConfirm, onCancel }) => (
   </Modal>
 );
 
-export default UnsavedModal;
+export default DeleteModal;

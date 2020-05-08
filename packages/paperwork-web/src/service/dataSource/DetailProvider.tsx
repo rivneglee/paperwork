@@ -1,13 +1,14 @@
 import React, { ReactElement } from 'react';
 import { DataSource } from '../../schema/DataSource';
 import { Integration } from '../../integration';
-import { LOAD_DATASOURCE_DETAIL, UPDATE_DATASOURCE, CREATE_DATASOURCE } from './intents';
+import { LOAD_DATASOURCE_DETAIL, UPDATE_DATASOURCE, CREATE_DATASOURCE, DELETE_DATASOURCE } from './intents';
 
 export interface DetailProviderState {
   dataSource?: DataSource;
   load: () => Promise<DataSource>;
   update: (dataSource: DataSource) => Promise<void>;
   create: (dataSource: DataSource) => Promise<void>;
+  remove: () => Promise<void>;
 }
 
 interface Props {
@@ -72,6 +73,19 @@ export default class extends React.Component<Props> {
     });
   }
 
+  private remove = async () => {
+    const { dataSourceId, userId } = this.props;
+    const { integration } = this.props;
+    await integration.send({
+      intent: DELETE_DATASOURCE,
+      method: 'DELETE',
+      urlParams: {
+        userId,
+        dataSourceId,
+      },
+    });
+  }
+
   async componentDidMount() {
     const { dataSourceId } = this.props;
     if (dataSourceId !== 'new') {
@@ -88,6 +102,7 @@ export default class extends React.Component<Props> {
         load: this.load,
         update: this.update,
         create: this.create,
+        remove: this.remove,
       })
     );
   }

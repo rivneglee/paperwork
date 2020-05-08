@@ -13,7 +13,7 @@ import {
 
 import AppBar from '../../../../components/AppBar/AppBar';
 import { DataSource, Field } from '../../../../schema/DataSource';
-import { UnsavedModal } from '../../../../components/Modal';
+import { DeleteModal, UnsavedModal } from '../../../../components/Modal';
 
 interface Props {
   dataSource: DataSource;
@@ -23,7 +23,7 @@ interface Props {
   onAddField: (newField: Field, key: string, value: any) => void;
   onRemoveField: (index: number) => void;
   onSave: (dataSource: DataSource) => void;
-  onDelete?: (id: string) => void;
+  onDelete: () => void;
   onCancel: () => void;
 }
 
@@ -41,14 +41,11 @@ const DataSourceDetailPage: FunctionComponent<Props> = ({
   onRemoveField,
   onSave,
   onCancel,
+  onDelete,
 }) => {
   const [modalType, setModalType] = useState('');
 
   const { id } = dataSource;
-
-  const secondaryButtons = id ? [
-    <Button key="delete" size="m" color="danger" icon={<Icons.Delete />}>Delete</Button>,
-  ] : [];
 
   const onCloseModal = () => setModalType('');
 
@@ -59,6 +56,12 @@ const DataSourceDetailPage: FunctionComponent<Props> = ({
       onCancel();
     }
   };
+
+  const onClickDelete = () => setModalType('delete');
+
+  const secondaryButtons = id ? [
+    <Button key="delete" onClick={onClickDelete} size="m" color="danger" icon={<Icons.Delete />}>Delete</Button>,
+  ] : [];
 
   return (
     <BaseTemplate
@@ -114,6 +117,15 @@ const DataSourceDetailPage: FunctionComponent<Props> = ({
         <UnsavedModal
           onCancel={onCloseModal}
           onConfirm={onCancel}
+        />)
+      }
+      {modalType === 'delete' && (
+        <DeleteModal
+          onCancel={onCloseModal}
+          onConfirm={() => {
+            onCloseModal();
+            onDelete();
+          }}
         />)
       }
     </BaseTemplate>
