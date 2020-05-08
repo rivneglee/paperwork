@@ -1,103 +1,3 @@
-//.pw-modal-dialog {
-//  box-shadow: 0 17px 41px -21px rgb(0, 0, 0);
-//  background-color: white;
-//  border-radius: 25px;
-//  display: flex;
-//  flex-direction: column;
-//  transition: transform 0.4s ease;
-//  margin: auto;
-//  outline: none;
-//
-//  &__overlay {
-//    display: flex;
-//    position: fixed;
-//    top: 0px;
-//    left: 0px;
-//    right: 0px;
-//    bottom: 0px;
-//    background-color: rgba(0, 0, 0, 0.4);
-//    z-index: 999;
-//  }
-//
-//  &__header {
-//    color: $pw-palette-dusk-80;
-//    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-//    font-size: 1.2rem;
-//    font-weight: 700;
-//    letter-spacing: 0.02em;
-//    text-transform: uppercase;
-//    margin: 0;
-//    text-align: center;
-//    padding: 10px;
-//  }
-//
-//  &__content {
-//    padding: 2rem;
-//    flex-grow: 1;
-//    display: flex;
-//    justify-content: stretch;
-//    min-width: 250px;
-//    > div {
-//      height: auto;
-//    }
-//  }
-//
-//  &__footer {
-//    overflow: hidden;
-//    display: flex;
-//    width: 100%;
-//    min-height: 60px;
-//  }
-//
-//  &__flap {
-//    background-color: $pw-palette-dusk-90;
-//    border-bottom-left-radius: 25px;
-//    flex-grow: 2;
-//    min-width: 20px;
-//    display: block;
-//    margin: 0;
-//    padding: 0;
-//    transform-origin: 50% 0%;
-//    transition: transform 0.75s cubic-bezier(0.5, 3, 0.65, 0.45) 0.25s;
-//    &--left {}
-//
-//    &--right {
-//      border-bottom-left-radius: 0px;
-//      border-bottom-right-radius: 25px;
-//      left: auto;
-//      right: 0;
-//      transition-delay: 0.4s;
-//    }
-//  }
-//
-//  &__button {
-//    color: rgba(255, 255, 255, 0.95);
-//    background-color: $pw-palette-dusk-80;
-//    border: none;
-//    font-size: 1.25rem;
-//    font-weight: 300;
-//    line-height: 3;
-//    letter-spacing: 0.01em;
-//    text-transform: uppercase;
-//    padding: 0 2em;
-//    transform-origin: 50% 0%;
-//    transition: transform 0.75s cubic-bezier(0.5, 3, 0.65, 0.45) 0.3s;
-//    margin: 0px;
-//    border-radius: 0;
-//
-//    & + __button {
-//      transition-delay: 0.35s;
-//    }
-//
-//    &:hover {
-//      background-color: $pw-palette-dusk-90;
-//      transition: background-color  0.15s ease 0s, transform 0.15s ease 0s;
-//      transition-delay: 0s, 0s;
-//      transform: rotateX(-20deg);
-//    }
-//  }
-//}
-
 .pw-modal-dialog {
   box-shadow: 0 17px 41px -21px rgb(0, 0, 0);
   background-color: white;
@@ -111,6 +11,8 @@
   outline: none;
   padding: 1.5rem 1.5rem .5rem 1.5rem;
   max-width: 370px;
+  position: relative;
+  top: -10%;
 
   @media (min-width: $screen-sm-min) {
     max-width: none;
@@ -123,7 +25,7 @@
     left: 0px;
     right: 0px;
     bottom: 0px;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.1);
     z-index: 999;
   }
 
