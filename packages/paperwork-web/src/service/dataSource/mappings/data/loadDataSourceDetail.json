@@ -2,6 +2,14 @@
   "id": "1",
   "name": "Engagement survey 2020",
   "owner": "1",
-  "fields": [],
-  "collaborators": []
+  "fields": [
+    {
+      "id": "123",
+      "name": "Staff name"
+    },
+    {
+      "id": "321",
+      "name": "Voting level"
+    }
+  ]
 }

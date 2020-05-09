@@ -67,7 +67,6 @@ export interface Grant {
 export interface Field {
   id: string;
   name: string;
-  grants: Grant[];
 }
 
 export type DataSourceList = {
@@ -81,5 +80,4 @@ export interface DataSource {
   name: string;
   owner: UserIdentifier;
   fields: Field[];
-  collaborators: UserIdentifier[];
 }

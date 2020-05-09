@@ -333,6 +333,7 @@
   &--link {
     background-color: transparent;
     text-decoration: underline;
+    width: auto;
     &:hover{
       background-color: transparent;
       color: $pw-color-text-link;

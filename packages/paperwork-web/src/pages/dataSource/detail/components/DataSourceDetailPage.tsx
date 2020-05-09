@@ -1,19 +1,16 @@
 import React, { FunctionComponent, useState } from 'react';
 import {
   BaseTemplate,
-  Button,
-  ButtonRow,
   Card,
   Input,
-  LineItemTable,
   Separator,
-  Select,
-  Icons,
 } from '@paperwork/ui-widgets';
 
 import AppBar from '../../../../components/AppBar/AppBar';
 import { DataSource, Field } from '../../../../schema/DataSource';
-import { DeleteModal, UnsavedModal } from '../../../../components/Modal';
+import DataSourceDetailModal from './DataSourceDetailModal';
+import DataSourceDetailActions from './DataSourceDetailActions';
+import FieldsTable from './FieldsTable';
 
 interface Props {
   dataSource: DataSource;
@@ -25,12 +22,8 @@ interface Props {
   onSave: (dataSource: DataSource) => void;
   onDelete: () => void;
   onCancel: () => void;
+  onEditGrant?: (fieldId: string) => void;
 }
-
-const columnsConfig = [
-  { columnName: 'Name', style: { width: 200 }, textWrap: 'wrap' },
-  { columnName: 'Collaboration', textWrap: 'wrap' },
-];
 
 const DataSourceDetailPage: FunctionComponent<Props> = ({
   dataSource,
@@ -47,6 +40,8 @@ const DataSourceDetailPage: FunctionComponent<Props> = ({
 
   const { id } = dataSource;
 
+  const isCreating = !id;
+
   const onCloseModal = () => setModalType('');
 
   const onClickCancel = () => {
@@ -57,11 +52,9 @@ const DataSourceDetailPage: FunctionComponent<Props> = ({
     }
   };
 
-  const onClickDelete = () => setModalType('delete');
+  const onClickSave = () => onSave(dataSource);
 
-  const secondaryButtons = id ? [
-    <Button key="delete" onClick={onClickDelete} size="m" color="danger" icon={<Icons.Delete />}>Delete</Button>,
-  ] : [];
+  const onClickDelete = () => setModalType('delete');
 
   return (
     <BaseTemplate
@@ -80,54 +73,27 @@ const DataSourceDetailPage: FunctionComponent<Props> = ({
           onChange={(e: any) => onUpdateDetail('name', e.target.value)}
         />
         <Separator/>
-        <LineItemTable
-          columnsConfig={columnsConfig}
-          data={dataSource.fields}
-          onAddRow={onAddField}
-          onUpdateRow={onUpdateField}
-          onRemoveRow={onRemoveField}
-          renderRow={(index, field, onChange) => (
-            <LineItemTable.Row columnsConfig={columnsConfig}>
-              <LineItemTable.Item>
-                <Input value={field.name} onChange={(e: any) => onChange('name', e.target.value)}/>
-              </LineItemTable.Item>
-              <LineItemTable.Item>
-                <Select options={[]} isMultipleSelect />
-              </LineItemTable.Item>
-            </LineItemTable.Row>
-          )}
+        <FieldsTable
+          onAddField={onAddField}
+          onUpdateField={onUpdateField}
+          onRemoveField={onRemoveField}
+          fields={dataSource.fields}
         />
       </Card>
-      <ButtonRow
-        primary={[
-          <Button
-            key="save"
-            color="primary"
-            size="m"
-            icon={<Icons.Save />}
-            onClick={() => onSave(dataSource)}
-          >
-            Save
-          </Button>,
-          <Button key="cancel" onClick={onClickCancel} size="m" icon={<Icons.Cancel/>}>Cancel</Button>,
-        ]}
-        secondary={secondaryButtons}
+      <DataSourceDetailActions
+        isCreating={isCreating}
+        onClickCancel={onClickCancel}
+        onClickDelete={onClickDelete}
+        onClickSave={onClickSave}
       />
-      {modalType === 'unsave' && (
-        <UnsavedModal
-          onCancel={onCloseModal}
-          onConfirm={onCancel}
-        />)
-      }
-      {modalType === 'delete' && (
-        <DeleteModal
-          onCancel={onCloseModal}
-          onConfirm={() => {
-            onCloseModal();
-            onDelete();
-          }}
-        />)
-      }
+      { modalType && (
+          <DataSourceDetailModal
+            modalType={modalType}
+            onCloseModal={onCloseModal}
+            onCancel={onCancel}
+            onDelete={onDelete}
+          />
+       )}
     </BaseTemplate>
   );
 };

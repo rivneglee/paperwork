@@ -24,7 +24,6 @@ export const defaultState: DataSourceDetailPageState = {
     name: '',
     owner: '',
     fields: [],
-    collaborators: [],
   },
   isPageEdited: false,
 };
