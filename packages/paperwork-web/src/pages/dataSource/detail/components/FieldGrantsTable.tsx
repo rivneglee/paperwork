@@ -7,7 +7,7 @@ interface Props {
 
 }
 
-const FieldGrants: FunctionComponent<Props> = () => {
+const FieldGrantsTable: FunctionComponent<Props> = () => {
   return (
     <Drawer header={<h3>Permission</h3>} isShow={true}>
       TEST
@@ -15,4 +15,4 @@ const FieldGrants: FunctionComponent<Props> = () => {
   );
 };
 
-export default FieldGrants;
+export default FieldGrantsTable;

@@ -9,6 +9,7 @@ export interface DetailProviderState {
   update: (dataSource: DataSource) => Promise<void>;
   create: (dataSource: DataSource) => Promise<void>;
   remove: () => Promise<void>;
+  isInitializing: boolean;
 }
 
 interface Props {
@@ -19,6 +20,8 @@ interface Props {
 }
 
 export default class extends React.Component<Props> {
+  private isInitializing = true;
+
   state = {
     dataSource: undefined,
   };
@@ -87,6 +90,7 @@ export default class extends React.Component<Props> {
   }
 
   async componentDidMount() {
+    this.isInitializing = false;
     const { dataSourceId } = this.props;
     if (dataSourceId !== 'new') {
       await this.load();
@@ -103,6 +107,7 @@ export default class extends React.Component<Props> {
         update: this.update,
         create: this.create,
         remove: this.remove,
+        isInitializing: this.isInitializing,
       })
     );
   }

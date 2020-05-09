@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { Button, Input, LineItemTable } from '@paperwork/ui-widgets';
 
 import { Field } from '../../../../schema/DataSource';
+import FieldGrantsTable from './FieldGrantsTable';
 
 interface Props {
   fields: Field[];
@@ -45,7 +46,9 @@ const FieldsTable: FunctionComponent<Props> = ({
           </LineItemTable.Item>
         </LineItemTable.Row>
       )}
-    />
+    >
+      <FieldGrantsTable/>
+    </LineItemTable>
   );
 };
 

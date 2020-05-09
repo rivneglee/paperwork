@@ -6,6 +6,7 @@ import { Integration } from '../../integration';
 export interface ListProviderState {
   dataSourceList: DataSourceList;
   list: (options?: ListOptions) => Promise<DataSourceList>;
+  isInitializing: boolean;
 }
 
 interface Props {
@@ -23,6 +24,8 @@ export default class extends React.Component<Props> {
   state = {
     dataSourceList: [],
   };
+
+  private isInitializing = true;
 
   private list = async (options: ListOptions = {}) => {
     const { keyword } = options;
@@ -44,7 +47,8 @@ export default class extends React.Component<Props> {
   }
 
   async componentDidMount() {
-    return this.list();
+    this.isInitializing = false;
+    await this.list();
   }
 
   render() {
@@ -54,6 +58,7 @@ export default class extends React.Component<Props> {
       children({
         dataSourceList,
         list: this.list,
+        isInitializing: this.isInitializing,
       })
     );
   }
