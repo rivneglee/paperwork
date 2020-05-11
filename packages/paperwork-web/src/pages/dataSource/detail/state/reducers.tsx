@@ -147,7 +147,7 @@ const addGrant = (
   action: AddGrantAction,
 ) => {
   const { dataSourceDetail: { editingGrantsField, data } } = state;
-  const newGrant = { grantLevel: GrantLevel.READ_AND_WRITE, ...action.newGrant };
+  const newGrant = { level: GrantLevel.READ_AND_WRITE, ...action.newGrant };
   const newFields = data.fields.map((field) => {
     if (field.id === editingGrantsField) {
       return {

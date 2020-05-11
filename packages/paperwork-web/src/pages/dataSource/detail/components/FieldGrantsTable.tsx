@@ -52,7 +52,7 @@ const FieldGrantsTable: FunctionComponent<Props> = ({
               options={grantLevelOptions}
               disabled={index === grants.length}
               onChange={(value: any) => (
-                onChange('grantLevel', value)
+                onChange('level', value)
               )}
             />
           </LineItemTable.Item>
