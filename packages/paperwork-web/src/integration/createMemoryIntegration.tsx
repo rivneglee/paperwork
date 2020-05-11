@@ -13,7 +13,7 @@ const invoke = async (mapping: RequestFunctionMapping, request: Request) => {
     content,
   });
   console.log('Response:', response);
-  await sleep(3000);
+  await sleep(1000);
   return response;
 };
 

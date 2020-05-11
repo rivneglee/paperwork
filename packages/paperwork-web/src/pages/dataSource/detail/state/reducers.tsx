@@ -1,4 +1,4 @@
-import { DataSource } from '../../../../schema/DataSource';
+import { DataSource, GrantLevel } from '../../../../schema/DataSource';
 import {
   LoadDataSourceDetailAction,
   AddFieldAction,
@@ -10,12 +10,21 @@ import {
   RemoveFieldAction,
   UPDATE_DETAIL,
   UpdateDetailAction,
+  SetGrantFieldAction,
+  SET_GRANT_FIELD,
+  ADD_GRANT,
+  UPDATE_GRANT,
+  REMOVE_GRANT,
+  AddGrantAction,
+  UpdateGrantAction,
+  RemoveGrantAction,
 } from './actions';
 import { PageState } from '../../../../store';
 
 export interface DataSourceDetailPageState {
   data: DataSource;
   isPageEdited: boolean;
+  editingGrantsField?: string;
 }
 
 export const defaultState: DataSourceDetailPageState = {
@@ -26,6 +35,7 @@ export const defaultState: DataSourceDetailPageState = {
     fields: [],
   },
   isPageEdited: false,
+  editingGrantsField: undefined,
 };
 
 const loadDataSourceDetail = (
@@ -117,10 +127,115 @@ const updateDataSourceDetail = (
   },
 });
 
+const setGrantField = (
+  state: PageState,
+  action: SetGrantFieldAction,
+) => ({
+  ...state,
+  dataSourceDetail: {
+    ...state.dataSourceDetail,
+    editingGrantsField: action.fieldId,
+  },
+});
+
+const addGrant = (
+  state: PageState,
+  action: AddGrantAction,
+) => {
+  const { dataSourceDetail: { editingGrantsField, data } } = state;
+  const newGrant = { grantLevel: GrantLevel.READ_AND_WRITE, ...action.newGrant };
+  const newFields = data.fields.map((field) => {
+    if (field.id === editingGrantsField) {
+      return {
+        ...field,
+        grants: [...field.grants, newGrant],
+      };
+    }
+    return field;
+  });
+
+  return {
+    dataSourceDetail: {
+      ...state.dataSourceDetail,
+      isPageEdited: true,
+      data: {
+        ...state.dataSourceDetail.data,
+        fields: newFields,
+      },
+    },
+  };
+};
+
+const updateGrant = (
+  state: PageState,
+  action: UpdateGrantAction,
+) => {
+  const { dataSourceDetail: { editingGrantsField, data } } = state;
+  const newFields = data.fields.map((field) => {
+    if (field.id === editingGrantsField) {
+      const newGrants = field.grants.map((grant, index) => {
+        if (index !== action.index) return grant;
+        return {
+          ...grant,
+          [action.key]: action.value,
+        };
+      });
+      return {
+        ...field,
+        grants: newGrants,
+      };
+    }
+    return field;
+  });
+
+  return {
+    dataSourceDetail: {
+      ...state.dataSourceDetail,
+      isPageEdited: true,
+      data: {
+        ...state.dataSourceDetail.data,
+        fields: newFields,
+      },
+    },
+  };
+};
+
+const removeGrant = (
+  state: PageState,
+  action: RemoveGrantAction,
+) => {
+  const { dataSourceDetail: { editingGrantsField, data } } = state;
+  const newFields = data.fields.map((field) => {
+    if (field.id === editingGrantsField) {
+      const newGrants = field.grants.filter((_, index) => index !== action.index);
+      return {
+        ...field,
+        grants: newGrants,
+      };
+    }
+    return field;
+  });
+
+  return {
+    dataSourceDetail: {
+      ...state.dataSourceDetail,
+      isPageEdited: true,
+      data: {
+        ...state.dataSourceDetail.data,
+        fields: newFields,
+      },
+    },
+  };
+};
+
 export const mapping = {
   [LOAD_DATASOURCE_DETAIL]: loadDataSourceDetail,
   [UPDATE_DETAIL]: updateDataSourceDetail,
   [ADD_FIELD]: addDataSourceField,
   [UPDATE_FIELD]: updateDataSourceField,
   [REMOVE_FIELD]: removeDataSourceField,
+  [SET_GRANT_FIELD]: setGrantField,
+  [ADD_GRANT]:  addGrant,
+  [UPDATE_GRANT]: updateGrant,
+  [REMOVE_GRANT]: removeGrant,
 };

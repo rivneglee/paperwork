@@ -2,15 +2,19 @@ import React, { FunctionComponent, useState } from 'react';
 import {
   BaseTemplate,
   Card,
-  Input,
+  Drawer,
+  Input, Scrollable,
   Separator,
 } from '@paperwork/ui-widgets';
 
 import AppBar from '../../../../components/AppBar/AppBar';
-import { DataSource, Field } from '../../../../schema/DataSource';
+import { DataSource, Field, Grant } from '../../../../schema/DataSource';
 import DataSourceDetailModal from './DataSourceDetailModal';
 import DataSourceDetailActions from './DataSourceDetailActions';
 import FieldsTable from './FieldsTable';
+import FieldGrantsTable from './FieldGrantsTable';
+
+import './DataSourceDetailPage.scss';
 
 interface Props {
   dataSource: DataSource;
@@ -22,7 +26,11 @@ interface Props {
   onSave: (dataSource: DataSource) => void;
   onDelete: () => void;
   onCancel: () => void;
-  onEditGrant?: (fieldId: string) => void;
+  onEditGrant: (fieldId?: string) => void;
+  grantField: Field;
+  onAddGrant: (newGrant: Grant, key: string, value: any) => void;
+  onUpdateGrant: (index: number, key: string, value: string) => void;
+  onRemoveGrant: (index: number) => void;
 }
 
 const DataSourceDetailPage: FunctionComponent<Props> = ({
@@ -35,6 +43,11 @@ const DataSourceDetailPage: FunctionComponent<Props> = ({
   onSave,
   onCancel,
   onDelete,
+  onEditGrant,
+  onAddGrant,
+  onUpdateGrant,
+  onRemoveGrant,
+  grantField,
 }) => {
   const [modalType, setModalType] = useState('');
 
@@ -55,6 +68,8 @@ const DataSourceDetailPage: FunctionComponent<Props> = ({
   const onClickSave = () => onSave(dataSource);
 
   const onClickDelete = () => setModalType('delete');
+
+  const onCloseDrawer = () => onEditGrant();
 
   return (
     <BaseTemplate
@@ -77,6 +92,7 @@ const DataSourceDetailPage: FunctionComponent<Props> = ({
           onAddField={onAddField}
           onUpdateField={onUpdateField}
           onRemoveField={onRemoveField}
+          onEditGrant={onEditGrant}
           fields={dataSource.fields}
         />
       </Card>
@@ -94,6 +110,23 @@ const DataSourceDetailPage: FunctionComponent<Props> = ({
             onDelete={onDelete}
           />
        )}
+      <Drawer
+        placement="right"
+        header={<h3>Permission</h3>}
+        isShow={!!grantField}
+        onClose={onCloseDrawer}
+      >
+        <Scrollable className="pwapp-field-grants-table">
+          {grantField && (
+            <FieldGrantsTable
+              field={grantField}
+              onAddGrant={onAddGrant}
+              onUpdateGrant={onUpdateGrant}
+              onRemoveGrant={onRemoveGrant}
+            />
+          )}
+        </Scrollable>
+      </Drawer>
     </BaseTemplate>
   );
 };

@@ -17,3 +17,14 @@ export const getIsPageEdited = createSelector(
   getPage,
   page => page.isPageEdited,
 );
+
+export const getGrantField = createSelector(
+  getPage,
+  getDataSourceDetail,
+  (page, dataSource) => {
+    if (page.editingGrantsField) {
+      return dataSource.fields.find(({ id }) => id === page.editingGrantsField);
+    }
+    return null;
+  },
+);

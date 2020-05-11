@@ -5,11 +5,28 @@
   "fields": [
     {
       "id": "123",
-      "name": "Staff name"
+      "name": "STAFF_NAME",
+      "grants": [
+        {
+          "collaborator": {
+            "id": "123",
+            "displayName": "CHENG LI"
+          },
+          "grantLevel": "wr"
+        },
+        {
+          "collaborator": {
+            "id": "321",
+            "displayName": "JESSIE HAN"
+          },
+          "grantLevel": "r"
+        }
+      ]
     },
     {
       "id": "321",
-      "name": "Voting level"
+      "name": "RATING",
+      "grants": []
     }
   ]
 }

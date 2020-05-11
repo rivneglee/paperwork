@@ -6,19 +6,24 @@ import { DetailProvider, DetailProviderState } from '../../../../service/dataSou
 import { StoreState } from '../../../../store';
 import Spinner from '../../../../components/PageTransitionSpinner/Spinner';
 import DataSourceDetailPage from '../components/DataSourceDetailPage';
-import { DataSource, Field } from '../../../../schema/DataSource';
+import { DataSource, Field, Grant } from '../../../../schema/DataSource';
 import {
   createAddFieldAction,
+  createAddGrantAction,
   createLoadDataSourceDetailAction,
   createRemoveFieldAction,
+  createRemoveGrantAction,
+  createSetGrantFieldAction,
   createUpdateDetailAction,
   createUpdateFieldAction,
+  createUpdateGrantAction,
 } from '../state/actions';
-import { getDataSourceDetail, getIsPageEdited } from '../state/selectors';
+import { getDataSourceDetail, getGrantField, getIsPageEdited } from '../state/selectors';
 
 const mapStateToViewProps = (state: StoreState) => ({
   dataSource: getDataSourceDetail(state),
   isPageEdited: getIsPageEdited(state),
+  grantField: getGrantField(state),
 });
 
 const mapStateToProviderProps = (state: StoreState, ownProps: any) => ({
@@ -57,6 +62,18 @@ export default connect(mapStateToProviderProps)(({ dispatch, params }: any) => (
           dispatch(createRemoveFieldAction(index));
         };
 
+        const onAddGrant = (newGrant: Grant, key: string, value: any) => {
+          dispatch(createAddGrantAction(key, value));
+        };
+
+        const onUpdateGrant = (index: number, key: string, value: any) => {
+          dispatch(createUpdateGrantAction(index, key, value));
+        };
+
+        const onRemoveGrant = (index: number) => {
+          dispatch(createRemoveGrantAction(index));
+        };
+
         const onSave = async (dataSource: DataSource) => {
           const saveHandler = params.dataSourceId === 'new' ? create : update;
           await saveHandler(dataSource);
@@ -68,6 +85,10 @@ export default connect(mapStateToProviderProps)(({ dispatch, params }: any) => (
           navigateToList();
         };
 
+        const onEditGrant = (fieldId?: string) => (
+          dispatch(createSetGrantFieldAction(fieldId))
+        );
+
         return (
           <View
             onSave={onSave}
@@ -77,6 +98,10 @@ export default connect(mapStateToProviderProps)(({ dispatch, params }: any) => (
             onRemoveField={onRemoveField}
             onCancel={navigateToList}
             onDelete={onDelete}
+            onEditGrant={onEditGrant}
+            onAddGrant={onAddGrant}
+            onUpdateGrant={onUpdateGrant}
+            onRemoveGrant={onRemoveGrant}
           />
         );
       }
