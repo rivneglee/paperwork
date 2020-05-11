@@ -5,13 +5,17 @@ import toJson from 'enzyme-to-json';
 import LineItemTable from '../LineItemTable';
 import { Input } from '../../../form/Input';
 
+jest.mock('shortid', () => ({
+  generate: () => '123',
+}));
+
 describe('LineItemTable', () => {
   let wrapper: ShallowWrapper;
 
   const data = [
-    { name: 'CHENG LI', team: 'Customer Service', date: '02/03/2020' },
-    { name: 'SUN WEI', team: 'Customer Service', date: '02/03/2020' },
-    { name: 'LIPING ZHAO', team: 'Customer Service', date: '02/03/2020' },
+    { id: '1', name: 'CHENG LI', team: 'Customer Service', date: '02/03/2020' },
+    { id: '2', name: 'SUN WEI', team: 'Customer Service', date: '02/03/2020' },
+    { id: '3', name: 'LIPING ZHAO', team: 'Customer Service', date: '02/03/2020' },
   ];
 
   const columnsConfig = [

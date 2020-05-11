@@ -30,7 +30,7 @@ exports[`LineItemTable should render properly 1`] = `
   <Body>
     <Row
       className="pw-line-item-table__row"
-      key="XLODYgYo3"
+      key="1"
     >
       <LineItemTableRow
         columnsConfig={
@@ -81,7 +81,7 @@ exports[`LineItemTable should render properly 1`] = `
     </Row>
     <Row
       className="pw-line-item-table__row"
-      key="7592cCCm52"
+      key="2"
     >
       <LineItemTableRow
         columnsConfig={
@@ -132,7 +132,7 @@ exports[`LineItemTable should render properly 1`] = `
     </Row>
     <Row
       className="pw-line-item-table__row"
-      key="JpP9eEGcbY"
+      key="3"
     >
       <LineItemTableRow
         columnsConfig={
@@ -183,7 +183,7 @@ exports[`LineItemTable should render properly 1`] = `
     </Row>
     <Row
       className="pw-line-item-table__row"
-      key="W1f5RogLyF"
+      key="123"
     >
       <LineItemTableRow
         columnsConfig={
