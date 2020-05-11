@@ -1,7 +1,7 @@
 {
   "id": "1",
-  "name": "Engagement survey 2020",
-  "owner": "1",
+  "name": "Happy monday",
+  "owner": "99",
   "fields": [
     {
       "id": "123",
@@ -13,20 +13,21 @@
             "displayName": "CHENG LI"
           },
           "level": "wr"
-        },
-        {
-          "collaborator": {
-            "id": "321",
-            "displayName": "JESSIE HAN"
-          },
-          "level": "r"
         }
       ]
     },
     {
       "id": "321",
       "name": "RATING",
-      "grants": []
+      "grants": [
+        {
+          "collaborator": {
+            "id": "123",
+            "displayName": "CHENG LI"
+          },
+          "level": "r"
+        }
+      ]
     }
   ]
 }

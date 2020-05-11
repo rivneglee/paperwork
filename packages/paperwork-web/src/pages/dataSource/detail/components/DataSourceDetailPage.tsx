@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
 import {
+  Badge,
   BaseTemplate,
   Card,
   Drawer,
@@ -11,10 +12,11 @@ import AppBar from '../../../../components/AppBar/AppBar';
 import { DataSource, Field, Grant } from '../../../../schema/DataSource';
 import DataSourceDetailModal from './DataSourceDetailModal';
 import DataSourceDetailActions from './DataSourceDetailActions';
-import FieldsTable from './FieldsTable';
+import OwnerFieldsTable from './OwnerFieldsTable';
 import FieldGrantsTable from './FieldGrantsTable';
 
 import './DataSourceDetailPage.scss';
+import CollaboratorFieldsTable from './CollaboratorFieldsTable';
 
 interface Props {
   dataSource: DataSource;
@@ -31,6 +33,7 @@ interface Props {
   onAddGrant: (newGrant: Grant, key: string, value: any) => void;
   onUpdateGrant: (index: number, key: string, value: string) => void;
   onRemoveGrant: (index: number) => void;
+  isOwner: boolean;
 }
 
 const DataSourceDetailPage: FunctionComponent<Props> = ({
@@ -48,6 +51,7 @@ const DataSourceDetailPage: FunctionComponent<Props> = ({
   onUpdateGrant,
   onRemoveGrant,
   grantField,
+  isOwner,
 }) => {
   const [modalType, setModalType] = useState('');
 
@@ -77,7 +81,9 @@ const DataSourceDetailPage: FunctionComponent<Props> = ({
     >
       <Card
         header={
-          <h3>Datasource details</h3>
+          <h3>Datasource details {
+            !isOwner && <Badge color="secondary">Collaborative</Badge>
+          }</h3>
         }>
         <Input
           value={dataSource.name}
@@ -85,19 +91,27 @@ const DataSourceDetailPage: FunctionComponent<Props> = ({
           isRequired
           labelPlacement="top"
           size="s"
+          disabled={!isOwner}
           onChange={(e: any) => onUpdateDetail('name', e.target.value)}
         />
         <Separator/>
-        <FieldsTable
-          onAddField={onAddField}
-          onUpdateField={onUpdateField}
-          onRemoveField={onRemoveField}
-          onEditGrant={onEditGrant}
-          fields={dataSource.fields}
-        />
+        {
+          isOwner ? (
+            <OwnerFieldsTable
+              onAddField={onAddField}
+              onUpdateField={onUpdateField}
+              onRemoveField={onRemoveField}
+              onEditGrant={onEditGrant}
+              fields={dataSource.fields}
+            />
+          ) : (
+            <CollaboratorFieldsTable fields={dataSource.fields} />
+          )
+        }
       </Card>
       <DataSourceDetailActions
         isCreating={isCreating}
+        isOwner={isOwner}
         onClickCancel={onClickCancel}
         onClickDelete={onClickDelete}
         onClickSave={onClickSave}

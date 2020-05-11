@@ -18,12 +18,13 @@ import {
   createUpdateFieldAction,
   createUpdateGrantAction,
 } from '../state/actions';
-import { getDataSourceDetail, getGrantField, getIsPageEdited } from '../state/selectors';
+import { getDataSourceDetail, getGrantField, getIsOwner, getIsPageEdited } from '../state/selectors';
 
 const mapStateToViewProps = (state: StoreState) => ({
   dataSource: getDataSourceDetail(state),
   isPageEdited: getIsPageEdited(state),
   grantField: getGrantField(state),
+  isOwner: getIsOwner(state),
 });
 
 const mapStateToProviderProps = (state: StoreState, ownProps: any) => ({

@@ -2,6 +2,7 @@
   &__container {
     width: 100%;
     box-sizing: border-box;
+    position: relative;
   }
 
   &__row {
@@ -99,7 +100,9 @@
 .pw-line-item-table {
   &__row {
     &:last-child {
-      opacity: 0.4;
+      > * {
+        opacity: 0.4;
+      }
       .pw-line-item-table__remove-button {
         visibility: hidden;
       }

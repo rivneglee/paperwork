@@ -52,17 +52,21 @@ const loadDataSourceDetail = (
 const addDataSourceField = (
   state: PageState,
   action: AddFieldAction,
-) => ({
-  ...state,
-  dataSourceDetail: {
-    ...state.dataSourceDetail,
-    isPageEdited: true,
-    data: {
-      ...state.dataSourceDetail.data,
-      fields: [...state.dataSourceDetail.data.fields, action.newField],
+) => {
+  const newField = { grants:[], ...action.newField };
+
+  return ({
+    ...state,
+    dataSourceDetail: {
+      ...state.dataSourceDetail,
+      isPageEdited: true,
+      data: {
+        ...state.dataSourceDetail.data,
+        fields: [...state.dataSourceDetail.data.fields, newField],
+      },
     },
-  },
-});
+  });
+};
 
 const updateDataSourceField = (
   state: PageState,

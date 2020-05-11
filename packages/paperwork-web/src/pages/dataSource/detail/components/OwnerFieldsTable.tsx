@@ -16,7 +16,7 @@ const columnsConfig = [
   { columnName: 'Collaboration', textWrap: 'wrap', style: { width: 200 } },
 ];
 
-const FieldsTable: FunctionComponent<Props> = ({
+const OwnerFieldsTable: FunctionComponent<Props> = ({
   fields = [],
   onAddField,
   onUpdateField,
@@ -53,4 +53,4 @@ const FieldsTable: FunctionComponent<Props> = ({
   />
 );
 
-export default FieldsTable;
+export default OwnerFieldsTable;

@@ -48,7 +48,7 @@ const FieldGrantsTable: FunctionComponent<Props> = ({
           </LineItemTable.Item>
           <LineItemTable.Item>
             <Select
-              selectedValue={grant.grantLevel}
+              selectedValue={grant.level}
               options={grantLevelOptions}
               disabled={index === grants.length}
               onChange={(value: any) => (

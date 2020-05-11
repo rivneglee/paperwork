@@ -7,6 +7,7 @@ import {
 } from '../intents';
 import loadDataSource from './data/loadDataSource.json';
 import loadDataSourceDetail from './data/loadDataSourceDetail.json';
+import loadCollaborativeDataSourceDetail from './data/loadCollaborativeDataSourceDetail.json';
 import { ListOptions } from '../ListProvider';
 
 const MemoryMapping = {
@@ -17,7 +18,9 @@ const MemoryMapping = {
     }
     return loadDataSource;
   },
-  [LOAD_DATASOURCE_DETAIL]: () => loadDataSourceDetail,
+  [LOAD_DATASOURCE_DETAIL]: ({ urlParams }: any) => (
+    urlParams.dataSourceId % 2 !== 0 ? loadDataSourceDetail : loadCollaborativeDataSourceDetail
+  ),
   [UPDATE_DATASOURCE]: () => {},
   [CREATE_DATASOURCE]: () => {},
   [DELETE_DATASOURCE]: () => {},

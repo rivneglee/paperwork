@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 
 import { DataSourceDetailPageState } from './reducers';
-import { getPageSection } from '../../../../store/selectors';
+import { getAuthentication, getPageSection } from '../../../../store/selectors';
 
 const getPage = createSelector(
   getPageSection,
@@ -26,5 +26,16 @@ export const getGrantField = createSelector(
       return dataSource.fields.find(({ id }) => id === page.editingGrantsField);
     }
     return null;
+  },
+);
+
+export const getIsOwner = createSelector(
+  getDataSourceDetail,
+  getAuthentication,
+  (dataSource, auth) => {
+    if (!auth) return false;
+    const { user } = auth;
+    const { owner } = dataSource;
+    return owner === user.id || owner === '';
   },
 );
