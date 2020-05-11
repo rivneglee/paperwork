@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Modal, Button } from '../../../src';
+import { Modal, Button, ButtonRow, Icons } from '../../../src';
 
 export default () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,12 +10,23 @@ export default () => {
       <Button color="primary" type="outlined" onClick={() => setIsOpen(true)}>
         Open modal
       </Button>
-      <Modal title="Save your changes?" isOpen={isOpen} buttons={[
-        <Button onClick={() => setIsOpen(false)} size="m">YES</Button>,
-        <Button onClick={() => setIsOpen(false)} size="m">NO</Button>,
-        <Button onClick={() => setIsOpen(false)} size="m">CANCEL</Button>,
-      ]}>
-        You've made some changes, do you want to save it?
+      <Modal
+        header={
+          <Modal.Header
+            icon={<Icons.Confirm />}
+            title="Discard unsaved change?"
+            subTitle="You've made changes that will be lost if you don't go back and save them."
+          />
+        }
+        isOpen={isOpen}
+        footer={
+          <Modal.Footer>
+            <ButtonRow primary={[
+              <Button color="primary" size="s" onClick={() => setIsOpen(false)}>Yes</Button>,
+              <Button size="s" onClick={() => setIsOpen(false)}>No</Button>,
+            ]}/>
+          </Modal.Footer>
+        }>
       </Modal>
     </div>
   );

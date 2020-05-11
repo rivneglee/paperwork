@@ -3,7 +3,7 @@ import ReactSelect from 'react-select';
 
 import { FieldGroup } from '../FieldGroup';
 
-interface SelectOption {
+export interface SelectOption {
   value: string | number;
   label: string;
 }
@@ -20,6 +20,7 @@ interface Props {
   isMultipleSelect?: boolean;
   onChange?: (value: SelectedValue) => void;
   size?: 'xs' | 's' | 'm' | 'l' | 'xl';
+  labelPlacement?: 'left' | 'top';
 }
 
 const Select: FunctionComponent<Props> = ({
@@ -32,6 +33,7 @@ const Select: FunctionComponent<Props> = ({
   disabled = false,
   onChange,
   size,
+  labelPlacement = 'left',
 }) => {
   let selection = null;
   if (selectedValue instanceof Array) {
@@ -56,7 +58,13 @@ const Select: FunctionComponent<Props> = ({
   };
 
   return (
-    <FieldGroup label={label} isRequired={isRequired} labelAccessory={labelAccessory} size={size}>
+    <FieldGroup
+      label={label}
+      isRequired={isRequired}
+      labelAccessory={labelAccessory}
+      size={size}
+      labelPlacement={labelPlacement}
+    >
       <ReactSelect
         isMulti={isMultipleSelect}
         options={options}

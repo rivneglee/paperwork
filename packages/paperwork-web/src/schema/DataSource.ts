@@ -53,14 +53,14 @@
 //   };
 // }
 
-import { UserIdentifier } from './User';
+import { User, UserIdentifier } from './User';
 
 export enum GrantLevel {
   READ = 'r', WRITE = 'w', READ_AND_WRITE = 'wr',
 }
 
 export interface Grant {
-  collaborator: UserIdentifier;
+  collaborator: User;
   level: GrantLevel;
 }
 
@@ -81,5 +81,4 @@ export interface DataSource {
   name: string;
   owner: UserIdentifier;
   fields: Field[];
-  collaborators: UserIdentifier[];
 }

@@ -16,8 +16,7 @@ describe('AuthenticationProvider', () => {
   let mockIntegration: Integration;
   beforeEach(() => {
     mockIntegration = ({
-      read: jest.fn(() => Promise.resolve(authentication)),
-      write: jest.fn(() => Promise.resolve()),
+      send: jest.fn(() => Promise.resolve(authentication)),
     });
   });
 
@@ -44,7 +43,7 @@ describe('AuthenticationProvider', () => {
     });
 
     it('integration method should be called', () => {
-      expect(mockIntegration.read).toBeCalledWith({
+      expect(mockIntegration.send).toBeCalledWith({
         intent: AUTHENTICATE,
         params: {
           username: 'u',
@@ -82,7 +81,7 @@ describe('AuthenticationProvider', () => {
     });
 
     it('integration method should not be called', () => {
-      expect(mockIntegration.read).not.toBeCalled();
+      expect(mockIntegration.send).not.toBeCalled();
     });
 
     it('storage setter method should not be called', () => {

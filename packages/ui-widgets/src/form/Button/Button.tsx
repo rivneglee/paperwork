@@ -7,7 +7,7 @@ interface Props {
   onClick?: (e: SyntheticEvent) => void;
   type?: 'outlined' | 'text' | 'link';
   size?: 'xs' | 's' | 'm' | 'l' | 'xl';
-  color?: 'primary' | 'secondary';
+  color?: 'primary' | 'secondary' | 'danger';
   shadow?: boolean;
   className?: string;
   disabled?: boolean;

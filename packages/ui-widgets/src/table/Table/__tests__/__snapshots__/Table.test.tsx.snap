@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table should render properly 1`] = `
+<div
+  className="pw-table__container"
+>
+  <Header>
+    <RowItem>
+      Column A
+    </RowItem>
+    <RowItem>
+      Column B
+    </RowItem>
+  </Header>
+  <Row>
+    <RowItem
+      columnName="Column A"
+    >
+      A
+    </RowItem>
+    <RowItem
+      columnName="Column B"
+    >
+      B
+    </RowItem>
+  </Row>
+</div>
+`;

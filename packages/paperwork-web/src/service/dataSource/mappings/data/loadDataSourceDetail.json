@@ -1,0 +1,32 @@
+{
+  "id": "1",
+  "name": "Engagement survey 2020",
+  "owner": "1",
+  "fields": [
+    {
+      "id": "123",
+      "name": "STAFF_NAME",
+      "grants": [
+        {
+          "collaborator": {
+            "id": "123",
+            "displayName": "CHENG LI"
+          },
+          "level": "wr"
+        },
+        {
+          "collaborator": {
+            "id": "321",
+            "displayName": "JESSIE HAN"
+          },
+          "level": "r"
+        }
+      ]
+    },
+    {
+      "id": "321",
+      "name": "RATING",
+      "grants": []
+    }
+  ]
+}

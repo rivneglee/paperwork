@@ -16,26 +16,17 @@ exports[`Modal should render modal when it not opened 1`] = `
   shouldFocusAfterRender={true}
   shouldReturnFocusAfterClose={true}
 >
-  <div
-    className="pw-modal-dialog__header"
-  >
-    Foo
-  </div>
+  <ModalHeader
+    title="foo"
+  />
   <div
     className="pw-modal-dialog__content"
   >
     <Content />
   </div>
-  <div
-    className="pw-modal-dialog__footer"
-  >
-    <div
-      className="pw-modal-dialog__flap pw-modal-dialog__flap--left"
-    />
-    <div
-      className="pw-modal-dialog__flap pw-modal-dialog__flap--right"
-    />
-  </div>
+  <ModalFooter>
+    Footer
+  </ModalFooter>
 </Modal>
 `;
 
@@ -55,30 +46,21 @@ exports[`Modal should render modal when it opened 1`] = `
   shouldFocusAfterRender={true}
   shouldReturnFocusAfterClose={true}
 >
-  <div
-    className="pw-modal-dialog__header"
-  >
-    Foo
-  </div>
+  <ModalHeader
+    title="foo"
+  />
   <div
     className="pw-modal-dialog__content"
   >
     <Content />
   </div>
-  <div
-    className="pw-modal-dialog__footer"
-  >
-    <div
-      className="pw-modal-dialog__flap pw-modal-dialog__flap--left"
-    />
-    <div
-      className="pw-modal-dialog__flap pw-modal-dialog__flap--right"
-    />
-  </div>
+  <ModalFooter>
+    Footer
+  </ModalFooter>
 </Modal>
 `;
 
-exports[`Modal should render modal with buttons 1`] = `
+exports[`Modal should render modal with header icon 1`] = `
 <Modal
   ariaHideApp={false}
   bodyOpenClassName="ReactModal__Body--open"
@@ -94,31 +76,17 @@ exports[`Modal should render modal with buttons 1`] = `
   shouldFocusAfterRender={true}
   shouldReturnFocusAfterClose={true}
 >
-  <div
-    className="pw-modal-dialog__header"
-  >
-    Foo
-  </div>
+  <ModalHeader
+    icon={<Unknown />}
+    title="foo"
+  />
   <div
     className="pw-modal-dialog__content"
   >
     <Content />
   </div>
-  <div
-    className="pw-modal-dialog__footer"
-  >
-    <div
-      className="pw-modal-dialog__flap pw-modal-dialog__flap--left"
-    />
-    <Button
-      className="pw-modal-dialog__button"
-      key="button_0"
-    >
-      OK
-    </Button>
-    <div
-      className="pw-modal-dialog__flap pw-modal-dialog__flap--right"
-    />
-  </div>
+  <ModalFooter>
+    Footer
+  </ModalFooter>
 </Modal>
 `;

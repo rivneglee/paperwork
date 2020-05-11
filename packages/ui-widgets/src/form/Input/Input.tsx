@@ -10,6 +10,7 @@ interface Props {
   disabled?: boolean;
   isRequired?: boolean;
   labelAccessory?: ReactElement;
+  labelPlacement?: 'left' | 'top';
   onChange?: (e: SyntheticEvent) => void;
   onKeyDown?: (e: SyntheticEvent) => void;
   size?: 'xs' | 's' | 'm' | 'l' | 'xl';
@@ -37,25 +38,43 @@ class Input extends React.Component<Props> {
   render() {
     const {
       type = 'outlined',
-      value,
-      placeholder,
       label,
       isRequired,
       labelAccessory,
-      disabled = false,
-      options = {},
-      onChange,
-      onKeyDown,
+      labelPlacement,
+      options,
       size,
       left,
       right,
       className,
+      value = '',
+      ...otherProps
     } = this.props;
 
     const { hasFocus } = this.state;
+    const inputProps = {
+      value,
+      ...otherProps,
+      className: 'pw-input__control',
+      onFocus: this.onInputFocus,
+      onBlur: this.onInputBlur,
+    };
+
+    const inputView = options ? (
+      <Cleave
+        {...inputProps}
+        options={options}
+      />
+    ) : <input {...inputProps} />;
 
     return (
-      <FieldGroup label={label} isRequired={isRequired} labelAccessory={labelAccessory} size={size}>
+      <FieldGroup
+        label={label}
+        isRequired={isRequired}
+        labelAccessory={labelAccessory}
+        size={size}
+        labelPlacement={labelPlacement}
+      >
         <div
           className={
             classNames(
@@ -68,21 +87,7 @@ class Input extends React.Component<Props> {
           {
             left && <span className="pw-input__left">{left}</span>
           }
-          <Cleave
-            className={
-              classNames(
-                'pw-input__control',
-              )
-            }
-            value={value}
-            placeholder={placeholder}
-            onKeyDown={onKeyDown}
-            onChange={onChange}
-            onFocus={this.onInputFocus}
-            onBlur={this.onInputBlur}
-            options={options}
-            disabled={disabled}
-          />
+          {inputView}
           {
             right && <span className="pw-input__right">{right}</span>
           }

@@ -42,62 +42,82 @@
   @media (min-width: 768px) {
     min-width: 64px;
     width: auto;
+
+    &--size-xs {
+      width: 3rem;
+    }
+
+    &--size-s {
+      width: 5rem;
+    }
+
+    &--size-m {
+      width: 7rem;
+    }
+
+    &--size-l {
+      width: 10rem;
+    }
+
+    &--size-xl {
+      width: 13rem;
+    }
   }
 
   &--color-primary {
     color: white;
-    background-color: $pw-palette-dusk-80;
+    background-color: $pw-palette-dusk-130;
     svg {
       fill: white;
     }
 
     &.pw-button--outlined {
-      border-color: $pw-palette-dusk-80;
-      color: $pw-palette-dusk-80;
+      border-color: $pw-palette-dusk-130;
+      color: $pw-palette-dusk-130;
       svg {
-        fill: $pw-palette-dusk-80;
+        fill: $pw-palette-dusk-130;
       }
       &:hover{
         background-color: $pw-palette-dusk-50;
-        color: $pw-palette-dusk-80;
+        color: $pw-palette-dusk-130;
         svg {
-          fill: $pw-palette-dusk-80;
+          fill: $pw-palette-dusk-130;
         }
       }
       &:active {
         background-color: $pw-palette-dusk-60;
-        color: $pw-palette-dusk-80;
+        color: $pw-palette-dusk-130;
         svg {
-          fill: $pw-palette-dusk-80;
+          fill: $pw-palette-dusk-130;
         }
       }
     }
 
     &.pw-button--text {
-      color: $pw-palette-dusk-80;
+      color: $pw-palette-dusk-130;
       svg {
-        fill: $pw-palette-dusk-80;
+        fill: $pw-palette-dusk-130;
       }
       &:hover{
         background-color: $pw-palette-dusk-50;
-        color: $pw-palette-dusk-80;
+        color: $pw-palette-dusk-130;
         svg {
-          fill: $pw-palette-dusk-80;
+          fill: $pw-palette-dusk-130;
         }
       }
       &:active {
         background-color: $pw-palette-dusk-60;
-        color: $pw-palette-dusk-80;
+        color: $pw-palette-dusk-130;
         svg {
-          fill: $pw-palette-dusk-80;
+          fill: $pw-palette-dusk-130;
         }
       }
     }
 
     &.pw-button--link {
-      color: $pw-palette-dusk-80;
+      color: $pw-palette-dusk-130;
       svg {
-        fill: $pw-palette-dusk-80;
+        fill: $pw-palette-dusk-130;
       }
     }
 
@@ -198,6 +218,86 @@
     }
   }
 
+  &--color-danger {
+    color: white;
+    background-color: $pw-palette-berry;
+    svg {
+      fill: white;
+    }
+
+    &.pw-button--outlined {
+      border-color: $pw-palette-berry;
+      color: $pw-palette-berry;
+      svg {
+        fill: $pw-palette-berry;
+      }
+      &:hover{
+        background-color: $pw-palette-berry-light;
+        color: white;
+        svg {
+          fill: white;
+        }
+      }
+      &:active {
+        background-color: $pw-palette-berry;
+        color: white;
+        svg {
+          fill: white;
+        }
+      }
+    }
+
+    &.pw-button--text {
+      color: $pw-palette-berry;
+      svg {
+        fill: $pw-palette-berry;
+      }
+      &:hover{
+        background-color: $pw-palette-berry-light;
+        color: white;
+        svg {
+          fill: white;
+        }
+      }
+      &:active {
+        background-color: $pw-palette-berry-light;
+        color: white;
+        svg {
+          fill: white;
+        }
+      }
+    }
+
+    &.pw-button--link {
+      color: $pw-palette-berry;
+      svg {
+        fill: $pw-palette-berry;
+      }
+      &:hover {
+        color: $pw-palette-berry-dark;
+        svg {
+          fill: $pw-palette-berry-dark;
+        }
+      }
+    }
+
+    &:hover{
+      background-color: $pw-palette-berry-light;
+      color: white;
+      svg {
+        fill: white;
+      }
+    }
+
+    &:active{
+      background-color: $pw-palette-berry;
+      color: white;
+      svg {
+        fill: white;
+      }
+    }
+  }
+
   &--shadow {
     box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);
   }
@@ -233,6 +333,7 @@
   &--link {
     background-color: transparent;
     text-decoration: underline;
+    width: auto;
     &:hover{
       background-color: transparent;
       color: $pw-color-text-link;
@@ -247,26 +348,6 @@
         fill: $pw-color-text-link;
       }
     }
-  }
-
-  &--size-xs {
-    width: 3rem;
-  }
-
-  &--size-s {
-    width: 5rem;
-  }
-
-  &--size-m {
-    width: 7rem;
-  }
-
-  &--size-l {
-    width: 10rem;
-  }
-
-  &--size-xl {
-    width: 13rem;
   }
 
   &--disabled {

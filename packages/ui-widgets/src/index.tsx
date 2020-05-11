@@ -8,6 +8,7 @@ export * from './layout/Modal';
 export * from './graphic/Avater';
 export * from './graphic/Spinner';
 export * from './graphic/Badge';
+export * from './graphic/Separator';
 export { default as Icons } from './graphic/Icons';
 
 export * from './form/FieldGroup';
@@ -20,8 +21,13 @@ export * from './form/Button';
 export * from './form/RichEditor';
 export * from './form/Input';
 export * from './form/Search';
+export * from './form/ButtonRow';
+export * from './form/AutoComplete';
 
 export * from './template/BaseTemplate';
 
 export * from './message/Tooltip';
 export * from './message/PageState';
+
+export * from './table/Table';
+export * from './table/LineItemTable';

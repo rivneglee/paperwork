@@ -1,0 +1,33 @@
+{
+  "id": "1",
+  "name": "Happy monday",
+  "owner": "99",
+  "fields": [
+    {
+      "id": "123",
+      "name": "STAFF_NAME",
+      "grants": [
+        {
+          "collaborator": {
+            "id": "123",
+            "displayName": "CHENG LI"
+          },
+          "level": "wr"
+        }
+      ]
+    },
+    {
+      "id": "321",
+      "name": "RATING",
+      "grants": [
+        {
+          "collaborator": {
+            "id": "123",
+            "displayName": "CHENG LI"
+          },
+          "level": "r"
+        }
+      ]
+    }
+  ]
+}

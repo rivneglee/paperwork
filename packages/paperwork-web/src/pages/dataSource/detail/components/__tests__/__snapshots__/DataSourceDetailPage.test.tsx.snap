@@ -1,0 +1,198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataSourceDetailPage should render properly if logged in as owner 1`] = `
+<li
+  header={<AppBar />}
+>
+  <i
+    header={
+      <h3>
+        Datasource details 
+      </h3>
+    }
+  >
+    <t
+      disabled={false}
+      isRequired={true}
+      label="Datasource name"
+      labelPlacement="top"
+      onChange={[Function]}
+      size="s"
+      value="Engagement survey 2020"
+    />
+    <S />
+    <OwnerFieldsTable
+      fields={
+        Array [
+          Object {
+            "grants": Array [],
+            "id": "123",
+            "name": "STAFF_NAME",
+          },
+        ]
+      }
+      onAddField={[Function]}
+      onEditGrant={[Function]}
+      onRemoveField={[Function]}
+      onUpdateField={[Function]}
+    />
+  </i>
+  <DataSourceDetailActions
+    isCreating={false}
+    isOwner={true}
+    onClickCancel={[Function]}
+    onClickDelete={[Function]}
+    onClickSave={[Function]}
+  />
+  <v
+    header={
+      <h3>
+        Permission
+      </h3>
+    }
+    isShow={false}
+    onClose={[Function]}
+    placement="right"
+  >
+    <y
+      className="pwapp-field-grants-table"
+    />
+  </v>
+</li>
+`;
+
+exports[`DataSourceDetailPage should render properly if not datasource owner 1`] = `
+<li
+  header={<AppBar />}
+>
+  <i
+    header={
+      <h3>
+        Datasource details 
+        <D
+          color="secondary"
+        >
+          Collaborative
+        </D>
+      </h3>
+    }
+  >
+    <t
+      disabled={true}
+      isRequired={true}
+      label="Datasource name"
+      labelPlacement="top"
+      onChange={[Function]}
+      size="s"
+      value="Engagement survey 2020"
+    />
+    <S />
+    <CollaboratorFieldsTable
+      fields={
+        Array [
+          Object {
+            "grants": Array [],
+            "id": "123",
+            "name": "STAFF_NAME",
+          },
+        ]
+      }
+    />
+  </i>
+  <DataSourceDetailActions
+    isCreating={false}
+    isOwner={false}
+    onClickCancel={[Function]}
+    onClickDelete={[Function]}
+    onClickSave={[Function]}
+  />
+  <v
+    header={
+      <h3>
+        Permission
+      </h3>
+    }
+    isShow={false}
+    onClose={[Function]}
+    placement="right"
+  >
+    <y
+      className="pwapp-field-grants-table"
+    />
+  </v>
+</li>
+`;
+
+exports[`DataSourceDetailPage should render properly when grantField is given 1`] = `
+<li
+  header={<AppBar />}
+>
+  <i
+    header={
+      <h3>
+        Datasource details 
+      </h3>
+    }
+  >
+    <t
+      disabled={false}
+      isRequired={true}
+      label="Datasource name"
+      labelPlacement="top"
+      onChange={[Function]}
+      size="s"
+      value="Engagement survey 2020"
+    />
+    <S />
+    <OwnerFieldsTable
+      fields={
+        Array [
+          Object {
+            "grants": Array [],
+            "id": "123",
+            "name": "STAFF_NAME",
+          },
+        ]
+      }
+      onAddField={[Function]}
+      onEditGrant={[Function]}
+      onRemoveField={[Function]}
+      onUpdateField={[Function]}
+    />
+  </i>
+  <DataSourceDetailActions
+    isCreating={false}
+    isOwner={true}
+    onClickCancel={[Function]}
+    onClickDelete={[Function]}
+    onClickSave={[Function]}
+  />
+  <v
+    header={
+      <h3>
+        Permission
+      </h3>
+    }
+    isShow={true}
+    onClose={[Function]}
+    placement="right"
+  >
+    <y
+      className="pwapp-field-grants-table"
+    >
+      <FieldGrantsTable
+        field={
+          Object {
+            "grants": Array [],
+            "id": "123",
+            "name": "STAFF_NAME",
+          }
+        }
+        onAddGrant={[Function]}
+        onRemoveGrant={[Function]}
+        onUpdateGrant={[Function]}
+      />
+    </y>
+  </v>
+</li>
+`;

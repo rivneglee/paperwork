@@ -3,8 +3,7 @@ import { shallow, ShallowWrapper } from 'enzyme';
 import Provider from '../Provider';
 
 const mockIntegration = ({
-  read: jest.fn(() => Promise.resolve('read')),
-  write: jest.fn(() => Promise.resolve('write')),
+  send: jest.fn(() => Promise.resolve('send')),
 });
 
 jest.mock('../createIntegration', () => jest.fn(() => (mockIntegration)));
@@ -51,10 +50,10 @@ describe('Provider', () => {
     });
   });
 
-  describe('integration read', () => {
+  describe('integration send', () => {
     let response: string;
     beforeAll((done) => {
-      wrapper.find(Consumer).props().integration.read({
+      wrapper.find(Consumer).props().integration.send({
         intent: 'READ_SOMETHING',
         method: 'GET',
       }).then((payload: string) => {
@@ -64,37 +63,13 @@ describe('Provider', () => {
     });
 
     it('should receive response', () => {
-      expect(response).toBe('read');
+      expect(response).toBe('send');
     });
 
     it('should call mock integration method', () => {
-      expect(mockIntegration.read).toBeCalledWith({
+      expect(mockIntegration.send).toBeCalledWith({
         intent: 'READ_SOMETHING',
         method: 'GET',
-      });
-    });
-  });
-
-  describe('integration write', () => {
-    let response: string;
-    beforeAll((done) => {
-      wrapper.find(Consumer).props().integration.write({
-        intent: 'WRITE_SOMETHING',
-        method: 'POST',
-      }).then((payload: string) => {
-        response = payload;
-        done();
-      });
-    });
-
-    it('should receive response', () => {
-      expect(response).toBe('write');
-    });
-
-    it('should call mock integration method', () => {
-      expect(mockIntegration.write).toBeCalledWith({
-        intent: 'WRITE_SOMETHING',
-        method: 'POST',
       });
     });
   });

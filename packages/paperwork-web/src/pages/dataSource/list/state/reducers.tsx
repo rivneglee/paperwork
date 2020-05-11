@@ -1,33 +1,40 @@
 import { LOAD_DATASOURCE_LIST, UPDATE_FILTER_OPTION, UpdateFilterOptionAction , LoadDataSourceAction } from './actions';
 import { DataSourceList } from '../../../../schema/DataSource';
 import { FilterOptions } from '../components/DataSourceListPage';
+import { PageState } from '../../../../store';
+
+export const defaultState: DataSourceListPageState = {
+  filterOptions: {},
+  data: [],
+};
 
 export interface DataSourceListPageState {
   filterOptions: FilterOptions;
   data: DataSourceList;
 }
 
-const defaultState: DataSourceListPageState = {
-  filterOptions: {},
-  data: [],
-};
-
 const loadDataSourceList = (
-  state: DataSourceListPageState = defaultState,
+  state: PageState,
   action: LoadDataSourceAction,
 ) => ({
   ...state,
-  data: action.data || [],
+  dataSourceList: {
+    ...state.dataSourceList,
+    data: action.data || [],
+  },
 });
 
 const updateFilterOption = (
-  state: DataSourceListPageState = defaultState,
+  state: PageState,
   action: UpdateFilterOptionAction,
 ) => ({
   ...state,
-  filterOptions: {
-    ...state.filterOptions,
-    [action.key]: action.value,
+  dataSourceList: {
+    ...state.dataSourceList,
+    filterOptions: {
+      ...state.dataSourceList.filterOptions,
+      [action.key]: action.value,
+    },
   },
 });
 

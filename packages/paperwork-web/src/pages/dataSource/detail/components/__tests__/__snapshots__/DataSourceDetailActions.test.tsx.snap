@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataSourceDetailActions should render properly when creating new 1`] = `
+<ii
+  primary={
+    Array [
+      <Uo
+        color="primary"
+        icon={<Save />}
+        onClick={[Function]}
+        size="m"
+    >
+        Save
+    </Uo>,
+      <Uo
+        icon={<Cancel />}
+        onClick={[Function]}
+        size="m"
+    >
+        Cancel
+    </Uo>,
+    ]
+  }
+  secondary={Array []}
+/>
+`;
+
+exports[`DataSourceDetailActions should render properly when editing collaborative datasource 1`] = `
+<ii
+  primary={
+    Array [
+      <Uo
+        icon={<Cancel />}
+        onClick={[Function]}
+        size="m"
+    >
+        Cancel
+    </Uo>,
+    ]
+  }
+  secondary={Array []}
+/>
+`;
+
+exports[`DataSourceDetailActions should render properly when editing owned datasource 1`] = `
+<ii
+  primary={
+    Array [
+      <Uo
+        color="primary"
+        icon={<Save />}
+        onClick={[Function]}
+        size="m"
+    >
+        Save
+    </Uo>,
+      <Uo
+        icon={<Cancel />}
+        onClick={[Function]}
+        size="m"
+    >
+        Cancel
+    </Uo>,
+    ]
+  }
+  secondary={
+    Array [
+      <Uo
+        color="danger"
+        icon={<Delete />}
+        onClick={[Function]}
+        size="m"
+    >
+        Delete
+    </Uo>,
+    ]
+  }
+/>
+`;

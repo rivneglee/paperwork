@@ -6,12 +6,14 @@ import { Integration } from '../../integration';
 export interface ListProviderState {
   dataSourceList: DataSourceList;
   list: (options?: ListOptions) => Promise<DataSourceList>;
+  isInitializing: boolean;
 }
 
 interface Props {
   children: (integrationState: ListProviderState) => ReactElement | null;
   onLoadList?: (dataSourceList: DataSourceList) => void;
   integration: Integration;
+  userId: string;
 }
 
 export interface ListOptions {
@@ -23,12 +25,17 @@ export default class extends React.Component<Props> {
     dataSourceList: [],
   };
 
+  private isInitializing = true;
+
   private list = async (options: ListOptions = {}) => {
     const { keyword } = options;
-    const { integration } = this.props;
-    const dataSourceList = await integration.read({
+    const { integration, userId } = this.props;
+    const dataSourceList = await integration.send({
       intent: LOAD_DATASOURCE_LIST,
       method: 'GET',
+      urlParams: {
+        userId,
+      },
       params: {
         keyword,
       },
@@ -40,7 +47,8 @@ export default class extends React.Component<Props> {
   }
 
   async componentDidMount() {
-    return this.list();
+    this.isInitializing = false;
+    await this.list();
   }
 
   render() {
@@ -50,6 +58,7 @@ export default class extends React.Component<Props> {
       children({
         dataSourceList,
         list: this.list,
+        isInitializing: this.isInitializing,
       })
     );
   }

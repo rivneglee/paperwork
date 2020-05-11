@@ -22,6 +22,13 @@ import DataSource from './DataSource';
 import Template from './Template';
 import Logo from './Logo';
 import Search from './Search';
+import Trash from './Trash';
+import Save from './Save';
+import Delete from './Delete';
+import Cancel from './Cancel';
+import Duplicate from './Duplicate';
+import Confirm from './Confirm';
+import Error from './Error';
 
 export default {
   Add,
@@ -48,4 +55,11 @@ export default {
   Template,
   Logo,
   Search,
+  Trash,
+  Save,
+  Duplicate,
+  Delete,
+  Cancel,
+  Confirm,
+  Error,
 };

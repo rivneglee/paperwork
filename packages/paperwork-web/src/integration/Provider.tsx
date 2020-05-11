@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import createIntegration from './createIntegration';
-import { Integration, ReadRequest, WriteRequest } from './types';
+import { Integration, Request } from './types';
 
 interface Props {
   mappings: any;
@@ -25,22 +25,11 @@ export default class extends React.Component<Props, State> {
     this.integration = createIntegration(mappings);
   }
 
-  private read = async (request: ReadRequest) => {
+  private send = async (request: Request) => {
     this.setState({
       isProcessing: true,
     });
-    const response = await this.integration.read(request);
-    this.setState({
-      isProcessing: false,
-    });
-    return response;
-  }
-
-  private write = async (request: WriteRequest) => {
-    this.setState({
-      isProcessing: true,
-    });
-    const response = await this.integration.write(request);
+    const response = await this.integration.send(request);
     this.setState({
       isProcessing: false,
     });
@@ -55,8 +44,7 @@ export default class extends React.Component<Props, State> {
         { isProcessing && spinner }
         {
           children({
-            read: this.read,
-            write: this.write,
+            send: this.send,
           }, isProcessing)
         }
       </>

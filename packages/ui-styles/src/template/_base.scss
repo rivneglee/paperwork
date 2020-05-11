@@ -20,5 +20,8 @@
   &__inner {
     max-width: 76.8rem;
     flex-grow: 1;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
   }
 }
