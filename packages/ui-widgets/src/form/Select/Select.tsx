@@ -3,7 +3,7 @@ import ReactSelect from 'react-select';
 
 import { FieldGroup } from '../FieldGroup';
 
-interface SelectOption {
+export interface SelectOption {
   value: string | number;
   label: string;
 }

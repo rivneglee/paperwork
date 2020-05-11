@@ -1,37 +1,29 @@
 import React, { FunctionComponent, ReactElement } from 'react';
-import ReactSelect from 'react-select';
 import AsyncSelect from 'react-select/async';
 
 import { FieldGroup } from '../FieldGroup';
 
-export interface SelectOption {
-  value: string | number;
-  label: string;
-}
-
-type SelectedValue = string | string[] | number | number[] | undefined;
-
 interface Props {
-  options: SelectOption[];
-  selectedValue?: SelectedValue;
+  value?: any | any[];
   label?: ReactElement | string;
   disabled?: boolean;
   isRequired?: boolean;
   labelAccessory?: ReactElement;
   isMultipleSelect?: boolean;
-  onChange?: (value: SelectedValue) => void;
+  onChange?: (value: any | any[]) => void;
   size?: 'xs' | 's' | 'm' | 'l' | 'xl';
   labelPlacement?: 'left' | 'top';
-  loadOptions?: (inputValue: string) => Promise<SelectOption[]>;
+  loadOptions: (inputValue: string) => Promise<any[]>;
   noOptionsMessage?: string;
+  getOptionLabel?: (option: any) => any;
+  getOptionValue?: (option: any) => any;
 }
 
-const Select: FunctionComponent<Props> = ({
+const AutoComplete: FunctionComponent<Props> = ({
   label,
   isRequired,
   labelAccessory,
-  options = [],
-  selectedValue,
+  value = [],
   isMultipleSelect = false,
   disabled = false,
   onChange,
@@ -39,58 +31,17 @@ const Select: FunctionComponent<Props> = ({
   labelPlacement = 'left',
   loadOptions,
   noOptionsMessage,
+  getOptionLabel,
+  getOptionValue,
 }) => {
-  let selection = null;
-  if (selectedValue instanceof Array) {
-    selection = (selectedValue as []).map((
-      s => options.find(o => o.value === s)
-    ));
-  } else {
-    selection = options.find(o => o.value === selectedValue);
-  }
-
-  const onValueChange = (selection: SelectOption | SelectOption[]) => {
-    let currentValue;
-    if (selection && (selection as SelectOption).value) {
-      currentValue = (selection as SelectOption).value;
-    } else if (selection instanceof Array) {
-      currentValue = selection.map(s => s.value) as string[];
+  const getNoOptionsMessage = ({ inputValue }: any) => {
+    if (inputValue) {
+      return noOptionsMessage || 'No records found';
     }
-
-    if (onChange) {
-      onChange(currentValue);
-    }
+    return null;
   };
 
-  const getNoOptionsMessage = () => {
-    const defaultMessage = loadOptions ? 'Type in keyword to search options' : 'No options';
-    return noOptionsMessage || defaultMessage;
-  };
-
-  const view = loadOptions ? (
-    <AsyncSelect
-      isMulti={isMultipleSelect}
-      options={options}
-      className="pw-select"
-      classNamePrefix="pw-select"
-      onChange={onValueChange}
-      defaultValue={selection}
-      isDisabled={disabled}
-      loadOptions={loadOptions}
-      noOptionsMessage={getNoOptionsMessage}
-    />
-  ) : (
-    <ReactSelect
-      isMulti={isMultipleSelect}
-      options={options}
-      className="pw-select"
-      classNamePrefix="pw-select"
-      onChange={onValueChange}
-      defaultValue={selection}
-      isDisabled={disabled}
-      noOptionsMessage={getNoOptionsMessage}
-    />
-  );
+  const options = value instanceof Array ? value : [value];
 
   return (
     <FieldGroup
@@ -100,9 +51,23 @@ const Select: FunctionComponent<Props> = ({
       size={size}
       labelPlacement={labelPlacement}
     >
-      {view}
+      <AsyncSelect
+        isMulti={isMultipleSelect}
+        options={options}
+        getOptionLabel={getOptionLabel}
+        getOptionValue={getOptionValue}
+        placeholder=""
+        className="pw-select"
+        classNamePrefix="pw-select"
+        onChange={onChange}
+        defaultValue={value}
+        isDisabled={disabled}
+        loadOptions={loadOptions}
+        components={{ DropdownIndicator:() => null }}
+        noOptionsMessage={getNoOptionsMessage}
+      />
     </FieldGroup>
   );
 };
 
-export default Select;
+export default AutoComplete;

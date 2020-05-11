@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Button, Input, LineItemTable } from '@paperwork/ui-widgets';
+import { Badge, Button, Input, LineItemTable } from '@paperwork/ui-widgets';
 
 import { Field } from '../../../../schema/DataSource';
 
@@ -37,11 +37,14 @@ const FieldsTable: FunctionComponent<Props> = ({
         <LineItemTable.Item>
           {
             index !== fields.length && (
-              <Button
-                type="link"
-                color="primary"
-                onClick={() => onEditGrant(field.id)}
-              >Manage</Button>
+              <>
+                <Badge>{`${field.grants.length} collaborators`}</Badge>
+                <Button
+                  type="link"
+                  color="primary"
+                  onClick={() => onEditGrant(field.id)}
+                >Manage</Button>
+              </>
             )
           }
         </LineItemTable.Item>
