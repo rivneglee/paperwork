@@ -1,0 +1,231 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LineItemTable should render properly 1`] = `
+<Table>
+  <Header>
+    <HeaderItem
+      key="Name"
+    >
+      Name
+    </HeaderItem>
+    <HeaderItem
+      key="Team"
+    >
+      Team
+    </HeaderItem>
+    <HeaderItem
+      key="On boarding date"
+      style={
+        Object {
+          "width": 200,
+        }
+      }
+    >
+      On boarding date
+    </HeaderItem>
+    <RowItem
+      className="pw-line-item-table__remove"
+    />
+  </Header>
+  <Body>
+    <Row
+      className="pw-line-item-table__row"
+      key="XLODYgYo3"
+    >
+      <LineItemTableRow
+        columnsConfig={
+          Array [
+            Object {
+              "columnName": "Name",
+            },
+            Object {
+              "columnName": "Team",
+            },
+            Object {
+              "columnName": "On boarding date",
+              "style": Object {
+                "width": 200,
+              },
+            },
+          ]
+        }
+      >
+        <LineItemTableRowItem>
+          <Input
+            value="CHENG LI"
+          />
+        </LineItemTableRowItem>
+        <LineItemTableRowItem>
+          <Input
+            value="Customer Service"
+          />
+        </LineItemTableRowItem>
+        <LineItemTableRowItem>
+          <Input
+            value="02/03/2020"
+          />
+        </LineItemTableRowItem>
+      </LineItemTableRow>
+      <RowItem
+        className="pw-line-item-table__remove"
+        columnName="Remove"
+        hideLabel={true}
+      >
+        <IconButton
+          className="pw-line-item-table__remove-button"
+          onClick={[Function]}
+        >
+          <Component />
+        </IconButton>
+      </RowItem>
+    </Row>
+    <Row
+      className="pw-line-item-table__row"
+      key="7592cCCm52"
+    >
+      <LineItemTableRow
+        columnsConfig={
+          Array [
+            Object {
+              "columnName": "Name",
+            },
+            Object {
+              "columnName": "Team",
+            },
+            Object {
+              "columnName": "On boarding date",
+              "style": Object {
+                "width": 200,
+              },
+            },
+          ]
+        }
+      >
+        <LineItemTableRowItem>
+          <Input
+            value="SUN WEI"
+          />
+        </LineItemTableRowItem>
+        <LineItemTableRowItem>
+          <Input
+            value="Customer Service"
+          />
+        </LineItemTableRowItem>
+        <LineItemTableRowItem>
+          <Input
+            value="02/03/2020"
+          />
+        </LineItemTableRowItem>
+      </LineItemTableRow>
+      <RowItem
+        className="pw-line-item-table__remove"
+        columnName="Remove"
+        hideLabel={true}
+      >
+        <IconButton
+          className="pw-line-item-table__remove-button"
+          onClick={[Function]}
+        >
+          <Component />
+        </IconButton>
+      </RowItem>
+    </Row>
+    <Row
+      className="pw-line-item-table__row"
+      key="JpP9eEGcbY"
+    >
+      <LineItemTableRow
+        columnsConfig={
+          Array [
+            Object {
+              "columnName": "Name",
+            },
+            Object {
+              "columnName": "Team",
+            },
+            Object {
+              "columnName": "On boarding date",
+              "style": Object {
+                "width": 200,
+              },
+            },
+          ]
+        }
+      >
+        <LineItemTableRowItem>
+          <Input
+            value="LIPING ZHAO"
+          />
+        </LineItemTableRowItem>
+        <LineItemTableRowItem>
+          <Input
+            value="Customer Service"
+          />
+        </LineItemTableRowItem>
+        <LineItemTableRowItem>
+          <Input
+            value="02/03/2020"
+          />
+        </LineItemTableRowItem>
+      </LineItemTableRow>
+      <RowItem
+        className="pw-line-item-table__remove"
+        columnName="Remove"
+        hideLabel={true}
+      >
+        <IconButton
+          className="pw-line-item-table__remove-button"
+          onClick={[Function]}
+        >
+          <Component />
+        </IconButton>
+      </RowItem>
+    </Row>
+    <Row
+      className="pw-line-item-table__row"
+      key="W1f5RogLyF"
+    >
+      <LineItemTableRow
+        columnsConfig={
+          Array [
+            Object {
+              "columnName": "Name",
+            },
+            Object {
+              "columnName": "Team",
+            },
+            Object {
+              "columnName": "On boarding date",
+              "style": Object {
+                "width": 200,
+              },
+            },
+          ]
+        }
+      >
+        <LineItemTableRowItem>
+          <Input />
+        </LineItemTableRowItem>
+        <LineItemTableRowItem>
+          <Input />
+        </LineItemTableRowItem>
+        <LineItemTableRowItem>
+          <Input />
+        </LineItemTableRowItem>
+      </LineItemTableRow>
+      <RowItem
+        className="pw-line-item-table__remove"
+        columnName="Remove"
+        hideLabel={true}
+      >
+        <IconButton
+          className="pw-line-item-table__remove-button"
+          onClick={[Function]}
+        >
+          <Component />
+        </IconButton>
+      </RowItem>
+    </Row>
+  </Body>
+</Table>
+`;
