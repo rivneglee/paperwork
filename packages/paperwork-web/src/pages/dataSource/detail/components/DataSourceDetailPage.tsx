@@ -29,7 +29,7 @@ interface Props {
   onDelete: () => void;
   onCancel: () => void;
   onEditGrant: (fieldId?: string) => void;
-  grantField: Field;
+  grantField?: Field;
   onAddGrant: (newGrant: Grant, key: string, value: any) => void;
   onUpdateGrant: (index: number, key: string, value: string) => void;
   onRemoveGrant: (index: number) => void;
