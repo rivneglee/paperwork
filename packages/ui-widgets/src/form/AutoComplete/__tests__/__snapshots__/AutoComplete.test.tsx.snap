@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AutoComplete should render properly 1`] = `
+<FieldGroup
+  labelPlacement="left"
+>
+  <Async
+    cacheOptions={false}
+    className="pw-select"
+    classNamePrefix="pw-select"
+    components={
+      Object {
+        "DropdownIndicator": [Function],
+      }
+    }
+    defaultOptions={false}
+    defaultValue={
+      Object {
+        "displayName": "Red",
+        "id": "r",
+      }
+    }
+    filterOption={null}
+    getOptionLabel={[Function]}
+    getOptionValue={[Function]}
+    isDisabled={false}
+    isLoading={false}
+    isMulti={false}
+    loadOptions={[Function]}
+    noOptionsMessage={[Function]}
+    options={
+      Array [
+        Object {
+          "displayName": "Red",
+          "id": "r",
+        },
+      ]
+    }
+    placeholder=""
+  />
+</FieldGroup>
+`;
