@@ -24,6 +24,8 @@ const Search: FunctionComponent<Props> = ({
 }: Props) => {
   const onKeyDown = (e: KeyboardEvent) => {
     if (e.keyCode === 13 && onApply) {
+      // @ts-ignore
+      e.target.blur();
       onApply();
     }
   };
