@@ -3,10 +3,12 @@ import { RouterState } from 'connected-react-router';
 import { DataSourceListPageState } from '../pages/dataSource/list/state/reducers';
 import { DataSourceDetailPageState } from '../pages/dataSource/detail/state/reducers';
 import { Authentication } from '../schema/User';
+import { TemplateListPageState } from '../pages/template/list/state/reducers';
 
 export type PageState = {
   dataSourceList: DataSourceListPageState;
   dataSourceDetail: DataSourceDetailPageState;
+  templateList: TemplateListPageState;
 };
 
 export interface StoreState {
