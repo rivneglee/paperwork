@@ -1,0 +1,366 @@
+@use "sass:map";
+
+.pw-picture-chip {
+  width: 80%;
+  min-width: 280px;
+
+  $banner-color: $pw-palette-dusk-100;
+  $banner-corner-color: $pw-palette-dusk-dark;
+  $content-color: $pw-palette-dusk-50;
+  $footer-color: $pw-palette-dusk-72;
+
+  &--size-s {
+    width: 280px;
+  }
+
+  &--size-m {
+    width: 300px;
+  }
+
+  &--size-l {
+    width: 350px;
+  }
+
+  &__container {
+    position: relative;
+    height: 0;
+    padding-bottom: calc(100% - 16px);
+    margin-bottom: 6.6em;
+  }
+
+  &__body {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 16px;
+    left: 16px;
+    box-shadow: 0 17px 41px -21px rgb(0, 0, 0);
+  }
+
+  &__img-container {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    transition: all 0.3s;
+  }
+
+  &__hero-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__action-button {
+    position: absolute;
+    right: 16px;
+    top: 15px;
+    border-radius: 50%;
+    border: 5px solid;
+    width: 54px;
+    height: 54px;
+    line-height: 44px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    z-index: 20;
+    transition: all 0.3s;
+    background-color: $banner-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+    .pw-icon {
+      fill: white;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    top: 100%;
+    right: 30px;
+    left: 30px;
+    bottom: 54px;
+    overflow: hidden;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transition: all 1.2s;
+  }
+
+  &__footer {
+    height: 0;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  h2 {
+    position: absolute;
+    background-color: $banner-color;
+    top: calc(100% - 16px);
+    left: 0;
+    width: 100%;
+    padding: 10px 16px;
+    color: #fff;
+    font-size: 1.2em;
+    line-height: 1.6em;
+    margin: 0;
+    z-index: 10;
+    box-sizing: border-box;
+    transition: all 0.3s;
+
+    span {
+      display: block;
+    }
+    strong {
+      font-weight: 400;
+      display: block;
+      font-size: .7em;
+    }
+    &:before,
+    &:after {
+      content: ' ';
+      position: absolute;
+      left: 0;
+      top: -16px;
+      width: 0;
+      border: 8px solid;
+    }
+    &:after {
+      top: auto;
+      bottom: 0;
+      border-top-color: $banner-color;
+      border-right-color: $banner-color;
+      border-bottom-color: transparent;
+      border-left-color: transparent;
+    }
+
+    &:before {
+      border-top-color: transparent;
+      border-right-color: $banner-corner-color;
+      border-bottom-color: $banner-corner-color;
+      border-left-color: transparent;
+    }
+  }
+
+  &--active {
+    .pw-picture-chip__action-button {
+      top: 62px;
+      color: $content-color;
+    }
+
+    .pw-picture-chip__img-container {
+      border-radius: 50%;
+      left: 0;
+      top: 12px;
+      width: 50px;
+      height: 50px;
+      z-index: 20;
+    }
+
+    .pw-picture-chip__body {
+      background-color: $content-color;
+    }
+
+    .pw-picture-chip__content {
+      top: 50px;
+      padding-top: 5.6em;
+      opacity: 1;
+    }
+
+    .pw-picture-chip__footer {
+      overflow: visible;
+      position: absolute;
+      top: calc(100% - 16px);
+      left: 16px;
+      right: 0;
+      height: 82px;
+      background-color: $footer-color;
+      display: flex;
+      align-items: center;
+    }
+
+    h2 {
+      top: 0;
+      padding: 10px 16px 10px 90px;
+
+      &:after {
+        bottom: -16px;
+        border-top-color: $banner-corner-color;
+        border-right-color: $banner-corner-color;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+      }
+
+      &:before {
+        top: 0;
+        border-top-color: transparent;
+        border-right-color: $banner-color;
+        border-bottom-color: $banner-color;
+        border-left-color: transparent;
+      }
+    }
+  }
+
+  $colours: (
+          red: (
+                  banner-color: #F44336,
+                  banner-corner-color: #B71C1C,
+                  content-color: #FFEBEE,
+                  footer-color: #FFCDD2,
+          ),
+          pink: (
+                  banner-color: #E91E63,
+                  banner-corner-color: #880E4F,
+                  content-color: #FCE4EC,
+                  footer-color: #F8BBD0,
+          ),
+          purple: (
+                  banner-color: #9C27B0,
+                  banner-corner-color: #4A148C,
+                  content-color: #F3E5F5,
+                  footer-color: #E1BEE7,
+          ),
+          indigo: (
+                  banner-color: #3F51B5,
+                  banner-corner-color: #1A237E,
+                  content-color: #E8EAF6,
+                  footer-color: #C5CAE9,
+          ),
+          blue: (
+                  banner-color: #2196F3,
+                  banner-corner-color: #0D47A1,
+                  content-color: #E3F2FD,
+                  footer-color: #BBDEFB,
+          ),
+          light-blue: (
+                  banner-color: #03A9F4,
+                  banner-corner-color: #01579B,
+                  content-color: #E1F5FE,
+                  footer-color: #B3E5FC,
+          ),
+          cyan: (
+                  banner-color: #00BCD4,
+                  banner-corner-color: #006064,
+                  content-color: #E0F7FA,
+                  footer-color: #B2EBF2,
+          ),
+          teal: (
+                  banner-color: #009688,
+                  banner-corner-color: #004D40,
+                  content-color: #E0F2F1,
+                  footer-color: #B2DFDB,
+          ),
+          green: (
+                  banner-color: #4CAF50,
+                  banner-corner-color: #1B5E20,
+                  content-color: #E8F5E9,
+                  footer-color: #C8E6C9,
+          ),
+          light-green: (
+                  banner-color: #8BC34A,
+                  banner-corner-color: #33691E,
+                  content-color: #F1F8E9,
+                  footer-color: #DCEDC8,
+          ),
+          lime: (
+                  banner-color: #CDDC39,
+                  banner-corner-color: #827717,
+                  content-color: #F9FBE7,
+                  footer-color: #F0F4C3,
+          ),
+          yellow: (
+                  banner-color: #FFEB3B,
+                  banner-corner-color: #F57F17,
+                  content-color: #FFFDE7,
+                  footer-color: #FFF9C4,
+          ),
+          amber: (
+                  banner-color: #FFC107,
+                  banner-corner-color: #FF6F00,
+                  content-color: #FFF8E1,
+                  footer-color: #FFECB3,
+          ),
+          orange: (
+                  banner-color: #FF9800,
+                  banner-corner-color: #E65100,
+                  content-color: #FFF3E0,
+                  footer-color: #FFE0B2,
+          ),
+          deep-orange: (
+                  banner-color: #FF5722,
+                  banner-corner-color: #BF360C,
+                  content-color: #FBE9E7,
+                  footer-color: #FFCCBC,
+          ),
+          brown: (
+                  banner-color: #795548,
+                  banner-corner-color: #3E2723,
+                  content-color: #EFEBE9,
+                  footer-color: #D7CCC8,
+          ),
+          grey: (
+                  banner-color: #9E9E9E,
+                  banner-corner-color: #212121,
+                  content-color: #FAFAFA,
+                  footer-color: #F5F5F5,
+          ),
+          blue-grey: (
+                  banner-color: #607D8B,
+                  banner-corner-color: #263238,
+                  content-color: #ECEFF1,
+                  footer-color: #CFD8DC,
+          ),
+  );
+
+  @each $color, $vars in $colours
+  {
+    &--color-#{$color} {
+      $banner-color: map_get($vars, 'banner-color');
+      $banner-corner-color: map_get($vars, 'banner-corner-color');
+      $content-color: map_get($vars, 'content-color');
+      $footer-color: map_get($vars, 'footer-color');
+
+      .pw-picture-chip__action-button {
+        background-color: $banner-color;
+      }
+
+      h2 {
+        background-color: $banner-color;
+      }
+
+      h2:after {
+        border-top-color: $banner-color;
+        border-right-color: $banner-color;
+      }
+
+      h2:before {
+        border-right-color: $banner-corner-color;
+        border-bottom-color: $banner-corner-color;
+      }
+
+      .pw-picture-chip--active h2:after {
+        border-top-color: $banner-corner-color;
+        border-right-color: $banner-corner-color;
+      }
+
+      .pw-picture-chip--active h2:before {
+        border-right-color: $banner-color;
+        border-bottom-color: $banner-color;
+      }
+
+      .pw-picture-chip__body {
+        background-color: $content-color;
+      }
+
+      .pw-picture-chip__footer {
+        background-color: $footer-color;
+      }
+    }
+  }
+}

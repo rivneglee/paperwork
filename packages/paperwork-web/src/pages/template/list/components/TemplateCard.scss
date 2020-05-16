@@ -1,0 +1,15 @@
+import React, { FunctionComponent } from 'react';
+import { Card } from '@paperwork/ui-widgets';
+import AppBar from '../../../../components/AppBar/AppBar';
+
+interface Props {}
+
+const TemplateCard: FunctionComponent<Props> = ({}) => (
+  <Card
+    header={<AppBar />}
+  >
+    Template list
+  </Card>
+);
+
+export default TemplateCard;

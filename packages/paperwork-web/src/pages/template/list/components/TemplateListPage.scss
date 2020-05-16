@@ -1,0 +1,26 @@
+import React, { FunctionComponent } from 'react';
+import { BaseTemplate, QuickAdd, Search } from '@paperwork/ui-widgets';
+import AppBar from '../../../../components/AppBar/AppBar';
+import TemplateCard from './TemplateCard';
+import StickySideBar from '../../../../components/StickySideBar/StickySideBar';
+
+interface Props {}
+
+const TemplateListPage: FunctionComponent<Props> = ({}) => (
+  <BaseTemplate
+    header={<AppBar />}
+  >
+    <div className="pwapp-template__container">
+      <StickySideBar>
+        <Search
+          placeholder="Search"
+        />
+        <QuickAdd color="secondary">
+        </QuickAdd>
+      </StickySideBar>
+      <TemplateCard />
+    </div>
+  </BaseTemplate>
+);
+
+export default TemplateListPage;
