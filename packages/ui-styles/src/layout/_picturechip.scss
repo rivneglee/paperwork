@@ -60,8 +60,8 @@
     top: 15px;
     border-radius: 50%;
     border: 5px solid;
-    width: 54px;
-    height: 54px;
+    width: 44px;
+    height: 44px;
     line-height: 44px;
     text-align: center;
     color: #fff;
@@ -150,7 +150,7 @@
 
   &--active {
     .pw-picture-chip__action-button {
-      top: 62px;
+      top: 50px;
       color: $content-color;
     }
 
@@ -169,8 +169,9 @@
 
     .pw-picture-chip__content {
       top: 50px;
-      padding-top: 5.6em;
+      padding-top: 4em;
       opacity: 1;
+      height: 100%;
     }
 
     .pw-picture-chip__footer {
@@ -179,7 +180,7 @@
       top: calc(100% - 16px);
       left: 16px;
       right: 0;
-      height: 82px;
+      height: 72px;
       background-color: $footer-color;
       display: flex;
       align-items: center;
