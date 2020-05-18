@@ -1,7 +1,7 @@
-import { PageList } from '../../../../schema/Paper';
+import { TemplateList } from '../../../../schema/Template';
 
 export interface TemplateListPageState {
-  entries: PageList;
+  entries: TemplateList;
 }
 
 export const defaultState: TemplateListPageState = {

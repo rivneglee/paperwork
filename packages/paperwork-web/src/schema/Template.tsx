@@ -1,25 +1,20 @@
-export interface PaperItem {
+import { User } from './User';
+import { Layout, PaperItem, PaperType } from './Paper';
+
+export interface Template {
   id: string;
-  type: string;
-  options: any;
+  name: string;
+  author: User;
+  type: PaperType;
+  tags: string[];
+  heroImage: string;
 }
 
-export interface LayoutReference {
-  id: string;
+export interface Item extends PaperItem {}
+
+export interface TemplateDetail extends Template {
+  layout: Layout;
+  items: { [key: string]: Item };
 }
 
-export enum LayoutTypes {
-  Page = 'page', SimpleList = 'simple-list', Item = 'item',
-}
-
-export interface LayoutLinkedNode {
-  id: string;
-  type: LayoutTypes;
-  childRefs: LayoutReference[];
-}
-
-export type Layout = LayoutLinkedNode[];
-
-export enum PaperType {
-  FORM = 'Form', REPORT = 'Report',
-}
+export type TemplateList = Template[];

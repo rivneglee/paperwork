@@ -8,7 +8,7 @@ import {
   Separator,
 } from '@paperwork/ui-widgets';
 
-import AppBar from '../../../../components/AppBar/AppBar';
+import AppBar from '../../../../components/AppBar';
 import { DataSource, Field, Grant } from '../../../../schema/DataSource';
 import DataSourceDetailModal from './DataSourceDetailModal';
 import DataSourceDetailActions from './DataSourceDetailActions';
@@ -77,7 +77,7 @@ const DataSourceDetailPage: FunctionComponent<Props> = ({
 
   return (
     <BaseTemplate
-      header={<AppBar />}
+      header={<AppBar activeMenuId="datasource" />}
     >
       <Card
         header={

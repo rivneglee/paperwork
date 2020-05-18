@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 
 import { List, BaseTemplate, Card, Badge, Search, Icons, QuickAdd, Tooltip, PageState } from '@paperwork/ui-widgets';
-import AppBar from '../../../../components/AppBar/AppBar';
+import AppBar from '../../../../components/AppBar';
 import { UserIdentifier } from '../../../../schema/User';
 import StickySideBar from '../../../../components/StickySideBar/StickySideBar';
 import './DataSourceListPage.scss';
@@ -48,7 +48,7 @@ const DataSourceListPage: FunctionComponent<Props> = ({
   onCreateNew,
 }) => (
   <BaseTemplate
-    header={<AppBar />}
+    header={<AppBar activeMenuId="datasource" />}
   >
     <Card header={<h3>My Datasource</h3>}>
       <StickySideBar>

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactElement, SyntheticEvent } from 'react';
+import React, { FunctionComponent, ReactElement } from 'react';
 import classNames from 'classnames';
 import MenuItemIcon from './MenuItemIcon';
 
@@ -6,7 +6,7 @@ interface Props {
   id: string;
   active?: boolean;
   icon?: ReactElement<any>;
-  onClick?: (e: SyntheticEvent) => void;
+  onClick?: (id: string) => void;
 }
 
 const MenuItem: FunctionComponent<Props> = ({
@@ -22,7 +22,7 @@ const MenuItem: FunctionComponent<Props> = ({
       'pw-menu-item',
       active && 'pw-menu-item--active',
     )}
-    onClick={onClick}
+    onClick={() => onClick && onClick(id)}
   >
     <MenuItemIcon>
       {icon}

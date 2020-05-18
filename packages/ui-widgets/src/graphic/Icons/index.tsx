@@ -29,6 +29,7 @@ import Cancel from './Cancel';
 import Duplicate from './Duplicate';
 import Confirm from './Confirm';
 import Error from './Error';
+import PowerOff from './PowerOff';
 
 export default {
   Add,
@@ -62,4 +63,5 @@ export default {
   Cancel,
   Confirm,
   Error,
+  PowerOff,
 };

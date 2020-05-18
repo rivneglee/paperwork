@@ -13,6 +13,11 @@ export type PageState = {
 
 export interface StoreState {
   page: PageState;
+  navigation: NavigationState;
   authentication?: Authentication;
   router?: RouterState;
+}
+
+export interface NavigationState {
+  activeMenuId?: string;
 }

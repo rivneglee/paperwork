@@ -4,6 +4,7 @@ import { push } from 'connected-react-router';
 
 import { DetailProvider, DetailProviderState } from '../../../../service/dataSource';
 import { StoreState } from '../../../../store';
+import { getAuthentication } from '../../../../store/selectors';
 import Spinner from '../../../../components/PageTransitionSpinner/Spinner';
 import DataSourceDetailPage from '../components/DataSourceDetailPage';
 import { DataSource, Field, Grant } from '../../../../schema/DataSource';
@@ -29,14 +30,15 @@ const mapStateToViewProps = (state: StoreState) => ({
 
 const mapStateToProviderProps = (state: StoreState, ownProps: any) => ({
   params: ownProps.match.params,
+  authentication: getAuthentication(state),
 });
 
 const View = connect(mapStateToViewProps)(DataSourceDetailPage);
 
-export default connect(mapStateToProviderProps)(({ dispatch, params }: any) => (
+export default connect(mapStateToProviderProps)(({ dispatch, params, authentication }: any) => (
   <DetailProvider
     spinner={<Spinner />}
-    userId={params.userId}
+    userId={authentication.user.id}
     dataSourceId={params.dataSourceId}
   >
     {
@@ -45,7 +47,7 @@ export default connect(mapStateToProviderProps)(({ dispatch, params }: any) => (
           dispatch(createLoadDataSourceDetailAction(dataSource));
         }
 
-        const navigateToList = () => dispatch(push(`/${params.userId}/dataSource`));
+        const navigateToList = () => dispatch(push('/dataSource'));
 
         const onUpdateDetail = (key: string, value: any) => {
           dispatch(createUpdateDetailAction(key, value));
