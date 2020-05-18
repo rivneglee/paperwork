@@ -1,8 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DataSourceDetailPage should render properly if logged in as owner 1`] = `
-<li
-  header={<AppBar />}
+<vi
+  header={
+    <Connect(AppBar)
+      activeMenuId="datasource"
+    />
+  }
 >
   <i
     header={
@@ -58,22 +62,26 @@ exports[`DataSourceDetailPage should render properly if logged in as owner 1`] =
       className="pwapp-field-grants-table"
     />
   </v>
-</li>
+</vi>
 `;
 
 exports[`DataSourceDetailPage should render properly if not datasource owner 1`] = `
-<li
-  header={<AppBar />}
+<vi
+  header={
+    <Connect(AppBar)
+      activeMenuId="datasource"
+    />
+  }
 >
   <i
     header={
       <h3>
         Datasource details 
-        <D
+        <F
           color="secondary"
         >
           Collaborative
-        </D>
+        </F>
       </h3>
     }
   >
@@ -120,12 +128,16 @@ exports[`DataSourceDetailPage should render properly if not datasource owner 1`]
       className="pwapp-field-grants-table"
     />
   </v>
-</li>
+</vi>
 `;
 
 exports[`DataSourceDetailPage should render properly when grantField is given 1`] = `
-<li
-  header={<AppBar />}
+<vi
+  header={
+    <Connect(AppBar)
+      activeMenuId="datasource"
+    />
+  }
 >
   <i
     header={
@@ -194,5 +206,5 @@ exports[`DataSourceDetailPage should render properly when grantField is given 1`
       />
     </y>
   </v>
-</li>
+</vi>
 `;
