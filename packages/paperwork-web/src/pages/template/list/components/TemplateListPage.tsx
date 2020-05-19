@@ -16,7 +16,7 @@ const TemplateListPage: FunctionComponent<Props> = ({
   <BaseTemplate
     header={<AppBar activeMenuId="template-store"/>}
   >
-    <Card header={<h3>Template store</h3>}>
+    <Card header={<Card.Header primary="Templates"/>}>
       <StickySideBar>
         <Search
           placeholder="Search"

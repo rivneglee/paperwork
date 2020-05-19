@@ -50,7 +50,9 @@ const DataSourceListPage: FunctionComponent<Props> = ({
   <BaseTemplate
     header={<AppBar activeMenuId="datasource" />}
   >
-    <Card header={<h3>My Datasource</h3>}>
+    <Card header={
+      <Card.Header primary="My datasource"/>
+    }>
       <StickySideBar>
         <Search
           value={filterOptions.keyword}

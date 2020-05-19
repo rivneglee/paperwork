@@ -20,12 +20,12 @@ const mapStateToProviderProps = (state: StoreState, ownProps: any) => ({
 
 const PageView = connect(mapStateToViewProps)(TemplateListPage);
 
-export default connect(mapStateToProviderProps)(({ dispatch, params, authentication }: any) => (
+export default connect(mapStateToProviderProps)(({ dispatch, params, authentication, ...otherProps }: any) => (
   <ListProvider spinner={<Spinner />} userId={authentication.user.id}>
     {({ templateList }: ListProviderState) => {
       dispatch(createLoadTemplateListAction(templateList));
       return (
-        <PageView/>);
+        <PageView {...otherProps}/>);
     }}
   </ListProvider>
 ));

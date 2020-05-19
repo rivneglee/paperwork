@@ -81,9 +81,13 @@ const DataSourceDetailPage: FunctionComponent<Props> = ({
     >
       <Card
         header={
-          <h3>Datasource details {
-            !isOwner && <Badge color="secondary">Collaborative</Badge>
-          }</h3>
+          <Card.Header primary={
+            <>
+              Datasource details {
+              !isOwner && <Badge color="secondary">Collaborative</Badge>
+              }
+            </>
+          }/>
         }>
         <Input
           value={dataSource.name}
