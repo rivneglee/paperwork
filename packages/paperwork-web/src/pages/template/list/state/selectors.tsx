@@ -6,3 +6,8 @@ export const getPage = createSelector(
   getPageSection,
   page => page.templateList,
 );
+
+export const getEntries = createSelector(
+  getPage,
+  page => page.entries,
+);

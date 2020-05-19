@@ -107,7 +107,7 @@
     width: 100%;
     padding: 10px 16px;
     color: #fff;
-    font-size: 1.2em;
+    font-size: 1em;
     line-height: 1.6em;
     margin: 0;
     z-index: 10;
@@ -116,6 +116,9 @@
 
     span {
       display: block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
     strong {
       font-weight: 400;

@@ -21,5 +21,5 @@ export interface LayoutLinkedNode {
 export type Layout = LayoutLinkedNode[];
 
 export enum PaperType {
-  FORM = 'Form', REPORT = 'Report',
+  FORM = 'form', REPORT = 'report',
 }

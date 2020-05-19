@@ -17,7 +17,7 @@ interface Props {
 
 export interface ListOptions {
   keyword?: string;
-  tags?: string[];
+  visibility?: 'private' | 'protected' | 'public' | 'all';
 }
 
 export default class extends React.Component<Props> {
@@ -28,7 +28,7 @@ export default class extends React.Component<Props> {
   private isInitializing = true;
 
   private list = async (options: ListOptions = {}) => {
-    const { keyword, tags = [] } = options;
+    const { keyword, visibility = 'private' } = options;
     const { integration, userId } = this.props;
     const templateList = await integration.send({
       intent: LOAD_TEMPLATE_LIST,
@@ -38,7 +38,7 @@ export default class extends React.Component<Props> {
       },
       params: {
         keyword,
-        tags,
+        visibility,
       },
     });
     this.setState({

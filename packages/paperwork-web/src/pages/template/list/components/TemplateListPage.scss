@@ -4,8 +4,19 @@
 
   &__card {
     box-sizing: border-box;
-    width: 275px;
+    width: 300px;
     min-width: auto;
-    margin: .7rem;
+    margin: .1rem;
+
+    @media (min-width: 768px) {
+      width: 370px;
+      margin: .7rem;
+    }
+  }
+
+  &__card-footer {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
   }
 }
