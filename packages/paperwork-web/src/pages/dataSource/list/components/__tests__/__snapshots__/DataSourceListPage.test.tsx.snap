@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DataSourceListPage should render when result is empty 1`] = `
-<vi
+<gi
   header={
     <Connect(AppBar)
       activeMenuId="datasource"
@@ -10,13 +10,13 @@ exports[`DataSourceListPage should render when result is empty 1`] = `
 >
   <i
     header={
-      <h3>
-        My Datasource
-      </h3>
+      <Unknown
+        primary="My datasource"
+      />
     }
   >
     <StickySideBar>
-      <ci
+      <li
         onApply={[Function]}
         onChange={[Function]}
         placeholder="Search"
@@ -31,17 +31,17 @@ exports[`DataSourceListPage should render when result is empty 1`] = `
         />
       </t>
     </StickySideBar>
-    <gi
+    <mi
       description="Please try to improve your filter and create some data"
       image="no-results-found.svg"
       title="No results found"
     />
   </i>
-</vi>
+</gi>
 `;
 
 exports[`DataSourceListPage should render when result is not empty 1`] = `
-<vi
+<gi
   header={
     <Connect(AppBar)
       activeMenuId="datasource"
@@ -50,13 +50,13 @@ exports[`DataSourceListPage should render when result is not empty 1`] = `
 >
   <i
     header={
-      <h3>
-        My Datasource
-      </h3>
+      <Unknown
+        primary="My datasource"
+      />
     }
   >
     <StickySideBar>
-      <ci
+      <li
         onApply={[Function]}
         onChange={[Function]}
         placeholder="Search"
@@ -71,7 +71,7 @@ exports[`DataSourceListPage should render when result is not empty 1`] = `
         />
       </t>
     </StickySideBar>
-    <s>
+    <u>
       <Component
         key="1"
       >
@@ -85,11 +85,11 @@ exports[`DataSourceListPage should render when result is not empty 1`] = `
             key="Collaborative"
             placement="top"
           >
-            <F
+            <N
               color="secondary"
             >
               Collaborative
-            </F>
+            </N>
           </Component>
         </Link>
       </Component>
@@ -103,7 +103,7 @@ exports[`DataSourceListPage should render when result is not empty 1`] = `
           DS_2
         </Link>
       </Component>
-    </s>
+    </u>
   </i>
-</vi>
+</gi>
 `;
