@@ -5,7 +5,7 @@ export * from './layout/Scrollable';
 export * from './layout/Accordion';
 export * from './layout/Modal';
 export * from './layout/PictureChip';
-export * from './layout/Menu';
+export * from './navigation/Menu';
 
 export * from './graphic/Avater';
 export * from './graphic/Spinner';
