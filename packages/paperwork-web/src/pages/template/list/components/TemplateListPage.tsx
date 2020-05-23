@@ -1,26 +1,33 @@
 import React, { FunctionComponent } from 'react';
-import { BaseTemplate, Card, QuickAdd, Search, Icons, PictureChip, IconButton } from '@paperwork/ui-widgets';
+import { PaginationTemplate, Card, QuickAdd, Search, Icons, PictureChip, IconButton } from '@paperwork/ui-widgets';
 import AppBar from '../../../../components/AppBar';
 import StickySideBar from '../../../../components/StickySideBar/StickySideBar';
 
 import './TemplateListPage.scss';
-import { TemplateList } from '../../../../schema/Template';
+import { Template } from '../../../../schema/Template';
 
 interface Props {
-  entries: TemplateList;
+  entries: Template[];
+  page: number;
+  total: number;
+  onLoadNextPage: () => void;
 }
 
 const TemplateListPage: FunctionComponent<Props> = ({
   entries,
+  onLoadNextPage,
+  page,
+  total,
 }) => (
-  <BaseTemplate
-    header={<AppBar activeMenuId="template-store"/>}
+  <PaginationTemplate
+    header={<AppBar activeMenuId="templates"/>}
+    onLoadMore={onLoadNextPage}
+    page={page}
+    total={total}
   >
     <Card header={<Card.Header primary="Templates"/>}>
       <StickySideBar>
-        <Search
-          placeholder="Search"
-        />
+        <Search placeholder="Search" />
         <QuickAdd color="secondary">
         </QuickAdd>
       </StickySideBar>
@@ -47,7 +54,7 @@ const TemplateListPage: FunctionComponent<Props> = ({
         }
       </div>
     </Card>
-  </BaseTemplate>
+  </PaginationTemplate>
 );
 
 export default TemplateListPage;

@@ -11,3 +11,8 @@ export const getEntries = createSelector(
   getPage,
   page => page.entries,
 );
+
+export const getPagination = createSelector(
+  getPage,
+  page => page.pagination,
+);

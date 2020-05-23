@@ -5,7 +5,9 @@ export * from './layout/Scrollable';
 export * from './layout/Accordion';
 export * from './layout/Modal';
 export * from './layout/PictureChip';
+
 export * from './navigation/Menu';
+export * from './navigation/InfinityScroller';
 
 export * from './graphic/Avater';
 export * from './graphic/Spinner';
@@ -27,6 +29,7 @@ export * from './form/ButtonRow';
 export * from './form/AutoComplete';
 
 export * from './template/BaseTemplate';
+export * from './template/PaginationTemplate';
 
 export * from './message/Tooltip';
 export * from './message/PageState';

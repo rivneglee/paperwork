@@ -1,19 +1,18 @@
 import React, { FunctionComponent, useState } from 'react';
-import { IconButton, Icons, Drawer, Menu, Button, Scrollable } from '@paperwork/ui-widgets';
-import { Link } from 'react-router-dom';
+import { IconButton, Icons, Drawer, Button, Scrollable } from '@paperwork/ui-widgets';
 
 import './AppBar.scss';
 import appName from '../../assets/paperwork.png';
 import { Authentication } from '../../schema/User';
+import Menu from './Menu';
 
 interface Props {
   activeMenuId: string;
   authentication: Authentication;
 }
 
-const AppBar: FunctionComponent<Props> = ({ activeMenuId, authentication }) => {
+const AppBar: FunctionComponent<Props> = ({ activeMenuId }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
     <div className="pwapp-appbar">
       <div className="pwapp-appbar__left">
@@ -38,30 +37,7 @@ const AppBar: FunctionComponent<Props> = ({ activeMenuId, authentication }) => {
         onClose={() => setIsMenuOpen(false)}
       >
         <Scrollable>
-          <Menu>
-          <Menu.Item
-            active={activeMenuId === 'datasource'}
-            id="datasource"
-            icon={<Icons.DataSource/>}
-          >
-            <Link to="/datasource">
-              Datasource
-            </Link>
-          </Menu.Item>
-          <Menu.Group id="template" icon={<Icons.Template/>} label="Template">
-            <Menu.Item
-              id="template-store"
-              active={activeMenuId === 'template-store'}
-            >
-              <Link to="/templates">
-                Public template
-              </Link>
-            </Menu.Item>
-            <Menu.Item id="my-template" active={activeMenuId === 'my-template'}>My template</Menu.Item>
-          </Menu.Group>
-          <Menu.Item id="form" active={activeMenuId === 'form'} icon={<Icons.Form/>}>Form</Menu.Item>
-          <Menu.Item id="report" active={activeMenuId === 'report'} icon={<Icons.Chart/>}>Report</Menu.Item>
-        </Menu>
+          <Menu activeMenuId={activeMenuId}/>
         </Scrollable>
       </Drawer>
     </div>

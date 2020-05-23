@@ -1,5 +1,6 @@
 import { User } from './User';
 import { Layout, PaperItem, PaperType } from './Paper';
+import { Pagination } from './Pagination';
 
 export interface Template {
   id: string;
@@ -22,4 +23,7 @@ export interface TemplateDetail extends Template {
   items: { [key: string]: Item };
 }
 
-export type TemplateList = Template[];
+export interface TemplateList {
+  entries: Template[];
+  pagination: Pagination;
+}

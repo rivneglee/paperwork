@@ -4,12 +4,14 @@ import { Scrollable } from '../../layout/Scrollable';
 interface Props {
   header?: ReactElement;
   footer?: ReactElement;
+  setScrollerRef?: (ref: any) => void;
 }
 
 const BaseTemplate: FunctionComponent<Props> = ({
   header,
   footer,
   children,
+  setScrollerRef,
 }) => (
   <div className="pw-template">
     {header && (
@@ -18,7 +20,7 @@ const BaseTemplate: FunctionComponent<Props> = ({
       </div>
     )}
     <div className="pw-template__scrollwrapper">
-      <Scrollable>
+      <Scrollable className="pw-template__scroller" setRef={setScrollerRef}>
         <div className="pw-template__content">
           <div className="pw-template__inner">
             {children}

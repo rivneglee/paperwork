@@ -5,7 +5,7 @@ import { Integration } from '../../integration';
 
 export interface ListProviderState {
   templateList: TemplateList;
-  list: (options?: ListOptions) => Promise<TemplateList>;
+  list: (options?: ListOptions, page?: number) => Promise<TemplateList>;
   isInitializing: boolean;
 }
 
@@ -22,12 +22,15 @@ export interface ListOptions {
 
 export default class extends React.Component<Props> {
   state = {
-    templateList: [],
+    templateList: {
+      entries: [],
+      pagination: { page: 0, total: 0 },
+    },
   };
 
   private isInitializing = true;
 
-  private list = async (options: ListOptions = {}) => {
+  private list = async (options: ListOptions = {}, page = 0) => {
     const { keyword, visibility = 'private' } = options;
     const { integration, userId } = this.props;
     const templateList = await integration.send({
@@ -39,6 +42,8 @@ export default class extends React.Component<Props> {
       params: {
         keyword,
         visibility,
+        page,
+        size: 20,
       },
     });
     this.setState({
@@ -48,12 +53,12 @@ export default class extends React.Component<Props> {
   }
 
   async componentDidMount() {
-    this.isInitializing = false;
     await this.list();
+    this.isInitializing = false;
   }
 
   render() {
-    const { templateList = [] } = this.state;
+    const { templateList } = this.state;
     const { children } = this.props;
     return (
       children({

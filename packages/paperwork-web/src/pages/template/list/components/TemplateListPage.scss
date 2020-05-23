@@ -6,11 +6,10 @@
     box-sizing: border-box;
     width: 300px;
     min-width: auto;
-    margin: .1rem;
+    margin: .5rem;
 
     @media (min-width: 768px) {
-      width: 370px;
-      margin: .7rem;
+      width: 280px;
     }
   }
 
