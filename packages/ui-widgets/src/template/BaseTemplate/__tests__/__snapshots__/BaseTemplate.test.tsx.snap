@@ -12,7 +12,9 @@ exports[`BaseTemplate should render properly 1`] = `
   <div
     className="pw-template__scrollwrapper"
   >
-    <Scrollable>
+    <Scrollable
+      className="pw-template__scroller"
+    >
       <div
         className="pw-template__content"
       >
