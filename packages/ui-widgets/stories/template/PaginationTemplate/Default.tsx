@@ -5,12 +5,12 @@ import { PaginationTemplate, List, Icons } from '../../../src';
 let page = 0;
 
 export default () => {
-  const [items, setItems] = useState(Array.from({ length: 10 }, (_, i) => i));
+  const [items, setItems] = useState(Array.from({ length: 30 }, (_, i) => i));
 
   const loadMore = (nextPage: number) => {
     page = nextPage;
     setTimeout(() => {
-      setItems([...items, ...Array(10)]);
+      setItems([...items, ...Array(30)]);
     }, 1000);
   };
 

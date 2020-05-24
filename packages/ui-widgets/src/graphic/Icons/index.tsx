@@ -30,6 +30,7 @@ import Duplicate from './Duplicate';
 import Confirm from './Confirm';
 import Error from './Error';
 import PowerOff from './PowerOff';
+import Edit from './Edit';
 
 export default {
   Add,
@@ -64,4 +65,5 @@ export default {
   Confirm,
   Error,
   PowerOff,
+  Edit,
 };

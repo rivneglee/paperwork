@@ -23,17 +23,27 @@ const PaginationTemplate: FunctionComponent<Props> = ({
   isProcessing,
 }) => {
   const [scrollRef, setScrollRef] = useState(null);
+  const [shouldShowSpinner, setShouldShowSpinner] = useState(true);
+  const cooldown = 1000;
+
+  const loadMore = (page: number) => {
+    setShouldShowSpinner(false);
+    onLoadMore(page);
+    setTimeout(() => setShouldShowSpinner(true), cooldown);
+  };
+
   return  (
     <BaseTemplate
-      spinner={spinner}
+      spinner={shouldShowSpinner ? spinner : undefined}
       isProcessing={isProcessing}
       header={header}
       footer={footer}
       setScrollerRef={ref => setScrollRef(ref)}
     >
       <InfinityScroller
+        cooldown={cooldown}
         hasMore={page < total}
-        loadMore={onLoadMore}
+        loadMore={loadMore}
         getScrollParent={() => scrollRef}
       >
         {children}

@@ -66,7 +66,7 @@ const DataSourceListPage: FunctionComponent<Props> = ({
           onApply={() => onApplyFilter(filterOptions)}
         />
         <QuickAdd color="secondary">
-          <QuickAdd.Item onClick={onCreateNew} icon={<Icons.DataSource />} tooltip="Create empty datasource"/>
+          <QuickAdd.Item onClick={onCreateNew} icon={<Icons.DataSource />} tooltip="Create an empty datasource"/>
         </QuickAdd>
       </StickySideBar>
       {

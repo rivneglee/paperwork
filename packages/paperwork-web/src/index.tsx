@@ -25,7 +25,6 @@ ReactDOM.render(
         <Route exact component={SignInPage} path="/signin/"/>
         <Route exact component={withAuthValidation(DataSourceListPage)} path="/datasource/"/>
         <Route exact component={withAuthValidation(DataSourceDetailPage)} path="/datasource/:dataSourceId"/>
-        <Route exact component={withAuthValidation(TemplateListPage)} path="/public-templates"/>
         <Route exact component={withAuthValidation(TemplateListPage)} path="/templates"/>
       </ConnectedRouter>
     </Provider>
