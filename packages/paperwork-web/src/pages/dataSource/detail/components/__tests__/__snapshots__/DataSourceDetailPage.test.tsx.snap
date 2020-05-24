@@ -7,6 +7,7 @@ exports[`DataSourceDetailPage should render properly if logged in as owner 1`] =
       activeMenuId="datasource"
     />
   }
+  spinner={<Unknown />}
 >
   <i
     header={
@@ -76,6 +77,7 @@ exports[`DataSourceDetailPage should render properly if not datasource owner 1`]
       activeMenuId="datasource"
     />
   }
+  spinner={<Unknown />}
 >
   <i
     header={
@@ -146,6 +148,7 @@ exports[`DataSourceDetailPage should render properly when grantField is given 1`
       activeMenuId="datasource"
     />
   }
+  spinner={<Unknown />}
 >
   <i
     header={
