@@ -4,7 +4,6 @@ import { push } from 'connected-react-router';
 
 import { ListProvider, ListProviderState } from '../../../../service/dataSource';
 import DataSourceListPage, { FilterOption, FilterOptions } from '../components/DataSourceListPage';
-import Spinner from '../../../../components/PageTransitionSpinner/Spinner';
 import { createLoadDataSourceAction, createUpdateFilterOptionAction } from '../state/actions';
 import { getEntries, getFilterOptions } from '../state/selectors';
 import { StoreState } from '../../../../store';
@@ -23,8 +22,8 @@ const mapStateToProviderProps = (state: StoreState, ownProps: any) => ({
 const PageView = connect(mapStateToViewProps)(DataSourceListPage);
 
 export default connect(mapStateToProviderProps)(({ dispatch, params, authentication }: any) => (
-  <ListProvider spinner={<Spinner />} userId={authentication.user.id}>
-    {({ dataSourceList, list }: ListProviderState) => {
+  <ListProvider userId={authentication.user.id}>
+    {({ dataSourceList, list, isProcessing }: ListProviderState) => {
       dispatch(createLoadDataSourceAction(dataSourceList));
 
       const onCreateNew = () => dispatch(push('/dataSource/new'));
@@ -36,6 +35,7 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
 
       return (
         <PageView
+          isProcessing={isProcessing}
           onCreateNew={onCreateNew}
           onFilterChange={onFilterChange}
           onApplyFilter={onApplyFilter}

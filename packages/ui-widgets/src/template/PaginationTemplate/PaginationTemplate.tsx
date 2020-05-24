@@ -6,6 +6,8 @@ interface Props {
   header?: ReactElement;
   footer?: ReactElement;
   onLoadMore: (page: number) => void;
+  spinner?: ReactElement;
+  isProcessing?: boolean;
   page: number;
   total: number;
 }
@@ -17,10 +19,18 @@ const PaginationTemplate: FunctionComponent<Props> = ({
   footer,
   children,
   onLoadMore,
+  spinner,
+  isProcessing,
 }) => {
   const [scrollRef, setScrollRef] = useState(null);
   return  (
-    <BaseTemplate header={header} footer={footer} setScrollerRef={ref => setScrollRef(ref)}>
+    <BaseTemplate
+      spinner={spinner}
+      isProcessing={isProcessing}
+      header={header}
+      footer={footer}
+      setScrollerRef={ref => setScrollRef(ref)}
+    >
       <InfinityScroller
         hasMore={page < total}
         loadMore={onLoadMore}

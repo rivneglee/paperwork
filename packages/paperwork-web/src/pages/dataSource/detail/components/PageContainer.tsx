@@ -5,7 +5,6 @@ import { push } from 'connected-react-router';
 import { DetailProvider, DetailProviderState } from '../../../../service/dataSource';
 import { StoreState } from '../../../../store';
 import { getAuthentication } from '../../../../store/selectors';
-import Spinner from '../../../../components/PageTransitionSpinner/Spinner';
 import DataSourceDetailPage from '../components/DataSourceDetailPage';
 import { DataSource, Field, Grant } from '../../../../schema/DataSource';
 import {
@@ -37,12 +36,11 @@ const View = connect(mapStateToViewProps)(DataSourceDetailPage);
 
 export default connect(mapStateToProviderProps)(({ dispatch, params, authentication }: any) => (
   <DetailProvider
-    spinner={<Spinner />}
     userId={authentication.user.id}
     dataSourceId={params.dataSourceId}
   >
     {
-      ({ dataSource, update, create, remove }: DetailProviderState) => {
+      ({ dataSource, isProcessing, update, create, remove }: DetailProviderState) => {
         if (dataSource) {
           dispatch(createLoadDataSourceDetailAction(dataSource));
         }
@@ -94,6 +92,7 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
 
         return (
           <View
+            isProcessing={isProcessing}
             onSave={onSave}
             onUpdateDetail={onUpdateDetail}
             onAddField={onAddField}

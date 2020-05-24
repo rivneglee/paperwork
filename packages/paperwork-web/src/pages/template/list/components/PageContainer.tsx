@@ -5,7 +5,6 @@ import TemplateListPage from './TemplateListPage';
 import { StoreState } from '../../../../store';
 import { getAuthentication } from '../../../../store/selectors';
 import { ListProvider, ListProviderState } from '../../../../service/template';
-import Spinner from '../../../../components/PageTransitionSpinner/Spinner';
 import { getEntries, getPagination } from '../state/selectors';
 import { createLoadTemplateListAction } from '../state/actions';
 
@@ -22,8 +21,8 @@ const mapStateToProviderProps = (state: StoreState, ownProps: any) => ({
 const PageView = connect(mapStateToViewProps)(TemplateListPage);
 
 export default connect(mapStateToProviderProps)(({ dispatch, params, authentication, ...otherProps }: any) => (
-  <ListProvider spinner={<Spinner />} userId={authentication.user.id}>
-    {({ templateList, list, isInitializing }: ListProviderState) => {
+  <ListProvider userId={authentication.user.id}>
+    {({ templateList, list, isInitializing, isProcessing }: ListProviderState) => {
       if (isInitializing) {
         dispatch(createLoadTemplateListAction(templateList));
       }
@@ -34,7 +33,7 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
       };
 
       return (
-        <PageView {...otherProps} onLoadNextPage={onLoadNextPage}/>);
+        <PageView {...otherProps} isProcessing={isProcessing} onLoadNextPage={onLoadNextPage}/>);
     }}
   </ListProvider>
 ));

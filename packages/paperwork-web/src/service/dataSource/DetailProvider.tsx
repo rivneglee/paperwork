@@ -10,6 +10,7 @@ export interface DetailProviderState {
   create: (dataSource: DataSource) => Promise<void>;
   remove: () => Promise<void>;
   isInitializing: boolean;
+  isProcessing: boolean;
 }
 
 interface Props {
@@ -17,6 +18,7 @@ interface Props {
   dataSourceId: string;
   children: (integrationState: DetailProviderState) => ReactElement | null;
   integration: Integration;
+  isProcessing: boolean;
 }
 
 export default class extends React.Component<Props> {
@@ -99,10 +101,11 @@ export default class extends React.Component<Props> {
 
   render() {
     const { dataSource } = this.state;
-    const { children } = this.props;
+    const { children, isProcessing } = this.props;
     return (
       children({
         dataSource,
+        isProcessing,
         load: this.load,
         update: this.update,
         create: this.create,

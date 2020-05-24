@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { List, BaseTemplate, Card, Badge, Search, Icons, QuickAdd, Tooltip, PageState } from '@paperwork/ui-widgets';
 import AppBar from '../../../../components/AppBar';
+import Spinner from '../../../../components/PageTransitionSpinner/Spinner';
 import { UserIdentifier } from '../../../../schema/User';
 import StickySideBar from '../../../../components/StickySideBar/StickySideBar';
 import './DataSourceListPage.scss';
@@ -36,12 +37,14 @@ interface Props {
   onFilterChange: (option: FilterOption) => void;
   onApplyFilter: (filterOptions: FilterOptions) => void;
   onCreateNew: () => void;
+  isProcessing?: boolean;
 }
 
 const handleFilterChange = (key: string, handler: any) => (e: any) => handler({ key, value: e.target.value });
 
 const DataSourceListPage: FunctionComponent<Props> = ({
   entries = [],
+  isProcessing,
   filterOptions = {},
   onFilterChange,
   onApplyFilter,
@@ -49,6 +52,8 @@ const DataSourceListPage: FunctionComponent<Props> = ({
 }) => (
   <BaseTemplate
     header={<AppBar activeMenuId="datasource" />}
+    isProcessing={isProcessing}
+    spinner={<Spinner />}
   >
     <Card header={
       <Card.Header primary="My datasource"/>

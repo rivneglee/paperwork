@@ -7,6 +7,7 @@ export interface ListProviderState {
   dataSourceList: DataSourceList;
   list: (options?: ListOptions) => Promise<DataSourceList>;
   isInitializing: boolean;
+  isProcessing: boolean;
 }
 
 interface Props {
@@ -14,6 +15,7 @@ interface Props {
   onLoadList?: (dataSourceList: DataSourceList) => void;
   integration: Integration;
   userId: string;
+  isProcessing: boolean;
 }
 
 export interface ListOptions {
@@ -53,9 +55,10 @@ export default class extends React.Component<Props> {
 
   render() {
     const { dataSourceList = [] } = this.state;
-    const { children } = this.props;
+    const { children, isProcessing } = this.props;
     return (
       children({
+        isProcessing,
         dataSourceList,
         list: this.list,
         isInitializing: this.isInitializing,
