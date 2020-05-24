@@ -1,0 +1,72 @@
+.pw-menu {
+  padding: 8px 0;
+  background-color: white;
+}
+
+.pw-menu-group {
+
+  &__items {
+    transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+    max-height: 0;
+    overflow: hidden;
+    height: auto;
+    padding: 0 12px;
+    opacity: 0;
+  }
+
+  &__root {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+
+  &__expand-btn {
+    transition: all .2s ease-in-out;
+  }
+
+  &--opened {
+    .pw-menu-group__items {
+      max-height: 1000px;
+      opacity: 1;
+      transition: all 1s ease-in-out;
+    }
+
+    .pw-menu-group__expand-btn {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.pw-menu-item {
+  padding: 8px 12px;
+  min-height: 48px;
+  transition: background-color 0.4s ease;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  text-align: left;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+
+  &__icon {
+    min-width: 40px;
+    display: flex;
+    .pw-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: $pw-palette-dusk-100;
+    }
+  }
+
+  &:hover {
+    background-color: $pw-palette-storm-28;
+  }
+
+  &--active {
+    font-weight: bold;
+    background-color: $pw-palette-storm-10;
+  }
+}

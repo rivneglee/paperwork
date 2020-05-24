@@ -11,6 +11,7 @@ import { withAuthValidation } from './service/authentication';
 
 import DataSourceListPage from './pages/dataSource/list';
 import DataSourceDetailPage from './pages/dataSource/detail';
+import TemplateListPage from './pages/template/list';
 import SignInPage from './pages/signIn';
 
 import './index.scss';
@@ -22,8 +23,9 @@ ReactDOM.render(
     <Provider store={store}>
       <ConnectedRouter history={history}>
         <Route exact component={SignInPage} path="/signin/"/>
-        <Route exact component={withAuthValidation(DataSourceListPage)} path="/:userId/datasource/"/>
-        <Route exact component={withAuthValidation(DataSourceDetailPage)} path="/:userId/datasource/:dataSourceId"/>
+        <Route exact component={withAuthValidation(DataSourceListPage)} path="/datasource/"/>
+        <Route exact component={withAuthValidation(DataSourceDetailPage)} path="/datasource/:dataSourceId"/>
+        <Route exact component={withAuthValidation(TemplateListPage)} path="/templates"/>
       </ConnectedRouter>
     </Provider>
   </div>,

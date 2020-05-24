@@ -1,18 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DataSourceListPage should render when result is empty 1`] = `
-<li
-  header={<AppBar />}
+<wi
+  header={
+    <Connect(AppBar)
+      activeMenuId="datasource"
+    />
+  }
+  spinner={<Unknown />}
 >
   <i
     header={
-      <h3>
-        My Datasource
-      </h3>
+      <Unknown
+        primary="My datasource"
+      />
     }
   >
     <StickySideBar>
-      <oi
+      <hi
         onApply={[Function]}
         onChange={[Function]}
         placeholder="Search"
@@ -23,32 +28,37 @@ exports[`DataSourceListPage should render when result is empty 1`] = `
         <Component
           icon={<DataSource />}
           onClick={[Function]}
-          tooltip="Create empty datasource"
+          tooltip="Create an empty datasource"
         />
       </t>
     </StickySideBar>
-    <fi
+    <_i
       description="Please try to improve your filter and create some data"
       image="no-results-found.svg"
       title="No results found"
     />
   </i>
-</li>
+</wi>
 `;
 
 exports[`DataSourceListPage should render when result is not empty 1`] = `
-<li
-  header={<AppBar />}
+<wi
+  header={
+    <Connect(AppBar)
+      activeMenuId="datasource"
+    />
+  }
+  spinner={<Unknown />}
 >
   <i
     header={
-      <h3>
-        My Datasource
-      </h3>
+      <Unknown
+        primary="My datasource"
+      />
     }
   >
     <StickySideBar>
-      <oi
+      <hi
         onApply={[Function]}
         onChange={[Function]}
         placeholder="Search"
@@ -59,11 +69,11 @@ exports[`DataSourceListPage should render when result is not empty 1`] = `
         <Component
           icon={<DataSource />}
           onClick={[Function]}
-          tooltip="Create empty datasource"
+          tooltip="Create an empty datasource"
         />
       </t>
     </StickySideBar>
-    <s>
+    <u>
       <Component
         key="1"
       >
@@ -77,11 +87,11 @@ exports[`DataSourceListPage should render when result is not empty 1`] = `
             key="Collaborative"
             placement="top"
           >
-            <D
+            <z
               color="secondary"
             >
               Collaborative
-            </D>
+            </z>
           </Component>
         </Link>
       </Component>
@@ -95,7 +105,7 @@ exports[`DataSourceListPage should render when result is not empty 1`] = `
           DS_2
         </Link>
       </Component>
-    </s>
+    </u>
   </i>
-</li>
+</wi>
 `;

@@ -2,7 +2,8 @@ import React, { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 
 import { List, BaseTemplate, Card, Badge, Search, Icons, QuickAdd, Tooltip, PageState } from '@paperwork/ui-widgets';
-import AppBar from '../../../../components/AppBar/AppBar';
+import AppBar from '../../../../components/AppBar';
+import Spinner from '../../../../components/PageTransitionSpinner/Spinner';
 import { UserIdentifier } from '../../../../schema/User';
 import StickySideBar from '../../../../components/StickySideBar/StickySideBar';
 import './DataSourceListPage.scss';
@@ -36,21 +37,27 @@ interface Props {
   onFilterChange: (option: FilterOption) => void;
   onApplyFilter: (filterOptions: FilterOptions) => void;
   onCreateNew: () => void;
+  isProcessing?: boolean;
 }
 
 const handleFilterChange = (key: string, handler: any) => (e: any) => handler({ key, value: e.target.value });
 
 const DataSourceListPage: FunctionComponent<Props> = ({
   entries = [],
+  isProcessing,
   filterOptions = {},
   onFilterChange,
   onApplyFilter,
   onCreateNew,
 }) => (
   <BaseTemplate
-    header={<AppBar />}
+    header={<AppBar activeMenuId="datasource" />}
+    isProcessing={isProcessing}
+    spinner={<Spinner />}
   >
-    <Card header={<h3>My Datasource</h3>}>
+    <Card header={
+      <Card.Header primary="My datasource"/>
+    }>
       <StickySideBar>
         <Search
           value={filterOptions.keyword}
@@ -59,7 +66,7 @@ const DataSourceListPage: FunctionComponent<Props> = ({
           onApply={() => onApplyFilter(filterOptions)}
         />
         <QuickAdd color="secondary">
-          <QuickAdd.Item onClick={onCreateNew} icon={<Icons.DataSource />} tooltip="Create empty datasource"/>
+          <QuickAdd.Item onClick={onCreateNew} icon={<Icons.DataSource />} tooltip="Create an empty datasource"/>
         </QuickAdd>
       </StickySideBar>
       {

@@ -42,14 +42,14 @@ describe('dataSourceListPage', () => {
             color: 'secondary',
             text: 'Collaborative',
           }],
-          link: '/1/dataSource/1',
+          link: '/dataSource/1',
         },
         {
           id: '2',
           name: 'DS_2',
           owner: '1',
           badges: [],
-          link: '/1/dataSource/2',
+          link: '/dataSource/2',
         },
       ];
       expect(getEntries(state)).toEqual(expected);

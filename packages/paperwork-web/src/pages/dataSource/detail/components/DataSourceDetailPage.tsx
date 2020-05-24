@@ -8,7 +8,8 @@ import {
   Separator,
 } from '@paperwork/ui-widgets';
 
-import AppBar from '../../../../components/AppBar/AppBar';
+import AppBar from '../../../../components/AppBar';
+import Spinner from '../../../../components/PageTransitionSpinner/Spinner';
 import { DataSource, Field, Grant } from '../../../../schema/DataSource';
 import DataSourceDetailModal from './DataSourceDetailModal';
 import DataSourceDetailActions from './DataSourceDetailActions';
@@ -20,6 +21,7 @@ import CollaboratorFieldsTable from './CollaboratorFieldsTable';
 
 interface Props {
   dataSource: DataSource;
+  isProcessing?: boolean;
   isPageEdited: boolean;
   onUpdateDetail: (key: string, value: any) => void;
   onUpdateField: (index: number, key: string, value: string) => void;
@@ -39,6 +41,7 @@ interface Props {
 const DataSourceDetailPage: FunctionComponent<Props> = ({
   dataSource,
   isPageEdited,
+  isProcessing,
   onUpdateDetail,
   onAddField,
   onUpdateField,
@@ -77,13 +80,19 @@ const DataSourceDetailPage: FunctionComponent<Props> = ({
 
   return (
     <BaseTemplate
-      header={<AppBar />}
+      header={<AppBar activeMenuId="datasource" />}
+      isProcessing={isProcessing}
+      spinner={<Spinner/>}
     >
       <Card
         header={
-          <h3>Datasource details {
-            !isOwner && <Badge color="secondary">Collaborative</Badge>
-          }</h3>
+          <Card.Header primary={
+            <>
+              Datasource details {
+              !isOwner && <Badge color="secondary">Collaborative</Badge>
+              }
+            </>
+          }/>
         }>
         <Input
           value={dataSource.name}

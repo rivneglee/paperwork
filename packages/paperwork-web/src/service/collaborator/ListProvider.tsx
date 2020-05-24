@@ -7,11 +7,13 @@ export interface ListProviderState {
   collaborators: User[];
   list: (options?: ListOptions) => Promise<User[]>;
   isInitializing: boolean;
+  isProcessing: boolean;
 }
 
 interface Props {
   children: (integrationState: ListProviderState) => ReactElement | null;
   integration: Integration;
+  isProcessing: boolean;
 }
 
 export interface ListOptions {
@@ -43,10 +45,11 @@ export default class extends React.Component<Props> {
 
   render() {
     const { collaborators = [] } = this.state;
-    const { children } = this.props;
+    const { children, isProcessing } = this.props;
     return (
       children({
         collaborators,
+        isProcessing,
         list: this.list,
         isInitializing: this.isInitializing,
       })

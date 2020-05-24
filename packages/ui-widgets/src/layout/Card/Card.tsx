@@ -1,4 +1,5 @@
 import React, { ReactComponentElement, FunctionComponent } from 'react';
+import CardHeader, { CardHeaderComponent } from './CardHeader';
 
 interface Props {
   header?: ReactComponentElement<any> | string;
@@ -6,7 +7,11 @@ interface Props {
   className?: string;
 }
 
-const Card: FunctionComponent<Props> = ({
+interface CardComponent extends FunctionComponent<Props> {
+  Header: CardHeaderComponent;
+}
+
+const Card: CardComponent = ({
  children, header, footer, className = '',
 }) => (
   <div className={`pw-card ${className}`}>
@@ -29,5 +34,7 @@ const Card: FunctionComponent<Props> = ({
     }
   </div>
 );
+
+Card.Header = CardHeader;
 
 export default Card;

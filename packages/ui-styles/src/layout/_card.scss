@@ -19,6 +19,7 @@
 
   &__body {
     flex-grow: 1;
+    position: relative;
   }
 
   &__footer {
@@ -27,3 +28,24 @@
   }
 }
 
+.pw-card-header {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+
+  &__primary {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    padding-right: 1rem;
+    .pw-icon {
+      width: 2rem;
+      height: 2rem;
+      fill: $pw-palette-dusk-100;
+    }
+  }
+}

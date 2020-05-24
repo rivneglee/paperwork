@@ -7,6 +7,7 @@ import DrawerHeader from './DrawerHeader';
 interface Props {
   isShow: boolean;
   header?: ReactElement<any>;
+  footer?: ReactElement<any>;
   onClose?: (e: SyntheticEvent) => void;
   placement?: 'left' | 'right';
 }
@@ -15,6 +16,7 @@ const Drawer: FunctionComponent<Props> = ({
   isShow,
   onClose,
   header,
+  footer,
   children,
   placement = 'left',
 }) => (
@@ -26,6 +28,9 @@ const Drawer: FunctionComponent<Props> = ({
       <DrawerHeader placement={placement} onClickCloseButton={onClose}>
         {header}
       </DrawerHeader>
+    }
+    footer={
+      footer
     }
   >
     { children }

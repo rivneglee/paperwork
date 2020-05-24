@@ -1,0 +1,21 @@
+.pwapp-template-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__card {
+    box-sizing: border-box;
+    width: 300px;
+    min-width: auto;
+    margin: .5rem;
+
+    @media (min-width: 768px) {
+      width: 280px;
+    }
+  }
+
+  &__card-footer {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+  }
+}

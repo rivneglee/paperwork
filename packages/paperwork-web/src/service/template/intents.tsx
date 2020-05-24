@@ -1,0 +1,1 @@
+export const LOAD_TEMPLATE_LIST = 'LOAD_TEMPLATE_LIST';

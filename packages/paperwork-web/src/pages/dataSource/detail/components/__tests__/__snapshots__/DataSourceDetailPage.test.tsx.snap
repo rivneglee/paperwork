@@ -1,14 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DataSourceDetailPage should render properly if logged in as owner 1`] = `
-<li
-  header={<AppBar />}
+<wi
+  header={
+    <Connect(AppBar)
+      activeMenuId="datasource"
+    />
+  }
+  spinner={<Unknown />}
 >
   <i
     header={
-      <h3>
-        Datasource details 
-      </h3>
+      <Unknown
+        primary={
+          <Unknown>
+            Datasource details 
+          </Unknown>
+        }
+      />
     }
   >
     <t
@@ -20,7 +29,7 @@ exports[`DataSourceDetailPage should render properly if logged in as owner 1`] =
       size="s"
       value="Engagement survey 2020"
     />
-    <S />
+    <O />
     <OwnerFieldsTable
       fields={
         Array [
@@ -44,7 +53,7 @@ exports[`DataSourceDetailPage should render properly if logged in as owner 1`] =
     onClickDelete={[Function]}
     onClickSave={[Function]}
   />
-  <v
+  <g
     header={
       <h3>
         Permission
@@ -54,27 +63,36 @@ exports[`DataSourceDetailPage should render properly if logged in as owner 1`] =
     onClose={[Function]}
     placement="right"
   >
-    <y
+    <b
       className="pwapp-field-grants-table"
     />
-  </v>
-</li>
+  </g>
+</wi>
 `;
 
 exports[`DataSourceDetailPage should render properly if not datasource owner 1`] = `
-<li
-  header={<AppBar />}
+<wi
+  header={
+    <Connect(AppBar)
+      activeMenuId="datasource"
+    />
+  }
+  spinner={<Unknown />}
 >
   <i
     header={
-      <h3>
-        Datasource details 
-        <D
-          color="secondary"
-        >
-          Collaborative
-        </D>
-      </h3>
+      <Unknown
+        primary={
+          <Unknown>
+            Datasource details 
+            <z
+              color="secondary"
+            >
+              Collaborative
+            </z>
+          </Unknown>
+        }
+      />
     }
   >
     <t
@@ -86,7 +104,7 @@ exports[`DataSourceDetailPage should render properly if not datasource owner 1`]
       size="s"
       value="Engagement survey 2020"
     />
-    <S />
+    <O />
     <CollaboratorFieldsTable
       fields={
         Array [
@@ -106,7 +124,7 @@ exports[`DataSourceDetailPage should render properly if not datasource owner 1`]
     onClickDelete={[Function]}
     onClickSave={[Function]}
   />
-  <v
+  <g
     header={
       <h3>
         Permission
@@ -116,22 +134,31 @@ exports[`DataSourceDetailPage should render properly if not datasource owner 1`]
     onClose={[Function]}
     placement="right"
   >
-    <y
+    <b
       className="pwapp-field-grants-table"
     />
-  </v>
-</li>
+  </g>
+</wi>
 `;
 
 exports[`DataSourceDetailPage should render properly when grantField is given 1`] = `
-<li
-  header={<AppBar />}
+<wi
+  header={
+    <Connect(AppBar)
+      activeMenuId="datasource"
+    />
+  }
+  spinner={<Unknown />}
 >
   <i
     header={
-      <h3>
-        Datasource details 
-      </h3>
+      <Unknown
+        primary={
+          <Unknown>
+            Datasource details 
+          </Unknown>
+        }
+      />
     }
   >
     <t
@@ -143,7 +170,7 @@ exports[`DataSourceDetailPage should render properly when grantField is given 1`
       size="s"
       value="Engagement survey 2020"
     />
-    <S />
+    <O />
     <OwnerFieldsTable
       fields={
         Array [
@@ -167,7 +194,7 @@ exports[`DataSourceDetailPage should render properly when grantField is given 1`
     onClickDelete={[Function]}
     onClickSave={[Function]}
   />
-  <v
+  <g
     header={
       <h3>
         Permission
@@ -177,7 +204,7 @@ exports[`DataSourceDetailPage should render properly when grantField is given 1`
     onClose={[Function]}
     placement="right"
   >
-    <y
+    <b
       className="pwapp-field-grants-table"
     >
       <FieldGrantsTable
@@ -192,7 +219,7 @@ exports[`DataSourceDetailPage should render properly when grantField is given 1`
         onRemoveGrant={[Function]}
         onUpdateGrant={[Function]}
       />
-    </y>
-  </v>
-</li>
+    </b>
+  </g>
+</wi>
 `;

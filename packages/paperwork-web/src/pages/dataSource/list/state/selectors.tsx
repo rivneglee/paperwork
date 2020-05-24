@@ -28,7 +28,7 @@ export const getEntries = createSelector(
     const { data = [] } = page;
     return data.map(datasource => ({
       badges: getBadges(user, datasource),
-      link: `/${user.id}/dataSource/${datasource.id}`,
+      link: `/dataSource/${datasource.id}`,
       ...datasource,
     }));
   },
