@@ -2,8 +2,8 @@ import React, { FunctionComponent, ReactElement } from 'react';
 
 interface Props {
   image?: string;
-  title: string;
-  description: string;
+  title: string | ReactElement;
+  description: string | ReactElement;
   buttons?: ReactElement[];
 }
 

@@ -7,8 +7,8 @@ import { Authentication } from '../../schema/User';
 import Menu from './Menu';
 
 interface Props {
-  activeMenuId: string;
-  authentication: Authentication;
+  activeMenuId?: string;
+  authentication?: Authentication;
 }
 
 const AppBar: FunctionComponent<Props> = ({ activeMenuId }) => {

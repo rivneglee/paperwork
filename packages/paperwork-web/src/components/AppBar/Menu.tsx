@@ -3,7 +3,7 @@ import { Icons, Menu as MenuWidget } from '@paperwork/ui-widgets';
 import { Link } from 'react-router-dom';
 
 interface Props {
-  activeMenuId: string;
+  activeMenuId?: string;
 }
 
 const Menu: FunctionComponent<Props> = ({ activeMenuId }) => (
