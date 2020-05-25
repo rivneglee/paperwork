@@ -6,13 +6,15 @@ const invoke = async (mapping: RequestFunctionMapping, request: Request) => {
   const { intent, urlParams, params, content, method } = request;
   const integrationFunction = mapping[intent];
   if (!integrationFunction) throw new Error(`Unknown intent ${intent} is used.`);
-  console.log('Request:', method, urlParams, content, params);
   const response = await integrationFunction({
     urlParams,
     params,
     content,
   });
-  console.log('Response:', response);
+  console.log(`${intent}:`, {
+    response,
+    request: { method, urlParams, params, content },
+  });
   await sleep(1000);
   return response;
 };
