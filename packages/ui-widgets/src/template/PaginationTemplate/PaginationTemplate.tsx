@@ -26,7 +26,7 @@ const PaginationTemplate: FunctionComponent<Props> = ({
   const [shouldShowSpinner, setShouldShowSpinner] = useState(true);
   const cooldown = 1000;
 
-  const loadMore = (page: number) => {
+  const loadMore = () => {
     setShouldShowSpinner(false);
     onLoadMore(page);
     setTimeout(() => setShouldShowSpinner(true), cooldown);
