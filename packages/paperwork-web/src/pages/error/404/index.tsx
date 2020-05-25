@@ -10,8 +10,8 @@ export default () => (
     <Card>
       <PageState
         image={pageNotFound}
-        title={<span className="pwapp-error-code">404</span>}
-        description="The page you visiting is not found"
+        title={<span className="pwapp-error-code">404 Page not found</span>}
+        description="The page you visiting is not found or the identifier of resource is not existing in system."
       />
     </Card>
   </BaseTemplate>
