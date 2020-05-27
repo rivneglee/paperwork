@@ -11,6 +11,9 @@ interface Props {
   readonly?: boolean;
   itemComponentMap: {[key: string]: ComponentType<Item>};
   items: {[key:string]: Item};
+  onRemoveItem?: (id: string) => void;
+  onDuplicateItem?: (id: string) => void;
+  onEditItem?: (id: string) => void;
 }
 
 const SimpleList: FunctionComponent<Props> = ({
@@ -20,6 +23,9 @@ const SimpleList: FunctionComponent<Props> = ({
   readonly,
   itemComponentMap,
   items,
+  onRemoveItem,
+  onDuplicateItem,
+  onEditItem,
 }) => {
   const renderItem = (layoutNode: LayoutLinkedNode) => {
     const item = items[layoutNode.id];
@@ -28,7 +34,13 @@ const SimpleList: FunctionComponent<Props> = ({
       const Item = itemComponentMap[itemType];
       if (Item) {
         return (
-          <ItemWrapper dragAndDropDisabled={dragAndDropDisabled}>
+          <ItemWrapper
+            id={id}
+            dragAndDropDisabled={dragAndDropDisabled}
+            onEdit={onEditItem}
+            onRemove={onRemoveItem}
+            onDuplicate={onDuplicateItem}
+          >
             <Item
               id={id}
               itemType={itemType}

@@ -12,6 +12,9 @@ interface Props {
   layoutComponentMap?: {[key: string]: ComponentType<any>};
   itemComponentMap: {[key: string]: ComponentType<any>};
   onDragEnd?: (result: DropResult) => void;
+  onRemoveItem?: (id: string) => void;
+  onDuplicateItem?: (id: string) => void;
+  onEditItem?: (id: string) => void;
   dragAndDropDisabled?: boolean;
   readonly?: boolean;
 }
@@ -27,6 +30,9 @@ const Page: FunctionComponent<Props> = ({
   layoutComponentMap = defaultLayoutComponentMap,
   itemComponentMap,
   onDragEnd,
+  onRemoveItem,
+  onDuplicateItem,
+  onEditItem,
   dragAndDropDisabled,
   readonly,
 }) => {
@@ -43,6 +49,9 @@ const Page: FunctionComponent<Props> = ({
             readonly={readonly}
             items={items}
             itemComponentMap={itemComponentMap}
+            onRemoveItem={onRemoveItem}
+            onEditItem={onEditItem}
+            onDuplicateItem={onDuplicateItem}
           />
         </div>
       );
