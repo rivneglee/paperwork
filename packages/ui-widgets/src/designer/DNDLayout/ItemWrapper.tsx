@@ -35,6 +35,6 @@ const ItemWrapper: FunctionComponent<Props> = ({
       </div>
     </Tooltip>
   );
-}
+};
 
 export default ItemWrapper;
