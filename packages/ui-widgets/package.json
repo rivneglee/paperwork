@@ -15,7 +15,8 @@
     "react-modal": "^3.11.2",
     "react-select": "^3.1.0",
     "react-toggle": "^4.1.1",
-    "shortid": "^2.2.15"
+    "shortid": "^2.2.15",
+    "react-beautiful-dnd": "^8.0.5"
   },
   "main": "build/index.js",
   "types": "build/types/src/index.d.ts",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
+    "@types/react-beautiful-dnd": "^7.1.2",
     "@types/debounce": "^1.2.0",
     "@types/classnames": "^2.2.10",
     "@types/cleave.js": "^1.4.1",

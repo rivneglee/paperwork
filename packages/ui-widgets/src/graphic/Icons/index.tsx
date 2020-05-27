@@ -31,6 +31,7 @@ import Confirm from './Confirm';
 import Error from './Error';
 import PowerOff from './PowerOff';
 import Edit from './Edit';
+import Settings from './Settings';
 
 export default {
   Add,
@@ -66,4 +67,5 @@ export default {
   Error,
   PowerOff,
   Edit,
+  Settings,
 };

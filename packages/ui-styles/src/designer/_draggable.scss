@@ -1,0 +1,51 @@
+.pw-draggable-list {
+  flex: 0 0 150px;
+  background: white;
+
+  &--dropping {
+    border: 1px dashed $pw-palette-storm-83;
+  }
+
+  &__row {
+    overflow: visible;
+    position: relative;
+    user-select: none;
+    border-radius: 3px;
+    border: 1px dashed $pw-palette-storm-28;
+    margin: 5px;
+    background: white;
+    &--dragging {
+      border: 1px dashed $pw-palette-storm-83;
+    }
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__placeholder {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    padding: 0.5rem;
+    margin: 0 0.5rem 0.5rem;
+    border: 1px solid transparent;
+    line-height: 1.5;
+    color: #aaa;
+  }
+
+  &--disabled {
+    .pw-draggable-list__placeholder {
+      display: none;
+    }
+
+    .pw-draggable-list__row {
+      border: 0;
+    }
+
+    .pw-draggable-list__row--empty {
+      display: none;
+    }
+  }
+}
