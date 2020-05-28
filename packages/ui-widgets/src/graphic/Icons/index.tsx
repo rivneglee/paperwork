@@ -32,6 +32,7 @@ import Error from './Error';
 import PowerOff from './PowerOff';
 import Edit from './Edit';
 import Settings from './Settings';
+import DragHandle from './DragHandle';
 
 export default {
   Add,
@@ -68,4 +69,5 @@ export default {
   PowerOff,
   Edit,
   Settings,
+  DragHandle,
 };

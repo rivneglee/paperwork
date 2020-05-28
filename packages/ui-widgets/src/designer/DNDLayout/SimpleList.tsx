@@ -3,6 +3,7 @@ import React, { ComponentType, FunctionComponent } from 'react';
 import DraggableList from './DraggableList';
 import { DragAndDropType, Item, Layout, LayoutLinkedNode } from './types';
 import ItemWrapper from './ItemWrapper';
+import Placeholder from './Placeholder';
 
 interface Props {
   id: string;
@@ -14,6 +15,7 @@ interface Props {
   onRemoveItem?: (id: string) => void;
   onDuplicateItem?: (id: string) => void;
   onEditItem?: (id: string) => void;
+  onRemove?:() => void;
 }
 
 const SimpleList: FunctionComponent<Props> = ({
@@ -26,6 +28,7 @@ const SimpleList: FunctionComponent<Props> = ({
   onRemoveItem,
   onDuplicateItem,
   onEditItem,
+  onRemove,
 }) => {
   const renderItem = (layoutNode: LayoutLinkedNode) => {
     const item = items[layoutNode.id];
@@ -61,7 +64,7 @@ const SimpleList: FunctionComponent<Props> = ({
       dragAndDropType={DragAndDropType.ITEM}
       layout={layout}
       disabled={dragAndDropDisabled}
-      placeholder="DROP ITEM HERE..."
+      placeholder={<Placeholder message="DROP ITEM HERE" onRemove={onRemove}/>}
     />
   );
 };

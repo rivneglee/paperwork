@@ -4,6 +4,7 @@ import { DropResult } from 'react-beautiful-dnd';
 import DraggableList from './DraggableList';
 import { DragAndDropType, Item, Layout, LayoutLinkedNode, LayoutNodeTypes } from './types';
 import SimpleList from './SimpleList';
+import Placeholder from './Placeholder';
 
 interface Props {
   id: string;
@@ -14,6 +15,7 @@ interface Props {
   onDragEnd?: (result: DropResult) => void;
   onRemoveItem?: (id: string) => void;
   onDuplicateItem?: (id: string) => void;
+  onRemoveLayout?: (id: string) => void;
   onEditItem?: (id: string) => void;
   dragAndDropDisabled?: boolean;
   readonly?: boolean;
@@ -33,6 +35,7 @@ const Page: FunctionComponent<Props> = ({
   onRemoveItem,
   onDuplicateItem,
   onEditItem,
+  onRemoveLayout,
   dragAndDropDisabled,
   readonly,
 }) => {
@@ -52,6 +55,7 @@ const Page: FunctionComponent<Props> = ({
             onRemoveItem={onRemoveItem}
             onEditItem={onEditItem}
             onDuplicateItem={onDuplicateItem}
+            onRemove={() => onRemoveLayout && onRemoveLayout(layoutNode.id)}
           />
         </div>
       );
@@ -67,7 +71,9 @@ const Page: FunctionComponent<Props> = ({
       dragAndDropType={DragAndDropType.LAYOUT}
       disabled={dragAndDropDisabled}
       onDragEnd={onDragEnd}
-      placeholder="Drop layout here..."
+      placeholder={
+        <Placeholder className="pw-dnd-layout-page__placeholder" message="DROP LAYOUT HERE" canRemove={false}/>
+      }
     />
   );
 };
