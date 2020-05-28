@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
 import DraggableList from './DraggableList';
-import {DragAndDropType, Items, ItemMetadata, Layout, LayoutLinkedNode, Item} from './types';
+import { DragAndDropType, Items, ItemMetadata, Layout, LayoutLinkedNode } from './types';
 import LayoutItem from './LayoutItem';
 import Placeholder from './Placeholder';
 
@@ -14,7 +14,7 @@ interface Props {
   items: Items;
   onRemoveItem?: (id: string) => void;
   onDuplicateItem?: (id: string) => void;
-  onEditItem?: (updatedItem: Item) => void;
+  onEditItem?: (id: string) => void;
   onRemove?:() => void;
 }
 
