@@ -2,21 +2,21 @@ import React, { FunctionComponent, ComponentType } from 'react';
 import { DropResult } from 'react-beautiful-dnd';
 
 import DraggableList from './DraggableList';
-import { DragAndDropType, Item, Layout, LayoutLinkedNode, LayoutNodeTypes } from './types';
+import {DragAndDropType, Items, ItemMetadata, Layout, LayoutLinkedNode, LayoutNodeTypes, Item} from './types';
 import SimpleList from './SimpleList';
 import Placeholder from './Placeholder';
 
 interface Props {
   id: string;
   layout: Layout;
-  items: {[key:string]: Item};
-  layoutComponentMap?: {[key: string]: ComponentType<any>};
-  itemComponentMap: {[key: string]: ComponentType<any>};
+  items: Items;
+  layoutComponentMap?: {[layoutType: string]: ComponentType<any>};
+  itemComponentMap: {[itemType: string]: ItemMetadata};
   onDragEnd?: (result: DropResult) => void;
   onRemoveItem?: (id: string) => void;
   onDuplicateItem?: (id: string) => void;
   onRemoveLayout?: (id: string) => void;
-  onEditItem?: (id: string) => void;
+  onEditItem?: (updatedItem: Item) => void;
   dragAndDropDisabled?: boolean;
   readonly?: boolean;
 }

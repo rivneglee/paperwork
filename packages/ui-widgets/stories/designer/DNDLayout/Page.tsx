@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Page, LayoutNodeTypes, Card, Input, Select } from '../../../src';
+import { Page, LayoutNodeTypes, Card, Input, Select, LineItemTable } from '../../../src';
 
 const layout = [
   { id: 'page', childRefs: ['list1', 'list2'], type:  LayoutNodeTypes.PAGE },
@@ -19,9 +19,31 @@ const items = {
   ]},
 };
 
+const columnsConfig = [
+  { columnName: 'Label' },
+  { columnName: 'Value' },
+];
+
+const SelectSettingsView =  ({ options = [] }: any) => (
+  <LineItemTable
+    columnsConfig={columnsConfig}
+    data={options}
+    renderRow={(index, data) => (
+      <LineItemTable.Row columnsConfig={columnsConfig}>
+        <LineItemTable.Item>
+          <Input value={data.label}/>
+        </LineItemTable.Item>
+        <LineItemTable.Item>
+          <Input value={data.value}/>
+        </LineItemTable.Item>
+      </LineItemTable.Row>
+    )}
+  />
+);
+
 const itemComponentMap = {
-  input: Input,
-  select: Select,
+  input: { MainView: Input },
+  select: { MainView: Select, SettingsView: SelectSettingsView },
 };
 
 export default () => {

@@ -1,8 +1,8 @@
-import React, { ComponentType, FunctionComponent } from 'react';
+import React, { FunctionComponent } from 'react';
 
 import DraggableList from './DraggableList';
-import { DragAndDropType, Item, Layout, LayoutLinkedNode } from './types';
-import ItemWrapper from './ItemWrapper';
+import {DragAndDropType, Items, ItemMetadata, Layout, LayoutLinkedNode, Item} from './types';
+import LayoutItem from './LayoutItem';
 import Placeholder from './Placeholder';
 
 interface Props {
@@ -10,11 +10,11 @@ interface Props {
   layout: Layout;
   dragAndDropDisabled?: boolean;
   readonly?: boolean;
-  itemComponentMap: {[key: string]: ComponentType<Item>};
-  items: {[key:string]: Item};
+  itemComponentMap: {[itemType: string]: ItemMetadata};
+  items: Items;
   onRemoveItem?: (id: string) => void;
   onDuplicateItem?: (id: string) => void;
-  onEditItem?: (id: string) => void;
+  onEditItem?: (updatedItem: Item) => void;
   onRemove?:() => void;
 }
 
@@ -33,24 +33,19 @@ const SimpleList: FunctionComponent<Props> = ({
   const renderItem = (layoutNode: LayoutLinkedNode) => {
     const item = items[layoutNode.id];
     if (item) {
-      const { id, itemType, ...otherProps } = item;
-      const Item = itemComponentMap[itemType];
-      if (Item) {
+      const { itemType } = item;
+      const metadata = itemComponentMap[itemType];
+      if (metadata) {
         return (
-          <ItemWrapper
-            id={id}
+          <LayoutItem
+            item={item}
+            readonly={readonly}
+            metadata={metadata}
             dragAndDropDisabled={dragAndDropDisabled}
             onEdit={onEditItem}
             onRemove={onRemoveItem}
             onDuplicate={onDuplicateItem}
-          >
-            <Item
-              id={id}
-              itemType={itemType}
-              disabled={readonly}
-              {...otherProps}
-            />
-          </ItemWrapper>
+          />
         );
         return <span>{`Unknown item type: ${itemType}`}</span>;
       }

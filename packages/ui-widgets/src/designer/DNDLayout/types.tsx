@@ -1,3 +1,5 @@
+import { ComponentType } from 'react';
+
 export enum DragAndDropType {
   LAYOUT = 'layout', ITEM = 'item',
 }
@@ -22,3 +24,8 @@ export interface Item {
 }
 
 export type Items = {[key: string]: Item};
+
+export interface ItemMetadata {
+  MainView: ComponentType<any>;
+  SettingsView?: ComponentType<any>;
+}

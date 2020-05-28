@@ -3,6 +3,9 @@
     .rc-tooltip-inner {
       min-height: 0;
     }
+    &.rc-tooltip {
+      z-index: 90;
+    }
   }
 
   &__trigger {
