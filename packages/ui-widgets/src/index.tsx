@@ -37,4 +37,4 @@ export * from './message/PageState';
 export * from './table/Table';
 export * from './table/LineItemTable';
 
-export * from './designer/DNDLayout';
+export * from './designer/FormDesigner';

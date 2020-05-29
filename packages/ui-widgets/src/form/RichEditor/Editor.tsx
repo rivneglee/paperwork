@@ -19,6 +19,7 @@ export interface Props {
   isRequired?: boolean;
   labelAccessory?: ReactElement;
   size?: 'xs' | 's' | 'm' | 'l' | 'xl';
+  placeholder?: string;
 }
 
 interface State {
@@ -84,7 +85,7 @@ class BangEditor extends React.Component<Props, State> {
 
   render() {
     const { editorState, hasFocus } = this.state;
-    const { className, alignment, label, isRequired, labelAccessory, size, labelPlacement = 'left' } = this.props;
+    const { className, alignment, label, isRequired, labelAccessory, size, labelPlacement = 'left', placeholder } = this.props;
     return (
       <FieldGroup
         label={label}
@@ -103,6 +104,7 @@ class BangEditor extends React.Component<Props, State> {
              onBlur={this.handleBlur}
              onFocus={this.handleFocus}>
           <Editor
+            placeholder={placeholder}
             ref={(el) => {
               this.draftEl = el;
             }}

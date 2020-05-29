@@ -1,12 +1,10 @@
-import React, { FunctionComponent, ComponentType, useState } from 'react';
+import React, { FunctionComponent, ComponentType } from 'react';
 import { DropResult } from 'react-beautiful-dnd';
 
 import DraggableList from './DraggableList';
 import { DragAndDropType, Items, ItemMetadata, Layout, LayoutLinkedNode, LayoutNodeTypes, Item } from './types';
 import SimpleList from './SimpleList';
 import Placeholder from './Placeholder';
-import { Scrollable } from '../../layout/Scrollable';
-import { Drawer } from '../../layout/Drawer';
 
 interface Props {
   id: string;
@@ -16,6 +14,7 @@ interface Props {
   itemComponentMap: {[itemType: string]: ItemMetadata};
   onDragEnd?: (result: DropResult) => void;
   onUpdateItemSettings?: (newItem: Item) => void;
+  onEditItem?: (id: string) => void;
   onRemoveItem?: (id: string) => void;
   onDuplicateItem?: (id: string) => void;
   onRemoveLayout?: (id: string) => void;
@@ -34,6 +33,7 @@ const Page: FunctionComponent<Props> = ({
   layoutComponentMap = defaultLayoutComponentMap,
   itemComponentMap,
   onDragEnd,
+  onEditItem,
   onRemoveItem,
   onDuplicateItem,
   onRemoveLayout,
@@ -41,16 +41,6 @@ const Page: FunctionComponent<Props> = ({
   dragAndDropDisabled,
   readonly,
 }) => {
-  const onEditItem = (id: string) => setEditingItemId(id);
-  const [editingItemId, setEditingItemId] = useState('');
-  const editingItem = items[editingItemId];
-
-  let SettingsView = null;
-  if (editingItem) {
-    const itemMetadata = itemComponentMap[editingItem.itemType];
-    SettingsView = itemMetadata.SettingsView;
-  }
-
   const renderItem = (layoutNode: LayoutLinkedNode) => {
     if (layoutNode.childRefs.length === 0 && dragAndDropDisabled) return null;
     const Layout = layoutComponentMap[layoutNode.type];
@@ -76,31 +66,17 @@ const Page: FunctionComponent<Props> = ({
   };
 
   return (
-    <>
-      <DraggableList
-        id={id}
-        renderItem={renderItem}
-        layout={layout}
-        dragAndDropType={DragAndDropType.LAYOUT}
-        disabled={dragAndDropDisabled}
-        onDragEnd={onDragEnd}
-        placeholder={
-          <Placeholder className="pw-dnd-layout-page__placeholder" message="DROP LAYOUT HERE" canRemove={false}/>
-        }
-      />
-      <Drawer
-        placement="right"
-        header={<h3>Settings</h3>}
-        isShow={!!SettingsView}
-        onClose={() => setEditingItemId('')}
-      >
-        <Scrollable className="pw-dnd-layout-page__settings">
-          {
-            SettingsView && <SettingsView {...editingItem} onUpdate={onUpdateItemSettings}/>
-          }
-        </Scrollable>
-      </Drawer>
-    </>
+    <DraggableList
+      id={id}
+      renderItem={renderItem}
+      layout={layout}
+      dragAndDropType={DragAndDropType.LAYOUT}
+      disabled={dragAndDropDisabled}
+      onDragEnd={onDragEnd}
+      placeholder={
+        <Placeholder className="pw-dnd-layout-page__placeholder" message="DROP LAYOUT HERE" canRemove={false}/>
+      }
+    />
   );
 };
 

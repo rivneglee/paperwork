@@ -1,0 +1,29 @@
+.pw-form {
+  .pw-card__header {
+    padding-bottom: 0;
+  }
+
+  &__settings {
+    @media (min-width: 768px) {
+      min-width: 400px;
+    }
+  }
+
+  &__title {
+    padding: 1rem .7rem;
+    .pw-input__control {
+      font-size: 30px;
+    }
+    &--readonly {
+      border: 0;
+      &:hover {
+        border: 0;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .pw-card-header__icon {
+    padding: 0;
+  }
+}

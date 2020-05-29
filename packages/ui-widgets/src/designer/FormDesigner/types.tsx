@@ -4,6 +4,10 @@ export enum DragAndDropType {
   LAYOUT = 'layout', ITEM = 'item',
 }
 
+export enum FormMode {
+  DESIGN = 'design', EDIT = 'edit', READONLY = 'readonly',
+}
+
 export enum LayoutNodeTypes {
   PAGE = 'page', SIMPLE_LIST = 'simple-list', FORM_ITEM  = 'form-item',
 }

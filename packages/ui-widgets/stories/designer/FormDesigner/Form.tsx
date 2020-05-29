@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Page, LayoutNodeTypes, Card, Input, Select, LineItemTable } from '../../../src';
+import {Form, LayoutNodeTypes, Input, Select, LineItemTable, FormMode} from '../../../src';
 
 const layout = [
-  { id: 'page', childRefs: ['list1', 'list2'], type:  LayoutNodeTypes.PAGE },
+  { id: 'page1', childRefs: ['list1', 'list2'], type:  LayoutNodeTypes.PAGE },
   { id: 'list1', childRefs: ['item1', 'item2'], type:  LayoutNodeTypes.SIMPLE_LIST },
   { id: 'item1', childRefs: [], type:  LayoutNodeTypes.FORM_ITEM },
   { id: 'item2', childRefs: [], type:  LayoutNodeTypes.FORM_ITEM },
@@ -49,36 +49,30 @@ const itemComponentMap = {
 export default () => {
   return (
     <div style={{ background: '#ebeef1', padding: '2.4rem' }}>
-      <Card header={<Card.Header primary="Author view"/>}>
-        <Page
-          id="page"
-          layout={layout}
-          items={items}
-          itemComponentMap={itemComponentMap}
-          onDragEnd={() => {}}
-        />
-      </Card>
-      <Card header={<Card.Header primary="Committer view"/>}>
-        <Page
-          id="page"
-          dragAndDropDisabled
-          layout={layout}
-          items={items}
-          itemComponentMap={itemComponentMap}
-          onDragEnd={() => {}}
-        />
-      </Card>
-      <Card header={<Card.Header primary="History view"/>}>
-        <Page
-          id="page"
-          dragAndDropDisabled
-          readonly
-          layout={layout}
-          items={items}
-          itemComponentMap={itemComponentMap}
-          onDragEnd={() => {}}
-        />
-      </Card>
+      <Form
+        mode={FormMode.DESIGN}
+        name="Author view"
+        layout={layout}
+        items={items}
+        itemComponentMap={itemComponentMap}
+        onDragEnd={() => {}}
+      />
+      <Form
+        mode={FormMode.EDIT}
+        name="Committer view"
+        layout={layout}
+        items={items}
+        itemComponentMap={itemComponentMap}
+        onDragEnd={() => {}}
+      />
+      <Form
+        name="History view"
+        mode={FormMode.READONLY}
+        layout={layout}
+        items={items}
+        itemComponentMap={itemComponentMap}
+        onDragEnd={() => {}}
+      />
     </div>
   );
 };
