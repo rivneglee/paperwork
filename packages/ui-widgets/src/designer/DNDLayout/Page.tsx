@@ -2,7 +2,7 @@ import React, { FunctionComponent, ComponentType, useState } from 'react';
 import { DropResult } from 'react-beautiful-dnd';
 
 import DraggableList from './DraggableList';
-import { DragAndDropType, Items, ItemMetadata, Layout, LayoutLinkedNode, LayoutNodeTypes } from './types';
+import { DragAndDropType, Items, ItemMetadata, Layout, LayoutLinkedNode, LayoutNodeTypes, Item } from './types';
 import SimpleList from './SimpleList';
 import Placeholder from './Placeholder';
 import { Scrollable } from '../../layout/Scrollable';
@@ -15,6 +15,7 @@ interface Props {
   layoutComponentMap?: {[layoutType: string]: ComponentType<any>};
   itemComponentMap: {[itemType: string]: ItemMetadata};
   onDragEnd?: (result: DropResult) => void;
+  onUpdateItemSettings?: (newItem: Item) => void;
   onRemoveItem?: (id: string) => void;
   onDuplicateItem?: (id: string) => void;
   onRemoveLayout?: (id: string) => void;
@@ -36,10 +37,11 @@ const Page: FunctionComponent<Props> = ({
   onRemoveItem,
   onDuplicateItem,
   onRemoveLayout,
+  onUpdateItemSettings,
   dragAndDropDisabled,
   readonly,
 }) => {
-  const onEditItem = (id: string) => setEditingItemId(id)
+  const onEditItem = (id: string) => setEditingItemId(id);
   const [editingItemId, setEditingItemId] = useState('');
   const editingItem = items[editingItemId];
 
@@ -94,7 +96,7 @@ const Page: FunctionComponent<Props> = ({
       >
         <Scrollable className="pw-dnd-layout-page__settings">
           {
-            SettingsView && <SettingsView {...editingItem}/>
+            SettingsView && <SettingsView {...editingItem} onUpdate={onUpdateItemSettings}/>
           }
         </Scrollable>
       </Drawer>
