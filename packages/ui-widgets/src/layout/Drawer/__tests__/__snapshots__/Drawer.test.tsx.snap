@@ -1,43 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`IconButton should not render drawer when it closed 1`] = `
-<Card
-  className="pw-drawer pw-drawer--left"
-  header={
-    <DrawerHeader
-      onClickCloseButton={undefined}
-      placement="left"
-    />
-  }
->
-  <Content />
-</Card>
+<Fragment>
+  <Card
+    className="pw-drawer pw-drawer--left"
+    header={
+      <DrawerHeader
+        onClickCloseButton={undefined}
+        placement="left"
+      />
+    }
+  >
+    <Content />
+  </Card>
+  <div
+    className="pw-drawer-overlay"
+  />
+</Fragment>
 `;
 
 exports[`IconButton should render drawer when it opened 1`] = `
-<Card
-  className="pw-drawer pw-drawer--left pw-drawer--opened"
-  header={
-    <DrawerHeader
-      onClickCloseButton={undefined}
-      placement="left"
-    />
-  }
->
-  <Content />
-</Card>
+<Fragment>
+  <Card
+    className="pw-drawer pw-drawer--left pw-drawer--opened"
+    header={
+      <DrawerHeader
+        onClickCloseButton={undefined}
+        placement="left"
+      />
+    }
+  >
+    <Content />
+  </Card>
+  <div
+    className="pw-drawer-overlay pw-drawer-overlay--show"
+  />
+</Fragment>
 `;
 
 exports[`IconButton should render with right style when place to right 1`] = `
-<Card
-  className="pw-drawer pw-drawer--right"
-  header={
-    <DrawerHeader
-      onClickCloseButton={undefined}
-      placement="right"
-    />
-  }
->
-  <Content />
-</Card>
+<Fragment>
+  <Card
+    className="pw-drawer pw-drawer--right"
+    header={
+      <DrawerHeader
+        onClickCloseButton={undefined}
+        placement="right"
+      />
+    }
+  >
+    <Content />
+  </Card>
+  <div
+    className="pw-drawer-overlay"
+  />
+</Fragment>
 `;
