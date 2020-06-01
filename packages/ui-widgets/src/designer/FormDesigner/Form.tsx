@@ -10,6 +10,11 @@ import { FormMode, Item, ItemMetadata, Items, Layout, LayoutNodeTypes } from './
 import { Input } from '../../form/Input';
 
 interface Props {
+  headerImage?: string;
+  theme?: 'red' | 'pink' | 'purple' | 'indigo'
+    | 'blue' | 'light-blue' | 'cyan' | 'teal' | 'green'
+    | 'light-green' | 'lime' | 'yellow' | 'amber'
+    | 'orange' | 'deep-orange' | 'brown' | 'grey' | 'blue-grey';
   name: string;
   mode: FormMode;
   layout: Layout;
@@ -24,6 +29,8 @@ interface Props {
 }
 
 const Form: FunctionComponent<Props> = ({
+  headerImage,
+  theme,
   name,
   mode,
   layout = [],
@@ -49,52 +56,61 @@ const Form: FunctionComponent<Props> = ({
   }
 
   return (
-    <Card
-      className="pw-form"
-      header={
-        <Card.Header primary={
-          <Input
-            type="underlined"
-            className={classNames('pw-form__title', disableHeader && 'pw-form__title--readonly')}
-            disabled={disableHeader}
-            value={name}
-          />}
-        />
-      }
-    >
+    <div className={classNames('pw-form', theme && `pw-form--theme-${theme}`)}>
       {
-        pages.map(page => (
-          <Page
-            id={page.id}
-            key={page.id}
-            layout={layout}
-            items={items}
-            layoutComponentMap={layoutComponentMap}
-            itemComponentMap={itemComponentMap}
-            onDragEnd={onDragEnd}
-            onEditItem={onEditItem}
-            onRemoveItem={onRemoveItem}
-            onDuplicateItem={onDuplicateItem}
-            onRemoveLayout={onRemoveLayout}
-            onUpdateItemSettings={onUpdateItemSettings}
-            dragAndDropDisabled={mode === FormMode.EDIT || mode === FormMode.READONLY}
-            readonly={mode === FormMode.READONLY}
-          />
-        ))
+        headerImage && (
+          <div className="pw-form__header-img">
+            <img src={headerImage}/>
+          </div>
+        )
       }
-      <Drawer
-        placement="right"
-        header={<h3>Settings</h3>}
-        isShow={!!SettingsView}
-        onClose={() => setEditingItemId('')}
+      <Card
+        className="pw-form__body"
+        header={
+          <Card.Header primary={
+            <Input
+              type="underlined"
+              className={classNames('pw-form__title', disableHeader && 'pw-form__title--readonly')}
+              disabled={disableHeader}
+              value={name}
+            />}
+          />
+        }
       >
-        <Scrollable className="pw-form__settings">
-          {
-            SettingsView && <SettingsView {...editingItem} onUpdate={onUpdateItemSettings}/>
-          }
-        </Scrollable>
-      </Drawer>
-    </Card>
+        {
+          pages.map(page => (
+            <Page
+              id={page.id}
+              key={page.id}
+              layout={layout}
+              items={items}
+              layoutComponentMap={layoutComponentMap}
+              itemComponentMap={itemComponentMap}
+              onDragEnd={onDragEnd}
+              onEditItem={onEditItem}
+              onRemoveItem={onRemoveItem}
+              onDuplicateItem={onDuplicateItem}
+              onRemoveLayout={onRemoveLayout}
+              onUpdateItemSettings={onUpdateItemSettings}
+              dragAndDropDisabled={mode === FormMode.EDIT || mode === FormMode.READONLY}
+              readonly={mode === FormMode.READONLY}
+            />
+          ))
+        }
+        <Drawer
+          placement="right"
+          header={<h3>Settings</h3>}
+          isShow={!!SettingsView}
+          onClose={() => setEditingItemId('')}
+        >
+          <Scrollable className="pw-form__settings">
+            {
+              SettingsView && <SettingsView {...editingItem} onUpdate={onUpdateItemSettings}/>
+            }
+          </Scrollable>
+        </Drawer>
+      </Card>
+    </div>
   );
 };
 

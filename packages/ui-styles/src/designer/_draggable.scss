@@ -1,6 +1,6 @@
 .pw-draggable-list {
   flex: 0 0 150px;
-  background: white;
+  background: transparent;
 
   &--dropping {
     border: 1px dashed $pw-palette-storm-83;
@@ -13,7 +13,7 @@
     border-radius: 3px;
     border: 1px dashed $pw-palette-storm-28;
     margin: 5px 0;
-    background: white;
+    background: transparent;
     &--dragging {
       border: 1px dashed $pw-palette-storm-83;
     }

@@ -21,7 +21,7 @@
   "main": "build/index.js",
   "types": "build/types/src/index.d.ts",
   "scripts": {
-    "storybook": "../../node_modules/.bin/start-storybook -p 9009",
+    "storybook": "../../node_modules/.bin/start-storybook -p 9009 -s ./.storybook/assets",
     "build-storybook": "../../node_modules/.bin/build-storybook",
     "build": "webpack --config ./config/webpack.config.js",
     "test": "node scripts/test.js --env=jsdom",

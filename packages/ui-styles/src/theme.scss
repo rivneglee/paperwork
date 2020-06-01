@@ -51,3 +51,115 @@ $pw-field-size-s: 16.8rem;
 $pw-field-size-m: 22.9rem;
 $pw-field-size-l: 29rem;
 $pw-field-size-xl: 35.2rem;
+
+
+$pw-theme-colours: (
+        red: (
+                primary: #F44336,
+                primary-darker: #B71C1C,
+                primary-lighter: #FFEBEE,
+                primary-light: #FFCDD2,
+        ),
+        pink: (
+                primary: #E91E63,
+                primary-darker: #880E4F,
+                primary-lighter: #FCE4EC,
+                primary-light: #F8BBD0,
+        ),
+        purple: (
+                primary: #9C27B0,
+                primary-darker: #4A148C,
+                primary-lighter: #F3E5F5,
+                primary-light: #E1BEE7,
+        ),
+        indigo: (
+                primary: #3F51B5,
+                primary-darker: #1A237E,
+                primary-lighter: #E8EAF6,
+                primary-light: #C5CAE9,
+        ),
+        blue: (
+                primary: #2196F3,
+                primary-darker: #0D47A1,
+                primary-lighter: #E3F2FD,
+                primary-light: #BBDEFB,
+        ),
+        light-blue: (
+                primary: #03A9F4,
+                primary-darker: #01579B,
+                primary-lighter: #E1F5FE,
+                primary-light: #B3E5FC,
+        ),
+        cyan: (
+                primary: #00BCD4,
+                primary-darker: #006064,
+                primary-lighter: #E0F7FA,
+                primary-light: #B2EBF2,
+        ),
+        teal: (
+                primary: #009688,
+                primary-darker: #004D40,
+                primary-lighter: #E0F2F1,
+                primary-light: #B2DFDB,
+        ),
+        green: (
+                primary: #4CAF50,
+                primary-darker: #1B5E20,
+                primary-lighter: #E8F5E9,
+                primary-light: #C8E6C9,
+        ),
+        light-green: (
+                primary: #8BC34A,
+                primary-darker: #33691E,
+                primary-lighter: #F1F8E9,
+                primary-light: #DCEDC8,
+        ),
+        lime: (
+                primary: #CDDC39,
+                primary-darker: #827717,
+                primary-lighter: #F9FBE7,
+                primary-light: #F0F4C3,
+        ),
+        yellow: (
+                primary: #FFEB3B,
+                primary-darker: #F57F17,
+                primary-lighter: #FFFDE7,
+                primary-light: #FFF9C4,
+        ),
+        amber: (
+                primary: #FFC107,
+                primary-darker: #FF6F00,
+                primary-lighter: #FFF8E1,
+                primary-light: #FFECB3,
+        ),
+        orange: (
+                primary: #FF9800,
+                primary-darker: #E65100,
+                primary-lighter: #FFF3E0,
+                primary-light: #FFE0B2,
+        ),
+        deep-orange: (
+                primary: #FF5722,
+                primary-darker: #BF360C,
+                primary-lighter: #FBE9E7,
+                primary-light: #FFCCBC,
+        ),
+        brown: (
+                primary: #795548,
+                primary-darker: #3E2723,
+                primary-lighter: #EFEBE9,
+                primary-light: #D7CCC8,
+        ),
+        grey: (
+                primary: #9E9E9E,
+                primary-darker: #212121,
+                primary-lighter: #FAFAFA,
+                primary-light: #F5F5F5,
+        ),
+        blue-grey: (
+                primary: #607D8B,
+                primary-darker: #263238,
+                primary-lighter: #ECEFF1,
+                primary-light: #CFD8DC,
+        ),
+);
