@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Form, Input, Select, FormMode } from '../../../src';
-import { layout, items } from './fixtures/data';
+import { layout, items } from '../fixtures/data';
 
 const itemComponentMap = {
   input: { MainView: Input },

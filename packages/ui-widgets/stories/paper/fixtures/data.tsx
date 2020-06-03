@@ -1,4 +1,4 @@
-import { LayoutNodeTypes } from '../../../../src/designer/FormDesigner';
+import { LayoutNodeTypes } from '../../../src/paper/Form';
 
 export const layout = [
   { id: 'page1', childRefs: ['list1', 'list2'], type:  LayoutNodeTypes.PAGE },

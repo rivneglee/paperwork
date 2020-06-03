@@ -27,6 +27,7 @@ export * from './form/Input';
 export * from './form/Search';
 export * from './form/ButtonRow';
 export * from './form/AutoComplete';
+export * from './form/LaunchPad';
 
 export * from './template/BaseTemplate';
 export * from './template/PaginationTemplate';
@@ -37,4 +38,5 @@ export * from './message/PageState';
 export * from './table/Table';
 export * from './table/LineItemTable';
 
-export * from './designer/FormDesigner';
+export * from './paper/Form';
+export * from './paper/Designer';

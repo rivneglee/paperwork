@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Form, Input, Select, LineItemTable, FormMode } from '../../../src';
-import { layout, items } from './fixtures/data';
+import { layout, items } from '../fixtures/data';
 
 const columnsConfig = [
   { columnName: 'Label' },
