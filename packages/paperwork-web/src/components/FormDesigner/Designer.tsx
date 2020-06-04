@@ -1,8 +1,8 @@
 import React, { ComponentType, FunctionComponent } from 'react';
-import { DragDropContext, DropResult } from 'react-beautiful-dnd';
-import { FormMode, Item, ItemMetadata, Items, Layout } from '../Form/types';
-import Form from '../Form/Form';
-import Toolbox from './Toolbox';
+import { FormMode, Layout, Items, Item, ItemMetadata, DropEvent, Context, Form } from '@paperwork/ui-widgets';
+
+import FooterNavigation from './FooterNavigation';
+import './Designer.scss';
 
 interface Props {
   headerImage?: string;
@@ -11,12 +11,11 @@ interface Props {
     | 'light-green' | 'lime' | 'yellow' | 'amber'
     | 'orange' | 'deep-orange' | 'brown' | 'grey' | 'blue-grey';
   name: string;
-  mode: FormMode;
   layout: Layout;
   items: Items;
   layoutComponentMap?: {[layoutType: string]: ComponentType<any>};
   itemComponentMap: {[itemType: string]: ItemMetadata};
-  onDragEnd: (result: DropResult) => void;
+  onDragEnd: (result: DropEvent) => void;
   onUpdateItemSettings?: (newItem: Item) => void;
   onRemoveItem?: (id: string) => void;
   onDuplicateItem?: (id: string) => void;
@@ -25,11 +24,11 @@ interface Props {
 
 const Designer: FunctionComponent<Props> = ({ onDragEnd, ...otherProps }: Props) => {
   return (
-    <div className="pw-form-designer">
-      <DragDropContext onDragEnd={onDragEnd}>
-        <Toolbox/>
-        <Form {...otherProps}/>
-      </DragDropContext>
+    <div>
+      <Context onDragEnd={onDragEnd}>
+        <Form mode={FormMode.DESIGN} {...otherProps}/>
+        <FooterNavigation />
+      </Context>
     </div>
   );
 };

@@ -1,0 +1,28 @@
+{
+  "id": "1",
+  "name": "Employee engagement survey",
+  "author": {
+    "id": "1",
+    "displayName": "LI,CHENG"
+  },
+  "type": "form",
+  "tags": [],
+  "heroImage": "https://gd-templates.jinshujufiles.com/template_market/clv9pW-preview-2a6da4c7-cb84-4a5b-ae28-306f398f7fa8.jpg",
+  "themeColor": "",
+  "visibility": "public",
+  "layout": [
+    { "id": "page1", "childRefs": ["list1", "list2"], "type":  "page" },
+    { "id": "list1", "childRefs": ["item1", "item2"], "type":  "simple-list" },
+    { "id": "item1", "childRefs": [], "type":  "form-item" },
+    { "id": "item2", "childRefs": [], "type":  "form-item" },
+    { "id": "list2", "childRefs": [], "type":  "simple-list" }
+  ],
+  "items": {
+    "item1": { "id": "item1", "itemType": "input", "value": "I am item 1" },
+    "item2": { "id": "item2", "itemType": "select", "selectedValue": ["r", "g"], "isMultipleSelect": true, "options": [
+      { "value": "r", "label": "Red" },
+      { "value": "g", "label": "Green" },
+      { "value": "b", "label": "Blue" }
+    ]}
+  }
+}

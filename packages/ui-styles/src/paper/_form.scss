@@ -179,3 +179,13 @@
     }
   }
 }
+
+.pw-form-toolkit-item {
+  &__container {
+    &--dragging {
+      + div {
+        display: none!important;
+      }
+    }
+  }
+}

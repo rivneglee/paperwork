@@ -1,5 +1,6 @@
+import { Items, Layout } from '@paperwork/ui-widgets';
 import { User } from './User';
-import { Layout, PaperItem, PaperType } from './Paper';
+import { PaperItem, PaperType } from './Paper';
 import { Pagination } from './Pagination';
 
 export interface Template {
@@ -20,7 +21,7 @@ export interface Item extends PaperItem {}
 
 export interface TemplateDetail extends Template {
   layout: Layout;
-  items: { [key: string]: Item };
+  items: Items;
 }
 
 export interface TemplateList {

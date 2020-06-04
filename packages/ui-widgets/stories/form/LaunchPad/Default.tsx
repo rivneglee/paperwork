@@ -4,7 +4,7 @@ import { LaunchPad, Icons } from '../../../src';
 
 export default () => (
   <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 600 }}>
-    <LaunchPad>
+    <LaunchPad placement="bottom" itemPerRow={3}>
       <LaunchPad.Item label="Report"><Icons.Chart/></LaunchPad.Item>
       <LaunchPad.Item label="Form"><Icons.Form/></LaunchPad.Item>
       <LaunchPad.Item label="Menu"><Icons.Menu/></LaunchPad.Item>

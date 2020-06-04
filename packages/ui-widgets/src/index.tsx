@@ -39,4 +39,3 @@ export * from './table/Table';
 export * from './table/LineItemTable';
 
 export * from './paper/Form';
-export * from './paper/Designer';

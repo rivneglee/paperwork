@@ -33,6 +33,7 @@ import PowerOff from './PowerOff';
 import Edit from './Edit';
 import Settings from './Settings';
 import DragHandle from './DragHandle';
+import Theme from './Theme';
 
 export default {
   Add,
@@ -70,4 +71,5 @@ export default {
   Edit,
   Settings,
   DragHandle,
+  Theme,
 };

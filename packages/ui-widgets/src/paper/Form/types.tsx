@@ -1,4 +1,5 @@
 import { ComponentType } from 'react';
+import { DropResult } from 'react-beautiful-dnd';
 
 export enum DragAndDropType {
   LAYOUT = 'layout', ITEM = 'item',
@@ -33,3 +34,5 @@ export interface ItemMetadata {
   MainView: ComponentType<any>;
   SettingsView?: ComponentType<any>;
 }
+
+export type DropEvent = DropResult;
