@@ -6,7 +6,7 @@ import LaunchPadItem, { LaunchPadItemComponent } from './LaunchPadItem';
 
 interface Props {
   itemPerRow?: number;
-  placement: 'top' | 'bottom' | 'right' | 'left';
+  placement?: 'top' | 'bottom' | 'right' | 'left';
   renderTrigger?: (isExpanded: boolean) => ReactElement;
 }
 
@@ -32,15 +32,19 @@ const getStyle = (
   let left = 0;
   let opacity = 0;
   if (isExpanded) {
-    top = placement === 'bottom' ? -(heightOfItem * (countOfRows - rowIndex + 1)) : heightOfItem * rowIndex;
+    top = placement === 'bottom' ?  heightOfItem * rowIndex : -(heightOfItem * (countOfRows - rowIndex + 1));
     left = (colIndex - middleIndex) * widthOfItem - (widthOfItem / 8);
+    if (placement === 'right') {
+      top = countOfRows > 1 ? top + (middleIndex + 1) * heightOfItem : 0;
+      left = left + (Math.trunc(itemPerRow / 2) + 1) * widthOfItem;
+    }
     opacity = 1;
   }
   return { ...commonStyle, top, left, opacity };
 };
 
 const LaunchPad: LaunchPadComponent = ({
-  placement = 'bottom',
+  placement = 'top',
   itemPerRow = 5,
   children,
   renderTrigger,
