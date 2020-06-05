@@ -10,7 +10,7 @@
       "type": "form",
       "tags": [],
       "heroImage": "https://gd-templates.jinshujufiles.com/template_market/clv9pW-preview-2a6da4c7-cb84-4a5b-ae28-306f398f7fa8.jpg",
-      "themeColor": "purple",
+      "theme": "purple",
       "visibility": "public"
     },
     {
@@ -23,7 +23,7 @@
       "type": "form",
       "tags": [],
       "heroImage": "https://gd-templates.jinshujufiles.com/template_market/0bQN1I-cover-6d64f76e-bc40-4c86-bf30-a130fa65b8c0.jpg",
-      "themeColor": "red",
+      "theme": "red",
       "visibility": "public"
     },
     {
@@ -36,7 +36,7 @@
       "type": "form",
       "tags": [],
       "heroImage": "https://gd-templates.jinshujufiles.com/template_market/Qp6CVw-2ae98ff24ab788130037c8d2913ac375.jpeg",
-      "themeColor": "pink",
+      "theme": "pink",
       "visibility": "public"
     },
     {
@@ -49,7 +49,7 @@
       "type": "form",
       "tags": [],
       "heroImage": "https://gd-templates.jinshujufiles.com/template_market/clv9pW-preview-2a6da4c7-cb84-4a5b-ae28-306f398f7fa8.jpg",
-      "themeColor": "orange",
+      "theme": "orange",
       "visibility": "public"
     },
     {
@@ -62,7 +62,7 @@
       "type": "form",
       "tags": [],
       "heroImage": "https://gd-templates.jinshujufiles.com/template_market/Qp6CVw-2ae98ff24ab788130037c8d2913ac375.jpeg",
-      "themeColor": "indigo",
+      "theme": "indigo",
       "visibility": "public"
     },
     {
@@ -75,7 +75,7 @@
       "type": "form",
       "tags": [],
       "heroImage": "https://gd-templates.jinshujufiles.com/template_market/clv9pW-preview-2a6da4c7-cb84-4a5b-ae28-306f398f7fa8.jpg",
-      "themeColor": "purple",
+      "theme": "purple",
       "visibility": "public"
     },
     {
@@ -88,7 +88,7 @@
       "type": "form",
       "tags": [],
       "heroImage": "https://gd-templates.jinshujufiles.com/template_market/clv9pW-preview-2a6da4c7-cb84-4a5b-ae28-306f398f7fa8.jpg",
-      "themeColor": "purple",
+      "theme": "purple",
       "visibility": "public"
     },
     {
@@ -101,7 +101,7 @@
       "type": "form",
       "tags": [],
       "heroImage": "https://gd-templates.jinshujufiles.com/template_market/clv9pW-preview-2a6da4c7-cb84-4a5b-ae28-306f398f7fa8.jpg",
-      "themeColor": "purple",
+      "theme": "purple",
       "visibility": "public"
     }
   ],

@@ -86,7 +86,7 @@ const TemplateListPage: FunctionComponent<Props> = ({
                 <PictureChip
                   key={entry.id}
                   className="pwapp-template-list__card"
-                  color={entry.themeColor}
+                  color={entry.theme}
                   title={entry.name}
                   subTitle={entry.author.displayName}
                   imageUrl={entry.heroImage}

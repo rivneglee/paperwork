@@ -1,36 +1,58 @@
 import React, { ComponentType, FunctionComponent } from 'react';
-import { FormMode, Layout, Items, Item, ItemMetadata, DropEvent, Context, Form } from '@paperwork/ui-widgets';
+import {
+  FormMode,
+  ItemMetadata,
+  Form,
+  Card,
+  LayoutNodeTypes,
+  SimpleList,
+  FormProps,
+  EventHandlerProvider,
+  FormThemeColors,
+} from '@paperwork/ui-widgets';
 
-import FooterNavigation from './FooterNavigation';
 import './Designer.scss';
+import ActionBar, { ToolkitItemProps } from './ActionBar';
 
-interface Props {
-  headerImage?: string;
-  theme?: 'red' | 'pink' | 'purple' | 'indigo'
-    | 'blue' | 'light-blue' | 'cyan' | 'teal' | 'green'
-    | 'light-green' | 'lime' | 'yellow' | 'amber'
-    | 'orange' | 'deep-orange' | 'brown' | 'grey' | 'blue-grey';
-  name: string;
-  layout: Layout;
-  items: Items;
+interface Props extends FormProps {
   layoutComponentMap?: {[layoutType: string]: ComponentType<any>};
   itemComponentMap: {[itemType: string]: ItemMetadata};
-  onDragEnd: (result: DropEvent) => void;
-  onUpdateItemSettings?: (newItem: Item) => void;
-  onRemoveItem?: (id: string) => void;
-  onDuplicateItem?: (id: string) => void;
-  onRemoveLayout?: (id: string) => void;
+  toolkitItems: ToolkitItemProps[];
+  onChange?: (formProps: FormProps) => void;
 }
 
-const Designer: FunctionComponent<Props> = ({ onDragEnd, ...otherProps }: Props) => {
-  return (
-    <div>
-      <Context onDragEnd={onDragEnd}>
-        <Form mode={FormMode.DESIGN} {...otherProps}/>
-        <FooterNavigation />
-      </Context>
-    </div>
-  );
+const defaultLayoutComponentMap = {
+  [LayoutNodeTypes.SIMPLE_LIST]: SimpleList,
 };
+
+const Designer: FunctionComponent<Props> = ({
+  toolkitItems,
+  layoutComponentMap = defaultLayoutComponentMap,
+  itemComponentMap,
+  onChange,
+  ...otherProps
+}) => (
+  <EventHandlerProvider {...otherProps} onChange={onChange}>
+    {
+      props => (
+        <Card className="pwapp-designer">
+          <ActionBar
+            toolkitItems={toolkitItems}
+            onChangeTheme={(theme: FormThemeColors) => onChange && onChange({
+              ...otherProps,
+              theme,
+            })}
+          />
+          <Form
+            mode={FormMode.DESIGN}
+            layoutComponentMap={layoutComponentMap}
+            itemComponentMap={itemComponentMap}
+            {...props}
+          />
+        </Card>
+      )
+    }
+  </EventHandlerProvider>
+);
 
 export default Designer;

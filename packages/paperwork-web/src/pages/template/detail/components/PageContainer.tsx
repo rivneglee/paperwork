@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { FormProps } from '@paperwork/ui-widgets';
 
 import { DetailProvider, DetailProviderState } from '../../../../service/template';
 import { StoreState } from '../../../../store';
 import { getAuthentication } from '../../../../store/selectors';
 import TemplateDetailPage from '../components/TemplateDetailPage';
 import { getIsPageEdited, getTemplateDetail } from '../state/selectors';
-import { createLoadTemplateDetailAction } from '../state/actions';
+import { createLoadTemplateDetailAction, createUpdateTemplateAction } from '../state/actions';
 
 const mapStateToViewProps = (state: StoreState) => ({
   template: getTemplateDetail(state),
@@ -31,9 +32,14 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
           dispatch(createLoadTemplateDetailAction(template));
         }
 
+        const onUpdate = (formProps: FormProps) => {
+          dispatch(createUpdateTemplateAction(formProps));
+        };
+
         return (
           <View
             isProcessing={isProcessing}
+            onUpdate={onUpdate}
           />
         );
       }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Form, Input, Select, FormMode } from '../../../src';
+import { Form, Input, Select, FormMode, Context } from '../../../src';
 import { layout, items } from '../fixtures/data';
 
 const itemComponentMap = {
@@ -10,7 +10,7 @@ const itemComponentMap = {
 
 export default () => {
   return (
-    <div>
+    <Context>
       <Form
         headerImage="/form-header.png"
         theme="orange"
@@ -19,8 +19,7 @@ export default () => {
         layout={layout}
         items={items}
         itemComponentMap={itemComponentMap}
-        onDragEnd={() => {}}
       />
-    </div>
+    </Context>
   );
 };

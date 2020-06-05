@@ -125,19 +125,11 @@
 
   &__title {
     padding: 1rem .7rem;
+    font-size: 30px;
+    word-break: break-word;
     .pw-input__control {
-      font-size: 30px;
+      font-size: inherit;
       background: transparent;
-    }
-    &--readonly {
-      .pw-input__control {
-        background: transparent;
-      }
-      border: 0;
-      &:hover {
-        border: 0;
-        box-shadow: none;
-      }
     }
   }
 

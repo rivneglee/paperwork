@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Form, Input, Select, LineItemTable, FormMode } from '../../../src';
+import { Form, Input, Select, LineItemTable, FormMode, Context } from '../../../src';
 import { layout, items } from '../fixtures/data';
 
 const columnsConfig = [
@@ -33,30 +33,33 @@ const itemComponentMap = {
 export default () => {
   return (
     <div>
-      <Form
-        mode={FormMode.DESIGN}
-        name="Author view"
-        layout={layout}
-        items={items}
-        itemComponentMap={itemComponentMap}
-        onDragEnd={() => {}}
-      />
-      <Form
-        mode={FormMode.EDIT}
-        name="Committer view"
-        layout={layout}
-        items={items}
-        itemComponentMap={itemComponentMap}
-        onDragEnd={() => {}}
-      />
-      <Form
-        name="History view"
-        mode={FormMode.READONLY}
-        layout={layout}
-        items={items}
-        itemComponentMap={itemComponentMap}
-        onDragEnd={() => {}}
-      />
+      <Context>
+        <Form
+          mode={FormMode.DESIGN}
+          name="Author view"
+          layout={layout}
+          items={items}
+          itemComponentMap={itemComponentMap}
+        />
+      </Context>
+      <Context>
+        <Form
+          mode={FormMode.EDIT}
+          name="Committer view"
+          layout={layout}
+          items={items}
+          itemComponentMap={itemComponentMap}
+        />
+      </Context>
+      <Context>
+        <Form
+          name="History view"
+          mode={FormMode.READONLY}
+          layout={layout}
+          items={items}
+          itemComponentMap={itemComponentMap}
+        />
+    </Context>
     </div>
   );
 };

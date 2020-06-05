@@ -1,5 +1,7 @@
 .pw-launchpad {
   position: relative;
+  min-height: 50px;
+  min-width: 50px;
 
   &__trigger {
     width: 50px;
@@ -19,6 +21,10 @@
       transform: rotate(45deg);
       transition: transform 0.3s;
     }
+
+    &:hover {
+      box-shadow: 0 0 14px rgba(0,0,0,0.8);
+    }
   }
 
   &__panel {
@@ -28,6 +34,12 @@
       max-width: 330px;
       padding: 1rem;
     }
+  }
+
+  &__trigger-wrapper {
+    position: absolute;
+    cursor: pointer;
+    z-index: 1;
   }
 }
 
@@ -54,6 +66,7 @@
     transition: all 0.2s;
     width: 50px;
     height: 50px;
+    box-sizing: border-box;
 
     .pw-icon {
       fill: white;
@@ -65,5 +78,19 @@
       background-color: $pw-palette-storm-83;
       box-shadow: 0 0 14px rgba(0,0,0,0.8);
     }
+  }
+}
+
+.pw-launchpad-overlay {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  display: none;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.1);
+
+  &--show {
+    display: block;
   }
 }

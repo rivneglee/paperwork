@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
 import DraggableList from './DraggableList';
-import { DragAndDropType, Items, ItemMetadata, Layout, LayoutLinkedNode } from './types';
+import {DragAndDropType, Items, ItemMetadata, Layout, LayoutLinkedNode, Item} from './types';
 import LayoutItem from './LayoutItem';
 import Placeholder from './Placeholder';
 
@@ -16,6 +16,7 @@ interface Props {
   onDuplicateItem?: (id: string) => void;
   onEditItem?: (id: string) => void;
   onRemove?:() => void;
+  onItemPropsChange?: (newItem: Item) => void;
 }
 
 const SimpleList: FunctionComponent<Props> = ({
@@ -29,6 +30,7 @@ const SimpleList: FunctionComponent<Props> = ({
   onDuplicateItem,
   onEditItem,
   onRemove,
+  onItemPropsChange,
 }) => {
   const renderItem = (layoutNode: LayoutLinkedNode) => {
     const item = items[layoutNode.id];
@@ -45,6 +47,7 @@ const SimpleList: FunctionComponent<Props> = ({
             onEdit={onEditItem}
             onRemove={onRemoveItem}
             onDuplicate={onDuplicateItem}
+            onChange={value => onItemPropsChange && onItemPropsChange({ ...item, value })}
           />
         );
         return <span>{`Unknown item type: ${itemType}`}</span>;

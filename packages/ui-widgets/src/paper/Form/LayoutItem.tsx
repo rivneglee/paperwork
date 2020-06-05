@@ -10,6 +10,7 @@ interface Props {
   metadata: ItemMetadata;
   onEdit?: (id: string) => void;
   onDuplicate?: (id: string) => void;
+  onChange?: (value: any) => void;
   onRemove?: (id: string) => void;
   dragAndDropDisabled?: boolean;
   readonly?: boolean;
@@ -28,6 +29,7 @@ const LayoutItem: FunctionComponent<Props> = ({
   onEdit,
   onDuplicate,
   onRemove,
+  onChange,
 }) => {
   const { id, itemType, ...otherProps } = item;
   const { MainView, SettingsView } = metadata;
@@ -36,6 +38,7 @@ const LayoutItem: FunctionComponent<Props> = ({
       id={id}
       itemType={itemType}
       disabled={readonly}
+      onChange={onChange}
       {...otherProps}
     />
   );

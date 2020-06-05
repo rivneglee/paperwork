@@ -1,5 +1,4 @@
 import React, { FunctionComponent, ComponentType } from 'react';
-import { DropResult } from 'react-beautiful-dnd';
 
 import DraggableList from './DraggableList';
 import { DragAndDropType, Items, ItemMetadata, Layout, LayoutLinkedNode, LayoutNodeTypes, Item } from './types';
@@ -12,8 +11,7 @@ interface Props {
   items: Items;
   layoutComponentMap?: {[layoutType: string]: ComponentType<any>};
   itemComponentMap: {[itemType: string]: ItemMetadata};
-  onDragEnd?: (result: DropResult) => void;
-  onUpdateItemSettings?: (newItem: Item) => void;
+  onItemPropsChange?: (newItem: Item) => void;
   onEditItem?: (id: string) => void;
   onRemoveItem?: (id: string) => void;
   onDuplicateItem?: (id: string) => void;
@@ -32,12 +30,11 @@ const Page: FunctionComponent<Props> = ({
   items,
   layoutComponentMap = defaultLayoutComponentMap,
   itemComponentMap,
-  onDragEnd,
   onEditItem,
   onRemoveItem,
   onDuplicateItem,
   onRemoveLayout,
-  onUpdateItemSettings,
+  onItemPropsChange,
   dragAndDropDisabled,
   readonly,
 }) => {
@@ -54,6 +51,7 @@ const Page: FunctionComponent<Props> = ({
             readonly={readonly}
             items={items}
             itemComponentMap={itemComponentMap}
+            onItemPropsChange={onItemPropsChange}
             onRemoveItem={onRemoveItem}
             onEditItem={onEditItem}
             onDuplicateItem={onDuplicateItem}
@@ -72,7 +70,6 @@ const Page: FunctionComponent<Props> = ({
       layout={layout}
       dragAndDropType={DragAndDropType.LAYOUT}
       disabled={dragAndDropDisabled}
-      onDragEnd={onDragEnd}
       placeholder={
         <Placeholder className="pw-dnd-layout-page__placeholder" message="DROP LAYOUT HERE" canRemove={false}/>
       }

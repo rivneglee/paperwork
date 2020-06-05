@@ -13,6 +13,11 @@ export enum LayoutNodeTypes {
   PAGE = 'page', SIMPLE_LIST = 'simple-list', FORM_ITEM  = 'form-item',
 }
 
+export type FormThemeColors = 'red' | 'pink' | 'purple' | 'indigo'
+  | 'blue' | 'light-blue' | 'cyan' | 'teal' | 'green'
+  | 'light-green' | 'lime' | 'yellow' | 'amber'
+  | 'orange' | 'deep-orange' | 'brown' | 'grey' | 'blue-grey';
+
 export interface LayoutLinkedNode {
   id: string;
   type: LayoutNodeTypes;
@@ -25,6 +30,7 @@ export interface Item {
   id: string;
   itemType: string;
   disabled?: boolean;
+  value?: any;
   [key: string]: any;
 }
 
@@ -36,3 +42,25 @@ export interface ItemMetadata {
 }
 
 export type DropEvent = DropResult;
+
+export interface AddEvent {
+  newLayoutNode: LayoutLinkedNode;
+  newItem?: Item;
+  targetId: string;
+  targetPosition: number;
+}
+
+export interface MoveEvent {
+  sourceId: string;
+  sourcePosition: number;
+  targetId: string;
+  targetPosition: number;
+}
+
+export interface FormProps {
+  headerImage?: string;
+  theme?: FormThemeColors;
+  name: string;
+  layout: Layout;
+  items: Items;
+}

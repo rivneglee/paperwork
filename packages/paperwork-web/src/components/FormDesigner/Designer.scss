@@ -1,35 +1,156 @@
 .pwapp-designer {
   position: relative;
+  background: transparent;
+  box-shadow: none;
 }
 
-.pwapp-designer-footer-navigation {
+.pwapp-designer-action-bar {
   position: fixed;
-  bottom: 30px;
-  width: 260px;
-  left: calc(50% - 130px);
-  z-index: 999;
+  z-index: 10;
   display: flex;
+  flex-direction: column;
+  top: 25%;
+  margin-left: -2.5rem;
+  @media (min-width: 768px) {
+    margin-left: 2.5rem;
+  }
   &__action {
     width: 50px;
     height: 50px;
     cursor: pointer;
-
+    margin: .5rem 0;
     box-shadow: 0 0 8px rgba(0,0,0,0.6);
-    margin: 0 1rem;
-    &--green {
-    }
-    &--red {
-    }
-    &--blue {
+    background: #7B1FA2;
+    &:hover {
+      box-shadow: 0 0 14px rgba(0,0,0,0.8);
     }
     .pw-icon {
       fill: white;
       width: 20px;
       height: 20px;
     }
+
+    &--green {
+      background: #00AA65;
+    }
+
+    &--blue {
+      background: #01579B;
+    }
   }
 
   .pw-launchpad {
-    margin: 0 1rem;
+    margin: .5rem 0;
+    .pwapp-designer-action-bar__action {
+      margin: 0;
+    }
+  }
+
+  .pw-launchpad-overlay {
+    z-index: 11;
+    cursor: pointer;
+  }
+
+  .pw-launchpad-overlay--show ~ .pw-launchpad-item-container {
+    z-index: 12;
+  }
+}
+
+.pwapp-designer-theme {
+  .pw-launchpad-item__button {
+    border: 6px solid white;
+  }
+
+  &--none {
+    .pw-launchpad-item__button {
+      background: white;
+    }
+
+    .pw-icon {
+      width: 50px;
+      height: 50px;
+      fill: #E83F26;
+    }
+  }
+
+  &--pink {
+    .pw-launchpad-item__button {
+      background: #F8BBD0;
+    }
+  }
+  &--red {
+    .pw-launchpad-item__button {
+      background: #FFCDD2;
+    }
+  }
+  &--purple {
+    .pw-launchpad-item__button {
+      background: #E1BEE7;
+    }
+  }
+  &--blue {
+    .pw-launchpad-item__button {
+      background: #BBDEFB;
+    }
+  }
+  &--blue-grey {
+    .pw-launchpad-item__button {
+      background: #CFD8DC;
+    }
+  }
+  &--indigo {
+    .pw-launchpad-item__button {
+      background: #C5CAE9;
+    }
+  }
+  &--cyan {
+    .pw-launchpad-item__button {
+      background: #B2EBF2;
+    }
+  }
+  &--teal {
+    .pw-launchpad-item__button {
+      background: #C5CAE9;
+    }
+  }
+  &--green {
+    .pw-launchpad-item__button {
+      background: #C8E6C9;
+    }
+  }
+  &--light-green {
+    .pw-launchpad-item__button {
+      background: #DCEDC8;
+    }
+  }
+  &--lime {
+    .pw-launchpad-item__button {
+      background: #F0F4C3;
+    }
+  }
+  &--yellow {
+    .pw-launchpad-item__button {
+      background: #FFF9C4;
+    }
+  }
+  &--amber {
+    .pw-launchpad-item__button {
+      background: #FFECB3;
+    }
+  }
+  &--orange {
+    .pw-launchpad-item__button {
+      background: #FFE0B2;
+    }
+  }
+  &--deep-orange {
+    .pw-launchpad-item__button {
+      background: #FFCCBC;
+    }
+  }
+  &--brown {
+    .pw-launchpad-item__button {
+      background: #D7CCC8;
+    }
   }
 }

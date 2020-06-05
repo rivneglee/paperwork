@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
+import { DragAndDropType } from './types';
 
 interface Props {
   id: string;
-  type: string;
+  type: DragAndDropType;
   index?: number;
 }
 

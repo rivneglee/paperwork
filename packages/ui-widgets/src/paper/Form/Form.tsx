@@ -1,31 +1,22 @@
 import React, { ComponentType, FunctionComponent, useState } from 'react';
-import { DropResult } from 'react-beautiful-dnd';
 import classNames from 'classnames';
 
 import Page from './Page';
 import { Scrollable } from '../../layout/Scrollable';
 import { Drawer } from '../../layout/Drawer';
 import { Card } from '../../layout/Card';
-import { FormMode, Item, ItemMetadata, Items, Layout, LayoutNodeTypes } from './types';
+import { FormMode, Item, FormProps, ItemMetadata, LayoutNodeTypes } from './types';
 import { Input } from '../../form/Input';
 
-interface Props {
-  headerImage?: string;
-  theme?: 'red' | 'pink' | 'purple' | 'indigo'
-    | 'blue' | 'light-blue' | 'cyan' | 'teal' | 'green'
-    | 'light-green' | 'lime' | 'yellow' | 'amber'
-    | 'orange' | 'deep-orange' | 'brown' | 'grey' | 'blue-grey';
-  name: string;
+interface Props extends FormProps {
   mode: FormMode;
-  layout: Layout;
-  items: Items;
   layoutComponentMap?: {[layoutType: string]: ComponentType<any>};
   itemComponentMap: {[itemType: string]: ItemMetadata};
-  onDragEnd?: (result: DropResult) => void;
-  onUpdateItemSettings?: (newItem: Item) => void;
+  onItemPropsChange?: (newItem: Item) => void;
   onRemoveItem?: (id: string) => void;
   onDuplicateItem?: (id: string) => void;
   onRemoveLayout?: (id: string) => void;
+  onNameChange?: (name: string) => void;
 }
 
 const Form: FunctionComponent<Props> = ({
@@ -37,13 +28,12 @@ const Form: FunctionComponent<Props> = ({
   items,
   layoutComponentMap,
   itemComponentMap,
-  onDragEnd,
   onRemoveItem,
   onDuplicateItem,
   onRemoveLayout,
-  onUpdateItemSettings,
+  onItemPropsChange,
+  onNameChange,
 }) => {
-  const disableHeader = mode !== FormMode.DESIGN;
   const pages = layout.filter(({ type }) => type === LayoutNodeTypes.PAGE);
   const onEditItem = (id: string) => setEditingItemId(id);
   const [editingItemId, setEditingItemId] = useState('');
@@ -68,12 +58,16 @@ const Form: FunctionComponent<Props> = ({
         className="pw-form__body"
         header={
           <Card.Header primary={
-            <Input
-              type="underlined"
-              className={classNames('pw-form__title', disableHeader && 'pw-form__title--readonly')}
-              disabled={disableHeader}
-              value={name}
-            />}
+              mode !== FormMode.DESIGN
+                ? <span className="pw-form__title">{name}</span>
+                :
+                  <Input
+                    type="underlined"
+                    className="pw-form__title"
+                    value={name}
+                    onChange={(e: any) => onNameChange && onNameChange(e.target.value)}
+                  />
+            }
           />
         }
       >
@@ -86,12 +80,11 @@ const Form: FunctionComponent<Props> = ({
               items={items}
               layoutComponentMap={layoutComponentMap}
               itemComponentMap={itemComponentMap}
-              onDragEnd={onDragEnd}
               onEditItem={onEditItem}
               onRemoveItem={onRemoveItem}
               onDuplicateItem={onDuplicateItem}
               onRemoveLayout={onRemoveLayout}
-              onUpdateItemSettings={onUpdateItemSettings}
+              onItemPropsChange={onItemPropsChange}
               dragAndDropDisabled={mode === FormMode.EDIT || mode === FormMode.READONLY}
               readonly={mode === FormMode.READONLY}
             />
@@ -105,7 +98,7 @@ const Form: FunctionComponent<Props> = ({
         >
           <Scrollable className="pw-form__settings">
             {
-              SettingsView && <SettingsView {...editingItem} onUpdate={onUpdateItemSettings}/>
+              SettingsView && <SettingsView {...editingItem} onUpdate={onItemPropsChange}/>
             }
           </Scrollable>
         </Drawer>

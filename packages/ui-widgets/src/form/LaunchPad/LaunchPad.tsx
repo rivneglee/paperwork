@@ -8,6 +8,7 @@ interface Props {
   itemPerRow?: number;
   placement?: 'top' | 'bottom' | 'right' | 'left';
   renderTrigger?: (isExpanded: boolean) => ReactElement;
+  useOverlay?: boolean;
 }
 
 interface LaunchPadComponent extends FunctionComponent<Props> {
@@ -48,6 +49,7 @@ const LaunchPad: LaunchPadComponent = ({
   itemPerRow = 5,
   children,
   renderTrigger,
+  useOverlay,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const defaultTrigger = (
@@ -63,20 +65,31 @@ const LaunchPad: LaunchPadComponent = ({
       <Icons.Add/>
     </Avater>
   );
+
   const trigger = renderTrigger ? renderTrigger(isExpanded) : defaultTrigger;
   return (
     <div className="pw-launchpad">
       {
+        useOverlay && (
+          <div
+            className={classNames('pw-launchpad-overlay', isExpanded && 'pw-launchpad-overlay--show')}
+            onClick={() => setIsExpanded(false)}
+          >
+          </div>
+        )
+      }
+      <div className="pw-launchpad__trigger-wrapper" onClick={() => setIsExpanded(!isExpanded)}>
+        {trigger}
+      </div>
+      {
         React.Children.map(children, (child, i) => (
           <span
+            className="pw-launchpad-item-container"
             style={getStyle(React.Children.count(children), i, isExpanded, placement, itemPerRow)}>
             {child}
           </span>
         ))
       }
-      <div onClick={() => setIsExpanded(!isExpanded)}>
-        {trigger}
-      </div>
     </div>
   );
 };
