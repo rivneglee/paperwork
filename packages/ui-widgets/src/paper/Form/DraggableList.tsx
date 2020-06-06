@@ -10,10 +10,12 @@ interface Props {
   disabled?: boolean;
   placeholder: ReactElement | string;
   renderItem: (layoutNode: LayoutLinkedNode) => ReactElement | null;
+  direction?: 'horizontal' | 'vertical';
 }
 
 const DraggableList: FunctionComponent<Props> = ({
   id,
+  direction = 'vertical',
   layout,
   dragAndDropType,
   disabled,
@@ -24,7 +26,7 @@ const DraggableList: FunctionComponent<Props> = ({
   if (!listNode) return null;
   const childNodes = listNode.childRefs.map(childId => layout.find(_ => _.id === childId));
   const view = (
-    <Droppable type={dragAndDropType} key={id} droppableId={id} isDropDisabled={disabled}>
+    <Droppable direction={direction} type={dragAndDropType} key={id} droppableId={id} isDropDisabled={disabled}>
       {
         (provided, snapshot) => (
           <div
@@ -34,6 +36,7 @@ const DraggableList: FunctionComponent<Props> = ({
                 'pw-draggable-list',
                 snapshot.isDraggingOver && 'pw-draggable-list--dropping',
                 disabled && 'pw-draggable-list--disabled',
+                direction && `pw-draggable-list--${direction}`,
               )
             }
             ref={provided.innerRef}

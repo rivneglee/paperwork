@@ -12,10 +12,10 @@
   "visibility": "public",
   "layout": [
     { "id": "page1", "childRefs": ["list1", "list2"], "type":  "page" },
-    { "id": "list1", "childRefs": ["item1", "item2"], "type":  "simple-list" },
+    { "id": "list1", "childRefs": ["item1", "item2"], "type":  "vertical-list" },
     { "id": "item1", "childRefs": [], "type":  "form-item" },
     { "id": "item2", "childRefs": [], "type":  "form-item" },
-    { "id": "list2", "childRefs": [], "type":  "simple-list" }
+    { "id": "list2", "childRefs": [], "type":  "vertical-list" }
   ],
   "items": {
     "item1": { "id": "item1", "itemType": "input", "value": "I am item 1" },

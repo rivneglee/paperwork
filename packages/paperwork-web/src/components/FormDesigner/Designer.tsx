@@ -4,7 +4,6 @@ import {
   ItemMetadata,
   Form,
   Card,
-  LayoutNodeTypes,
   SimpleList,
   FormProps,
   EventHandlerProvider,
@@ -12,7 +11,7 @@ import {
 } from '@paperwork/ui-widgets';
 
 import './Designer.scss';
-import ActionBar, { ToolkitItemProps } from './ActionBar';
+import ActionBar, { LayoutItemTypes, ToolkitItemProps } from './ActionBar';
 
 interface Props extends FormProps {
   layoutComponentMap?: {[layoutType: string]: ComponentType<any>};
@@ -21,8 +20,11 @@ interface Props extends FormProps {
   onChange?: (formProps: FormProps) => void;
 }
 
+const HorizontalList = (props: any) => <SimpleList {...props} direction="horizontal"/>;
+
 const defaultLayoutComponentMap = {
-  [LayoutNodeTypes.SIMPLE_LIST]: SimpleList,
+  [LayoutItemTypes.VERTICAL_LIST]: SimpleList,
+  [LayoutItemTypes.HORIZONTAL_LIST]: HorizontalList,
 };
 
 const Designer: FunctionComponent<Props> = ({

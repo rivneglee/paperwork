@@ -4,6 +4,16 @@
   flex: 0 0 150px;
   background: transparent;
 
+  &--horizontal {
+    display: flex;
+    align-items: center;
+
+    .pw-draggable-list__row--item {
+      margin: 0 .2rem;
+      flex-grow: 1;
+    }
+  }
+
   &--dropping {
     border: 1px dashed $pw-palette-storm-83;
   }
@@ -23,6 +33,10 @@
     &--hidden {
       display: none;
     }
+  }
+
+  &__placeholder {
+    width: 100%;
   }
 
   &--disabled {

@@ -32,7 +32,7 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
   onUpdate,
 }) => (
   <BaseTemplate
-    header={<AppBar activeMenuId="template"/>}
+    header={<AppBar activeMenuId="templates"/>}
     isProcessing={isProcessing}
     spinner={<Spinner/>}
   >

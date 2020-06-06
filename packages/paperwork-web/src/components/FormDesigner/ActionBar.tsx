@@ -13,6 +13,10 @@ interface Props {
   onChangeTheme?: (theme: string) => void;
 }
 
+export enum LayoutItemTypes {
+  VERTICAL_LIST = 'vertical-list', HORIZONTAL_LIST = 'horizontal-list',
+}
+
 const themeColors = [
   'pink', 'red', 'purple', 'indigo', 'blue', 'cyan',
   'teal', 'green', 'light-green', 'lime', 'yellow', 'amber',
@@ -29,8 +33,11 @@ const ActionBar: FunctionComponent<Props> = ({ toolkitItems, onChangeTheme }) =>
         <Icons.Layout/>
       </Avater>
     )}>
-      <ToolkitItem id="simple-list" type={DragAndDropType.LAYOUT}>
+      <ToolkitItem id={LayoutItemTypes.VERTICAL_LIST} type={DragAndDropType.LAYOUT}>
         <LaunchPad.Item><Icons.List/></LaunchPad.Item>
+      </ToolkitItem>
+      <ToolkitItem id={LayoutItemTypes.HORIZONTAL_LIST} type={DragAndDropType.LAYOUT}>
+        <LaunchPad.Item><Icons.Columns/></LaunchPad.Item>
       </ToolkitItem>
     </LaunchPad>
     <LaunchPad placement="right" itemPerRow={3} useOverlay={true} renderTrigger={() => (

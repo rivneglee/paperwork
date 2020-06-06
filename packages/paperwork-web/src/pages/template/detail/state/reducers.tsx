@@ -24,7 +24,7 @@ export const defaultState: TemplateDetailPageState = {
     visibility: 'private',
     tags: [],
     layout: [
-      { id: 'page', childRefs: ['list1', 'list2'], type: LayoutNodeTypes.PAGE },
+      { id: 'page', childRefs: [], type: LayoutNodeTypes.PAGE },
     ],
     items: {},
   },

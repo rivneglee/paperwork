@@ -17,10 +17,12 @@ interface Props {
   onEditItem?: (id: string) => void;
   onRemove?:() => void;
   onItemPropsChange?: (newItem: Item) => void;
+  direction?: 'horizontal' | 'vertical';
 }
 
 const SimpleList: FunctionComponent<Props> = ({
   id,
+  direction,
   layout,
   dragAndDropDisabled,
   readonly,
@@ -58,6 +60,7 @@ const SimpleList: FunctionComponent<Props> = ({
   return (
     <DraggableList
       id={id}
+      direction={direction}
       renderItem={renderItem}
       dragAndDropType={DragAndDropType.ITEM}
       layout={layout}
