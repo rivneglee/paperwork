@@ -67,7 +67,7 @@ const DraggableList: FunctionComponent<Props> = ({
                       );
                     }}
                   </Draggable>
-                )
+                );
               }) : !provided.placeholder && !disabled
               && <div className="pw-draggable-list__placeholder">{placeholder}</div>}
             {provided.placeholder}
