@@ -8,8 +8,8 @@ interface Props {
   isOpen: boolean;
   className?: string;
   onClose?: () => void;
-  footer: ReactElement;
-  header: ReactElement;
+  footer?: ReactElement;
+  header?: ReactElement;
 }
 
 interface ModalComponent extends FunctionComponent<Props>{

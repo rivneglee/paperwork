@@ -47,6 +47,8 @@ import List from './List';
 import None from './None';
 import Columns from './Columns';
 import Rows from './Rows';
+import PieChart from './PieChart';
+import LineChart from './LineChart';
 
 export default {
   Add,
@@ -98,4 +100,6 @@ export default {
   None,
   Columns,
   Rows,
+  PieChart,
+  LineChart,
 };

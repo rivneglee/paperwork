@@ -31,7 +31,7 @@ const ConfirmModal: FunctionComponent<Props> = ({
         }}
       />
     ),
-  }[modalType];
+  }[modalType] || null;
 
   return modal;
 };

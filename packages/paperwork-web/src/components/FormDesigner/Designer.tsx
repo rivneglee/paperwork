@@ -7,16 +7,17 @@ import {
   SimpleList,
   FormProps,
   EventHandlerProvider,
-  FormThemeColors,
 } from '@paperwork/ui-widgets';
 
 import './Designer.scss';
-import ActionBar, { LayoutItemTypes, ToolkitItemProps } from './ActionBar';
+import ActionBar, { LayoutItemTypes, FormItemProps } from './ActionBar';
+import { Combobox, TextInput } from '../FormItems';
 
 interface Props extends FormProps {
   layoutComponentMap?: {[layoutType: string]: ComponentType<any>};
-  itemComponentMap: {[itemType: string]: ItemMetadata};
-  toolkitItems: ToolkitItemProps[];
+  itemComponentMap?: {[itemType: string]: ItemMetadata};
+  fieldItems: FormItemProps[];
+  statisticItems: FormItemProps[];
   onChange: (formProps: FormProps) => void;
   setRef?: (ref: HTMLDivElement) => void;
 }
@@ -28,10 +29,16 @@ const defaultLayoutComponentMap = {
   [LayoutItemTypes.HORIZONTAL_LIST]: HorizontalList,
 };
 
+const defaultItemComponentMap = {
+  input: { MainView: TextInput },
+  select: { MainView: Combobox },
+};
+
 const Designer: FunctionComponent<Props> = ({
-  toolkitItems,
+  fieldItems,
+  statisticItems,
   layoutComponentMap = defaultLayoutComponentMap,
-  itemComponentMap,
+  itemComponentMap = defaultItemComponentMap,
   onChange,
   setRef,
   ...otherProps
@@ -42,11 +49,8 @@ const Designer: FunctionComponent<Props> = ({
         props => (
           <Card className="pwapp-designer">
             <ActionBar
-              toolkitItems={toolkitItems}
-              onChangeTheme={(theme: FormThemeColors) => onChange({
-                ...otherProps,
-                theme,
-              })}
+              statisticItems={statisticItems}
+              fieldItems={fieldItems}
             />
             <Form
               setRef={setRef}

@@ -5,6 +5,7 @@ import {
   Icons,
   FormProps,
   IconButton,
+  FormThemeColors,
 } from '@paperwork/ui-widgets';
 
 import AppBar from '../../../../components/AppBar';
@@ -13,8 +14,8 @@ import './TemplateDetailPage.scss';
 import { TemplateDetail } from '../../../../schema/Template';
 import Spinner from '../../../../components/PageTransitionSpinner/Spinner';
 import { Designer } from '../../../../components/FormDesigner';
-import { TextInput, Combobox } from '../../../../components/FormItems';
 import { ConfirmModal } from '../../../../components/Modal';
+import PaperThemeModal from './PaperThemeModal';
 
 interface Props {
   template: TemplateDetail;
@@ -25,11 +26,6 @@ interface Props {
   onSave: (template: TemplateDetail, thumbnail: string) => void;
   onDelete: () => void;
 }
-
-const itemComponentMap = {
-  input: { MainView: TextInput },
-  select: { MainView: Combobox },
-};
 
 const TemplateDetailPage: FunctionComponent<Props> = ({
   template,
@@ -56,9 +52,18 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
 
   const onClickDelete = () => setModalType('delete');
 
+  const onClickTheme = () => setModalType('theme');
+
   const onClickSave = async () => {
     const img = await htmlToImage.toPng(formRef, { quality: 0.1 });
     onSave(template, img);
+  };
+
+  const onChoseThemeColor = (theme: FormThemeColors) => {
+    onUpdate({
+      ...template,
+      theme,
+    });
   };
 
   return (
@@ -67,6 +72,7 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
         <>
           <IconButton onClick={onClickCancel}><Icons.Cancel/></IconButton>
           <IconButton onClick={onClickSave}><Icons.Save/></IconButton>
+          <IconButton onClick={onClickTheme}><Icons.Theme/></IconButton>
           <IconButton onClick={onClickDelete}><Icons.Delete/></IconButton>
         </>
       }/>}
@@ -77,12 +83,11 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
       <Designer
         setRef={setFormRef}
         onChange={onUpdate}
-        itemComponentMap={itemComponentMap}
         name={template.name}
         theme={template.theme}
         layout={template.layout}
         items={template.items}
-        toolkitItems={[
+        fieldItems={[
           { icon: <Icons.Text/>, itemType: 'text' },
           { icon: <Icons.TextInput/>, itemType: 'input' },
           { icon: <Icons.ComboBox/>, itemType: 'select' },
@@ -90,15 +95,20 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
           { icon: <Icons.Attachment/>, itemType: 'attachment' },
           { icon: <Icons.Rate/>, itemType: 'rating' },
         ]}
+        statisticItems={[
+          { icon: <Icons.PieChart/>, itemType: 'pie-chart' },
+          { icon: <Icons.LineChart/>, itemType: 'line-chart' },
+        ]}
       />
-      { modalType && (
-        <ConfirmModal
-          modalType={modalType}
-          onCloseModal={onCloseModal}
-          onCancel={onCancel}
-          onDelete={onDelete}
-        />
-      )}
+      <ConfirmModal
+        modalType={modalType}
+        onCloseModal={onCloseModal}
+        onCancel={onCancel}
+        onDelete={onDelete}
+      />
+      {
+        modalType === 'theme' && <PaperThemeModal onClose={onCloseModal} onChoseColor={onChoseThemeColor}/>
+      }
     </BaseTemplate>
   );
 };
