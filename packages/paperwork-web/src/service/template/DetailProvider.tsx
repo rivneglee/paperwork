@@ -6,8 +6,8 @@ import { LOAD_TEMPLATE_DETAIL, CREATE_TEMPLATE, UPDATE_TEMPLATE, DELETE_TEMPLATE
 export interface DetailProviderState {
   template?: TemplateDetail;
   load: () => Promise<TemplateDetail>;
-  update: (template: TemplateDetail) => Promise<void>;
-  create: (template: TemplateDetail) => Promise<void>;
+  update: (template: TemplateDetail, thumbnail: string) => Promise<void>;
+  create: (template: TemplateDetail, thumbnail: string) => Promise<void>;
   remove: () => Promise<void>;
   isInitializing: boolean;
   isProcessing: boolean;
@@ -45,7 +45,7 @@ export default class extends React.Component<Props> {
     return template;
   }
 
-  private update = async (template: TemplateDetail) => {
+  private update = async (template: TemplateDetail, thumbnail: string) => {
     const { templateId, userId } = this.props;
     const { integration } = this.props;
     await integration.send({
@@ -55,14 +55,17 @@ export default class extends React.Component<Props> {
         userId,
         templateId,
       },
-      content: template,
+      content: {
+        template,
+        thumbnail,
+      },
     });
     this.setState({
       template,
     });
   }
 
-  private create = async (template: TemplateDetail) => {
+  private create = async (template: TemplateDetail, thumbnail: string) => {
     const { userId } = this.props;
     const { integration } = this.props;
     await integration.send({
@@ -71,7 +74,10 @@ export default class extends React.Component<Props> {
       urlParams: {
         userId,
       },
-      content: template,
+      content: {
+        template,
+        thumbnail,
+      },
     });
     this.setState({
       template,

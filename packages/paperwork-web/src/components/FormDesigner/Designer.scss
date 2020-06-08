@@ -9,10 +9,9 @@
   z-index: 10;
   display: flex;
   flex-direction: column;
-  top: 25%;
-  margin-left: -2.5rem;
+  top: 30%;
   @media (min-width: 768px) {
-    margin-left: 2.5rem;
+    margin-left: 6.3rem;
   }
   &__action {
     width: 50px;
@@ -110,7 +109,7 @@
   }
   &--teal {
     .pw-launchpad-item__button {
-      background: #C5CAE9;
+      background: #B2DFDB;
     }
   }
   &--green {

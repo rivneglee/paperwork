@@ -17,6 +17,7 @@ interface Props extends FormProps {
   onDuplicateItem?: (id: string) => void;
   onRemoveLayout?: (id: string) => void;
   onNameChange?: (name: string) => void;
+  setRef?: (ref: HTMLDivElement) => void;
 }
 
 const Form: FunctionComponent<Props> = ({
@@ -33,6 +34,7 @@ const Form: FunctionComponent<Props> = ({
   onRemoveLayout,
   onItemPropsChange,
   onNameChange,
+  setRef,
 }) => {
   const pages = layout.filter(({ type }) => type === LayoutNodeTypes.PAGE);
   const onEditItem = (id: string) => setEditingItemId(id);
@@ -46,27 +48,34 @@ const Form: FunctionComponent<Props> = ({
   }
 
   return (
-    <div className={classNames('pw-form', theme && `pw-form--theme-${theme}`)}>
-      {
-        headerImage && (
-          <div className="pw-form__header-img">
-            <img src={headerImage}/>
-          </div>
-        )
-      }
+    <div className={classNames('pw-form', theme && `pw-form--theme-${theme}`, headerImage && 'pw-form--with-header-img ')}>
       <Card
         className="pw-form__body"
+        setRef={setRef}
         header={
           <Card.Header primary={
-              mode !== FormMode.DESIGN
-                ? <span className="pw-form__title">{name}</span>
-                :
-                  <Input
-                    type="underlined"
-                    className="pw-form__title"
-                    value={name}
-                    onChange={(e: any) => onNameChange && onNameChange(e.target.value)}
-                  />
+              <>
+                {
+                  headerImage && (
+                    <div className="pw-form__header-img">
+                      <img src={headerImage}/>
+                    </div>
+                  )
+                }
+                <div className="pw-form__header">
+                  {
+                    mode !== FormMode.DESIGN
+                      ? <span className="pw-form__title">{name}</span>
+                      :
+                      <Input
+                        type="underlined"
+                        className="pw-form__title"
+                        value={name}
+                        onChange={(e: any) => onNameChange && onNameChange(e.target.value)}
+                      />
+                  }
+                </div>
+              </>
             }
           />
         }

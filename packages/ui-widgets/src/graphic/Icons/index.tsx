@@ -46,6 +46,7 @@ import TextArea from './TextArea';
 import List from './List';
 import None from './None';
 import Columns from './Columns';
+import Rows from './Rows';
 
 export default {
   Add,
@@ -96,4 +97,5 @@ export default {
   List,
   None,
   Columns,
+  Rows,
 };

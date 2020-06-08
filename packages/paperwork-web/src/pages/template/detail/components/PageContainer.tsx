@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { push } from 'connected-react-router';
 import { FormProps } from '@paperwork/ui-widgets';
 
 import { DetailProvider, DetailProviderState } from '../../../../service/template';
@@ -8,6 +9,7 @@ import { getAuthentication } from '../../../../store/selectors';
 import TemplateDetailPage from '../components/TemplateDetailPage';
 import { getIsPageEdited, getTemplateDetail } from '../state/selectors';
 import { createLoadTemplateDetailAction, createUpdateTemplateAction } from '../state/actions';
+import { TemplateDetail } from '../../../../schema/Template';
 
 const mapStateToViewProps = (state: StoreState) => ({
   template: getTemplateDetail(state),
@@ -27,19 +29,35 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
     templateId={params.templateId}
   >
     {
-      ({ template, isProcessing }: DetailProviderState) => {
+      ({ template, isProcessing, remove, create, update }: DetailProviderState) => {
         if (template) {
           dispatch(createLoadTemplateDetailAction(template));
         }
 
-        const onUpdate = (formProps: FormProps) => {
-          dispatch(createUpdateTemplateAction(formProps));
+        const navigateToList = () => dispatch(push('/templates'));
+
+        const onUpdate = (formProps: FormProps) => dispatch(createUpdateTemplateAction(formProps));
+
+        const onCancel = () => navigateToList();
+
+        const onDelete = async () => {
+          await remove();
+          navigateToList();
+        };
+
+        const onSave = async (template: TemplateDetail, thumbnail: string) => {
+          const saveHandler = params.templateId === 'new' ? create : update;
+          await saveHandler(template, thumbnail);
+          navigateToList();
         };
 
         return (
           <View
             isProcessing={isProcessing}
             onUpdate={onUpdate}
+            onCancel={onCancel}
+            onDelete={onDelete}
+            onSave={onSave}
           />
         );
       }

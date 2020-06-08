@@ -34,7 +34,7 @@ const ActionBar: FunctionComponent<Props> = ({ toolkitItems, onChangeTheme }) =>
       </Avater>
     )}>
       <ToolkitItem id={LayoutItemTypes.VERTICAL_LIST} type={DragAndDropType.LAYOUT}>
-        <LaunchPad.Item><Icons.List/></LaunchPad.Item>
+        <LaunchPad.Item><Icons.Rows/></LaunchPad.Item>
       </ToolkitItem>
       <ToolkitItem id={LayoutItemTypes.HORIZONTAL_LIST} type={DragAndDropType.LAYOUT}>
         <LaunchPad.Item><Icons.Columns/></LaunchPad.Item>

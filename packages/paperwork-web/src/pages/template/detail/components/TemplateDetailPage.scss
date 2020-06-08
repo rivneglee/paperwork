@@ -1,0 +1,25 @@
+.pwapp-template-detail-page {
+  .pwapp-designer, .pw-template__content {
+    padding: 0;
+    margin-bottom: 0;
+
+    @media (min-width: 768px) {
+      padding: 1rem 0;
+    }
+  }
+
+  /*
+  .pw-form__body {
+    max-width: 70rem;
+    flex-grow: 1;
+  }
+
+  .pw-form {
+    min-height: calc(100vh - 100px);
+  }
+
+  .pw-template__inner {
+    max-width: none;
+  }
+  */
+}

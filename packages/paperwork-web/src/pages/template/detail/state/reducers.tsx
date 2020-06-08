@@ -49,6 +49,7 @@ const updateTemplateLayout = (
   ...state,
   templateDetail: {
     ...state.templateDetail,
+    isPageEdited: true,
     template: {
       ...state.templateDetail.template,
       ...action.props,

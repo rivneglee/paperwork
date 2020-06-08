@@ -17,7 +17,8 @@ interface Props extends FormProps {
   layoutComponentMap?: {[layoutType: string]: ComponentType<any>};
   itemComponentMap: {[itemType: string]: ItemMetadata};
   toolkitItems: ToolkitItemProps[];
-  onChange?: (formProps: FormProps) => void;
+  onChange: (formProps: FormProps) => void;
+  setRef?: (ref: HTMLDivElement) => void;
 }
 
 const HorizontalList = (props: any) => <SimpleList {...props} direction="horizontal"/>;
@@ -32,29 +33,33 @@ const Designer: FunctionComponent<Props> = ({
   layoutComponentMap = defaultLayoutComponentMap,
   itemComponentMap,
   onChange,
+  setRef,
   ...otherProps
-}) => (
-  <EventHandlerProvider {...otherProps} onChange={onChange}>
-    {
-      props => (
-        <Card className="pwapp-designer">
-          <ActionBar
-            toolkitItems={toolkitItems}
-            onChangeTheme={(theme: FormThemeColors) => onChange && onChange({
-              ...otherProps,
-              theme,
-            })}
-          />
-          <Form
-            mode={FormMode.DESIGN}
-            layoutComponentMap={layoutComponentMap}
-            itemComponentMap={itemComponentMap}
-            {...props}
-          />
-        </Card>
-      )
-    }
-  </EventHandlerProvider>
-);
+}) => {
+  return (
+    <EventHandlerProvider {...otherProps} onChange={onChange}>
+      {
+        props => (
+          <Card className="pwapp-designer">
+            <ActionBar
+              toolkitItems={toolkitItems}
+              onChangeTheme={(theme: FormThemeColors) => onChange({
+                ...otherProps,
+                theme,
+              })}
+            />
+            <Form
+              setRef={setRef}
+              mode={FormMode.DESIGN}
+              layoutComponentMap={layoutComponentMap}
+              itemComponentMap={itemComponentMap}
+              {...props}
+            />
+          </Card>
+        )
+      }
+    </EventHandlerProvider>
+  );
+};
 
 export default Designer;

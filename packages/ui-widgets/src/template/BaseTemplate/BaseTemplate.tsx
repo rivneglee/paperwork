@@ -1,4 +1,5 @@
 import React, { FunctionComponent, ReactElement } from 'react';
+import classNames from 'classnames';
 import { Scrollable } from '../../layout/Scrollable';
 
 interface Props {
@@ -7,6 +8,7 @@ interface Props {
   setScrollerRef?: (ref: any) => void;
   spinner?: ReactElement | null;
   isProcessing?: boolean;
+  className?: string;
 }
 
 const BaseTemplate: FunctionComponent<Props> = ({
@@ -16,8 +18,9 @@ const BaseTemplate: FunctionComponent<Props> = ({
   setScrollerRef,
   spinner,
   isProcessing,
+  className,
 }) =>  (
-  <div className="pw-template">
+  <div className={classNames('pw-template', className)}>
     {header && (
       <div className="pw-template__header">
         {header}

@@ -1,4 +1,11 @@
 .pwapp-appbar {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.pwapp-appbar-primary {
   display: flex;
   align-items: center;
   box-shadow: 0 3px 8px 0 rgba(116, 129, 141, 0.1);
@@ -9,7 +16,6 @@
   z-index: 9;
   &__left {
     position: relative;
-    padding: 1rem;
     &:after {
       top: 50%;
       right: 0;
@@ -38,9 +44,14 @@
     fill: #8F69E8;
     padding-right: .5rem;
   }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
+}
+.pwapp-appbar-secondary {
+  min-height: 2rem;
+  padding: .2rem;
+  box-shadow: 0 3px 8px 0 rgba(116, 129, 141, 0.1);
+  border-bottom: 1px solid #d4dadf;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
 }
