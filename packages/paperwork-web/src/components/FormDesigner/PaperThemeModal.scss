@@ -1,5 +1,8 @@
 .pwapp-appearance {
   max-width: 300px;
+  @media (min-width: 768px) {
+    max-width: 600px;
+  }
   .thumbs-wrapper {
     margin: 0;
   }
