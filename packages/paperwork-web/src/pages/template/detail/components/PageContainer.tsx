@@ -47,12 +47,14 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
 
         const onSave = async (template: TemplateDetail, thumbnail: string) => {
           const saveHandler = params.templateId === 'new' ? create : update;
+          debugger;
           await saveHandler(template, thumbnail);
           navigateToList();
         };
 
         return (
           <View
+            isCreating={params.templateId === 'new'}
             isProcessing={isProcessing}
             onUpdate={onUpdate}
             onCancel={onCancel}

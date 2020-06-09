@@ -1,0 +1,124 @@
+.pwapp-appearance {
+  max-width: 300px;
+}
+
+.pwapp-theme {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__button {
+    margin: .4rem;
+    width: 35px;
+    height: 35px;
+    &:hover {
+      box-shadow: 0 0 14px rgba(0,0,0,0.8);
+    }
+
+    &--pink {
+      background: #F8BBD0;
+      &:hover {
+        background: #F8BBD0;
+      }
+    }
+    &--red {
+      background: #FFCDD2;
+      &:hover {
+        background: #FFCDD2;
+      }
+    }
+    &--purple {
+      background: #E1BEE7;
+      &:hover {
+        background: #E1BEE7;
+      }
+    }
+    &--blue {
+      background: #BBDEFB;
+      &:hover {
+        background: #BBDEFB;
+      }
+    }
+    &--blue-grey {
+      background: #CFD8DC;
+      &:hover {
+        background: #CFD8DC;
+      }
+    }
+    &--indigo {
+      background: #C5CAE9;
+      &:hover {
+        background: #C5CAE9;
+      }
+    }
+    &--cyan {
+      background: #B2EBF2;
+      &:hover {
+        background: #B2EBF2;
+      }
+    }
+    &--teal {
+      background: #B2DFDB;
+      &:hover {
+        background: #B2DFDB;
+      }
+    }
+    &--green {
+      background: #C8E6C9;
+      &:hover {
+        background: #C8E6C9;
+      }
+    }
+    &--light-green {
+      background: #DCEDC8;
+      &:hover {
+        background: #DCEDC8;
+      }
+    }
+    &--lime {
+      background: #F0F4C3;
+      &:hover {
+        background: #F0F4C3;
+      }
+    }
+    &--yellow {
+      background: #FFF9C4;
+      &:hover {
+        background: #FFF9C4;
+      }
+    }
+    &--amber {
+      background: #FFECB3;
+      &:hover {
+        background: #FFECB3;
+      }
+    }
+    &--orange {
+      background: #FFE0B2;
+      &:hover {
+        background: #FFE0B2;
+      }
+    }
+    &--deep-orange {
+      background: #FFCCBC;
+      &:hover {
+        background: #FFCCBC;
+      }
+    }
+    &--brown {
+      background: #D7CCC8;
+      &:hover {
+        background: #D7CCC8;
+      }
+    }
+    &--none {
+      .pw-icon {
+        width: 60px;
+        height: 60px;
+      }
+      &:hover {
+        background: transparent;
+        box-shadow: none;
+      }
+    }
+  }
+}

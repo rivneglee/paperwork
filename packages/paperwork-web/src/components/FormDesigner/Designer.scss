@@ -2,6 +2,14 @@
   position: relative;
   background: transparent;
   box-shadow: none;
+
+  .pw-card__body {
+    padding: .7rem;
+  }
+
+  .pw-form__body {
+    min-height: 1000px;
+  }
 }
 
 .pwapp-designer-action-bar {
@@ -9,7 +17,7 @@
   z-index: 10;
   display: flex;
   flex-direction: column;
-  top: 30%;
+  top: 280px;
   @media (min-width: 768px) {
     margin-left: 6.3rem;
   }

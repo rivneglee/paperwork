@@ -12,6 +12,7 @@ import {
 import './Designer.scss';
 import ActionBar, { LayoutItemTypes, FormItemProps } from './ActionBar';
 import { Combobox, TextInput } from '../FormItems';
+import defaultHeaderImg from './images/default-header.jpeg';
 
 interface Props extends FormProps {
   layoutComponentMap?: {[layoutType: string]: ComponentType<any>};
@@ -58,6 +59,7 @@ const Designer: FunctionComponent<Props> = ({
               layoutComponentMap={layoutComponentMap}
               itemComponentMap={itemComponentMap}
               {...props}
+              headerImage={props.headerImage || defaultHeaderImg}
             />
           </Card>
         )

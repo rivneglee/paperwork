@@ -11,6 +11,7 @@ export interface Template {
   visibility: 'private' | 'protected' | 'public';
   tags: string[];
   heroImage: string;
+  headerImage?: string;
   theme?: 'red' | 'pink' | 'purple' | 'indigo'
     | 'blue' | 'light-blue' | 'cyan' | 'teal' | 'green'
     | 'light-green' | 'lime' | 'yellow' | 'amber'

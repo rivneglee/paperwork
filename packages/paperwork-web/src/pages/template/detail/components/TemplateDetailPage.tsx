@@ -13,13 +13,13 @@ import AppBar from '../../../../components/AppBar';
 import './TemplateDetailPage.scss';
 import { TemplateDetail } from '../../../../schema/Template';
 import Spinner from '../../../../components/PageTransitionSpinner/Spinner';
-import { Designer } from '../../../../components/FormDesigner';
+import { Designer, PaperThemeModal } from '../../../../components/FormDesigner';
 import { ConfirmModal } from '../../../../components/Modal';
-import PaperThemeModal from './PaperThemeModal';
 
 interface Props {
   template: TemplateDetail;
   isProcessing?: boolean;
+  isCreating: boolean;
   isPageEdited: boolean;
   onUpdate: (formProps: FormProps) => void;
   onCancel: () => void;
@@ -31,6 +31,7 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
   template,
   isPageEdited,
   isProcessing,
+  isCreating,
   onUpdate,
   onCancel,
   onDelete,
@@ -55,7 +56,7 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
   const onClickTheme = () => setModalType('theme');
 
   const onClickSave = async () => {
-    const img = await htmlToImage.toPng(formRef, { quality: 0.1 });
+    const img = await htmlToImage.toJpeg(formRef, { quality: 0.1 });
     onSave(template, img);
   };
 
@@ -66,6 +67,13 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
     });
   };
 
+  const onChoseHeaderImage = (headerImage: string) => {
+    onUpdate({
+      ...template,
+      headerImage,
+    });
+  };
+
   return (
     <BaseTemplate
       header={<AppBar activeMenuId="templates" secondaryMenu={
@@ -73,7 +81,9 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
           <IconButton onClick={onClickCancel}><Icons.Cancel/></IconButton>
           <IconButton onClick={onClickSave}><Icons.Save/></IconButton>
           <IconButton onClick={onClickTheme}><Icons.Theme/></IconButton>
-          <IconButton onClick={onClickDelete}><Icons.Delete/></IconButton>
+          {
+            !isCreating && <IconButton onClick={onClickDelete}><Icons.Delete/></IconButton>
+          }
         </>
       }/>}
       isProcessing={isProcessing}
@@ -83,6 +93,7 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
       <Designer
         setRef={setFormRef}
         onChange={onUpdate}
+        headerImage={template.headerImage}
         name={template.name}
         theme={template.theme}
         layout={template.layout}
@@ -107,7 +118,13 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
         onDelete={onDelete}
       />
       {
-        modalType === 'theme' && <PaperThemeModal onClose={onCloseModal} onChoseColor={onChoseThemeColor}/>
+        modalType === 'theme' && (
+          <PaperThemeModal
+            onClose={onCloseModal}
+            onChoseColor={onChoseThemeColor}
+            onChangeImage={onChoseHeaderImage}
+          />
+        )
       }
     </BaseTemplate>
   );

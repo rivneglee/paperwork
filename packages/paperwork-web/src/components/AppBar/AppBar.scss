@@ -15,7 +15,7 @@
   width: 100%;
   z-index: 9;
   &__left {
-    position: relative;
+    position: absolute;
     &:after {
       top: 50%;
       right: 0;

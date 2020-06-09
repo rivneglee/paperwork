@@ -17,6 +17,7 @@ interface Props extends FormProps {
   onDuplicateItem?: (id: string) => void;
   onRemoveLayout?: (id: string) => void;
   onNameChange?: (name: string) => void;
+  onClickHeaderImage?: () => void;
   setRef?: (ref: HTMLDivElement) => void;
 }
 
@@ -33,6 +34,7 @@ const Form: FunctionComponent<Props> = ({
   onDuplicateItem,
   onRemoveLayout,
   onItemPropsChange,
+  onClickHeaderImage,
   onNameChange,
   setRef,
 }) => {
@@ -57,7 +59,7 @@ const Form: FunctionComponent<Props> = ({
               <>
                 {
                   headerImage && (
-                    <div className="pw-form__header-img">
+                    <div className="pw-form__header-img" onClick={onClickHeaderImage}>
                       <img src={headerImage}/>
                     </div>
                   )
