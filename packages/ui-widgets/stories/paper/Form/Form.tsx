@@ -8,10 +8,10 @@ const columnsConfig = [
   { columnName: 'Value' },
 ];
 
-const SelectSettingsView =  ({ options = [] }: any) => (
+const SelectSettingsView =  ({ item }: any) => (
   <LineItemTable
     columnsConfig={columnsConfig}
-    data={options}
+    data={item.options}
     renderRow={(index, data) => (
       <LineItemTable.Row columnsConfig={columnsConfig}>
         <LineItemTable.Item>

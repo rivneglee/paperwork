@@ -11,7 +11,7 @@ import {
 
 import './Designer.scss';
 import ActionBar, { LayoutItemTypes, FormItemProps } from './ActionBar';
-import { Combobox, TextInput } from '../FormItems';
+import { combobox, textInput } from '../FormAddons';
 import defaultHeaderImg from './images/default-header.jpeg';
 
 interface Props extends FormProps {
@@ -31,8 +31,8 @@ const defaultLayoutComponentMap = {
 };
 
 const defaultItemComponentMap = {
-  input: { MainView: TextInput },
-  select: { MainView: Combobox },
+  input: textInput,
+  select: combobox,
 };
 
 const Designer: FunctionComponent<Props> = ({

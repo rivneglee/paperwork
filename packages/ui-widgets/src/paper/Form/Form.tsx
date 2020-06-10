@@ -109,7 +109,7 @@ const Form: FunctionComponent<Props> = ({
         >
           <Scrollable className="pw-form__settings">
             {
-              SettingsView && <SettingsView {...editingItem} onUpdate={onItemPropsChange}/>
+              SettingsView && <SettingsView item={editingItem} onUpdate={onItemPropsChange}/>
             }
           </Scrollable>
         </Drawer>

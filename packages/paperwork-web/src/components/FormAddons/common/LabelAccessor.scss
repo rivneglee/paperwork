@@ -1,0 +1,40 @@
+.pwapp-form-label-accessor {
+  display: flex;
+  flex-direction: column;
+  .pw-field-group {
+    margin-bottom: 0;
+  }
+
+  &__label {
+    margin: .3rem 0;
+    word-break: break-word;
+    white-space: normal;
+    &--required {
+      &:after {
+        content: '*';
+        color: #E83F26;
+      }
+    }
+  }
+
+  &--bottom {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &--left {
+    flex-direction: row;
+    align-items: center;
+    .pwapp-form-label-accessor__label {
+      margin: 0 .3rem;
+    }
+  }
+
+  &--right {
+    flex-direction: row-reverse;
+    align-items: center;
+    .pwapp-form-label-accessor__label {
+      margin: 0 .3rem;
+    }
+  }
+}

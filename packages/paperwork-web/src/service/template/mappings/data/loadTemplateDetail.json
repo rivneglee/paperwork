@@ -18,8 +18,8 @@
     { "id": "list2", "childRefs": [], "type":  "vertical-list" }
   ],
   "items": {
-    "item1": { "id": "item1", "itemType": "input", "value": "I am item 1" },
-    "item2": { "id": "item2", "itemType": "select", "value": ["r", "g"], "isMultipleSelect": true, "options": [
+    "item1": { "id": "item1", "itemType": "input", "value": "I am item 1", "label": "Name", "isRequired": true },
+    "item2": { "id": "item2", "itemType": "select", "value": ["r", "g"], "label": "Color", "isMultipleSelect": true, "options": [
       { "value": "r", "label": "Red" },
       { "value": "g", "label": "Green" },
       { "value": "b", "label": "Blue" }
