@@ -26,8 +26,11 @@ const SelectSettingsView =  ({ options = [] }: any) => (
 );
 
 const itemComponentMap = {
-  input: { MainView: Input },
-  select: { MainView: Select, SettingsView: SelectSettingsView },
+  input: { MainView: ({ readonly, ...otherProps }: any) => <Input {...otherProps} disabled={readonly}/> },
+  select: {
+    MainView: ({ readonly, ...otherProps }: any) => <Select {...otherProps} disabled={readonly}/>,
+    SettingsView: SelectSettingsView,
+  },
 };
 
 export default () => {

@@ -37,7 +37,7 @@ const LayoutItem: FunctionComponent<Props> = ({
     <MainView
       id={id}
       itemType={itemType}
-      disabled={readonly}
+      readonly={readonly}
       onChange={onChange}
       {...otherProps}
     />

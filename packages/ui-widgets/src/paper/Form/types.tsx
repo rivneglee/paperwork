@@ -29,7 +29,7 @@ export type Layout = LayoutLinkedNode[];
 export interface Item {
   id: string;
   itemType: string;
-  disabled?: boolean;
+  readonly?: boolean;
   value?: any;
   [key: string]: any;
 }
