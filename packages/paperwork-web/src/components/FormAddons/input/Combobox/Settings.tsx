@@ -14,15 +14,17 @@ const columnsConfig = [
 ];
 
 const Settings: FunctionComponent<Props> = ({ onUpdate, item }) => {
+  const { options = [], isRequired, isMultipleSelect } = item;
+
   const onAddOption = (option: SelectOption, key: string, value: any) => {
     onUpdate({
       ...item,
-      options: [...item.options, { [key]: value }],
+      options: [...options, { [key]: value }],
     });
   };
 
   const onUpdateOption = (index: number, key: string, value: any) => {
-    const newOptions = item.options.map((option: SelectOption, i: number) => {
+    const newOptions = options.map((option: SelectOption, i: number) => {
       if (i !== index) return option;
       return {
         ...option,
@@ -36,7 +38,7 @@ const Settings: FunctionComponent<Props> = ({ onUpdate, item }) => {
   };
 
   const onRemoveOption = (index: number) => {
-    const newOptions = item.options.filter((_: SelectOption, i: number) => i !== index);
+    const newOptions = options.filter((_: SelectOption, i: number) => i !== index);
     onUpdate({
       ...item,
       options: newOptions,
@@ -54,14 +56,20 @@ const Settings: FunctionComponent<Props> = ({ onUpdate, item }) => {
     <>
       <LabelSettings item={item} onUpdate={onUpdate}/>
       <Toggle
-        checked={item.isRequired}
+        checked={isRequired}
         label="Required"
         labelPlacement="top"
         onChange={onToggleChange('isRequired')}
       />
+      <Toggle
+        checked={isMultipleSelect}
+        label="Multi-select"
+        labelPlacement="top"
+        onChange={onToggleChange('isMultipleSelect')}
+      />
       <LineItemTable
         columnsConfig={columnsConfig}
-        data={item.options}
+        data={options}
         onAddRow={onAddOption}
         onUpdateRow={onUpdateOption}
         onRemoveRow={onRemoveOption}

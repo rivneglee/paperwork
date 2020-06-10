@@ -27,7 +27,7 @@ const LabelAccessor: FunctionComponent<Props> = ({
     >
       {label}
     </div>
-    <div>{children}</div>
+    <div className="pwapp-form-label-accessor__item">{children}</div>
   </div>
 );
 
