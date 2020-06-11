@@ -17,16 +17,20 @@ const LabelAccessor: FunctionComponent<Props> = ({
   <div className={
     classNames('pwapp-form-label-accessor', `pwapp-form-label-accessor--${labelPlacement}`)
   }>
-    <div
-      className={
-        classNames(
-          'pwapp-form-label-accessor__label',
-          isRequired && 'pwapp-form-label-accessor__label--required',
-        )
-      }
-    >
-      {label}
-    </div>
+    {
+      label && (
+        <div
+          className={
+            classNames(
+              'pwapp-form-label-accessor__label',
+              isRequired && 'pwapp-form-label-accessor__label--required',
+            )
+          }
+        >
+          {label}
+        </div>
+      )
+    }
     <div className="pwapp-form-label-accessor__item">{children}</div>
   </div>
 );

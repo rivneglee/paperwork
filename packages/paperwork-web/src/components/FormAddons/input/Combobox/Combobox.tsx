@@ -9,9 +9,9 @@ interface Props extends Item {
   onChange: (value: any) => void;
 }
 
-const Combobox: FunctionComponent<Props> = ({ onChange, value, id, isRequired, label, labelPlacement, ...item }) => (
+const Combobox: FunctionComponent<Props> = ({ onChange, value, id, readonly, isRequired, label, labelPlacement, ...item }) => (
   <LabelAccessor label={label} labelPlacement={labelPlacement} isRequired={isRequired}>
-    <Select key={id} selectedValue={value} isRequired={isRequired} {...item} onChange={onChange}/>
+    <Select disabled={readonly} key={id} selectedValue={value} isRequired={isRequired} {...item} onChange={onChange}/>
   </LabelAccessor>
 );
 
