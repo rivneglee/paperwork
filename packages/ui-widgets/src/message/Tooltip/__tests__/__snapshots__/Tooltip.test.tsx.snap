@@ -2,6 +2,7 @@
 
 exports[`Tooltip should render for default props 1`] = `
 <ForwardRef(Tooltip)
+  delayShow={0}
   overlay="This is tooltip"
   overlayClassName="pw-tooltip__overlay"
   placement="left"
