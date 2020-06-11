@@ -1,5 +1,6 @@
 import React, { FunctionComponent, ReactElement } from 'react';
 import { Avater, DragAndDropType, Icons, LaunchPad, ToolkitItem } from '@paperwork/ui-widgets';
+import { LayoutItemTypes } from '../FormAddons';
 
 export interface FormItemProps {
   label?: string;
@@ -10,10 +11,6 @@ export interface FormItemProps {
 interface Props {
   fieldItems: FormItemProps[];
   statisticItems: FormItemProps[];
-}
-
-export enum LayoutItemTypes {
-  VERTICAL_LIST = 'vertical-list', HORIZONTAL_LIST = 'horizontal-list',
 }
 
 const ActionBar: FunctionComponent<Props> = ({ fieldItems, statisticItems }) => (

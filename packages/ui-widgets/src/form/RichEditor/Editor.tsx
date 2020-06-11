@@ -39,7 +39,7 @@ class BangEditor extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    const { contentHtml = '' } = props;
+    const { contentHtml = '<span></span>' } = props;
     const blocksFromHTML = convertFromHTML(contentHtml);
     const contentState = blocksFromHTML.contentBlocks ? ContentState.createFromBlockArray(
       blocksFromHTML.contentBlocks,

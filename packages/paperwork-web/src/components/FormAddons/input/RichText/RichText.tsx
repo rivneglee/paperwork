@@ -7,14 +7,17 @@ interface Props extends Item {
   onChange: (value: any) => void;
 }
 
-const RichText: FunctionComponent<Props> = ({ onChange, value, id, mode }) => (
-  <RichEditor
-    className="pwapp-form-text"
-    key={id}
-    contentHtml={value}
-    disabled={mode !== FormMode.DESIGN}
-    placeholder="Enter text here..."
-  />
-);
+const RichText: FunctionComponent<Props> = ({ onChange, value, id, mode }) => {
+  return (
+    <RichEditor
+      className="pwapp-form-text"
+      key={id}
+      contentHtml={value}
+      disabled={mode !== FormMode.DESIGN}
+      placeholder="Enter text here..."
+      onChange={value => onChange(value)}
+    />
+  );
+};
 
 export default RichText;

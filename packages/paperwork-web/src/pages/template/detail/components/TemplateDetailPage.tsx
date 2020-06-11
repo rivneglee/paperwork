@@ -1,11 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
 import htmlToImage from 'html-to-image';
-import {
-  BaseTemplate,
-  Icons,
-  IconButton,
-  FormThemeColors,
-} from '@paperwork/ui-widgets';
+import { BaseTemplate, FormMode, FormThemeColors, IconButton, Icons } from '@paperwork/ui-widgets';
 
 import AppBar from '../../../../components/AppBar';
 
@@ -14,6 +9,8 @@ import { TemplateDetail } from '../../../../schema/Template';
 import Spinner from '../../../../components/PageTransitionSpinner/Spinner';
 import { Designer, PaperThemeModal } from '../../../../components/FormDesigner';
 import { ConfirmModal } from '../../../../components/Modal';
+import { InputItemTypes } from '../../../../components/FormAddons';
+import Preview from './Preview';
 
 interface Props {
   template: TemplateDetail;
@@ -39,6 +36,7 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
   let formRef: HTMLDivElement;
   const setFormRef = (ref: HTMLDivElement) => formRef = ref;
   const [modalType, setModalType] = useState('');
+  const [mode, setMode] = useState(FormMode.DESIGN);
 
   const onCloseModal = () => setModalType('');
 
@@ -73,43 +71,58 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
     });
   };
 
+  const designMenu = (
+    <>
+      <IconButton onClick={onClickCancel}><Icons.Cancel/></IconButton>
+      <IconButton onClick={onClickSave}><Icons.Save/></IconButton>
+      <IconButton onClick={() => setMode(FormMode.EDIT)}><Icons.Preview/></IconButton>
+      <IconButton onClick={onClickTheme}><Icons.Theme/></IconButton>
+      {
+        !isCreating && <IconButton onClick={onClickDelete}><Icons.Delete/></IconButton>
+      }
+    </>
+  );
+
+  const previewMenu = (
+    <IconButton onClick={() => setMode(FormMode.DESIGN)}><Icons.Cancel/></IconButton>
+  );
+
   return (
     <BaseTemplate
-      header={<AppBar activeMenuId="templates" secondaryMenu={
-        <>
-          <IconButton onClick={onClickCancel}><Icons.Cancel/></IconButton>
-          <IconButton onClick={onClickSave}><Icons.Save/></IconButton>
-          <IconButton onClick={onClickTheme}><Icons.Theme/></IconButton>
-          {
-            !isCreating && <IconButton onClick={onClickDelete}><Icons.Delete/></IconButton>
-          }
-        </>
-      }/>}
       isProcessing={isProcessing}
       spinner={<Spinner/>}
       className="pwapp-template-detail-page"
+      header={<AppBar activeMenuId="templates" secondaryMenu={
+        mode === FormMode.DESIGN ? designMenu : previewMenu
+      }/>}
     >
-      <Designer
-        setRef={setFormRef}
-        onChange={onUpdate}
-        headerImage={template.headerImage}
-        name={template.name}
-        theme={template.theme}
-        layout={template.layout}
-        items={template.items}
-        fieldItems={[
-          { icon: <Icons.Text/>, itemType: 'text' },
-          { icon: <Icons.TextInput/>, itemType: 'input' },
-          { icon: <Icons.ComboBox/>, itemType: 'select' },
-          { icon: <Icons.TextArea/>, itemType: 'textarea' },
-          { icon: <Icons.Attachment/>, itemType: 'attachment' },
-          { icon: <Icons.Rate/>, itemType: 'rating' },
-        ]}
-        statisticItems={[
-          { icon: <Icons.PieChart/>, itemType: 'pie-chart' },
-          { icon: <Icons.LineChart/>, itemType: 'line-chart' },
-        ]}
-      />
+      {
+        mode === FormMode.DESIGN ? (
+          <Designer
+            setRef={setFormRef}
+            onChange={onUpdate}
+            headerImage={template.headerImage}
+            name={template.name}
+            theme={template.theme}
+            layout={template.layout}
+            items={template.items}
+            fieldItems={[
+              { icon: <Icons.Text/>, itemType: InputItemTypes.RICH_TEXT },
+              { icon: <Icons.TextInput/>, itemType: InputItemTypes.TEXT_INPUT },
+              { icon: <Icons.ComboBox/>, itemType: InputItemTypes.COMBOBOX },
+              { icon: <Icons.TextArea/>, itemType: 'textarea' },
+              { icon: <Icons.Attachment/>, itemType: 'attachment' },
+              { icon: <Icons.Rate/>, itemType: 'rating' },
+            ]}
+            statisticItems={[
+              { icon: <Icons.PieChart/>, itemType: 'pie-chart' },
+              { icon: <Icons.LineChart/>, itemType: 'line-chart' },
+            ]}
+          />
+        ) : (
+          <Preview template={template} onChange={onUpdate}/>
+        )
+      }
       <ConfirmModal
         modalType={modalType}
         onCloseModal={onCloseModal}

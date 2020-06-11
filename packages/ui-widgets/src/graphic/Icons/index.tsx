@@ -49,6 +49,7 @@ import Columns from './Columns';
 import Rows from './Rows';
 import PieChart from './PieChart';
 import LineChart from './LineChart';
+import Preview from './Preview';
 
 export default {
   Add,
@@ -102,4 +103,5 @@ export default {
   Rows,
   PieChart,
   LineChart,
+  Preview,
 };
