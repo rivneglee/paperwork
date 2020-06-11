@@ -3,7 +3,7 @@ import React, { FunctionComponent } from 'react';
 import Tooltip from '../../message/Tooltip/Tooltip';
 import Icons from '../../graphic/Icons';
 import { IconButton } from '../../form/IconButton';
-import { Item, ItemMetadata } from './types';
+import { FormMode, Item, ItemMetadata } from './types';
 
 interface Props {
   item: Item;
@@ -12,8 +12,7 @@ interface Props {
   onDuplicate?: (id: string) => void;
   onChange?: (value: any) => void;
   onRemove?: (id: string) => void;
-  dragAndDropDisabled?: boolean;
-  readonly?: boolean;
+  mode: FormMode;
 }
 
 const handleAction = (id: string, handler?: (id: string) => void) => () => {
@@ -23,13 +22,12 @@ const handleAction = (id: string, handler?: (id: string) => void) => () => {
 const LayoutItem: FunctionComponent<Props> = ({
   item,
   metadata,
-  readonly,
   children,
-  dragAndDropDisabled,
   onEdit,
   onDuplicate,
   onRemove,
   onChange,
+  mode,
 }) => {
   const { id, itemType, ...otherProps } = item;
   const { MainView, SettingsView } = metadata;
@@ -37,13 +35,13 @@ const LayoutItem: FunctionComponent<Props> = ({
     <MainView
       id={id}
       itemType={itemType}
-      readonly={readonly}
+      mode={mode}
       onChange={onChange}
       {...otherProps}
     />
   );
 
-  if (dragAndDropDisabled) return itemView;
+  if (mode !== FormMode.DESIGN) return itemView;
   return (
     <Tooltip content={
       <div className="pw-dnd-item-wrapper">

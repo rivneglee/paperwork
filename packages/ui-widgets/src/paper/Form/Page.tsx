@@ -1,7 +1,16 @@
 import React, { FunctionComponent, ComponentType } from 'react';
 
 import DraggableList from './DraggableList';
-import { DragAndDropType, Items, ItemMetadata, Layout, LayoutLinkedNode, LayoutNodeTypes, Item } from './types';
+import {
+  DragAndDropType,
+  Items,
+  ItemMetadata,
+  Layout,
+  LayoutLinkedNode,
+  LayoutNodeTypes,
+  Item,
+  FormMode,
+} from './types';
 import SimpleList from './SimpleList';
 import Placeholder from './Placeholder';
 
@@ -16,8 +25,7 @@ interface Props {
   onRemoveItem?: (id: string) => void;
   onDuplicateItem?: (id: string) => void;
   onRemoveLayout?: (id: string) => void;
-  dragAndDropDisabled?: boolean;
-  readonly?: boolean;
+  mode: FormMode;
 }
 
 const defaultLayoutComponentMap = {
@@ -35,11 +43,10 @@ const Page: FunctionComponent<Props> = ({
   onDuplicateItem,
   onRemoveLayout,
   onItemPropsChange,
-  dragAndDropDisabled,
-  readonly,
+  mode,
 }) => {
   const renderItem = (layoutNode: LayoutLinkedNode) => {
-    if (layoutNode.childRefs.length === 0 && dragAndDropDisabled) return null;
+    if (layoutNode.childRefs.length === 0 && mode !== FormMode.DESIGN) return null;
     const Layout = layoutComponentMap[layoutNode.type];
     if (Layout) {
       return (
@@ -47,8 +54,7 @@ const Page: FunctionComponent<Props> = ({
           <Layout
             id={layoutNode.id}
             layout={layout}
-            dragAndDropDisabled={dragAndDropDisabled}
-            readonly={readonly}
+            mode={mode}
             items={items}
             itemComponentMap={itemComponentMap}
             onItemPropsChange={onItemPropsChange}
@@ -69,7 +75,7 @@ const Page: FunctionComponent<Props> = ({
       renderItem={renderItem}
       layout={layout}
       dragAndDropType={DragAndDropType.LAYOUT}
-      disabled={dragAndDropDisabled}
+      disabled={mode !== FormMode.DESIGN}
       placeholder={
         <Placeholder className="pw-dnd-layout-page__placeholder" message="DROP LAYOUT HERE" canRemove={false}/>
       }

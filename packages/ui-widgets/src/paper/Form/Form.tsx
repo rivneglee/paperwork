@@ -96,8 +96,7 @@ const Form: FunctionComponent<Props> = ({
               onDuplicateItem={onDuplicateItem}
               onRemoveLayout={onRemoveLayout}
               onItemPropsChange={onItemPropsChange}
-              dragAndDropDisabled={mode === FormMode.EDIT || mode === FormMode.READONLY}
-              readonly={mode === FormMode.READONLY}
+              mode={mode}
             />
           ))
         }

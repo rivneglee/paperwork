@@ -1,15 +1,14 @@
-import React, { FunctionComponent } from 'react';
+import React, {FunctionComponent} from 'react';
 
 import DraggableList from './DraggableList';
-import { DragAndDropType, Items, ItemMetadata, Layout, LayoutLinkedNode, Item } from './types';
+import {DragAndDropType, FormMode, Item, ItemMetadata, Items, Layout, LayoutLinkedNode} from './types';
 import LayoutItem from './LayoutItem';
 import Placeholder from './Placeholder';
 
 interface Props {
   id: string;
   layout: Layout;
-  dragAndDropDisabled?: boolean;
-  readonly?: boolean;
+  mode: FormMode;
   itemComponentMap: {[itemType: string]: ItemMetadata};
   items: Items;
   onRemoveItem?: (id: string) => void;
@@ -24,8 +23,7 @@ const SimpleList: FunctionComponent<Props> = ({
   id,
   direction,
   layout,
-  dragAndDropDisabled,
-  readonly,
+  mode,
   itemComponentMap,
   items,
   onRemoveItem,
@@ -43,9 +41,8 @@ const SimpleList: FunctionComponent<Props> = ({
         return (
           <LayoutItem
             item={item}
-            readonly={readonly}
+            mode={mode}
             metadata={metadata}
-            dragAndDropDisabled={dragAndDropDisabled}
             onEdit={onEditItem}
             onRemove={onRemoveItem}
             onDuplicate={onDuplicateItem}
@@ -64,7 +61,7 @@ const SimpleList: FunctionComponent<Props> = ({
       renderItem={renderItem}
       dragAndDropType={DragAndDropType.ITEM}
       layout={layout}
-      disabled={dragAndDropDisabled}
+      disabled={mode !== FormMode.DESIGN}
       placeholder={<Placeholder message="DROP ITEM HERE" onRemove={onRemove}/>}
     />
   );

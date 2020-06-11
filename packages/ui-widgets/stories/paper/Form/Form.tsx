@@ -26,9 +26,9 @@ const SelectSettingsView =  ({ item }: any) => (
 );
 
 const itemComponentMap = {
-  input: { MainView: ({ readonly, ...otherProps }: any) => <Input {...otherProps} disabled={readonly}/> },
+  input: { MainView: ({ mode, ...otherProps }: any) => <Input {...otherProps} disabled={mode === FormMode.READONLY}/> },
   select: {
-    MainView: ({ readonly, ...otherProps }: any) => <Select {...otherProps} disabled={readonly}/>,
+    MainView: ({ mode, ...otherProps }: any) => <Select {...otherProps} disabled={mode === FormMode.READONLY}/>,
     SettingsView: SelectSettingsView,
   },
 };
