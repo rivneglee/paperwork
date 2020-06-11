@@ -3,7 +3,6 @@ import htmlToImage from 'html-to-image';
 import {
   BaseTemplate,
   Icons,
-  FormProps,
   IconButton,
   FormThemeColors,
 } from '@paperwork/ui-widgets';
@@ -21,7 +20,7 @@ interface Props {
   isProcessing?: boolean;
   isCreating: boolean;
   isPageEdited: boolean;
-  onUpdate: (formProps: FormProps) => void;
+  onUpdate: (template: TemplateDetail) => void;
   onCancel: () => void;
   onSave: (template: TemplateDetail, thumbnail: string) => void;
   onDelete: () => void;

@@ -1,5 +1,3 @@
-import { FormProps } from '@paperwork/ui-widgets';
-
 import { TemplateDetail } from '../../../../schema/Template';
 
 export const LOAD_TEMPLATE_DETAIL = 'TEMPLATE_DETAIL_LOAD_TEMPLATE';
@@ -11,7 +9,7 @@ export interface LoadTemplateDetailAction {
 }
 
 export interface UpdateTemplateAction {
-  props: FormProps;
+  props: TemplateDetail;
   type: string;
 }
 
@@ -22,7 +20,7 @@ export const createLoadTemplateDetailAction = (template: TemplateDetail): LoadTe
   };
 };
 
-export const createUpdateTemplateAction = (props: FormProps): UpdateTemplateAction => {
+export const createUpdateTemplateAction = (props: TemplateDetail): UpdateTemplateAction => {
   return {
     props,
     type: UPDATE_TEMPLATE,

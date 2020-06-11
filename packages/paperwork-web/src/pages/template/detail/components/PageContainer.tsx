@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
-import { FormProps } from '@paperwork/ui-widgets';
 
 import { DetailProvider, DetailProviderState } from '../../../../service/template';
 import { StoreState } from '../../../../store';
@@ -36,7 +35,7 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
 
         const navigateToList = () => dispatch(push('/templates'));
 
-        const onUpdate = (formProps: FormProps) => dispatch(createUpdateTemplateAction(formProps));
+        const onUpdate = (template: TemplateDetail) => dispatch(createUpdateTemplateAction(template));
 
         const onCancel = () => navigateToList();
 
