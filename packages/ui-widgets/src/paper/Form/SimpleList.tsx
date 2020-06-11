@@ -1,7 +1,7 @@
-import React, {FunctionComponent} from 'react';
+import React, { FunctionComponent } from 'react';
 
 import DraggableList from './DraggableList';
-import {DragAndDropType, FormMode, Item, ItemMetadata, Items, Layout, LayoutLinkedNode} from './types';
+import { DragAndDropType, FormMode, Item, ItemMetadata, Items, Layout, LayoutLinkedNode } from './types';
 import LayoutItem from './LayoutItem';
 import Placeholder from './Placeholder';
 

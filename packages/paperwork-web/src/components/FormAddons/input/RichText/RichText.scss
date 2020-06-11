@@ -1,13 +1,9 @@
-import React, { FunctionComponent } from 'react';
+.pwapp-form-text {
+  border: none;
+  background: transparent;
 
-import { Item, FormMode, RichEditor } from '@paperwork/ui-widgets';
-
-interface Props extends Item {
-  onChange: (value: any) => void;
+  &.pw-text-editor--active, &:focus {
+    border: none;
+    box-shadow: none;
+  }
 }
-
-const RichText: FunctionComponent<Props> = ({ onChange, value, id, mode, ...item }) => (
-  <RichEditor key={id} contentHtml={value} disabled={mode !== FormMode.DESIGN}/>
-);
-
-export default RichText;

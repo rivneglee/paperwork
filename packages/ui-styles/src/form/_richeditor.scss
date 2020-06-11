@@ -39,10 +39,15 @@
     width: 100%;
   }
 
+  .DraftEditor-editorContainer {
+    z-index: 1;
+    height: 100%;
+  }
+
   .public-DraftEditorPlaceholder-root {
     color: #999;
-    position: absolute;
     z-index: 0;
+    height: 17px;
   }
 
   .public-DraftEditor-content {
@@ -51,9 +56,12 @@
     height: 100%;
   }
 
-  .DraftEditor-editorContainer {
-    z-index: 1;
-    height: 100%;
+  .public-DraftEditorPlaceholder-root + .DraftEditor-editorContainer {
+    margin-top: -17px;
+    position: absolute;
+    height: auto;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 

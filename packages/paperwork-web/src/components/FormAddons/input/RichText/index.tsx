@@ -1,7 +1,5 @@
-import MainView from './Combobox';
-import SettingsView from './Settings';
+import MainView from './RichText';
 
 export default {
   MainView,
-  SettingsView,
 };

@@ -5,18 +5,21 @@ import 'rc-tooltip/assets/bootstrap.css';
 interface Props {
   placement?: 'left' | 'right' | 'top' | 'bottom';
   content?: ReactComponentElement<any> | string;
+  delayShow?: number;
 }
 
 const Tooltip: FunctionComponent<Props> = ({
  children,
  placement = 'left',
  content,
+ delayShow = 0,
 }) => (
   content ? (
     <ReactTooltip
       placement={placement}
       overlay={content}
       overlayClassName="pw-tooltip__overlay"
+      delayShow={delayShow}
       trigger={[
         'hover',
         'focus',
