@@ -40,7 +40,7 @@ const FormEditor: FunctionComponent<Props> = ({
   itemComponentMap = defaultItemComponentMap,
   onChange,
   ...otherProps
-}) =>  (
+}) => (
   <EventHandlerProvider {...otherProps} onChange={onChange}>
     {
       props => (
