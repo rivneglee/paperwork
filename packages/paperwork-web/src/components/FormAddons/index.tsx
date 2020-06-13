@@ -12,13 +12,13 @@ export enum LayoutItemTypes {
   VERTICAL_LIST = 'vertical-list', HORIZONTAL_LIST = 'horizontal-list',
 }
 
-export const getItemComponentMap = (commonProps: object = {}) => ({
+export const getInputMap = (commonProps: object = {}) => ({
   [InputItemTypes.RICH_TEXT]: { ...richText, defaultProps: { ...commonProps } },
   [InputItemTypes.TEXT_INPUT]: { ...textInput, defaultProps: { ...commonProps } },
   [InputItemTypes.COMBOBOX]: { ...combobox, defaultProps: { ...commonProps } },
 });
 
-export const getLayoutComponentMap = () => ({
+export const getLayoutMap = () => ({
   [LayoutItemTypes.VERTICAL_LIST]: VerticalList,
   [LayoutItemTypes.HORIZONTAL_LIST]: HorizontalList,
 });

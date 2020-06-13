@@ -3,7 +3,7 @@ import React from 'react';
 import {Form, Input, Select, FormMode, Context} from '../../../src';
 import { layout, items } from '../fixtures/data';
 
-const itemComponentMap = {
+const itemMetadataMap = {
   input: { MainView: Input },
   select: { MainView: Select },
 };
@@ -18,7 +18,7 @@ export default () => {
             name="pink"
             layout={layout}
             items={items}
-            itemComponentMap={itemComponentMap}
+            itemMetadataMap={itemMetadataMap}
           />
         </Context>
         <Context>
@@ -28,7 +28,7 @@ export default () => {
             name="red"
             layout={layout}
             items={items}
-            itemComponentMap={itemComponentMap}
+            itemMetadataMap={itemMetadataMap}
           />
         </Context>
         <Context>
@@ -38,7 +38,7 @@ export default () => {
             name="purple"
             layout={layout}
             items={items}
-            itemComponentMap={itemComponentMap}
+            itemMetadataMap={itemMetadataMap}
           />
         </Context>
         <Context>
@@ -48,7 +48,7 @@ export default () => {
             name="indigo"
             layout={layout}
             items={items}
-            itemComponentMap={itemComponentMap}
+            itemMetadataMap={itemMetadataMap}
           />
         </Context>
         <Context>
@@ -58,7 +58,7 @@ export default () => {
             name="blue"
             layout={layout}
             items={items}
-            itemComponentMap={itemComponentMap}
+            itemMetadataMap={itemMetadataMap}
           />
         </Context>
         <Context>
@@ -68,7 +68,7 @@ export default () => {
             name="blue-grey"
             layout={layout}
             items={items}
-            itemComponentMap={itemComponentMap}
+            itemMetadataMap={itemMetadataMap}
           />
         </Context>
         <Context>
@@ -78,7 +78,7 @@ export default () => {
             name="cyan"
             layout={layout}
             items={items}
-            itemComponentMap={itemComponentMap}
+            itemMetadataMap={itemMetadataMap}
           />
         </Context>
         <Context>
@@ -88,7 +88,7 @@ export default () => {
             name="teal"
             layout={layout}
             items={items}
-            itemComponentMap={itemComponentMap}
+            itemMetadataMap={itemMetadataMap}
           />
         </Context>
         <Context>
@@ -98,7 +98,7 @@ export default () => {
             name="green"
             layout={layout}
             items={items}
-            itemComponentMap={itemComponentMap}
+            itemMetadataMap={itemMetadataMap}
           />
         </Context>
         <Context>
@@ -108,7 +108,7 @@ export default () => {
             name="light-green"
             layout={layout}
             items={items}
-            itemComponentMap={itemComponentMap}
+            itemMetadataMap={itemMetadataMap}
           />
         </Context>
         <Context>
@@ -118,7 +118,7 @@ export default () => {
             name="lime"
             layout={layout}
             items={items}
-            itemComponentMap={itemComponentMap}
+            itemMetadataMap={itemMetadataMap}
           />
         </Context>
         <Context>
@@ -128,7 +128,7 @@ export default () => {
             name="yellow"
             layout={layout}
             items={items}
-            itemComponentMap={itemComponentMap}
+            itemMetadataMap={itemMetadataMap}
           />
         </Context>
         <Context>
@@ -138,7 +138,7 @@ export default () => {
             name="amber"
             layout={layout}
             items={items}
-            itemComponentMap={itemComponentMap}
+            itemMetadataMap={itemMetadataMap}
           />
         </Context>
         <Context>
@@ -148,7 +148,7 @@ export default () => {
             name="orange"
             layout={layout}
             items={items}
-            itemComponentMap={itemComponentMap}
+            itemMetadataMap={itemMetadataMap}
           />
         </Context>
         <Context>
@@ -158,7 +158,7 @@ export default () => {
             name="deep-orange"
             layout={layout}
             items={items}
-            itemComponentMap={itemComponentMap}
+            itemMetadataMap={itemMetadataMap}
           />
         </Context>
         <Context>
@@ -168,7 +168,7 @@ export default () => {
             name="brown"
             layout={layout}
             items={items}
-            itemComponentMap={itemComponentMap}
+            itemMetadataMap={itemMetadataMap}
           />
         </Context>
     </div>

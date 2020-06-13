@@ -11,12 +11,12 @@ import defaultHeaderImg from '../FormDesigner/images/default-header.jpeg';
 
 interface Props extends FormProps {
   layoutComponentMap: {[layoutType: string]: ComponentType<any>};
-  itemComponentMap: {[itemType: string]: ItemMetadata};
+  itemMetadataMap: {[itemType: string]: ItemMetadata};
 }
 
 const FormEditor: FunctionComponent<Props> = ({
   layoutComponentMap,
-  itemComponentMap,
+  itemMetadataMap,
   ...otherProps
 }) => (
   <EventHandlerProvider {...otherProps}>
@@ -25,7 +25,7 @@ const FormEditor: FunctionComponent<Props> = ({
         <Form
           mode={FormMode.EDIT}
           layoutComponentMap={layoutComponentMap}
-          itemComponentMap={itemComponentMap}
+          itemMetadataMap={itemMetadataMap}
           {...props}
           headerImage={otherProps.headerImage || defaultHeaderImg}
         />

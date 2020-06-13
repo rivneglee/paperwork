@@ -9,7 +9,7 @@ interface Props {
   id: string;
   layout: Layout;
   mode: FormMode;
-  itemComponentMap: {[itemType: string]: ItemMetadata};
+  itemMetadataMap: {[itemType: string]: ItemMetadata};
   items: Items;
   onRemoveItem?: (id: string) => void;
   onDuplicateItem?: (id: string) => void;
@@ -24,7 +24,7 @@ const SimpleList: FunctionComponent<Props> = ({
   direction,
   layout,
   mode,
-  itemComponentMap,
+  itemMetadataMap,
   items,
   onRemoveItem,
   onDuplicateItem,
@@ -36,7 +36,7 @@ const SimpleList: FunctionComponent<Props> = ({
     const item = items[layoutNode.id];
     if (item) {
       const { itemType } = item;
-      const metadata = itemComponentMap[itemType];
+      const metadata = itemMetadataMap[itemType];
       if (metadata) {
         return (
           <LayoutItem

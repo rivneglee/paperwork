@@ -19,7 +19,7 @@ interface Props {
   layout: Layout;
   items: Items;
   layoutComponentMap?: {[layoutType: string]: ComponentType<any>};
-  itemComponentMap: {[itemType: string]: ItemMetadata};
+  itemMetadataMap: {[itemType: string]: ItemMetadata};
   onItemPropsChange?: (newItem: Item) => void;
   onEditItem?: (id: string) => void;
   onRemoveItem?: (id: string) => void;
@@ -37,7 +37,7 @@ const Page: FunctionComponent<Props> = ({
   layout,
   items,
   layoutComponentMap = defaultLayoutComponentMap,
-  itemComponentMap,
+  itemMetadataMap,
   onEditItem,
   onRemoveItem,
   onDuplicateItem,
@@ -56,7 +56,7 @@ const Page: FunctionComponent<Props> = ({
             layout={layout}
             mode={mode}
             items={items}
-            itemComponentMap={itemComponentMap}
+            itemMetadataMap={itemMetadataMap}
             onItemPropsChange={onItemPropsChange}
             onRemoveItem={onRemoveItem}
             onEditItem={onEditItem}

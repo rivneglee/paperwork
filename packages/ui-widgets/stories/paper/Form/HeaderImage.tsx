@@ -3,7 +3,7 @@ import React from 'react';
 import { Form, Input, Select, FormMode, Context } from '../../../src';
 import { layout, items } from '../fixtures/data';
 
-const itemComponentMap = {
+const itemMetadataMap = {
   input: { MainView: Input },
   select: { MainView: Select },
 };
@@ -18,7 +18,7 @@ export default () => {
         name="Header image"
         layout={layout}
         items={items}
-        itemComponentMap={itemComponentMap}
+        itemMetadataMap={itemMetadataMap}
       />
     </Context>
   );

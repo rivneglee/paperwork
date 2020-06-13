@@ -14,7 +14,7 @@ import defaultHeaderImg from './images/default-header.jpeg';
 
 interface Props extends FormProps {
   layoutComponentMap: {[layoutType: string]: ComponentType<any>};
-  itemComponentMap: {[itemType: string]: ItemMetadata};
+  itemMetadataMap: {[itemType: string]: ItemMetadata};
   fieldItems: FormItemProps[];
   statisticItems: FormItemProps[];
   onChange: (formProps: FormProps) => void;
@@ -25,7 +25,7 @@ const Designer: FunctionComponent<Props> = ({
   fieldItems,
   statisticItems,
   layoutComponentMap,
-  itemComponentMap,
+  itemMetadataMap,
   onChange,
   setRef,
   ...otherProps
@@ -42,7 +42,7 @@ const Designer: FunctionComponent<Props> = ({
             setRef={setRef}
             mode={FormMode.DESIGN}
             layoutComponentMap={layoutComponentMap}
-            itemComponentMap={itemComponentMap}
+            itemMetadataMap={itemMetadataMap}
             {...props}
             headerImage={props.headerImage || defaultHeaderImg}
           />

@@ -4,7 +4,7 @@ import { BaseTemplate } from '@paperwork/ui-widgets';
 import './TemplateDetailPage.scss';
 import { TemplateDetail } from '../../../../schema/Template';
 import FormEditor from '../../../../components/FormEditor/FormEditor';
-import { getItemComponentMap, getLayoutComponentMap } from '../../../../components/FormAddons';
+import { getInputMap, getLayoutMap } from '../../../../components/FormAddons';
 
 interface Props {
   template: TemplateDetail;
@@ -17,8 +17,8 @@ const Preview: FunctionComponent<Props> = ({
     <BaseTemplate>
       <FormEditor
         {...template}
-        itemComponentMap={getItemComponentMap()}
-        layoutComponentMap={getLayoutComponentMap()}
+        itemMetadataMap={getInputMap()}
+        layoutComponentMap={getLayoutMap()}
       />
     </BaseTemplate>
   );

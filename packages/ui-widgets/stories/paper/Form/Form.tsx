@@ -25,7 +25,7 @@ const SelectSettingsView =  ({ item }: any) => (
   />
 );
 
-const itemComponentMap = {
+const itemMetadataMap = {
   input: { MainView: ({ mode, ...otherProps }: any) => <Input {...otherProps} disabled={mode === FormMode.READONLY}/> },
   select: {
     MainView: ({ mode, ...otherProps }: any) => <Select {...otherProps} disabled={mode === FormMode.READONLY}/>,
@@ -42,7 +42,7 @@ export default () => {
           name="Author view"
           layout={layout}
           items={items}
-          itemComponentMap={itemComponentMap}
+          itemMetadataMap={itemMetadataMap}
         />
       </Context>
       <Context>
@@ -51,7 +51,7 @@ export default () => {
           name="Committer view"
           layout={layout}
           items={items}
-          itemComponentMap={itemComponentMap}
+          itemMetadataMap={itemMetadataMap}
         />
       </Context>
       <Context>
@@ -60,7 +60,7 @@ export default () => {
           mode={FormMode.READONLY}
           layout={layout}
           items={items}
-          itemComponentMap={itemComponentMap}
+          itemMetadataMap={itemMetadataMap}
         />
     </Context>
     </div>

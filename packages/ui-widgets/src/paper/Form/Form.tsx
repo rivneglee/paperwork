@@ -11,7 +11,7 @@ import { Input } from '../../form/Input';
 interface Props extends FormProps {
   mode: FormMode;
   layoutComponentMap?: {[layoutType: string]: ComponentType<any>};
-  itemComponentMap: {[itemType: string]: ItemMetadata};
+  itemMetadataMap: {[itemType: string]: ItemMetadata};
   onItemPropsChange?: (newItem: Item) => void;
   onRemoveItem?: (id: string) => void;
   onDuplicateItem?: (id: string) => void;
@@ -29,7 +29,7 @@ const Form: FunctionComponent<Props> = ({
   layout = [],
   items,
   layoutComponentMap,
-  itemComponentMap,
+  itemMetadataMap,
   onRemoveItem,
   onDuplicateItem,
   onRemoveLayout,
@@ -46,7 +46,7 @@ const Form: FunctionComponent<Props> = ({
   let SettingsView = null;
   let editingItemDefaultProps = {};
   if (editingItem) {
-    const itemMetadata = itemComponentMap[editingItem.itemType];
+    const itemMetadata = itemMetadataMap[editingItem.itemType];
     SettingsView = itemMetadata.SettingsView;
     editingItemDefaultProps = itemMetadata.defaultProps || {};
   }
@@ -92,7 +92,7 @@ const Form: FunctionComponent<Props> = ({
               layout={layout}
               items={items}
               layoutComponentMap={layoutComponentMap}
-              itemComponentMap={itemComponentMap}
+              itemMetadataMap={itemMetadataMap}
               onEditItem={onEditItem}
               onRemoveItem={onRemoveItem}
               onDuplicateItem={onDuplicateItem}
