@@ -16,6 +16,7 @@ interface Props extends FormProps {
   layoutComponentMap: {[layoutType: string]: ComponentType<any>};
   itemMetadataMap: {[itemType: string]: ItemMetadata};
   fieldItems: FormItemProps[];
+  buttonItems: FormItemProps[];
   statisticItems: FormItemProps[];
   onChange: (formProps: FormProps) => void;
   setRef?: (ref: HTMLDivElement) => void;
@@ -23,6 +24,7 @@ interface Props extends FormProps {
 
 const Designer: FunctionComponent<Props> = ({
   fieldItems,
+  buttonItems,
   statisticItems,
   layoutComponentMap,
   itemMetadataMap,
@@ -37,6 +39,7 @@ const Designer: FunctionComponent<Props> = ({
           <ActionBar
             statisticItems={statisticItems}
             fieldItems={fieldItems}
+            buttonItems={buttonItems}
           />
           <Form
             setRef={setRef}

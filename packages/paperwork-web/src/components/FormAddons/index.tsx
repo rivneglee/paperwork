@@ -3,9 +3,14 @@ import combobox from './input/Combobox';
 import richText from './input/RichText';
 import VerticalList from './layout/VerticalList';
 import HorizontalList from './layout/HorizontalList';
+import submitButton from './button/Submit';
 
 export enum InputItemTypes {
   RICH_TEXT = 'text', TEXT_INPUT = 'input', COMBOBOX = 'select',
+}
+
+export enum ButtonItemTypes {
+  SUBMIT = 'submit',
 }
 
 export enum LayoutItemTypes {
@@ -21,4 +26,8 @@ export const getInputMap = (commonProps: object = {}) => ({
 export const getLayoutMap = () => ({
   [LayoutItemTypes.VERTICAL_LIST]: VerticalList,
   [LayoutItemTypes.HORIZONTAL_LIST]: HorizontalList,
+});
+
+export const getButtonMap = () => ({
+  [ButtonItemTypes.SUBMIT]: { ...submitButton, defaultProps: { label: 'Submit' } },
 });

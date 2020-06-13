@@ -10,10 +10,11 @@ export interface FormItemProps {
 
 interface Props {
   fieldItems: FormItemProps[];
+  buttonItems: FormItemProps[];
   statisticItems: FormItemProps[];
 }
 
-const ActionBar: FunctionComponent<Props> = ({ fieldItems, statisticItems }) => (
+const ActionBar: FunctionComponent<Props> = ({ fieldItems, statisticItems, buttonItems }) => (
   <div className="pwapp-designer-action-bar">
     <LaunchPad placement="right" itemPerRow={3} useOverlay={true} renderTrigger={() => (
       <Avater
@@ -56,6 +57,22 @@ const ActionBar: FunctionComponent<Props> = ({ fieldItems, statisticItems }) => 
     )}>
       {
         statisticItems.map(item => (
+          <ToolkitItem key={item.itemType} id={item.itemType} type={DragAndDropType.ITEM}>
+            <LaunchPad.Item label={item.label}>{item.icon}</LaunchPad.Item>
+          </ToolkitItem>
+        ))
+      }
+    </LaunchPad>
+    <LaunchPad placement="right" itemPerRow={3} useOverlay={true} renderTrigger={() => (
+      <Avater
+        size="large"
+        shadow
+        className="pwapp-designer-action-bar__action pwapp-designer-action-bar__action--red">
+        <Icons.Button/>
+      </Avater>
+    )}>
+      {
+        buttonItems.map(item => (
           <ToolkitItem key={item.itemType} id={item.itemType} type={DragAndDropType.ITEM}>
             <LaunchPad.Item label={item.label}>{item.icon}</LaunchPad.Item>
           </ToolkitItem>

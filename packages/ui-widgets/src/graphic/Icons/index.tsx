@@ -50,6 +50,8 @@ import Rows from './Rows';
 import PieChart from './PieChart';
 import LineChart from './LineChart';
 import Preview from './Preview';
+import Button from './Button';
+import Submit from './Submit';
 
 export default {
   Add,
@@ -104,4 +106,6 @@ export default {
   PieChart,
   LineChart,
   Preview,
+  Button,
+  Submit,
 };

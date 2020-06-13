@@ -9,7 +9,7 @@ import { TemplateDetail } from '../../../../schema/Template';
 import Spinner from '../../../../components/PageTransitionSpinner/Spinner';
 import { Designer, PaperThemeModal } from '../../../../components/FormDesigner';
 import { ConfirmModal } from '../../../../components/Modal';
-import { getInputMap, getLayoutMap, InputItemTypes } from '../../../../components/FormAddons';
+import { getInputMap, getLayoutMap, getButtonMap, InputItemTypes, ButtonItemTypes } from '../../../../components/FormAddons';
 import Preview from './Preview';
 
 interface Props {
@@ -102,7 +102,10 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
             setRef={setFormRef}
             onChange={onUpdate}
             headerImage={template.headerImage}
-            itemMetadataMap={getInputMap()}
+            itemMetadataMap={{
+              ...getInputMap(),
+              ...getButtonMap(),
+            }}
             layoutComponentMap={getLayoutMap()}
             name={template.name}
             theme={template.theme}
@@ -115,6 +118,9 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
               { icon: <Icons.TextArea/>, itemType: 'textarea' },
               { icon: <Icons.Attachment/>, itemType: 'attachment' },
               { icon: <Icons.Rate/>, itemType: 'rating' },
+            ]}
+            buttonItems={[
+              { icon: <Icons.Submit/>, itemType: ButtonItemTypes.SUBMIT },
             ]}
             statisticItems={[
               { icon: <Icons.PieChart/>, itemType: 'pie-chart' },
