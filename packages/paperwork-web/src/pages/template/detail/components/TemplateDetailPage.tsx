@@ -122,7 +122,7 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
             ]}
           />
         ) : (
-          <Preview template={template} onChange={onUpdate}/>
+          <Preview template={template}/>
         )
       }
       <ConfirmModal

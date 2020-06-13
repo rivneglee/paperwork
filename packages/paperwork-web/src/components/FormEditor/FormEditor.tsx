@@ -12,16 +12,14 @@ import defaultHeaderImg from '../FormDesigner/images/default-header.jpeg';
 interface Props extends FormProps {
   layoutComponentMap: {[layoutType: string]: ComponentType<any>};
   itemComponentMap: {[itemType: string]: ItemMetadata};
-  onChange: (formProps: FormProps) => void;
 }
 
 const FormEditor: FunctionComponent<Props> = ({
   layoutComponentMap,
   itemComponentMap,
-  onChange,
   ...otherProps
 }) => (
-  <EventHandlerProvider {...otherProps} onChange={onChange}>
+  <EventHandlerProvider {...otherProps}>
     {
       props => (
         <Form

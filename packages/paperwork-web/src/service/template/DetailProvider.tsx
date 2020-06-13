@@ -28,6 +28,22 @@ export default class extends React.Component<Props> {
     template: undefined,
   };
 
+  private cleanValues = (template: TemplateDetail) => {
+    const { items } = template;
+    const newItems = Object.values(items).reduce((acc, current) => {
+      const newItem = { ...current };
+      delete newItem['value'];
+      return {
+        ...acc,
+        [current.id]: newItem,
+      };
+    }, {});
+    return {
+      ...template,
+      items: newItems,
+    };
+  }
+
   private load = async () => {
     const { templateId, userId } = this.props;
     const { integration } = this.props;
@@ -48,6 +64,7 @@ export default class extends React.Component<Props> {
   private update = async (template: TemplateDetail, thumbnail: string) => {
     const { templateId, userId } = this.props;
     const { integration } = this.props;
+    const clearTemplate = this.cleanValues(template);
     await integration.send({
       intent: UPDATE_TEMPLATE,
       method: 'PUT',
@@ -56,18 +73,19 @@ export default class extends React.Component<Props> {
         templateId,
       },
       content: {
-        template,
         thumbnail,
+        template: clearTemplate,
       },
     });
     this.setState({
-      template,
+      template: clearTemplate,
     });
   }
 
   private create = async (template: TemplateDetail, thumbnail: string) => {
     const { userId } = this.props;
     const { integration } = this.props;
+    const clearTemplate = this.cleanValues(template);
     await integration.send({
       intent: CREATE_TEMPLATE,
       method: 'POST',
@@ -75,12 +93,12 @@ export default class extends React.Component<Props> {
         userId,
       },
       content: {
-        template,
         thumbnail,
+        template: clearTemplate,
       },
     });
     this.setState({
-      template,
+      template: clearTemplate,
     });
   }
 
