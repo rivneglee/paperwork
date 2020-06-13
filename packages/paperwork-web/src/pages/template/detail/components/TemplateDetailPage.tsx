@@ -9,7 +9,7 @@ import { TemplateDetail } from '../../../../schema/Template';
 import Spinner from '../../../../components/PageTransitionSpinner/Spinner';
 import { Designer, PaperThemeModal } from '../../../../components/FormDesigner';
 import { ConfirmModal } from '../../../../components/Modal';
-import { InputItemTypes } from '../../../../components/FormAddons';
+import { getItemComponentMap, getLayoutComponentMap, InputItemTypes } from '../../../../components/FormAddons';
 import Preview from './Preview';
 
 interface Props {
@@ -102,6 +102,8 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
             setRef={setFormRef}
             onChange={onUpdate}
             headerImage={template.headerImage}
+            itemComponentMap={getItemComponentMap()}
+            layoutComponentMap={getLayoutComponentMap()}
             name={template.name}
             theme={template.theme}
             layout={template.layout}

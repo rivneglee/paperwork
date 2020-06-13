@@ -30,9 +30,10 @@ const LayoutItem: FunctionComponent<Props> = ({
   mode,
 }) => {
   const { id, itemType, ...otherProps } = item;
-  const { MainView, SettingsView } = metadata;
+  const { MainView, SettingsView, defaultProps = {} } = metadata;
   const itemView = (
     <MainView
+      {...defaultProps}
       id={id}
       itemType={itemType}
       mode={mode}

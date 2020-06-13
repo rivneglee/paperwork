@@ -8,6 +8,7 @@ interface Props {
   value?: string | number;
   label?: ReactElement | string;
   disabled?: boolean;
+  readOnly?: boolean;
   isRequired?: boolean;
   labelAccessory?: ReactElement;
   labelPlacement?: 'left' | 'top';

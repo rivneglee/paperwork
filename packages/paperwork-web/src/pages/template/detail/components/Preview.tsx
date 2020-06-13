@@ -7,6 +7,7 @@ import {
 import './TemplateDetailPage.scss';
 import { TemplateDetail } from '../../../../schema/Template';
 import FormEditor from '../../../../components/FormEditor/FormEditor';
+import { getItemComponentMap, getLayoutComponentMap } from '../../../../components/FormAddons';
 
 interface Props {
   template: TemplateDetail;
@@ -19,7 +20,12 @@ const Preview: FunctionComponent<Props> = ({
 }) => {
   return (
     <BaseTemplate>
-      <FormEditor {...template} onChange={onChange}/>
+      <FormEditor
+        {...template}
+        onChange={onChange}
+        itemComponentMap={getItemComponentMap()}
+        layoutComponentMap={getLayoutComponentMap()}
+      />
     </BaseTemplate>
   );
 };

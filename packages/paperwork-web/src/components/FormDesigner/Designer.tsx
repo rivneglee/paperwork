@@ -10,42 +10,22 @@ import {
 
 import './Designer.scss';
 import ActionBar, { FormItemProps } from './ActionBar';
-import {
-  combobox,
-  richText,
-  textInput,
-  HorizontalList,
-  VerticalList,
-  InputItemTypes,
-  LayoutItemTypes,
-} from '../FormAddons';
 import defaultHeaderImg from './images/default-header.jpeg';
 
 interface Props extends FormProps {
-  layoutComponentMap?: {[layoutType: string]: ComponentType<any>};
-  itemComponentMap?: {[itemType: string]: ItemMetadata};
+  layoutComponentMap: {[layoutType: string]: ComponentType<any>};
+  itemComponentMap: {[itemType: string]: ItemMetadata};
   fieldItems: FormItemProps[];
   statisticItems: FormItemProps[];
   onChange: (formProps: FormProps) => void;
   setRef?: (ref: HTMLDivElement) => void;
 }
 
-const defaultLayoutComponentMap = {
-  [LayoutItemTypes.VERTICAL_LIST]: VerticalList,
-  [LayoutItemTypes.HORIZONTAL_LIST]: HorizontalList,
-};
-
-const defaultItemComponentMap = {
-  [InputItemTypes.RICH_TEXT]: richText,
-  [InputItemTypes.TEXT_INPUT]: textInput,
-  [InputItemTypes.COMBOBOX]: combobox,
-};
-
 const Designer: FunctionComponent<Props> = ({
   fieldItems,
   statisticItems,
-  layoutComponentMap = defaultLayoutComponentMap,
-  itemComponentMap = defaultItemComponentMap,
+  layoutComponentMap,
+  itemComponentMap,
   onChange,
   setRef,
   ...otherProps

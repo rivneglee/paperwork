@@ -12,7 +12,7 @@ interface Props extends Item {
 const Combobox: FunctionComponent<Props> = ({ onChange, value, id, mode, isRequired, label, labelPlacement, ...item }) => (
   <LabelAccessor label={label} labelPlacement={labelPlacement} isRequired={isRequired}>
     <Select
-      disabled={mode === FormMode.READONLY}
+      readOnly={mode !== FormMode.EDIT}
       key={id}
       selectedValue={value}
       isRequired={isRequired}

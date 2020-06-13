@@ -13,7 +13,13 @@ const TextInput: FunctionComponent<Props> = ({ onChange, id, mode, label, isRequ
       mode === FormMode.READONLY ? (
         <span key={id} className="pwapp-form-text-input--readonly">{item.value}</span>
       ) : (
-        <Input key={id} isRequired={isRequired} {...item} onChange={(e: any) => onChange(e.target.value)}/>
+        <Input
+          key={id}
+          isRequired={isRequired}
+          {...item}
+          onChange={(e: any) => onChange(e.target.value)}
+          readOnly={mode !== FormMode.EDIT}
+        />
       )
     }
   </LabelAccessor>

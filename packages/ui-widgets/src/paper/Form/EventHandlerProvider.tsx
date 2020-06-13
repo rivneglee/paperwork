@@ -93,7 +93,7 @@ const EventHandlerProvider: FunctionComponent<Props> = (props) => {
   const onItemPropsChange = (newItem: Item) => {
     const { id } = newItem;
     if (items[id]) {
-      const newItems = { ...items, [id]: newItem };
+      const newItems = { ...items, [id]: { ...items[id], ...newItem } };
       onChange && onChange({
         ...otherProps,
         items: newItems,

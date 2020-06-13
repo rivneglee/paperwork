@@ -44,9 +44,11 @@ const Form: FunctionComponent<Props> = ({
   const editingItem = items[editingItemId];
 
   let SettingsView = null;
+  let editingItemDefaultProps = {};
   if (editingItem) {
     const itemMetadata = itemComponentMap[editingItem.itemType];
     SettingsView = itemMetadata.SettingsView;
+    editingItemDefaultProps = itemMetadata.defaultProps || {};
   }
 
   return (
@@ -108,7 +110,7 @@ const Form: FunctionComponent<Props> = ({
         >
           <Scrollable className="pw-form__settings">
             {
-              SettingsView && <SettingsView item={editingItem} onUpdate={onItemPropsChange}/>
+              SettingsView && <SettingsView item={{ ...editingItemDefaultProps, ...editingItem }} onUpdate={onItemPropsChange}/>
             }
           </Scrollable>
         </Drawer>
