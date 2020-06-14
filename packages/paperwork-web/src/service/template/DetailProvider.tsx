@@ -19,6 +19,7 @@ interface Props {
   children: (integrationState: DetailProviderState) => ReactElement | null;
   integration: Integration;
   isProcessing: boolean;
+  preLoad?: boolean;
 }
 
 export default class extends React.Component<Props> {
@@ -117,8 +118,19 @@ export default class extends React.Component<Props> {
 
   async componentDidMount() {
     this.isInitializing = false;
-    const { templateId } = this.props;
-    if (templateId !== 'new') {
+    const { templateId, preLoad } = this.props;
+    if (templateId !== 'new' && preLoad) {
+      await this.load();
+    }
+  }
+
+  async componentDidUpdate(prevProps: Props) {
+    const { templateId, userId, preLoad } = this.props;
+    const shouldLoad =
+      (templateId !== prevProps.templateId || userId !== prevProps.userId)
+      && templateId !== 'new';
+
+    if (preLoad && shouldLoad) {
       await this.load();
     }
   }
