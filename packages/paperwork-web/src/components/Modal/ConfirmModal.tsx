@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
-
-import { DeleteModal, UnsavedModal } from '../../../../components/Modal';
+import UnsavedModal from './UnsavedModal';
+import DeleteModal from './DeleteModal';
 
 interface Props {
   modalType: string;
@@ -9,11 +9,11 @@ interface Props {
   onCancel: () => void;
 }
 
-const DataSourceDetailModal: FunctionComponent<Props> = ({
-  modalType,
-  onCloseModal,
-  onCancel,
-  onDelete,
+const ConfirmModal: FunctionComponent<Props> = ({
+ modalType,
+ onCloseModal,
+ onCancel,
+ onDelete,
 }) => {
   const modal = {
     unsave: (
@@ -31,9 +31,9 @@ const DataSourceDetailModal: FunctionComponent<Props> = ({
         }}
       />
     ),
-  }[modalType];
+  }[modalType] || null;
 
   return modal;
 };
 
-export default DataSourceDetailModal;
+export default ConfirmModal;

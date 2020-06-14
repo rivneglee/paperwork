@@ -18,7 +18,7 @@ const Scrollable: FunctionComponent<Props> = ({
 
   return (
     <div className={`pw-scrollable ${className}`} ref={setParentRef}>
-      <ScrollBars autoHide>
+      <ScrollBars>
         {children}
       </ScrollBars>
     </div>

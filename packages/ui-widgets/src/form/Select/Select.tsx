@@ -15,6 +15,8 @@ interface Props {
   selectedValue?: SelectedValue;
   label?: ReactElement | string;
   disabled?: boolean;
+  readOnly?: boolean;
+  clearable?: boolean;
   isRequired?: boolean;
   labelAccessory?: ReactElement;
   isMultipleSelect?: boolean;
@@ -31,13 +33,15 @@ const Select: FunctionComponent<Props> = ({
   selectedValue,
   isMultipleSelect = false,
   disabled = false,
+  readOnly = false,
+  clearable = true,
   onChange,
   size,
   labelPlacement = 'left',
 }) => {
   let selection = null;
   if (selectedValue instanceof Array) {
-    selection = (selectedValue as []).map((
+    selection = (selectedValue as any[]).map((
       s => options.find(o => o.value === s)
     ));
   } else {
@@ -45,6 +49,7 @@ const Select: FunctionComponent<Props> = ({
   }
 
   const onValueChange = (selection: SelectOption | SelectOption[]) => {
+    if (readOnly) return;
     let currentValue;
     if (selection && (selection as SelectOption).value) {
       currentValue = (selection as SelectOption).value;
@@ -67,6 +72,9 @@ const Select: FunctionComponent<Props> = ({
     >
       <ReactSelect
         isMulti={isMultipleSelect}
+        isClearable={clearable}
+        isSearchable={!readOnly}
+        isOptionDisabled={() => readOnly}
         options={options}
         className="pw-select"
         classNamePrefix="pw-select"

@@ -23,6 +23,8 @@ interface Props {
   total: number;
   onLoadNextPage: (filterOptions: FilterOptions, page: number) => void;
   onApplyFilter: (filterOptions: FilterOptions) => void;
+  onEdit: (id: string) => void;
+  onCreateNew: () => void;
   onFilterChange: (option: FilterOption) => void;
   filterOptions: FilterOptions;
   isProcessing?: boolean;
@@ -43,6 +45,8 @@ const TemplateListPage: FunctionComponent<Props> = ({
   entries,
   onLoadNextPage,
   onApplyFilter,
+  onEdit,
+  onCreateNew,
   onFilterChange,
   filterOptions,
   page,
@@ -66,7 +70,7 @@ const TemplateListPage: FunctionComponent<Props> = ({
           onApply={() => onApplyFilter(filterOptions)}
         />
         <QuickAdd color="secondary">
-          <QuickAdd.Item icon={<Icons.Template/>} tooltip="Create an empty template"/>
+          <QuickAdd.Item onClick={onCreateNew} icon={<Icons.Template/>} tooltip="Create an empty template"/>
         </QuickAdd>
       </StickySideBar>
       {
@@ -86,7 +90,7 @@ const TemplateListPage: FunctionComponent<Props> = ({
                 <PictureChip
                   key={entry.id}
                   className="pwapp-template-list__card"
-                  color={entry.themeColor}
+                  color={entry.theme}
                   title={entry.name}
                   subTitle={entry.author.displayName}
                   imageUrl={entry.heroImage}
@@ -94,7 +98,7 @@ const TemplateListPage: FunctionComponent<Props> = ({
                   footer={
                     <div className="pwapp-template-list__card-footer">
                       <Tooltip placement="top" content="Edit template">
-                        <IconButton><Icons.Edit/></IconButton>
+                        <IconButton onClick={() => onEdit(entry.id)}><Icons.Edit/></IconButton>
                       </Tooltip>
                       <Tooltip placement="top" content="Use template">
                         <IconButton><Icons.Duplicate/></IconButton>

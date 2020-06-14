@@ -4,11 +4,11 @@
 
   &__card {
     box-sizing: border-box;
-    width: 300px;
+    width: 260px;
     min-width: auto;
     margin: .5rem;
 
-    @media (min-width: 768px) {
+    @media (min-width: 414px) {
       width: 280px;
     }
   }

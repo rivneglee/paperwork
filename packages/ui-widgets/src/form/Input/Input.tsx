@@ -8,10 +8,12 @@ interface Props {
   value?: string | number;
   label?: ReactElement | string;
   disabled?: boolean;
+  readOnly?: boolean;
   isRequired?: boolean;
   labelAccessory?: ReactElement;
   labelPlacement?: 'left' | 'top';
   onChange?: (e: SyntheticEvent) => void;
+  onBlur?: (e: SyntheticEvent) => void;
   onKeyDown?: (e: SyntheticEvent) => void;
   size?: 'xs' | 's' | 'm' | 'l' | 'xl';
   placeholder?: string;
@@ -31,9 +33,13 @@ class Input extends React.Component<Props> {
     hasFocus: true,
   })
 
-  private onInputBlur = () => this.setState({
-    hasFocus: false,
-  })
+  private onInputBlur = (e: SyntheticEvent) => {
+    const { onBlur } = this.props;
+    this.setState({
+      hasFocus: false,
+    });
+    onBlur && onBlur(e);
+  }
 
   render() {
     const {

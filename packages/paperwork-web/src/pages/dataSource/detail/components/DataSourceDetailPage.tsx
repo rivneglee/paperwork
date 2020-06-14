@@ -11,7 +11,7 @@ import {
 import AppBar from '../../../../components/AppBar';
 import Spinner from '../../../../components/PageTransitionSpinner/Spinner';
 import { DataSource, Field, Grant } from '../../../../schema/DataSource';
-import DataSourceDetailModal from './DataSourceDetailModal';
+import { ConfirmModal } from '../../../../components/Modal';
 import DataSourceDetailActions from './DataSourceDetailActions';
 import OwnerFieldsTable from './OwnerFieldsTable';
 import FieldGrantsTable from './FieldGrantsTable';
@@ -126,7 +126,7 @@ const DataSourceDetailPage: FunctionComponent<Props> = ({
         onClickSave={onClickSave}
       />
       { modalType && (
-          <DataSourceDetailModal
+          <ConfirmModal
             modalType={modalType}
             onCloseModal={onCloseModal}
             onCancel={onCancel}

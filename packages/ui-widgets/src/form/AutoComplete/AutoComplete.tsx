@@ -7,6 +7,8 @@ interface Props {
   value?: any | any[];
   label?: ReactElement | string;
   disabled?: boolean;
+  readOnly?: boolean;
+  clearable?: boolean;
   isRequired?: boolean;
   labelAccessory?: ReactElement;
   isMultipleSelect?: boolean;
@@ -26,6 +28,8 @@ const AutoComplete: FunctionComponent<Props> = ({
   value = [],
   isMultipleSelect = false,
   disabled = false,
+  readOnly = false,
+  clearable = true,
   onChange,
   size,
   labelPlacement = 'left',
@@ -53,6 +57,8 @@ const AutoComplete: FunctionComponent<Props> = ({
     >
       <AsyncSelect
         isMulti={isMultipleSelect}
+        isSearchable={!readOnly}
+        isClearable={clearable}
         options={options}
         getOptionLabel={getOptionLabel}
         getOptionValue={getOptionValue}

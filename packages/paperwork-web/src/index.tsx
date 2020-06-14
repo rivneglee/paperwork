@@ -12,6 +12,7 @@ import { withAuthValidation } from './service/authentication';
 import DataSourceListPage from './pages/dataSource/list';
 import DataSourceDetailPage from './pages/dataSource/detail';
 import TemplateListPage from './pages/template/list';
+import TemplateDetailPage from './pages/template/detail';
 import SignInPage from './pages/signIn';
 import { PageNotFound } from './pages/error';
 
@@ -28,6 +29,7 @@ ReactDOM.render(
           <Route exact component={withAuthValidation(DataSourceListPage)} path="/datasource/"/>
           <Route exact component={withAuthValidation(DataSourceDetailPage)} path="/datasource/:dataSourceId"/>
           <Route exact component={withAuthValidation(TemplateListPage)} path="/templates"/>
+          <Route exact component={withAuthValidation(TemplateDetailPage)} path="/templates/:templateId"/>
           <Route component={PageNotFound}/>
         </Switch>
       </ConnectedRouter>

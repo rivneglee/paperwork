@@ -1,5 +1,4 @@
 .pw-card {
-  padding: 1.2rem;
   margin-bottom: 0.8rem;
   background-color: white;
   border-radius: 0.4rem;
@@ -12,19 +11,19 @@
   &__header {
     display: flex;
     align-items: center;
-    padding-bottom: 1.2rem;
-    margin-bottom: 1.2rem;
+    padding: 1.2rem;
     border-bottom: 1px solid $pw-palette-storm-11;
   }
 
   &__body {
+    padding: 1.2rem;
     flex-grow: 1;
     position: relative;
   }
 
   &__footer {
     border-top: 1px solid $pw-palette-storm-11;
-    padding-top: 1.2rem;
+    padding: 1.2rem;
   }
 }
 

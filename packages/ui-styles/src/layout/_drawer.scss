@@ -27,6 +27,21 @@
     width: auto;
     min-width: 300px;
   }
+
+  .pw-drawer-overlay {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 98;
+    display: none;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.04);
+
+    &--show {
+      display: block;
+    }
+  }
 }
 
 .pw-drawer-header {

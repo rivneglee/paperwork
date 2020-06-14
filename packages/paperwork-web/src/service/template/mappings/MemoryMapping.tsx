@@ -1,7 +1,12 @@
 import {
   LOAD_TEMPLATE_LIST,
+  LOAD_TEMPLATE_DETAIL,
+  DELETE_TEMPLATE,
+  UPDATE_TEMPLATE,
+  CREATE_TEMPLATE,
 } from '../intents';
 import loadTemplateList from './data/loadTemplateList.json';
+import loadTemplateDetail from './data/loadTemplateDetail.json';
 
 const MemoryMapping = {
   [LOAD_TEMPLATE_LIST]: ({ params }: any) => {
@@ -18,6 +23,10 @@ const MemoryMapping = {
       },
     });
   },
+  [LOAD_TEMPLATE_DETAIL]: () => loadTemplateDetail,
+  [UPDATE_TEMPLATE]: () => {},
+  [CREATE_TEMPLATE]: () => {},
+  [DELETE_TEMPLATE]: () => {},
 };
 
 export default MemoryMapping;

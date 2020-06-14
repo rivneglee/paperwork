@@ -5,6 +5,7 @@ interface Props {
   header?: ReactComponentElement<any> | string;
   footer?: ReactComponentElement<any> | string;
   className?: string;
+  setRef?: (ref: HTMLDivElement) => void;
 }
 
 interface CardComponent extends FunctionComponent<Props> {
@@ -12,9 +13,9 @@ interface CardComponent extends FunctionComponent<Props> {
 }
 
 const Card: CardComponent = ({
- children, header, footer, className = '',
+ children, header, footer, className = '', setRef,
 }) => (
-  <div className={`pw-card ${className}`}>
+  <div ref={setRef} className={`pw-card ${className}`}>
     {
       header && (
         <div className="pw-card__header">

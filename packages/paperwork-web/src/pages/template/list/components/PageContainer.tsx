@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { push } from 'connected-react-router';
 
 import TemplateListPage, { FilterOption, FilterOptions } from './TemplateListPage';
 import { StoreState } from '../../../../store';
@@ -41,8 +42,13 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
         dispatch(createLoadTemplateListAction(filterResults));
       };
 
+      const onEdit = (id: string) => dispatch(push(`/templates/${id}`));
+      const onCreateNew = () => dispatch(push('/templates/new'));
+
       return (
         <PageView
+          onCreateNew={onCreateNew}
+          onEdit={onEdit}
           isProcessing={isProcessing}
           onLoadNextPage={onLoadNextPage}
           onFilterChange={onFilterChange}

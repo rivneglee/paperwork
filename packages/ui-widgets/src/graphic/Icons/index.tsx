@@ -31,6 +31,27 @@ import Confirm from './Confirm';
 import Error from './Error';
 import PowerOff from './PowerOff';
 import Edit from './Edit';
+import Settings from './Settings';
+import DragHandle from './DragHandle';
+import Theme from './Theme';
+import Layout from './Layout';
+import Control from './Control';
+import Text from './Text';
+import TextInput from './TextInput';
+import ComboBox from './ComboBox';
+import Attachment from './Attachment';
+import Page from './Page';
+import Rate from './Rate';
+import TextArea from './TextArea';
+import List from './List';
+import None from './None';
+import Columns from './Columns';
+import Rows from './Rows';
+import PieChart from './PieChart';
+import LineChart from './LineChart';
+import Preview from './Preview';
+import Button from './Button';
+import Submit from './Submit';
 
 export default {
   Add,
@@ -66,4 +87,25 @@ export default {
   Error,
   PowerOff,
   Edit,
+  Settings,
+  DragHandle,
+  Theme,
+  Layout,
+  Control,
+  Text,
+  TextInput,
+  ComboBox,
+  Attachment,
+  Page,
+  Rate,
+  TextArea,
+  List,
+  None,
+  Columns,
+  Rows,
+  PieChart,
+  LineChart,
+  Preview,
+  Button,
+  Submit,
 };

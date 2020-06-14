@@ -211,124 +211,13 @@
     }
   }
 
-  $colours: (
-          red: (
-                  banner-color: #F44336,
-                  banner-corner-color: #B71C1C,
-                  content-color: #FFEBEE,
-                  footer-color: #FFCDD2,
-          ),
-          pink: (
-                  banner-color: #E91E63,
-                  banner-corner-color: #880E4F,
-                  content-color: #FCE4EC,
-                  footer-color: #F8BBD0,
-          ),
-          purple: (
-                  banner-color: #9C27B0,
-                  banner-corner-color: #4A148C,
-                  content-color: #F3E5F5,
-                  footer-color: #E1BEE7,
-          ),
-          indigo: (
-                  banner-color: #3F51B5,
-                  banner-corner-color: #1A237E,
-                  content-color: #E8EAF6,
-                  footer-color: #C5CAE9,
-          ),
-          blue: (
-                  banner-color: #2196F3,
-                  banner-corner-color: #0D47A1,
-                  content-color: #E3F2FD,
-                  footer-color: #BBDEFB,
-          ),
-          light-blue: (
-                  banner-color: #03A9F4,
-                  banner-corner-color: #01579B,
-                  content-color: #E1F5FE,
-                  footer-color: #B3E5FC,
-          ),
-          cyan: (
-                  banner-color: #00BCD4,
-                  banner-corner-color: #006064,
-                  content-color: #E0F7FA,
-                  footer-color: #B2EBF2,
-          ),
-          teal: (
-                  banner-color: #009688,
-                  banner-corner-color: #004D40,
-                  content-color: #E0F2F1,
-                  footer-color: #B2DFDB,
-          ),
-          green: (
-                  banner-color: #4CAF50,
-                  banner-corner-color: #1B5E20,
-                  content-color: #E8F5E9,
-                  footer-color: #C8E6C9,
-          ),
-          light-green: (
-                  banner-color: #8BC34A,
-                  banner-corner-color: #33691E,
-                  content-color: #F1F8E9,
-                  footer-color: #DCEDC8,
-          ),
-          lime: (
-                  banner-color: #CDDC39,
-                  banner-corner-color: #827717,
-                  content-color: #F9FBE7,
-                  footer-color: #F0F4C3,
-          ),
-          yellow: (
-                  banner-color: #FFEB3B,
-                  banner-corner-color: #F57F17,
-                  content-color: #FFFDE7,
-                  footer-color: #FFF9C4,
-          ),
-          amber: (
-                  banner-color: #FFC107,
-                  banner-corner-color: #FF6F00,
-                  content-color: #FFF8E1,
-                  footer-color: #FFECB3,
-          ),
-          orange: (
-                  banner-color: #FF9800,
-                  banner-corner-color: #E65100,
-                  content-color: #FFF3E0,
-                  footer-color: #FFE0B2,
-          ),
-          deep-orange: (
-                  banner-color: #FF5722,
-                  banner-corner-color: #BF360C,
-                  content-color: #FBE9E7,
-                  footer-color: #FFCCBC,
-          ),
-          brown: (
-                  banner-color: #795548,
-                  banner-corner-color: #3E2723,
-                  content-color: #EFEBE9,
-                  footer-color: #D7CCC8,
-          ),
-          grey: (
-                  banner-color: #9E9E9E,
-                  banner-corner-color: #212121,
-                  content-color: #FAFAFA,
-                  footer-color: #F5F5F5,
-          ),
-          blue-grey: (
-                  banner-color: #607D8B,
-                  banner-corner-color: #263238,
-                  content-color: #ECEFF1,
-                  footer-color: #CFD8DC,
-          ),
-  );
-
-  @each $color, $vars in $colours
+  @each $color, $vars in $pw-theme-colours
   {
     &--color-#{$color} {
-      $banner-color: map_get($vars, 'banner-color');
-      $banner-corner-color: map_get($vars, 'banner-corner-color');
-      $content-color: map_get($vars, 'content-color');
-      $footer-color: map_get($vars, 'footer-color');
+      $banner-color: map_get($vars, 'primary');
+      $banner-corner-color: map_get($vars, 'primary-darker');
+      $content-color: map_get($vars, 'primary-lighter');
+      $footer-color: map_get($vars, 'primary-light');
 
       .pw-picture-chip__action-button {
         background-color: $banner-color;

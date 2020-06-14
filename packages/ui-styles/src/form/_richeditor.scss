@@ -10,7 +10,8 @@
   border-radius: 4px;
   border-style: solid;
   border-width: 1px;
-  
+  box-sizing: border-box;
+
   &--active {
     border-color: $pw-palette-dusk-70;
     box-shadow: 0 0 0 1px $pw-palette-dusk-70;
@@ -38,10 +39,15 @@
     width: 100%;
   }
 
+  .DraftEditor-editorContainer {
+    z-index: 1;
+    height: 100%;
+  }
+
   .public-DraftEditorPlaceholder-root {
     color: #999;
-    position: absolute;
     z-index: 0;
+    height: 17px;
   }
 
   .public-DraftEditor-content {
@@ -50,9 +56,12 @@
     height: 100%;
   }
 
-  .DraftEditor-editorContainer {
-    z-index: 1;
-    height: 100%;
+  .public-DraftEditorPlaceholder-root + .DraftEditor-editorContainer {
+    margin-top: -17px;
+    position: absolute;
+    height: auto;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 

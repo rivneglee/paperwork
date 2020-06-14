@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DataSourceListPage should render when result is empty 1`] = `
-<wi
+<Si
   header={
     <Connect(AppBar)
       activeMenuId="datasource"
@@ -32,17 +32,17 @@ exports[`DataSourceListPage should render when result is empty 1`] = `
         />
       </t>
     </StickySideBar>
-    <_i
+    <xi
       description="Please try to improve your filter and create some data"
       image="no-results-found.svg"
       title="No results found"
     />
   </i>
-</wi>
+</Si>
 `;
 
 exports[`DataSourceListPage should render when result is not empty 1`] = `
-<wi
+<Si
   header={
     <Connect(AppBar)
       activeMenuId="datasource"
@@ -107,5 +107,5 @@ exports[`DataSourceListPage should render when result is not empty 1`] = `
       </Component>
     </u>
   </i>
-</wi>
+</Si>
 `;
