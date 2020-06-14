@@ -38,6 +38,7 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
   <DetailProvider
     userId={authentication.user.id}
     dataSourceId={params.dataSourceId}
+    preLoad
   >
     {
       ({ dataSource, isProcessing, update, create, remove }: DetailProviderState) => {

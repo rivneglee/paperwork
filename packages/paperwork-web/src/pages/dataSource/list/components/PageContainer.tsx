@@ -22,7 +22,7 @@ const mapStateToProviderProps = (state: StoreState, ownProps: any) => ({
 const PageView = connect(mapStateToViewProps)(DataSourceListPage);
 
 export default connect(mapStateToProviderProps)(({ dispatch, params, authentication }: any) => (
-  <ListProvider userId={authentication.user.id}>
+  <ListProvider userId={authentication.user.id} preLoad>
     {({ dataSourceList, list, isProcessing }: ListProviderState) => {
       dispatch(createLoadDataSourceAction(dataSourceList));
 

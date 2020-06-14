@@ -23,7 +23,7 @@ const mapStateToProviderProps = (state: StoreState, ownProps: any) => ({
 const PageView = connect(mapStateToViewProps)(TemplateListPage);
 
 export default connect(mapStateToProviderProps)(({ dispatch, params, authentication }: any) => (
-  <ListProvider userId={authentication.user.id}>
+  <ListProvider userId={authentication.user.id} preLoad>
     {({ templateList, list, isInitializing, isProcessing }: ListProviderState) => {
       if (isInitializing) {
         dispatch(createLoadTemplateListAction(templateList));

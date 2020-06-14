@@ -15,6 +15,7 @@ interface Props {
   integration: Integration;
   userId: string;
   isProcessing: boolean;
+  preLoad?: boolean;
 }
 
 export interface ListOptions {
@@ -55,7 +56,10 @@ export default class extends React.Component<Props> {
   }
 
   async componentDidMount() {
-    await this.list();
+    const { preLoad } = this.props;
+    if (preLoad) {
+      await this.list();
+    }
     this.isInitializing = false;
   }
 
