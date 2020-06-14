@@ -37,7 +37,6 @@
       align-items: center;
       justify-content: flex-end;
       float: left;
-      width: 50%;
       padding-right: 1rem;
       box-sizing: border-box;
       color: $pw-color-text-darker;
@@ -45,7 +44,6 @@
 
     &__input {
       float: left;
-      width: 50%;
       &--full {
         float: none;
         width: 100%;
@@ -55,6 +53,7 @@
     &--place-top {
       flex-direction: column;
       padding: 0 1.2rem;
+      box-sizing: border-box;
 
       .pw-field-group__label {
         justify-content: flex-start;
