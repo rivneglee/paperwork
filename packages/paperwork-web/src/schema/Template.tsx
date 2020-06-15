@@ -1,29 +1,14 @@
-import { Items, Layout } from '@paperwork/ui-widgets';
 import { User } from './User';
-import { PaperItem, PaperType } from './Paper';
 import { Pagination } from './Pagination';
+import { Paper, PaperAppearance } from './Paper';
 
-export interface Template {
-  id: string;
-  name: string;
+export interface Template extends Paper {
   author: User;
-  type: PaperType;
   visibility: 'private' | 'protected' | 'public';
   tags: string[];
-  heroImage: string;
-  headerImage?: string;
-  theme?: 'red' | 'pink' | 'purple' | 'indigo'
-    | 'blue' | 'light-blue' | 'cyan' | 'teal' | 'green'
-    | 'light-green' | 'lime' | 'yellow' | 'amber'
-    | 'orange' | 'deep-orange' | 'brown' | 'grey' | 'blue-grey';
 }
 
-export interface Item extends PaperItem {}
-
-export interface TemplateDetail extends Template {
-  layout: Layout;
-  items: Items;
-}
+export type TemplateDetail = PaperAppearance & Template;
 
 export interface TemplateList {
   entries: Template[];
