@@ -1,25 +1,15 @@
-export interface PaperItem {
-  id: string;
-  type: string;
-  options: any;
-}
-
-export interface LayoutReference {
-  id: string;
-}
-
-export enum LayoutTypes {
-  Page = 'page', SimpleList = 'simple-list', Item = 'item',
-}
-
-export interface LayoutLinkedNode {
-  id: string;
-  type: LayoutTypes;
-  childRefs: LayoutReference[];
-}
-
-export type Layout = LayoutLinkedNode[];
+import { FormProps, FormThemeColors } from '@paperwork/ui-widgets';
 
 export enum PaperType {
   FORM = 'form', REPORT = 'report',
 }
+
+export interface Paper {
+  id: string;
+  name: string;
+  type: PaperType;
+  heroImage: string;
+  theme?: FormThemeColors;
+}
+
+export interface PaperAppearance extends FormProps {}
