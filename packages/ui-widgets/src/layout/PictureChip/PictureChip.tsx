@@ -10,6 +10,7 @@ interface Props {
   imageUrl: string;
   content: string | ReactElement;
   footer: string | ReactElement;
+  containerType?: 'iframe' | 'img';
   color?: 'red' | 'pink' | 'purple' | 'indigo'
     | 'blue' | 'light-blue' | 'cyan' | 'teal' | 'green'
     | 'light-green' | 'lime' | 'yellow' | 'amber'
@@ -25,6 +26,7 @@ const PictureChip: FunctionComponent<Props> = ({
   imageUrl,
   content,
   footer,
+  containerType = 'img',
 }) => {
   const [isActive, setIsActive] = useState(false);
   return (
@@ -45,7 +47,19 @@ const PictureChip: FunctionComponent<Props> = ({
         </h2>
         <div className="pw-picture-chip__body">
           <div className="pw-picture-chip__img-container">
-            <img className="pw-picture-chip__hero-image" src={imageUrl}/>
+            {
+              containerType === 'iframe' && (
+                <>
+                  <div className="pw-picture-chip__overlay"/>
+                  <iframe className="pw-picture-chip__hero-image pw-picture-chip__hero-image--iframe" src={imageUrl}/>
+                </>
+              )
+            }
+            {
+              containerType === 'img' && (
+                <img className="pw-picture-chip__hero-image" src={imageUrl}/>
+              )
+            }
           </div>
           <div className="pw-picture-chip__content">
             {content}

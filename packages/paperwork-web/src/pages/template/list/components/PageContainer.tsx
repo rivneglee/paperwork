@@ -44,6 +44,7 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
 
       const onEdit = (id: string) => dispatch(push(`/templates/${id}`));
       const onCreateNew = () => dispatch(push('/templates/new'));
+      const onPreview = (id: string) => dispatch(push(`/templates/${id}/preview`));
 
       return (
         <PageView
@@ -53,6 +54,7 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
           onLoadNextPage={onLoadNextPage}
           onFilterChange={onFilterChange}
           onApplyFilter={onApplyFilter}
+          onPreview={onPreview}
         />);
     }}
   </ListProvider>

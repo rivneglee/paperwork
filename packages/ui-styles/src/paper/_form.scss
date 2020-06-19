@@ -125,11 +125,14 @@
   padding: 1.7rem;
 
   @media (min-width: 768px) {
-    padding: 4rem 8rem;
+    padding: 4rem 10rem;
   }
 
-  .pw-form__body > .pw-card__header {
-    padding: 0;
+  &__body {
+    > .pw-card__header {
+      padding: 0;
+    }
+    max-width: 900px;
   }
 
   .pw-card-header__primary {
@@ -163,8 +166,6 @@
     width: 100%;
     box-sizing: border-box;
     height: auto;
-    border-top-right-radius: 0.4rem;
-    border-top-left-radius: 0.4rem;
     overflow: hidden;
     img {
       height: 100%;

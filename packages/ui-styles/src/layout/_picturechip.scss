@@ -3,6 +3,7 @@
 .pw-picture-chip {
   width: 80%;
   min-width: 280px;
+  position: relative;
 
   $banner-color: $pw-palette-dusk-100;
   $banner-corner-color: $pw-palette-dusk-dark;
@@ -52,6 +53,18 @@
     display: block;
     max-width: 100%;
     height: auto;
+    &--iframe {
+      height: 100%;
+      border: 0;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
   }
 
   &__action-button {

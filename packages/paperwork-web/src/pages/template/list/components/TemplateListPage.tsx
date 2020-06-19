@@ -24,6 +24,7 @@ interface Props {
   onLoadNextPage: (filterOptions: FilterOptions, page: number) => void;
   onApplyFilter: (filterOptions: FilterOptions) => void;
   onEdit: (id: string) => void;
+  onPreview: (id: string) => void;
   onCreateNew: () => void;
   onFilterChange: (option: FilterOption) => void;
   filterOptions: FilterOptions;
@@ -47,6 +48,7 @@ const TemplateListPage: FunctionComponent<Props> = ({
   onApplyFilter,
   onEdit,
   onCreateNew,
+  onPreview,
   onFilterChange,
   filterOptions,
   page,
@@ -93,12 +95,16 @@ const TemplateListPage: FunctionComponent<Props> = ({
                   color={entry.theme}
                   title={entry.name}
                   subTitle={entry.author.displayName}
-                  imageUrl={entry.heroImage}
+                  containerType="iframe"
+                  imageUrl={`/#/templates/${entry.id}/preview?thumbnail=true`}
                   content={entry.name}
                   footer={
                     <div className="pwapp-template-list__card-footer">
                       <Tooltip placement="top" content="Edit template">
                         <IconButton onClick={() => onEdit(entry.id)}><Icons.Edit/></IconButton>
+                      </Tooltip>
+                      <Tooltip placement="top" content="Preview">
+                        <IconButton onClick={() => onPreview(entry.id)}><Icons.Preview/></IconButton>
                       </Tooltip>
                       <Tooltip placement="top" content="Use template">
                         <IconButton><Icons.Duplicate/></IconButton>

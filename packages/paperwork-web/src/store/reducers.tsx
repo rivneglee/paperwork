@@ -2,6 +2,7 @@ import { mapping as DataSourceListPageActionMapping, defaultState as dataSourceL
 import { mapping as DataSourceDetailPageActionMapping, defaultState as dataSourceDetail } from '../pages/dataSource/detail/state/reducers';
 import { mapping as TemplateListPageActionMapping, defaultState as templateList } from '../pages/template/list/state/reducers';
 import { mapping as TemplateDetailPageActionMapping, defaultState as templateDetail } from '../pages/template/detail/state/reducers';
+import { mapping as TemplatePreviewPageActionMapping, defaultState as templatePreview } from '../pages/template/preview/state/reducers';
 import { PageState } from './types';
 import { SetActiveMenuAction, SET_ACTIVE_MENU_ID } from './actions';
 
@@ -10,6 +11,7 @@ const mapping = {
   ...DataSourceDetailPageActionMapping,
   ...TemplateListPageActionMapping,
   ...TemplateDetailPageActionMapping,
+  ...TemplatePreviewPageActionMapping,
 };
 
 export const defaultPageState = {
@@ -17,6 +19,7 @@ export const defaultPageState = {
   dataSourceDetail,
   templateList,
   templateDetail,
+  templatePreview,
 };
 
 export const authenticationReducer = (state = {}) => state;
