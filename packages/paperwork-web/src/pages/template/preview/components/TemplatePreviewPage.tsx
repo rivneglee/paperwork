@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { BaseTemplate } from '@paperwork/ui-widgets';
+import { BaseTemplate, ContentPlaceholder } from '@paperwork/ui-widgets';
 
 import { TemplateDetail } from '../../../../schema/Template';
 import { getInputMap, getLayoutMap, getButtonMap } from '../../../../components/FormAddons';
@@ -33,7 +33,12 @@ const TemplatePreviewPage: FunctionComponent<Props> = ({
     <div
       className="pwapp-template-preview-page"
     >
-      {formEditor}
+      {isProcessing && (
+        <div className="pwapp-template-preview-page__placeholder">
+          <ContentPlaceholder/>
+        </div>
+      )}
+      {!isProcessing && formEditor}
     </div>
   );
 

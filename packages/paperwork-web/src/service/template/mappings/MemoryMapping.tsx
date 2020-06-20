@@ -23,7 +23,10 @@ const MemoryMapping = {
       },
     });
   },
-  [LOAD_TEMPLATE_DETAIL]: () => loadTemplateDetail,
+  [LOAD_TEMPLATE_DETAIL]: () => {
+    const randomId = Math.floor(Math.random() * 3);
+    return loadTemplateDetail[randomId + 1];
+  },
   [UPDATE_TEMPLATE]: () => {},
   [CREATE_TEMPLATE]: () => {},
   [DELETE_TEMPLATE]: () => {},
