@@ -301,6 +301,12 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-content-loader@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@types/react-content-loader/-/react-content-loader-4.0.0.tgz#2d591eb12a1600b52ce2ca2564937c1e7f00ea26"
+  dependencies:
+    react-content-loader "*"
+
 "@types/react-custom-scrollbars@^4.0.6":
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/@types/react-custom-scrollbars/-/react-custom-scrollbars-4.0.6.tgz#d84831ac287d8fefdf2a7dcbc12a505bcecc8092"
@@ -4460,6 +4466,10 @@ react-beautiful-dnd@^8.0.5:
     react-redux "^5.0.7"
     redux "^4.0.0"
     tiny-invariant "^0.0.3"
+
+react-content-loader@*, react-content-loader@^5.0.4:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/react-content-loader/-/react-content-loader-5.0.4.tgz#1493491d2f6b309d281d84144a655417ea734486"
 
 react-custom-scrollbars@^4.2.1:
   version "4.2.1"

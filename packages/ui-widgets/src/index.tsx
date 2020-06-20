@@ -13,6 +13,7 @@ export * from './graphic/Avater';
 export * from './graphic/Spinner';
 export * from './graphic/Badge';
 export * from './graphic/Separator';
+export * from './graphic/ContentPlaceholder';
 export { default as Icons } from './graphic/Icons';
 
 export * from './form/FieldGroup';
