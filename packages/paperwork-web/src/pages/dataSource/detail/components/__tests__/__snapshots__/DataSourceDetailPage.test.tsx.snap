@@ -29,7 +29,7 @@ exports[`DataSourceDetailPage should render properly if logged in as owner 1`] =
       size="s"
       value="Engagement survey 2020"
     />
-    <_ />
+    <x />
     <OwnerFieldsTable
       fields={
         Array [
@@ -104,7 +104,7 @@ exports[`DataSourceDetailPage should render properly if not datasource owner 1`]
       size="s"
       value="Engagement survey 2020"
     />
-    <_ />
+    <x />
     <CollaboratorFieldsTable
       fields={
         Array [
@@ -170,7 +170,7 @@ exports[`DataSourceDetailPage should render properly when grantField is given 1`
       size="s"
       value="Engagement survey 2020"
     />
-    <_ />
+    <x />
     <OwnerFieldsTable
       fields={
         Array [
