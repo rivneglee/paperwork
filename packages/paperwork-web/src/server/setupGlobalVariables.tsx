@@ -19,7 +19,7 @@ Object.keys(window).forEach((property) => {
 });
 global.localStorage = {
   setItem: () => {},
-  getItem: key => key,
+  getItem: () => null,
 };
 global.navigator = {
   userAgent: 'node',
