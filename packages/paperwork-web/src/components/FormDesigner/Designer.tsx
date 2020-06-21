@@ -10,7 +10,7 @@ import {
 
 import './Designer.scss';
 import ActionBar, { FormItemProps } from './ActionBar';
-import defaultHeaderImg from './images/default-header.jpeg';
+import HeaderImagesProvider from '../FormHeaderImageProvider/HeaderImagesProvider';
 
 interface Props extends FormProps {
   layoutComponentMap: {[layoutType: string]: ComponentType<any>};
@@ -32,27 +32,33 @@ const Designer: FunctionComponent<Props> = ({
   setRef,
   ...otherProps
 }) => (
-  <EventHandlerProvider {...otherProps} onChange={onChange}>
+  <HeaderImagesProvider>
     {
-      props => (
-        <Card className="pwapp-designer">
-          <ActionBar
-            statisticItems={statisticItems}
-            fieldItems={fieldItems}
-            buttonItems={buttonItems}
-          />
-          <Form
-            setRef={setRef}
-            mode={FormMode.DESIGN}
-            layoutComponentMap={layoutComponentMap}
-            itemMetadataMap={itemMetadataMap}
-            {...props}
-            headerImage={props.headerImage || defaultHeaderImg}
-          />
-        </Card>
+      ({ getImageByKey }) => (
+        <EventHandlerProvider {...otherProps} onChange={onChange}>
+          {
+            props => (
+              <Card className="pwapp-designer">
+                <ActionBar
+                  statisticItems={statisticItems}
+                  fieldItems={fieldItems}
+                  buttonItems={buttonItems}
+                />
+                <Form
+                  setRef={setRef}
+                  mode={FormMode.DESIGN}
+                  layoutComponentMap={layoutComponentMap}
+                  itemMetadataMap={itemMetadataMap}
+                  {...props}
+                  headerImage={getImageByKey(props.headerImage)}
+                />
+              </Card>
+            )
+          }
+        </EventHandlerProvider>
       )
     }
-  </EventHandlerProvider>
+  </HeaderImagesProvider>
 );
 
 export default Designer;

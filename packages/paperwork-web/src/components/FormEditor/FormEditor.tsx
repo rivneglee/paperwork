@@ -7,6 +7,8 @@ import {
   EventHandlerProvider,
 } from '@paperwork/ui-widgets';
 
+import HeaderImagesProvider from '../FormHeaderImageProvider/HeaderImagesProvider';
+
 interface Props extends FormProps {
   layoutComponentMap: {[layoutType: string]: ComponentType<any>};
   itemMetadataMap: {[itemType: string]: ItemMetadata};
@@ -17,19 +19,25 @@ const FormEditor: FunctionComponent<Props> = ({
   itemMetadataMap,
   ...otherProps
 }) => (
-  <EventHandlerProvider {...otherProps}>
+  <HeaderImagesProvider>
     {
-      props => (
-        <Form
-          mode={FormMode.EDIT}
-          layoutComponentMap={layoutComponentMap}
-          itemMetadataMap={itemMetadataMap}
-          {...props}
-          headerImage={otherProps.headerImage}
-        />
+      ({ getImageByKey }) => (
+        <EventHandlerProvider {...otherProps}>
+          {
+            props => (
+              <Form
+                mode={FormMode.EDIT}
+                layoutComponentMap={layoutComponentMap}
+                itemMetadataMap={itemMetadataMap}
+                {...props}
+                headerImage={getImageByKey(otherProps.headerImage)}
+              />
+            )
+          }
+        </EventHandlerProvider>
       )
     }
-  </EventHandlerProvider>
+  </HeaderImagesProvider>
 );
 
 export default FormEditor;
