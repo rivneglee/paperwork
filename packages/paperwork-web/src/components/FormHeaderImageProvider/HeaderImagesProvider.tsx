@@ -1,10 +1,10 @@
 import React, { FunctionComponent, ReactElement } from 'react';
 
-import header1 from './images/header1.jpeg';
-import header2 from './images/header2.jpeg';
-import header3 from './images/header3.jpeg';
-import header4 from './images/header4.jpeg';
-import header5 from './images/header5.jpeg';
+const header1 = require('./images/header1.jpeg');
+const header2 = require('./images/header2.jpeg');
+const header3 = require('./images/header3.jpeg');
+const header4 = require('./images/header4.jpeg');
+const header5 = require('./images/header5.jpeg');
 
 const headerImages = [
   header1, header2, header3, header4, header5,

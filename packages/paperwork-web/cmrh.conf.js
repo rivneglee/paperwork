@@ -1,5 +1,5 @@
 module.exports = {
-  extensions: ['.scss'],
+  extensions: ['.scss', '.css'],
   preprocessCss: (data, filename) =>
     require('node-sass').renderSync({
       data,

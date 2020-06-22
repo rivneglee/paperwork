@@ -1,4 +1,7 @@
 import 'css-modules-require-hook/preset';
+require('asset-require-hook')({
+  extensions: ['jpg', 'jpeg', 'png', 'svg'],
+});
 import './setupGlobalVariables';
 import express from 'express';
 import bodyParser from 'body-parser';
@@ -18,7 +21,6 @@ import DataSourceDetailPage from '../pages/dataSource/detail';
 import TemplateListPage from '../pages/template/list';
 import TemplateDetailPage from '../pages/template/detail';
 import { PageNotFound } from '../pages/error';
-import '../images';
 
 const buildPath = require('../../build/asset-manifest.json');
 

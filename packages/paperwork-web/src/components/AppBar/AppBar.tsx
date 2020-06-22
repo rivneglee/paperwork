@@ -2,9 +2,9 @@ import React, { FunctionComponent, ReactElement, useState } from 'react';
 import { IconButton, Icons, Drawer, Button, Scrollable } from '@paperwork/ui-widgets';
 
 import './AppBar.scss';
-import appName from '../../assets/paperwork.png';
 import { Authentication } from '../../schema/User';
 import Menu from './Menu';
+const appName = require('../../assets/paperwork.png');
 
 interface Props {
   activeMenuId?: string;
