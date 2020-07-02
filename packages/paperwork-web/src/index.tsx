@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import '@paperwork/ui-styles';
 
-import { createStore, history } from './store';
+import { createStore, getHistory } from './store';
 import registerServiceWorker from './registerServiceWorker';
 import { withAuthValidation } from './service/authentication';
 
@@ -23,7 +23,7 @@ const store: any = createStore();
 ReactDOM.render(
   <div className="pwapp-root">
     <Provider store={store}>
-      <ConnectedRouter history={history}>
+      <ConnectedRouter history={getHistory()}>
         <Switch>
           <Route exact component={SignInPage} path="/signin/"/>
           <Route exact component={withAuthValidation(DataSourceListPage)} path="/datasource/"/>

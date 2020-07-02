@@ -25,12 +25,13 @@
     "reselect": "^4.0.0"
   },
   "scripts": {
-    "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "test:watch": "node scripts/test.js --watch --env=jsdom",
     "lint": "tslint --force --fix \"src/**/*.tsx\" \"**/__tests__/**/*.spec.tsx\" -e \"**/node_modules/**\"",
-    "server": "ts-node --project tsconfig.server.json ./src/server/index.tsx"
+    "start": "export NODE_ENV=development && export REACT_APP_INTEGRATION_TYPE=Memory && node scripts/start.js",
+    "server:prod": "export NODE_ENV=production &&  ts-node --project tsconfig.server.json ./src/server/index.tsx",
+    "server:dev": "export NODE_ENV=development && export REACT_APP_INTEGRATION_TYPE=Memory && ts-node --project tsconfig.server.json ./src/server/index.tsx"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.0",
@@ -49,7 +50,9 @@
     "tslint": "^5.7.0",
     "tslint-config-airbnb": "^5.11.1",
     "tslint-config-prettier": "^1.10.0",
-    "tslint-react": "^3.2.0"
+    "tslint-react": "^3.2.0",
+    "webpack-dev-middleware": "^2.0.6",
+    "webpack-hot-middleware": "^2.25.0"
   },
   "jest": {
     "collectCoverageFrom": [

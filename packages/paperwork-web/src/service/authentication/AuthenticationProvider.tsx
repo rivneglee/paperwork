@@ -35,7 +35,7 @@ export default class extends React.Component<Props> {
     const { children, isProcessing, storage = defaultStorage } = this.props;
     const authentication = storage.get();
     if (authentication) {
-      window.location.href = '/#/';
+      window.location.href = '/';
       return null;
     }
     return (

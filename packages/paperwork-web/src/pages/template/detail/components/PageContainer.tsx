@@ -45,9 +45,9 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
           navigateToList();
         };
 
-        const onSave = async (template: TemplateDetail, thumbnail: string) => {
+        const onSave = async (template: TemplateDetail) => {
           const saveHandler = params.templateId === 'new' ? create : update;
-          await saveHandler(template, thumbnail);
+          await saveHandler(template);
           navigateToList();
         };
 

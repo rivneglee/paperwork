@@ -1,5 +1,4 @@
 import React, { FunctionComponent, useState } from 'react';
-import htmlToImage from 'html-to-image';
 import { BaseTemplate, FormMode, FormThemeColors, IconButton, Icons } from '@paperwork/ui-widgets';
 
 import AppBar from '../../../../components/AppBar';
@@ -19,7 +18,7 @@ interface Props {
   isPageEdited: boolean;
   onUpdate: (template: TemplateDetail) => void;
   onCancel: () => void;
-  onSave: (template: TemplateDetail, thumbnail: string) => void;
+  onSave: (template: TemplateDetail) => void;
   onDelete: () => void;
 }
 
@@ -33,8 +32,6 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
   onDelete,
   onSave,
 }) => {
-  let formRef: HTMLDivElement;
-  const setFormRef = (ref: HTMLDivElement) => formRef = ref;
   const [modalType, setModalType] = useState('');
   const [mode, setMode] = useState(FormMode.DESIGN);
 
@@ -53,8 +50,7 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
   const onClickTheme = () => setModalType('theme');
 
   const onClickSave = async () => {
-    const img = await htmlToImage.toJpeg(formRef, { quality: 0.1 });
-    onSave(template, img);
+    onSave(template);
   };
 
   const onChoseThemeColor = (theme: FormThemeColors) => {
@@ -99,7 +95,6 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
       {
         mode === FormMode.DESIGN ? (
           <Designer
-            setRef={setFormRef}
             onChange={onUpdate}
             headerImage={template.headerImage}
             itemMetadataMap={{

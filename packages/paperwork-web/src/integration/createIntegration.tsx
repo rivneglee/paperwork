@@ -1,6 +1,6 @@
 import { Integration, IntegrationProfile } from './types';
 
-const profileKey = process.env.REACT_APP_PROFILE;
+const profileKey = process.env.NODE_ENV;
 
 export default (mappings: any): Integration => {
   const profile: IntegrationProfile = require(`../profiles/${profileKey}`).default;

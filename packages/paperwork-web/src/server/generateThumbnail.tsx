@@ -11,7 +11,7 @@ const buildPath = require('../../build/asset-manifest.json');
 
 const mainCss = (fs.readFileSync(`${__dirname}/../../build/${buildPath['main.css']}`)).toString();
 
-export default (data) => {
+export default (data, encoding) => {
   const headerImage = getHeaderImgBase64(data.headerImage);
   const template = {
     ...data,
@@ -38,8 +38,6 @@ export default (data) => {
           }
           .pw-form {padding: 0;}
           .pw-form__header-img{
-            width: 100%;
-            height: 200px;
             border-radius: 0;
           }
         </style>
@@ -48,8 +46,10 @@ export default (data) => {
         <div id="root">${thumbnail}</div>
       </body>
     </html>`;
+
   return nodeHtmlToImage({
     html,
+    encoding,
     content: { headerImage },
   });
 };

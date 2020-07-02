@@ -1,4 +1,4 @@
 export default {
-  integrationType: 'Http',
+  integrationType: 'Memory',
   gatewayUrl: process.env.REACT_APP_GATEWAY_URL,
 };
