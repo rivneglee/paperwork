@@ -50,6 +50,8 @@ export default (data, encoding) => {
   return nodeHtmlToImage({
     html,
     encoding,
+    type: 'jpeg',
+    quality: 60,
     content: { headerImage },
   });
 };
