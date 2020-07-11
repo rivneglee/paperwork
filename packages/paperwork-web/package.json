@@ -5,9 +5,15 @@
   "dependencies": {
     "@paperwork/ui-styles": "0.1.0",
     "@paperwork/ui-widgets": "0.1.0",
+    "asset-require-hook": "^1.2.0",
+    "body-parser": "^1.19.0",
     "classnames": "^2.2.6",
     "connected-react-router": "^6.8.0",
+    "css-modules-require-hook": "^4.2.3",
+    "express": "^4.17.1",
     "html-to-image": "^0.1.1",
+    "jsdom": "^16.2.2",
+    "node-html-to-image": "^2.1.1",
     "react-dev-utils": "^5.0.2",
     "react-redux": "^6.0.1",
     "react-responsive-carousel": "^3.2.7",
@@ -19,14 +25,18 @@
     "reselect": "^4.0.0"
   },
   "scripts": {
-    "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "test:watch": "node scripts/test.js --watch --env=jsdom",
-    "lint": "tslint --force --fix \"src/**/*.tsx\" \"**/__tests__/**/*.spec.tsx\" -e \"**/node_modules/**\""
+    "lint": "tslint --force --fix \"src/**/*.tsx\" \"**/__tests__/**/*.spec.tsx\" -e \"**/node_modules/**\"",
+    "start": "export NODE_ENV=development && export REACT_APP_INTEGRATION_TYPE=Memory && node scripts/start.js",
+    "server:prod": "export NODE_ENV=production &&  ts-node --project tsconfig.server.json ./src/server/index.tsx",
+    "server:dev": "export NODE_ENV=development && export REACT_APP_INTEGRATION_TYPE=Memory && ts-node --project tsconfig.server.json ./src/server/index.tsx"
   },
   "devDependencies": {
+    "@types/body-parser": "^1.19.0",
     "@types/classnames": "^2.2.10",
+    "@types/express": "^4.17.6",
     "@types/react-redux": "^7.0.6",
     "@types/react-router": "^5.0.1",
     "@types/react-router-dom": "^4.3.3",
@@ -36,10 +46,13 @@
     "babel-jest": "20.0.3",
     "jest": "20.0.4",
     "ts-jest": "22.0.1",
+    "ts-node": "^8.10.2",
     "tslint": "^5.7.0",
     "tslint-config-airbnb": "^5.11.1",
     "tslint-config-prettier": "^1.10.0",
-    "tslint-react": "^3.2.0"
+    "tslint-react": "^3.2.0",
+    "webpack-dev-middleware": "^2.0.6",
+    "webpack-hot-middleware": "^2.25.0"
   },
   "jest": {
     "collectCoverageFrom": [

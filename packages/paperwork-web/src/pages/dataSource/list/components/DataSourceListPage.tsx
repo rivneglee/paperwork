@@ -7,7 +7,7 @@ import Spinner from '../../../../components/PageTransitionSpinner/Spinner';
 import { UserIdentifier } from '../../../../schema/User';
 import StickySideBar from '../../../../components/StickySideBar/StickySideBar';
 import './DataSourceListPage.scss';
-import noResultFoundImg from '../../../../assets/no-results-found.svg';
+const noResultFoundImg = require('../../../../assets/no-results-found.svg');
 
 interface BadgeProps {
   color: 'secondary' | 'primary';

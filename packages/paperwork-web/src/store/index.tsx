@@ -1,4 +1,4 @@
-import { createHashHistory } from 'history';
+import { createBrowserHistory } from 'history';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { applyMiddleware, combineReducers, createStore as createReduxStore } from 'redux';
 import { enableBatching } from 'redux-batched-actions';
@@ -7,7 +7,9 @@ import { pageReducer, authenticationReducer, navigationReducer, defaultPageState
 import { StoreState } from './types';
 import { authenticationStorge } from '../service/authentication';
 
-export const history = createHashHistory();
+const browserHistory = createBrowserHistory();
+
+export const getHistory = () => browserHistory;
 
 const authentication = authenticationStorge.get();
 
@@ -21,13 +23,13 @@ export const createStore = () => createReduxStore(
   enableBatching(combineReducers({
     page: pageReducer,
     authentication: authenticationReducer,
-    router: connectRouter(history),
+    router: connectRouter(getHistory()),
     navigation: navigationReducer,
   })),
   initState,
   composeWithDevTools(
     applyMiddleware(
-      routerMiddleware(history),
+      routerMiddleware(getHistory()),
     ),
   ),
 );

@@ -4,9 +4,11 @@ import {
   DELETE_TEMPLATE,
   UPDATE_TEMPLATE,
   CREATE_TEMPLATE,
+  LOAD_THUMBNAIL,
 } from '../intents';
 import loadTemplateList from './data/loadTemplateList.json';
 import loadTemplateDetail from './data/loadTemplateDetail.json';
+import loadThumbnail from './data/loadThumbnail.json';
 
 const MemoryMapping = {
   [LOAD_TEMPLATE_LIST]: ({ params }: any) => {
@@ -24,6 +26,7 @@ const MemoryMapping = {
     });
   },
   [LOAD_TEMPLATE_DETAIL]: () => loadTemplateDetail,
+  [LOAD_THUMBNAIL]: () => loadThumbnail,
   [UPDATE_TEMPLATE]: () => {},
   [CREATE_TEMPLATE]: () => {},
   [DELETE_TEMPLATE]: () => {},

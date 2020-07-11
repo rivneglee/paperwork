@@ -4,6 +4,7 @@ import { BaseTemplate } from '@paperwork/ui-widgets';
 import './TemplateDetailPage.scss';
 import { TemplateDetail } from '../../../../schema/Template';
 import FormEditor from '../../../../components/FormEditor/FormEditor';
+import HeaderImagesProvider from '../../../../components/FormHeaderImageProvider/HeaderImagesProvider';
 import { getButtonMap, getInputMap, getLayoutMap } from '../../../../components/FormAddons';
 
 interface Props {
@@ -12,19 +13,24 @@ interface Props {
 
 const Preview: FunctionComponent<Props> = ({
   template,
-}) => {
-  return (
-    <BaseTemplate>
-      <FormEditor
-        {...template}
-        itemMetadataMap={{
-          ...getInputMap(),
-          ...getButtonMap(),
-        }}
-        layoutComponentMap={getLayoutMap()}
-      />
-    </BaseTemplate>
-  );
-};
+}) => (
+  <BaseTemplate>
+    <HeaderImagesProvider>
+      {
+        ({ getImageByKey }) => (
+          <FormEditor
+            {...template}
+            headerImage={getImageByKey(template.headerImage)}
+            itemMetadataMap={{
+              ...getInputMap(),
+              ...getButtonMap(),
+            }}
+            layoutComponentMap={getLayoutMap()}
+          />
+        )
+      }
+    </HeaderImagesProvider>
+  </BaseTemplate>
+);
 
 export default Preview;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BaseTemplate, PageState, Card } from '@paperwork/ui-widgets';
 import AppBar from '../../../components/AppBar/AppBar';
-import pageNotFound from '../../../assets/reporting.svg';
+const pageNotFound = require('../../../assets/reporting.svg');
 
 export default () => (
   <BaseTemplate

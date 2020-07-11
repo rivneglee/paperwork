@@ -15,7 +15,7 @@ import StickySideBar from '../../../../components/StickySideBar/StickySideBar';
 
 import './TemplateListPage.scss';
 import { Template } from '../../../../schema/Template';
-import noResultFoundImg from '../../../../assets/no-results-found.svg';
+const noResultFoundImg = require('../../../../assets/no-results-found.svg');
 
 interface Props {
   entries: Template[];
