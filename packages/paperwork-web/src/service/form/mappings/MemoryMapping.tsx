@@ -1,7 +1,9 @@
 import {
   LOAD_FORM_LIST,
+  LOAD_FORM_DETAIL,
 } from '../intents';
 import loadFormList from './data/loadFormList.json';
+import loadFormDetail from './data/loadFormDetail.json';
 
 const MemoryMapping = {
   [LOAD_FORM_LIST]: ({ params }: any) => {
@@ -18,6 +20,7 @@ const MemoryMapping = {
       },
     });
   },
+  [LOAD_FORM_DETAIL]: () => loadFormDetail,
 };
 
 export default MemoryMapping;
