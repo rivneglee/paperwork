@@ -49,6 +49,7 @@ const FormListPage: FunctionComponent<Props> = ({
   isProcessing,
 }) => (
   <PaginationTemplate
+    className="pwapp-form-list"
     spinner={<Spinner/>}
     isProcessing={isProcessing}
     header={<AppBar activeMenuId="forms"/>}
@@ -56,7 +57,7 @@ const FormListPage: FunctionComponent<Props> = ({
     page={page}
     total={total}
   >
-    <Card className="pwapp-form-list"  header={<Card.Header primary="My forms"/>}>
+    <Card header={<Card.Header primary="My forms"/>}>
       <StickySideBar>
         <Search
           placeholder="Search"

@@ -52,6 +52,9 @@ import LineChart from './LineChart';
 import Preview from './Preview';
 import Button from './Button';
 import Submit from './Submit';
+import Dashboard from './Dashboard';
+import Target from './Target';
+import Timer from './Timer';
 
 export default {
   Add,
@@ -108,4 +111,7 @@ export default {
   Preview,
   Button,
   Submit,
+  Dashboard,
+  Target,
+  Timer,
 };

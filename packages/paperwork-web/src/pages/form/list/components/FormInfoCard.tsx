@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import classNames from 'classnames';
-import { Badge } from '@paperwork/ui-widgets';
+import { Badge, Icons } from '@paperwork/ui-widgets';
 
 import './FormInfoCard.scss';
 
@@ -50,19 +50,31 @@ const FormInfoCard: FunctionComponent<FormItem> = ({
           </div>
           <div className="pwapp-form-card__face__stats">
             <div className="pwapp-form-card__face__data">
-              Commits
+              <div className="pwapp-form-card__face__data-heading">
+                <Icons.Submit className="pwapp-form-card__face__icon"/>
+                Commits
+              </div>
               <p>{receivedCommits}</p>
             </div>
             <div className="pwapp-form-card__face__data">
-              Target
+              <div className="pwapp-form-card__face__data-heading">
+                <Icons.Target className="pwapp-form-card__face__icon"/>
+                Target
+              </div>
               <p>{targetCommits}</p>
             </div>
             <div className="pwapp-form-card__face__data">
-              MAX
+              <div className="pwapp-form-card__face__data-heading">
+                <Icons.Dashboard className="pwapp-form-card__face__icon"/>
+                MAX
+              </div>
               <p>{maxCommits}</p>
             </div>
             <div className="pwapp-form-card__face__data">
-              Close date
+              <div className="pwapp-form-card__face__data-heading">
+                <Icons.Timer className="pwapp-form-card__face__icon"/>
+                Close date
+              </div>
               <p>{closeDate}</p>
             </div>
           </div>
