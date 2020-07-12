@@ -1,6 +1,6 @@
 .pwapp-form-card {
   position: relative;
-  min-width: 200px;
+  min-width: 210px;
   min-height: 190px;
   height: auto;
   width: 100%;
@@ -37,7 +37,7 @@
 
   &__face {
     box-sizing: border-box;
-    padding: 20px 20px 15px;
+    padding: 20px 10px 15px;
 
     &__colored-side {
       position: absolute;
@@ -145,6 +145,7 @@
 
     &__data {
       margin-right: 1rem;
+      width: 5.9rem;
       p {
         margin: .1rem 1.2rem 0rem;
         font-size: 15px;

@@ -1,7 +1,7 @@
 import { getEntries } from '../selectors';
 import { RouterState } from 'connected-react-router';
 
-describe('dataSourceListPage', () => {
+describe('datasource list selector', () => {
   const state: any = {
     authentication: {
       accessToken: '123',

@@ -19,7 +19,7 @@ export const getEntries = createSelector(
   page => page.entries.map(entry => ({
     ...entry,
     status: entry.status.toUpperCase(),
-    closeDate: entry.closeDate ? entry.closeDate : '--/--/----',
+    closeDate: entry.closeDate ? entry.closeDate : '--/--/--',
     targetCommits: entry.targetCommits ? entry.targetCommits : '--',
     maxCommits: entry.maxCommits ? entry.maxCommits : '--',
     isPublic: entry.scope === Scope.PUBLIC,
