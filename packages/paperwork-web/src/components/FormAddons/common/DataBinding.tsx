@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from 'react';
 import { DataSourceSelector, FieldSelector } from '../../DataSourceSelector';
 
-interface DataSourceOption {
+export interface DataSourceOption {
   id: string;
   name: string;
 }
@@ -9,7 +9,7 @@ interface DataSourceOption {
 interface Props {
   dataSource?: DataSourceOption;
   fieldId?: string;
-  onBind?: (dataSourceId: string, fieldId: string) => void;
+  onBind?: (dataSource: DataSourceOption, fieldId: string) => void;
 }
 
 const DataBinding: FunctionComponent<Props> = ({
@@ -17,30 +17,28 @@ const DataBinding: FunctionComponent<Props> = ({
   fieldId,
   onBind,
 }) => {
-  const dsId = dataSource ? dataSource.id : '';
-  const [dataSourceId, setDataSourceId] = useState(dsId);
+  const [selectedDataSource, setSelectedDataSource] = useState(dataSource);
   const onSelectDatasource = (selection: DataSourceOption) => {
-    const newDataSourceId = selection ? selection.id : '';
-    setDataSourceId(newDataSourceId);
+    setSelectedDataSource(selection);
   };
 
   const onSelectField = (fieldId: string) => {
-    onBind && onBind(dataSourceId, fieldId);
+    onBind && onBind(selectedDataSource as DataSourceOption, fieldId as string);
   };
 
   return (
     <>
       <DataSourceSelector
-        value={dataSource}
+        value={selectedDataSource}
         label="Target datasource"
         labelPlacement="top"
         onChange={onSelectDatasource}
       />
       {
-        dataSourceId && (
+        selectedDataSource && (
           <FieldSelector
             value={fieldId}
-            dataSourceId={dataSourceId}
+            dataSourceId={selectedDataSource.id}
             label="Target field"
             labelPlacement="top"
             onChange={onSelectField}

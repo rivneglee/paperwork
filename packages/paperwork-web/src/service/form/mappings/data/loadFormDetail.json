@@ -162,7 +162,12 @@
       "id": "wTvBhoeK6",
       "itemType": "input",
       "label": "Guardian name",
-      "isRequired": true
+      "isRequired": true,
+      "targetDataSource": {
+        "id": "1",
+        "name": "Application Form",
+        "fieldId": "123"
+      }
     },
     "2aCdbE34l": {
       "id": "2aCdbE34l",
@@ -271,7 +276,7 @@
       "label": "Submit Application"
     }
   },
-  "headerImage": "header5",
+  "headerImage": "header3",
   "scope": "public",
   "status": "open",
   "receivedCommits": 10,

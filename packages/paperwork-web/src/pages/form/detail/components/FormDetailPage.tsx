@@ -97,7 +97,7 @@ const FormDetailPage: FunctionComponent<Props> = ({
             onChange={onUpdate}
             headerImage={form.headerImage}
             itemMetadataMap={{
-              ...getInputMap(),
+              ...getInputMap({ enableDataBinding: true }),
               ...getButtonMap(),
             }}
             layoutComponentMap={getLayoutMap()}

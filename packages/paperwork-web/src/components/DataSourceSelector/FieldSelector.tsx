@@ -20,7 +20,7 @@ const mapStateToProps = (state: StoreState) => ({
   authentication: getAuthentication(state),
 });
 
-const DataSourceSelector = ({
+const FieldSelector = ({
   authentication,
   dataSourceId,
   label,
@@ -57,4 +57,4 @@ const DataSourceSelector = ({
   </DetailProvider>
 );
 
-export default connect(mapStateToProps)(DataSourceSelector);
+export default connect(mapStateToProps)(FieldSelector);
