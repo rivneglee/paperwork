@@ -5,7 +5,7 @@ interface Props {
   className?: string;
   right?: ReactElement;
   left?: ReactElement;
-  color?: 'primary' | 'secondary';
+  color?: 'primary' | 'secondary' | 'danger';
 }
 
 const Badge: FunctionComponent<Props> = ({

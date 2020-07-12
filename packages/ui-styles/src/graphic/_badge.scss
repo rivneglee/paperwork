@@ -9,21 +9,21 @@
   padding: .4rem .5rem;
   line-height: 1;
   font-size: .6rem;
+  color: white;
+  svg {
+    fill: white;
+  }
 
   &--color-primary {
     background-color: $pw-palette-dusk-130;
-    color: white;
-    svg {
-      fill: white;
-    }
   }
 
   &--color-secondary {
     background-color: $pw-palette-golf;
-    color: white;
-    svg {
-      fill: white;
-    }
+  }
+
+  &--color-danger {
+    background-color: $pw-palette-berry;
   }
 
   &__label {

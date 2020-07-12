@@ -3,6 +3,7 @@ import { BaseTemplate } from '../BaseTemplate';
 import { InfinityScroller } from '../../navigation/InfinityScroller';
 
 interface Props {
+  className?: string;
   header?: ReactElement;
   footer?: ReactElement;
   onLoadMore: (page: number) => void;
@@ -13,6 +14,7 @@ interface Props {
 }
 
 const PaginationTemplate: FunctionComponent<Props> = ({
+  className,
   page,
   total,
   header,
@@ -36,6 +38,7 @@ const PaginationTemplate: FunctionComponent<Props> = ({
 
   return  (
     <BaseTemplate
+      className={className}
       spinner={shouldShowSpinner ? spinner : undefined}
       isProcessing={isProcessing}
       header={header}

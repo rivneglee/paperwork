@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormListPage should render when result is empty 1`] = `
+<Mi
+  className="pwapp-form-list"
+  header={
+    <Connect(AppBar)
+      activeMenuId="forms"
+    />
+  }
+  isProcessing={false}
+  onLoadMore={[Function]}
+  page={0}
+  spinner={<Unknown />}
+  total={10}
+>
+  <i
+    header={
+      <Unknown
+        primary="My forms"
+      />
+    }
+  >
+    <StickySideBar>
+      <wi
+        onApply={[Function]}
+        onChange={[Function]}
+        placeholder="Search"
+      />
+      <t
+        color="secondary"
+      >
+        <Component
+          icon={<Form />}
+          onClick={[Function]}
+          tooltip="Create an empty form"
+        />
+      </t>
+    </StickySideBar>
+    <Ti
+      description="Please try to improve your filter or create a new template"
+      image="no-results-found.svg"
+      title="No results found"
+    />
+  </i>
+</Mi>
+`;
+
+exports[`FormListPage should render when result is not empty 1`] = `
+<Mi
+  className="pwapp-form-list"
+  header={
+    <Connect(AppBar)
+      activeMenuId="forms"
+    />
+  }
+  isProcessing={false}
+  onLoadMore={[Function]}
+  page={0}
+  spinner={<Unknown />}
+  total={10}
+>
+  <i
+    header={
+      <Unknown
+        primary="My forms"
+      />
+    }
+  >
+    <StickySideBar>
+      <wi
+        onApply={[Function]}
+        onChange={[Function]}
+        placeholder="Search"
+      />
+      <t
+        color="secondary"
+      >
+        <Component
+          icon={<Form />}
+          onClick={[Function]}
+          tooltip="Create an empty form"
+        />
+      </t>
+    </StickySideBar>
+    <u>
+      <Component
+        key="1"
+      >
+        <FormInfoCard
+          closeDate="30/07/2020"
+          createdAt="30/06/2020"
+          id="1"
+          isPublic={true}
+          maxCommits={250}
+          name="Employee engagement survey"
+          receivedCommits={10}
+          status="OPEN"
+          statusBadgeColor="secondary"
+          targetCommits={100}
+          theme="purple"
+        />
+      </Component>
+    </u>
+  </i>
+</Mi>
+`;
