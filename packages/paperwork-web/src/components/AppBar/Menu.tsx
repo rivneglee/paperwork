@@ -17,25 +17,33 @@ const Menu: FunctionComponent<Props> = ({ activeMenuId }) => (
         Datasource
       </Link>
     </MenuWidget.Item>
-    <MenuWidget.Group id="template" icon={<Icons.Template/>} label="Template">
+    <MenuWidget.Item
+      id="templates"
+      icon={<Icons.Template/>}
+      active={activeMenuId === 'templates'}
+    >
+      <Link to="/templates">
+        Templates
+      </Link>
+    </MenuWidget.Item>
+    <MenuWidget.Group id="form" icon={<Icons.Form/>} label="Form">
       <MenuWidget.Item
-        id="public-templates"
-        active={activeMenuId === 'public-templates'}
+        id="forms"
+        active={activeMenuId === 'forms'}
       >
-        <Link to="/public-templates">
-          Public templates
+        <Link to="/forms">
+          My forms
         </Link>
       </MenuWidget.Item>
       <MenuWidget.Item
-        id="templates"
-        active={activeMenuId === 'templates'}
+        id="commits"
+        active={activeMenuId === 'commits'}
       >
-        <Link to="/templates">
-          My templates
+        <Link to="/commits">
+          My commits
         </Link>
       </MenuWidget.Item>
     </MenuWidget.Group>
-    <MenuWidget.Item id="form" active={activeMenuId === 'form'} icon={<Icons.Form/>}>Form</MenuWidget.Item>
     <MenuWidget.Item id="report" active={activeMenuId === 'report'} icon={<Icons.Chart/>}>Report</MenuWidget.Item>
   </MenuWidget>
 );

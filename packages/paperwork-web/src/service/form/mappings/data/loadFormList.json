@@ -1,0 +1,66 @@
+{
+  "entries": [
+    {
+      "id": "1",
+      "name": "Employee engagement survey",
+      "author": {
+        "id": "1",
+        "displayName": "LI,CHENG"
+      },
+      "theme": "purple",
+      "scope": "public",
+      "status": "open",
+      "receivedCommits": 10,
+      "targetCommits": 100,
+      "maxCommits": 250,
+      "closeDate": "30/07/2020"
+    },
+    {
+      "id": "2",
+      "name": "Feedback collection",
+      "author": {
+        "id": "1",
+        "displayName": "LI,CHENG"
+      },
+      "theme": "pink",
+      "scope": "private",
+      "status": "open",
+      "receivedCommits": 10,
+      "targetCommits": 100
+    },
+    {
+      "id": "3",
+      "name": "Child support program application form",
+      "author": {
+        "id": "1",
+        "displayName": "LI,CHENG"
+      },
+      "theme": "green",
+      "scope": "private",
+      "status": "closed",
+      "receivedCommits": 10,
+      "targetCommits": 100,
+      "maxCommits": 250,
+      "closeDate": "30/07/2020"
+    },
+    {
+      "id": "4",
+      "name": "Childcare subsidy application",
+      "author": {
+        "id": "1",
+        "displayName": "LI,CHENG"
+      },
+      "theme": "blue",
+      "scope": "private",
+      "status": "closed",
+      "receivedCommits": 10,
+      "targetCommits": 100,
+      "maxCommits": 250,
+      "closeDate": "30/07/2020"
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "total": 3
+  }
+}
