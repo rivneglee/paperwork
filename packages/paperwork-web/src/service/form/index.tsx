@@ -6,3 +6,4 @@ import * as mappings from './mappings';
 export const ListProvider = withIntegration(List, mappings);
 export const DetailProvider = withIntegration(Detail, mappings);
 export * from './ListProvider';
+export * from './DetailProvider';
