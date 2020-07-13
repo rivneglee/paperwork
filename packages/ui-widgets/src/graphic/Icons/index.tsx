@@ -26,6 +26,7 @@ import Trash from './Trash';
 import Save from './Save';
 import Delete from './Delete';
 import Cancel from './Cancel';
+import Calendar from './Calendar';
 import Duplicate from './Duplicate';
 import Confirm from './Confirm';
 import Error from './Error';
@@ -114,4 +115,5 @@ export default {
   Dashboard,
   Target,
   Timer,
+  Calendar,
 };
