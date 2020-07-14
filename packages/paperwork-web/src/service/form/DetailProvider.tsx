@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react';
 import { Integration } from '../../integration';
 import { FormDetail } from '../../schema/Form';
 import { LOAD_FORM_DETAIL, CREATE_FORM, UPDATE_FORM, DELETE_FORM } from './intents';
+import { getWriteRequestPayload } from './selectors';
 
 export interface DetailProviderState {
   form?: FormDetail;
@@ -55,7 +56,7 @@ export default class extends React.Component<Props> {
         userId,
         formId,
       },
-      content: form,
+      content: getWriteRequestPayload(form),
     });
     this.setState({
       form,
@@ -71,7 +72,7 @@ export default class extends React.Component<Props> {
       urlParams: {
         userId,
       },
-      content: form,
+      content: getWriteRequestPayload(form),
     });
     this.setState({
       form,
