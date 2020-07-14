@@ -52,6 +52,8 @@ describe('FormListPage', () => {
             targetCommits: 100,
             createdAt: '30/06/2020',
             theme: 'purple',
+            maxGap: 0,
+            targetGap: 0,
           },
         ]} filterOptions={filterOptions}
       />,

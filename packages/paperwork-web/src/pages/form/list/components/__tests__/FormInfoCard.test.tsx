@@ -17,6 +17,8 @@ describe('FormInfoCard', () => {
         targetCommits="--"
         maxCommits="--"
         receivedCommits={10}
+        targetGap={10}
+        maxGap={100}
       />,
     );
     expect(toJson(wrapper)).toMatchSnapshot();
@@ -33,6 +35,26 @@ describe('FormInfoCard', () => {
         targetCommits="--"
         maxCommits="--"
         receivedCommits={10}
+        targetGap={10}
+        maxGap={100}
+      />,
+    );
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
+  it('should not render progress chart', () => {
+    const wrapper: ShallowWrapper = shallow(
+      <FormInfoCard
+        id="1"
+        name="Form"
+        status="open"
+        isPublic={false}
+        createdAt="30/06/2020"
+        closeDate="--"
+        targetCommits="--"
+        maxCommits="--"
+        receivedCommits={10}
+        targetGap={0}
+        maxGap={0}
       />,
     );
     expect(toJson(wrapper)).toMatchSnapshot();

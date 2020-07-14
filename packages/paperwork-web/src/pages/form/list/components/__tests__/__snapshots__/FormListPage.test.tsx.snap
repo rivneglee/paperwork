@@ -94,11 +94,13 @@ exports[`FormListPage should render when result is not empty 1`] = `
           id="1"
           isPublic={true}
           maxCommits={250}
+          maxGap={0}
           name="Employee engagement survey"
           receivedCommits={10}
           status="OPEN"
           statusBadgeColor="secondary"
           targetCommits={100}
+          targetGap={0}
           theme="purple"
         />
       </Component>
