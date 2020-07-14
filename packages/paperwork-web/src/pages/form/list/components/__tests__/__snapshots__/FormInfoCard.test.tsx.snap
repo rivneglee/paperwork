@@ -25,9 +25,9 @@ exports[`FormInfoCard should not render public badge 1`] = `
             Form
           </p>
           30/06/2020
-          <z>
+          <F>
             open
-          </z>
+          </F>
         </div>
         <div
           className="pwapp-form-card__face__stats"
@@ -124,14 +124,14 @@ exports[`FormInfoCard should render public badge 1`] = `
             Form
           </p>
           30/06/2020
-          <z>
+          <F>
             open
-          </z>
-          <z
+          </F>
+          <F
             color="primary"
           >
             PUBLIC
-          </z>
+          </F>
         </div>
         <div
           className="pwapp-form-card__face__stats"
