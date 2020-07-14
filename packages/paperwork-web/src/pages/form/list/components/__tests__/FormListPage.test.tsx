@@ -9,9 +9,13 @@ describe('FormListPage', () => {
   const onApplyFilter = jest.fn();
   const onFilterChange = jest.fn();
   const onLoadNextPage = jest.fn();
+  const onCreateNew = jest.fn();
+  const onEdit = jest.fn();
   it('should render when result is empty', () => {
     const wrapper: ShallowWrapper = shallow(
       <FormListPage
+        onCreateNew={onCreateNew}
+        onEdit={onEdit}
         onLoadNextPage={onLoadNextPage}
         onApplyFilter={onApplyFilter}
         onFilterChange={onFilterChange}
@@ -30,6 +34,8 @@ describe('FormListPage', () => {
         onLoadNextPage={onLoadNextPage}
         onApplyFilter={onApplyFilter}
         onFilterChange={onFilterChange}
+        onCreateNew={onCreateNew}
+        onEdit={onEdit}
         page={0}
         total={10}
         isProcessing={false}
@@ -46,6 +52,8 @@ describe('FormListPage', () => {
             targetCommits: 100,
             createdAt: '30/06/2020',
             theme: 'purple',
+            maxGap: 0,
+            targetGap: 0,
           },
         ]} filterOptions={filterOptions}
       />,

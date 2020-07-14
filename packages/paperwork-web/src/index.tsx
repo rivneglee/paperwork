@@ -14,6 +14,7 @@ import DataSourceDetailPage from './pages/dataSource/detail';
 import TemplateListPage from './pages/template/list';
 import TemplateDetailPage from './pages/template/detail';
 import FormListPage from './pages/form/list';
+import FormDetailPage from './pages/form/detail';
 import SignInPage from './pages/signIn';
 import { PageNotFound } from './pages/error';
 
@@ -32,6 +33,7 @@ ReactDOM.render(
           <Route exact component={withAuthValidation(TemplateListPage)} path="/templates"/>
           <Route exact component={withAuthValidation(TemplateDetailPage)} path="/templates/:templateId"/>
           <Route exact component={withAuthValidation(FormListPage)} path="/forms"/>
+          <Route exact component={withAuthValidation(FormDetailPage)} path="/forms/:formId"/>
           <Route component={PageNotFound}/>
         </Switch>
       </ConnectedRouter>

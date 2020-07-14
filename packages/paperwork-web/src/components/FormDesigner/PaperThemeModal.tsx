@@ -27,7 +27,7 @@ const themeColors = [
 
 const PaperThemeModal: FunctionComponent<Props> = ({ onClose, onChoseColor, onChangeImage }) => {
   const handleClick = (index: number) => {
-    onChangeImage(`header${index}`);
+    onChangeImage(`header${index + 1}`);
   };
   return (
     <HeaderImagesProvider>

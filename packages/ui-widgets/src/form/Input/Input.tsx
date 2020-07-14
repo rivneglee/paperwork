@@ -15,6 +15,7 @@ interface Props {
   onChange?: (e: SyntheticEvent) => void;
   onBlur?: (e: SyntheticEvent) => void;
   onKeyDown?: (e: SyntheticEvent) => void;
+  onFocus?: (e: SyntheticEvent) => void;
   size?: 'xs' | 's' | 'm' | 'l' | 'xl';
   placeholder?: string;
   options?: object;
@@ -29,9 +30,13 @@ class Input extends React.Component<Props> {
     hasFocus: false,
   };
 
-  private onInputFocus = () => this.setState({
-    hasFocus: true,
-  })
+  private onInputFocus = (e: SyntheticEvent) => {
+    const { onFocus } = this.props;
+    this.setState({
+      hasFocus: true,
+    });
+    onFocus && onFocus(e);
+  }
 
   private onInputBlur = (e: SyntheticEvent) => {
     const { onBlur } = this.props;

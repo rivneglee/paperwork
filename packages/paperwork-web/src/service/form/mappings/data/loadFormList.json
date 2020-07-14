@@ -25,8 +25,7 @@
       "theme": "pink",
       "scope": "private",
       "status": "open",
-      "receivedCommits": 10,
-      "targetCommits": 100
+      "receivedCommits": 10
     },
     {
       "id": "3",
@@ -38,9 +37,9 @@
       "theme": "amber",
       "scope": "private",
       "status": "closed",
-      "receivedCommits": 10,
-      "targetCommits": 100,
-      "maxCommits": 250,
+      "receivedCommits": 30,
+      "targetCommits": 60,
+      "maxCommits": 100,
       "closeDate": "30/07/2020"
     },
     {
@@ -55,7 +54,6 @@
       "status": "closed",
       "receivedCommits": 10,
       "targetCommits": 100,
-      "maxCommits": 250,
       "closeDate": "30/07/2020"
     }
   ],

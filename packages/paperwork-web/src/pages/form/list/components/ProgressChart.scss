@@ -1,0 +1,11 @@
+.pwapp-form-progress {
+  display: none;
+  @media screen and (min-width: 770px) {
+    display: inline-block;
+  }
+
+  &__rate {
+    fill: #555A5F;
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,12 @@
+.pwapp-template-detail-page {
+  .pwapp-designer, .pw-template__content {
+    padding: 0;
+    margin-bottom: 0;
+  }
+}
+
+.pwapp-form-settings {
+  @media (min-width: 768px) {
+    width: 300px;
+  }
+}

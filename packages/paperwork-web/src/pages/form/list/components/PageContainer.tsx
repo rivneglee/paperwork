@@ -7,6 +7,7 @@ import { getAuthentication } from '../../../../store/selectors';
 import { ListProvider, ListProviderState } from '../../../../service/form';
 import { getEntries, getPagination, getFilterOptions } from '../state/selectors';
 import { createLoadFormListAction, createUpdateFilterOptionAction } from '../state/actions';
+import { push } from 'connected-react-router';
 
 const mapStateToViewProps = (state: StoreState) => ({
   entries: getEntries(state),
@@ -41,12 +42,17 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
         dispatch(createLoadFormListAction(filterResults));
       };
 
+      const onEdit = (id: string) => dispatch(push(`/forms/${id}`));
+      const onCreateNew = () => dispatch(push('/forms/new'));
+
       return (
         <PageView
           isProcessing={isProcessing}
           onLoadNextPage={onLoadNextPage}
           onFilterChange={onFilterChange}
           onApplyFilter={onApplyFilter}
+          onEdit={onEdit}
+          onCreateNew={onCreateNew}
         />);
     }}
   </ListProvider>

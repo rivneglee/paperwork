@@ -1,36 +1,32 @@
 .pwapp-form-card {
   position: relative;
-  min-width: 210px;
-  min-height: 190px;
   height: auto;
   width: 100%;
   box-shadow: 0 1px 2px 0 rgba(46,62,79,0.1);
-
-  @media screen and (min-width: 520px) {
-    min-height: 160px;
+  display: flex;
+  &:hover {
+    box-shadow: 0 26px 56px 0 #0000005e
   }
 
   &__part {
-    width: 100%;
-    height: 100%;
-
+    flex-grow: 1;
     &__side {
-      position: absolute;
+      position: relative;
       left: 0;
       top: 0;
-      width: 100%;
-      height: 100%;
       background: transparent;
     }
 
     &__inner {
       overflow: hidden;
       position: relative;
-      height: 100%;
       cursor: pointer;
       transition: box-shadow 0.5s;
-      &:hover {
-        box-shadow: 0 26px 56px 0 #0000005e
+      min-height: 190px;
+      max-width: 250px;
+      @media screen and (min-width: 770px) {
+        min-height: 160px;
+        max-width: 100%;
       }
     }
   }

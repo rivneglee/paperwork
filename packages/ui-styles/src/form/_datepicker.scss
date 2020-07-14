@@ -1,0 +1,17 @@
+.pw-datepicker {
+  .DayPicker {
+    z-index: 9;
+    background-color: white;
+    position: absolute;
+    border: 1px solid $pw-palette-storm-28;
+    border-radius: 4px;
+  }
+  .DayPicker-Day--highlighted {
+    background-color: $pw-palette-dusk-100;
+    color: white;
+    &:hover {
+      background-color: $pw-palette-dusk-120 !important;
+    }
+  }
+  width: 12rem;
+}

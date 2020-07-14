@@ -1,6 +1,6 @@
 import { User } from './User';
 import { Pagination } from './Pagination';
-import { Paper } from './Paper';
+import { Paper, PaperAppearance } from './Paper';
 
 export enum Status {
   OPEN = 'open', CLOSED = 'closed',
@@ -25,3 +25,5 @@ export interface FormList {
   entries: Form[];
   pagination: Pagination;
 }
+
+export type FormDetail = PaperAppearance & Form;
