@@ -25,6 +25,8 @@ interface Props {
   onFilterChange: (option: FilterOption) => void;
   filterOptions: FilterOptions;
   isProcessing?: boolean;
+  onEdit: (id: string) => void;
+  onCreateNew: () => void;
 }
 
 export interface FilterOption {
@@ -42,6 +44,8 @@ const FormListPage: FunctionComponent<Props> = ({
   entries,
   onLoadNextPage,
   onApplyFilter,
+  onEdit,
+  onCreateNew,
   onFilterChange,
   filterOptions,
   page,
@@ -66,7 +70,7 @@ const FormListPage: FunctionComponent<Props> = ({
           onApply={() => onApplyFilter(filterOptions)}
         />
         <QuickAdd color="secondary">
-          <QuickAdd.Item onClick={() => {}} icon={<Icons.Form/>} tooltip="Create an empty form"/>
+          <QuickAdd.Item onClick={onCreateNew} icon={<Icons.Form/>} tooltip="Create an empty form"/>
         </QuickAdd>
       </StickySideBar>
       {
@@ -83,7 +87,7 @@ const FormListPage: FunctionComponent<Props> = ({
           <List>
             {
               entries.map(entry => (
-                <List.Item key={entry.id}>
+                <List.Item key={entry.id} onClick={() => onEdit(entry.id)}>
                   <FormInfoCard {...entry} />
                 </List.Item>
               ))

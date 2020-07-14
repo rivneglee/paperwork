@@ -86,6 +86,7 @@ exports[`FormListPage should render when result is not empty 1`] = `
     <u>
       <Component
         key="1"
+        onClick={[Function]}
       >
         <FormInfoCard
           closeDate="30/07/2020"
