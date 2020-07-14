@@ -4,3 +4,9 @@
     margin-bottom: 0;
   }
 }
+
+.pwapp-form-settings {
+  @media (min-width: 768px) {
+    width: 300px;
+  }
+}

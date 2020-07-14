@@ -1,5 +1,15 @@
 import React, { FunctionComponent, useState } from 'react';
-import { BaseTemplate, FormMode, FormThemeColors, IconButton, Icons } from '@paperwork/ui-widgets';
+import {
+  BaseTemplate,
+  DatePicker,
+  Drawer,
+  FormMode,
+  FormThemeColors,
+  IconButton,
+  Icons,
+  Input,
+  Scrollable,
+} from '@paperwork/ui-widgets';
 
 import AppBar from '../../../../components/AppBar';
 
@@ -32,6 +42,7 @@ const FormDetailPage: FunctionComponent<Props> = ({
   onSave,
 }) => {
   const [modalType, setModalType] = useState('');
+  const [showDrawer, setShowDrawer] = useState(false);
   const [mode, setMode] = useState(FormMode.DESIGN);
 
   const onCloseModal = () => setModalType('');
@@ -48,8 +59,19 @@ const FormDetailPage: FunctionComponent<Props> = ({
 
   const onClickTheme = () => setModalType('theme');
 
+  const onOpenDrawer = () => setShowDrawer(true);
+
+  const onCloseDrawer = () => setShowDrawer(false);
+
   const onClickSave = async () => {
     onSave(form);
+  };
+
+  const onUpdateSettings = (key: string, value: any) => {
+    onUpdate({
+      ...form,
+      [key]: value,
+    });
   };
 
   const onChoseThemeColor = (theme: FormThemeColors) => {
@@ -70,6 +92,7 @@ const FormDetailPage: FunctionComponent<Props> = ({
     <>
       <IconButton onClick={onClickCancel}><Icons.Cancel/></IconButton>
       <IconButton onClick={onClickSave}><Icons.Save/></IconButton>
+      <IconButton onClick={onOpenDrawer}><Icons.Settings/></IconButton>
       <IconButton onClick={() => setMode(FormMode.EDIT)}><Icons.Preview/></IconButton>
       <IconButton onClick={onClickTheme}><Icons.Theme/></IconButton>
       {
@@ -140,6 +163,43 @@ const FormDetailPage: FunctionComponent<Props> = ({
           />
         )
       }
+      <Drawer
+        placement="right"
+        header={<h3>Form Settings</h3>}
+        isShow={showDrawer}
+        onClose={onCloseDrawer}
+      >
+        <Scrollable className="pwapp-form-settings">
+          <DatePicker
+            label="Close date"
+            labelPlacement="top"
+            value={form.closeDate}
+            onChange={(date: string) => onUpdateSettings('closeDate', date)}
+          />
+          <Input
+            size="xs"
+            label="Target commits"
+            labelPlacement="top"
+            value={form.targetCommits}
+            options={{
+              numeral: true,
+              numeralThousandsGroupStyle: 'thousand',
+            }}
+            onChange={(e: any) => onUpdateSettings('targetCommits', e.target.value)}
+          />
+          <Input
+            size="xs"
+            label="Max commits"
+            labelPlacement="top"
+            value={form.maxCommits}
+            options={{
+              numeral: true,
+              numeralThousandsGroupStyle: 'thousand',
+            }}
+            onChange={(e: any) => onUpdateSettings('maxCommits', e.target.value)}
+          />
+        </Scrollable>
+      </Drawer>
     </BaseTemplate>
   );
 };
