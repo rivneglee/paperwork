@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import { BaseTemplate } from '@paperwork/ui-widgets';
 
 import './TemplateDetailPage.scss';
 import { TemplateDetail } from '../../../../schema/Template';
@@ -14,23 +13,21 @@ interface Props {
 const Preview: FunctionComponent<Props> = ({
   template,
 }) => (
-  <BaseTemplate>
-    <HeaderImagesProvider>
-      {
-        ({ getImageByKey }) => (
-          <FormEditor
-            {...template}
-            headerImage={getImageByKey(template.headerImage)}
-            itemMetadataMap={{
-              ...getInputMap(),
-              ...getButtonMap(),
-            }}
-            layoutComponentMap={getLayoutMap()}
-          />
-        )
-      }
-    </HeaderImagesProvider>
-  </BaseTemplate>
+  <HeaderImagesProvider>
+    {
+      ({ getImageByKey }) => (
+        <FormEditor
+          {...template}
+          headerImage={getImageByKey(template.headerImage)}
+          itemMetadataMap={{
+            ...getInputMap(),
+            ...getButtonMap(),
+          }}
+          layoutComponentMap={getLayoutMap()}
+        />
+      )
+    }
+  </HeaderImagesProvider>
 );
 
 export default Preview;

@@ -1,10 +1,8 @@
 {
   "id": "1",
   "name": "Childcare Center Application form",
-  "author": {
-    "id": "1",
-    "displayName": "LI,CHENG"
-  },
+  "sourceFormId": "1",
+  "values": {},
   "layout": [
     {
       "id": "page",
@@ -286,15 +284,5 @@
       "label": "Submit Application"
     }
   },
-  "headerImage": "header3",
-  "scope": "public",
-  "status": "open",
-  "receivedCommits": 10,
-  "targetCommits": 100,
-  "maxCommits": 250,
-  "closeDate": "2020/07/30",
-  "succeedMessage": {
-    "title": "You have submitted form",
-    "subTitle": "Please allow up to 5 days to hear back from our team"
-  }
+  "headerImage": "header3"
 }

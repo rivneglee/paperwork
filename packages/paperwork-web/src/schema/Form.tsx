@@ -26,4 +26,11 @@ export interface FormList {
   pagination: Pagination;
 }
 
-export type FormDetail = PaperAppearance & Form;
+export type FormDetail = PaperAppearance & Form & {
+  succeedMessage: SucceedMessage;
+};
+
+export interface SucceedMessage {
+  title?: string;
+  subTitle?: string;
+}

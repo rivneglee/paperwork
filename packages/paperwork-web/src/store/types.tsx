@@ -7,6 +7,7 @@ import { TemplateListPageState } from '../pages/template/list/state/reducers';
 import { TemplateDetailPageState } from '../pages/template/detail/state/reducers';
 import { FormListPageState } from '../pages/form/list/state/reducers';
 import { FormDetailPageState } from '../pages/form/detail/state/reducers';
+import { CommitDetailPageState } from '../pages/commit/detail/state/reducers';
 
 export type PageState = {
   dataSourceList: DataSourceListPageState;
@@ -15,6 +16,7 @@ export type PageState = {
   templateDetail: TemplateDetailPageState;
   formList: FormListPageState;
   formDetail: FormDetailPageState;
+  commitDetail: CommitDetailPageState;
 };
 
 export interface StoreState {

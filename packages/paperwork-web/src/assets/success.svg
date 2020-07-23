@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="220px" height="204px" viewBox="0 0 220 204" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>success</title>
+    <g id="success" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="success-state" transform="translate(32.000000, 42.000000)">
+            <circle id="Oval" fill="#26B77C" fill-rule="nonzero" cx="78" cy="80" r="42"></circle>
+            <polyline id="Path-2" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" points="61 80.0919604 73.8951416 93.1819458 99.0770874 68"></polyline>
+            <polygon id="Path" stroke="#8241AA" stroke-width="0.46" fill="#8241AA" fill-rule="nonzero" stroke-linecap="round" stroke-linejoin="round" points="8.32 56.78 4.66 60.07 4.27 55.17 -8.70414851e-14 52.7 4.55 50.81 5.58 46 8.78 49.74 13.68 49.22 11.11 53.42 13.11 57.92"></polygon>
+            <polygon id="Path" stroke="#8241AA" stroke-width="0.46" fill="#8241AA" fill-rule="nonzero" stroke-linecap="round" stroke-linejoin="round" points="155.01 98.44 152 98.83 153.52 96.2 152.21 93.45 155.19 94.09 157.4 92 157.72 95.02 160.39 96.48 157.61 97.71 157.05 100.7"></polygon>
+            <polygon id="Path" fill="#C0C5CA" fill-rule="nonzero" points="148.47 38.72 145.54 39.53 146.68 36.71 145 34.17 148.04 34.38 149.93 32 150.67 34.96 153.52 36.02 150.94 37.64 150.8 40.67"></polygon>
+            <circle id="Oval" stroke="#8241AA" stroke-width="0.46" fill="#8241AA" fill-rule="nonzero" stroke-linecap="round" stroke-linejoin="round" cx="96.11" cy="5.11" r="5.11"></circle>
+            <circle id="Oval" fill="#C0C5CA" fill-rule="nonzero" cx="21.11" cy="144.11" r="5.11"></circle>
+            <circle id="Oval" fill="#C0C5CA" fill-rule="nonzero" cx="26.22" cy="33.22" r="3.22"></circle>
+            <circle id="Oval" stroke="#8241AA" stroke-width="0.46" fill="#8241AA" fill-rule="nonzero" stroke-linecap="round" stroke-linejoin="round" cx="112.22" cy="141.22" r="3.22"></circle>
+            <circle id="Oval" fill="#C0C5CA" fill-rule="nonzero" cx="159.22" cy="136.22" r="3.22"></circle>
+        </g>
+    </g>
+</svg>
