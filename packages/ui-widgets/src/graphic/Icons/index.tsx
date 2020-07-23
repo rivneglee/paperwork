@@ -56,6 +56,11 @@ import Submit from './Submit';
 import Dashboard from './Dashboard';
 import Target from './Target';
 import Timer from './Timer';
+import WeChat from './WeChat';
+import Facebook from './Facebook';
+import Twitter from './Twitter';
+import LinkedIn from './LinkedIn';
+import WeBlog from './WeBlog';
 
 export default {
   Add,
@@ -116,4 +121,9 @@ export default {
   Target,
   Timer,
   Calendar,
+  WeChat,
+  LinkedIn,
+  Facebook,
+  Twitter,
+  WeBlog,
 };

@@ -2,6 +2,7 @@ import { createSelector } from 'reselect';
 
 import { FormDetailPageState } from './reducers';
 import { getPageSection } from '../../../../store/selectors';
+import { Scope } from '../../../../schema/Form';
 
 const getPage = createSelector(
   getPageSection,
@@ -16,4 +17,9 @@ export const getFormDetail = createSelector(
 export const getIsPageEdited = createSelector(
   getPage,
   page => page.isPageEdited,
+);
+
+export const getIsPublic = createSelector(
+  getFormDetail,
+  form => form.scope === Scope.PUBLIC,
 );

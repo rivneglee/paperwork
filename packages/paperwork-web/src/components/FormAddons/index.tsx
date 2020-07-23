@@ -28,6 +28,6 @@ export const getLayoutMap = () => ({
   [LayoutItemTypes.HORIZONTAL_LIST]: HorizontalList,
 });
 
-export const getButtonMap = () => ({
-  [ButtonItemTypes.SUBMIT]: { ...submitButton, defaultProps: { label: 'Submit' } },
+export const getButtonMap = (commonProps: object = {}) => ({
+  [ButtonItemTypes.SUBMIT]: { ...submitButton, defaultProps: { label: 'Submit', ...commonProps } },
 });

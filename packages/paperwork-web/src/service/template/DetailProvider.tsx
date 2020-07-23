@@ -29,22 +29,6 @@ export default class extends React.Component<Props> {
     template: undefined,
   };
 
-  private cleanValues = (template: TemplateDetail) => {
-    const { items } = template;
-    const newItems = Object.values(items).reduce((acc, current) => {
-      const newItem = { ...current };
-      delete newItem['value'];
-      return {
-        ...acc,
-        [current.id]: newItem,
-      };
-    }, {});
-    return {
-      ...template,
-      items: newItems,
-    };
-  }
-
   private load = async () => {
     const { templateId, userId } = this.props;
     const { integration } = this.props;
@@ -64,12 +48,11 @@ export default class extends React.Component<Props> {
 
   private loadThumbnail = async (template: TemplateDetail) => {
     const { integration } = this.props;
-    const clearTemplate = this.cleanValues(template);
     const payload = await integration.send({
       intent: LOAD_THUMBNAIL,
       method: 'POST',
       content: {
-        template: clearTemplate,
+        template,
       },
     });
     return payload.dataUri;
@@ -77,7 +60,6 @@ export default class extends React.Component<Props> {
 
   private update = async (template: TemplateDetail) => {
     const { templateId, userId, integration } = this.props;
-    const clearTemplate = this.cleanValues(template);
     const thumbnail = await this.loadThumbnail(template);
     await integration.send({
       intent: UPDATE_TEMPLATE,
@@ -88,18 +70,17 @@ export default class extends React.Component<Props> {
       },
       content: {
         thumbnail,
-        template: clearTemplate,
+        template,
       },
     });
     this.setState({
-      template: clearTemplate,
+      template,
     });
   }
 
   private create = async (template: TemplateDetail) => {
     const { userId } = this.props;
     const { integration } = this.props;
-    const clearTemplate = this.cleanValues(template);
     const thumbnail = await this.loadThumbnail(template);
     await integration.send({
       intent: CREATE_TEMPLATE,
@@ -109,11 +90,11 @@ export default class extends React.Component<Props> {
       },
       content: {
         thumbnail,
-        template: clearTemplate,
+        template,
       },
     });
     this.setState({
-      template: clearTemplate,
+      template,
     });
   }
 

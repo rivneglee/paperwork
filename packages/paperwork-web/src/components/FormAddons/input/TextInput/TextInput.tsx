@@ -9,6 +9,11 @@ interface Props extends Item {
 
 const TextInput: FunctionComponent<Props> = ({ onChange, id, mode, label, isRequired, labelPlacement, value, ...item }) => {
   const [inputValue, setInputValue] = useState(value);
+  const handleChange = () => {
+    if (mode === FormMode.EDIT) {
+      onChange(inputValue);
+    }
+  };
   return (
     <LabelAccessor label={label} labelPlacement={labelPlacement} isRequired={isRequired}>
       {
@@ -21,8 +26,7 @@ const TextInput: FunctionComponent<Props> = ({ onChange, id, mode, label, isRequ
             value={inputValue}
             {...item}
             onChange={(e: any) => setInputValue(e.target.value)}
-            readOnly={mode !== FormMode.EDIT}
-            onBlur={() => onChange(inputValue)}
+            onBlur={handleChange}
           />
         )
       }
