@@ -61,6 +61,10 @@ import Facebook from './Facebook';
 import Twitter from './Twitter';
 import LinkedIn from './LinkedIn';
 import WeBlog from './WeBlog';
+import Share from './Share';
+import Archive from './Archive';
+import Commit from './Commit';
+import QRCode from './QRCode';
 
 export default {
   Add,
@@ -126,4 +130,8 @@ export default {
   Facebook,
   Twitter,
   WeBlog,
+  Share,
+  Archive,
+  Commit,
+  QRCode,
 };

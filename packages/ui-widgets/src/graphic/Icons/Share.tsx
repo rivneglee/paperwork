@@ -1,8 +1,8 @@
 /* tslint:disable:max-line-length */
 import * as React from 'react';
 
-export default (props: { className?: string }) => (
-  <svg {...props} viewBox="0 0 1070 1024">
+export default ({ className = '' }: { className?: string }) => (
+  <svg className={`pw-icon ${className}`} viewBox="0 0 1070 1024">
     <path
       d="M470.703954 523.479821c0 128.573991-105.61435 234.188341-234.18834 234.18834S2.327273 652.053812 2.327273 523.479821s105.61435-234.188341 234.188341-234.188341 234.188341 105.61435 234.18834 234.188341z"></path>
     <path
