@@ -17,81 +17,127 @@ exports[`FormInfoCard should not render progress chart 1`] = `
           className="pwapp-form-card__face__colored-side"
         />
         <div
-          className="pwapp-form-card__face__heading"
+          onClick={[Function]}
         >
-          <p
-            className="pwapp-form-card__face__title"
+          <div
+            className="pwapp-form-card__face__heading"
           >
-            Form
-          </p>
-          30/06/2020
-          <F>
-            open
-          </F>
+            <p
+              className="pwapp-form-card__face__title"
+            >
+              Form
+            </p>
+            30/06/2020
+            <F>
+              open
+            </F>
+          </div>
+          <div
+            className="pwapp-form-card__face__stats"
+          >
+            <div
+              className="pwapp-form-card__face__data"
+            >
+              <div
+                className="pwapp-form-card__face__data-heading"
+              >
+                <Submit
+                  className="pwapp-form-card__face__icon"
+                />
+                Commits
+              </div>
+              <p>
+                10
+              </p>
+            </div>
+            <div
+              className="pwapp-form-card__face__data"
+            >
+              <div
+                className="pwapp-form-card__face__data-heading"
+              >
+                <Target
+                  className="pwapp-form-card__face__icon"
+                />
+                Target
+              </div>
+              <p>
+                --
+              </p>
+            </div>
+            <div
+              className="pwapp-form-card__face__data"
+            >
+              <div
+                className="pwapp-form-card__face__data-heading"
+              >
+                <Dashboard
+                  className="pwapp-form-card__face__icon"
+                />
+                MAX
+              </div>
+              <p>
+                --
+              </p>
+            </div>
+            <div
+              className="pwapp-form-card__face__data"
+            >
+              <div
+                className="pwapp-form-card__face__data-heading"
+              >
+                <Timer
+                  className="pwapp-form-card__face__icon"
+                />
+                Close date
+              </div>
+              <p>
+                --
+              </p>
+            </div>
+          </div>
         </div>
         <div
-          className="pwapp-form-card__face__stats"
+          className="pwapp-form-card__buttons"
         >
-          <div
-            className="pwapp-form-card__face__data"
+          <Component
+            content="Open form viewer"
+            placement="top"
           >
-            <div
-              className="pwapp-form-card__face__data-heading"
+            <p
+              onClick={[Function]}
             >
-              <Submit
-                className="pwapp-form-card__face__icon"
-              />
-              Commits
-            </div>
-            <p>
-              10
+              <Link />
             </p>
-          </div>
-          <div
-            className="pwapp-form-card__face__data"
+          </Component>
+          <Component
+            content={
+              <Unknown
+                url="/foo"
+              />
+            }
+            placement="top"
           >
-            <div
-              className="pwapp-form-card__face__data-heading"
-            >
-              <Target
-                className="pwapp-form-card__face__icon"
-              />
-              Target
-            </div>
             <p>
-              --
+              <QRCode />
             </p>
-          </div>
-          <div
-            className="pwapp-form-card__face__data"
+          </Component>
+          <Component
+            content="Commits"
+            placement="top"
           >
-            <div
-              className="pwapp-form-card__face__data-heading"
-            >
-              <Dashboard
-                className="pwapp-form-card__face__icon"
-              />
-              MAX
-            </div>
             <p>
-              --
+              <Commit />
             </p>
-          </div>
-          <div
-            className="pwapp-form-card__face__data"
+          </Component>
+          <Component
+            content="Close from"
+            placement="top"
           >
-            <div
-              className="pwapp-form-card__face__data-heading"
-            >
-              <Timer
-                className="pwapp-form-card__face__icon"
-              />
-              Close date
-            </div>
             <p>
-              --
+              <Archive />
             </p>
-          </div>
+          </Component>
         </div>
       </div>
     </div>
@@ -116,81 +162,127 @@ exports[`FormInfoCard should not render public badge 1`] = `
           className="pwapp-form-card__face__colored-side"
         />
         <div
-          className="pwapp-form-card__face__heading"
+          onClick={[Function]}
         >
-          <p
-            className="pwapp-form-card__face__title"
+          <div
+            className="pwapp-form-card__face__heading"
           >
-            Form
-          </p>
-          30/06/2020
-          <F>
-            open
-          </F>
+            <p
+              className="pwapp-form-card__face__title"
+            >
+              Form
+            </p>
+            30/06/2020
+            <F>
+              open
+            </F>
+          </div>
+          <div
+            className="pwapp-form-card__face__stats"
+          >
+            <div
+              className="pwapp-form-card__face__data"
+            >
+              <div
+                className="pwapp-form-card__face__data-heading"
+              >
+                <Submit
+                  className="pwapp-form-card__face__icon"
+                />
+                Commits
+              </div>
+              <p>
+                10
+              </p>
+            </div>
+            <div
+              className="pwapp-form-card__face__data"
+            >
+              <div
+                className="pwapp-form-card__face__data-heading"
+              >
+                <Target
+                  className="pwapp-form-card__face__icon"
+                />
+                Target
+              </div>
+              <p>
+                --
+              </p>
+            </div>
+            <div
+              className="pwapp-form-card__face__data"
+            >
+              <div
+                className="pwapp-form-card__face__data-heading"
+              >
+                <Dashboard
+                  className="pwapp-form-card__face__icon"
+                />
+                MAX
+              </div>
+              <p>
+                --
+              </p>
+            </div>
+            <div
+              className="pwapp-form-card__face__data"
+            >
+              <div
+                className="pwapp-form-card__face__data-heading"
+              >
+                <Timer
+                  className="pwapp-form-card__face__icon"
+                />
+                Close date
+              </div>
+              <p>
+                --
+              </p>
+            </div>
+          </div>
         </div>
         <div
-          className="pwapp-form-card__face__stats"
+          className="pwapp-form-card__buttons"
         >
-          <div
-            className="pwapp-form-card__face__data"
+          <Component
+            content="Open form viewer"
+            placement="top"
           >
-            <div
-              className="pwapp-form-card__face__data-heading"
+            <p
+              onClick={[Function]}
             >
-              <Submit
-                className="pwapp-form-card__face__icon"
-              />
-              Commits
-            </div>
-            <p>
-              10
+              <Link />
             </p>
-          </div>
-          <div
-            className="pwapp-form-card__face__data"
+          </Component>
+          <Component
+            content={
+              <Unknown
+                url="/foo"
+              />
+            }
+            placement="top"
           >
-            <div
-              className="pwapp-form-card__face__data-heading"
-            >
-              <Target
-                className="pwapp-form-card__face__icon"
-              />
-              Target
-            </div>
             <p>
-              --
+              <QRCode />
             </p>
-          </div>
-          <div
-            className="pwapp-form-card__face__data"
+          </Component>
+          <Component
+            content="Commits"
+            placement="top"
           >
-            <div
-              className="pwapp-form-card__face__data-heading"
-            >
-              <Dashboard
-                className="pwapp-form-card__face__icon"
-              />
-              MAX
-            </div>
             <p>
-              --
+              <Commit />
             </p>
-          </div>
-          <div
-            className="pwapp-form-card__face__data"
+          </Component>
+          <Component
+            content="Close from"
+            placement="top"
           >
-            <div
-              className="pwapp-form-card__face__data-heading"
-            >
-              <Timer
-                className="pwapp-form-card__face__icon"
-              />
-              Close date
-            </div>
             <p>
-              --
+              <Archive />
             </p>
-          </div>
+          </Component>
         </div>
       </div>
     </div>
@@ -220,86 +312,132 @@ exports[`FormInfoCard should render public badge 1`] = `
           className="pwapp-form-card__face__colored-side"
         />
         <div
-          className="pwapp-form-card__face__heading"
+          onClick={[Function]}
         >
-          <p
-            className="pwapp-form-card__face__title"
+          <div
+            className="pwapp-form-card__face__heading"
           >
-            Form
-          </p>
-          30/06/2020
-          <F>
-            open
-          </F>
-          <F
-            color="primary"
+            <p
+              className="pwapp-form-card__face__title"
+            >
+              Form
+            </p>
+            30/06/2020
+            <F>
+              open
+            </F>
+            <F
+              color="primary"
+            >
+              PUBLIC
+            </F>
+          </div>
+          <div
+            className="pwapp-form-card__face__stats"
           >
-            PUBLIC
-          </F>
+            <div
+              className="pwapp-form-card__face__data"
+            >
+              <div
+                className="pwapp-form-card__face__data-heading"
+              >
+                <Submit
+                  className="pwapp-form-card__face__icon"
+                />
+                Commits
+              </div>
+              <p>
+                10
+              </p>
+            </div>
+            <div
+              className="pwapp-form-card__face__data"
+            >
+              <div
+                className="pwapp-form-card__face__data-heading"
+              >
+                <Target
+                  className="pwapp-form-card__face__icon"
+                />
+                Target
+              </div>
+              <p>
+                --
+              </p>
+            </div>
+            <div
+              className="pwapp-form-card__face__data"
+            >
+              <div
+                className="pwapp-form-card__face__data-heading"
+              >
+                <Dashboard
+                  className="pwapp-form-card__face__icon"
+                />
+                MAX
+              </div>
+              <p>
+                --
+              </p>
+            </div>
+            <div
+              className="pwapp-form-card__face__data"
+            >
+              <div
+                className="pwapp-form-card__face__data-heading"
+              >
+                <Timer
+                  className="pwapp-form-card__face__icon"
+                />
+                Close date
+              </div>
+              <p>
+                --
+              </p>
+            </div>
+          </div>
         </div>
         <div
-          className="pwapp-form-card__face__stats"
+          className="pwapp-form-card__buttons"
         >
-          <div
-            className="pwapp-form-card__face__data"
+          <Component
+            content="Open form viewer"
+            placement="top"
           >
-            <div
-              className="pwapp-form-card__face__data-heading"
+            <p
+              onClick={[Function]}
             >
-              <Submit
-                className="pwapp-form-card__face__icon"
-              />
-              Commits
-            </div>
-            <p>
-              10
+              <Link />
             </p>
-          </div>
-          <div
-            className="pwapp-form-card__face__data"
+          </Component>
+          <Component
+            content={
+              <Unknown
+                url="/foo"
+              />
+            }
+            placement="top"
           >
-            <div
-              className="pwapp-form-card__face__data-heading"
-            >
-              <Target
-                className="pwapp-form-card__face__icon"
-              />
-              Target
-            </div>
             <p>
-              --
+              <QRCode />
             </p>
-          </div>
-          <div
-            className="pwapp-form-card__face__data"
+          </Component>
+          <Component
+            content="Commits"
+            placement="top"
           >
-            <div
-              className="pwapp-form-card__face__data-heading"
-            >
-              <Dashboard
-                className="pwapp-form-card__face__icon"
-              />
-              MAX
-            </div>
             <p>
-              --
+              <Commit />
             </p>
-          </div>
-          <div
-            className="pwapp-form-card__face__data"
+          </Component>
+          <Component
+            content="Close from"
+            placement="top"
           >
-            <div
-              className="pwapp-form-card__face__data-heading"
-            >
-              <Timer
-                className="pwapp-form-card__face__icon"
-              />
-              Close date
-            </div>
             <p>
-              --
+              <Archive />
             </p>
-          </div>
+          </Component>
         </div>
       </div>
     </div>

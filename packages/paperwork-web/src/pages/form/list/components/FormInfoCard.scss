@@ -20,7 +20,6 @@
     &__inner {
       overflow: hidden;
       position: relative;
-      cursor: pointer;
       transition: box-shadow 0.5s;
       max-width: 250px;
       @media screen and (min-width: 450px) {
@@ -31,7 +30,7 @@
 
   &__face {
     box-sizing: border-box;
-    padding: 20px 10px 15px;
+    padding: 20px 10px 1px;
 
     &__colored-side {
       position: absolute;
@@ -152,9 +151,18 @@
       align-items: center;
     }
 
-     &__icon {
+    &__icon {
        fill: #ADADAD;
        margin-right: .2rem;
      }
+  }
+
+  &__buttons {
+    display: flex;
+    margin-top: .5rem;
+
+    .pw-icon-button {
+      margin: 0 .2rem;
+    }
   }
 }

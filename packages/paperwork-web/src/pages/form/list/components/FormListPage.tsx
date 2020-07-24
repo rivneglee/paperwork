@@ -87,8 +87,8 @@ const FormListPage: FunctionComponent<Props> = ({
           <List>
             {
               entries.map(entry => (
-                <List.Item key={entry.id} onClick={() => onEdit(entry.id)}>
-                  <FormInfoCard {...entry} />
+                <List.Item key={entry.id}>
+                  <FormInfoCard {...entry} onEdit={onEdit}/>
                 </List.Item>
               ))
             }

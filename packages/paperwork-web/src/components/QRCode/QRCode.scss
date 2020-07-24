@@ -1,0 +1,28 @@
+.pwapp-qrcode {
+  &__inner {
+    padding: 5px;
+    box-shadow: 0 0.125em 0.25em rgba(0, 0, 0, 0.2);
+    background-color: white;
+  }
+
+  &__button {
+    margin: 0;
+    color: white;
+    svg {
+      fill: white;
+    }
+
+    &.pw-button--link {
+      color: white;
+      svg {
+        fill: white;
+      }
+      &:hover {
+        color: lightgray;
+        svg {
+          fill: lightgray;
+        }
+      }
+    }
+  }
+}

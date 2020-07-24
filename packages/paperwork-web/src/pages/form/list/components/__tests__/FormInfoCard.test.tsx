@@ -5,6 +5,7 @@ import toJson from 'enzyme-to-json';
 import FormInfoCard from '../FormInfoCard';
 
 describe('FormInfoCard', () => {
+  const onEdit = jest.fn();
   it('should render public badge', () => {
     const wrapper: ShallowWrapper = shallow(
       <FormInfoCard
@@ -19,6 +20,8 @@ describe('FormInfoCard', () => {
         receivedCommits={10}
         targetGap={10}
         maxGap={100}
+        onEdit={onEdit}
+        newCommitUrl="/foo"
       />,
     );
     expect(toJson(wrapper)).toMatchSnapshot();
@@ -37,6 +40,8 @@ describe('FormInfoCard', () => {
         receivedCommits={10}
         targetGap={10}
         maxGap={100}
+        onEdit={onEdit}
+        newCommitUrl="/foo"
       />,
     );
     expect(toJson(wrapper)).toMatchSnapshot();
@@ -55,6 +60,8 @@ describe('FormInfoCard', () => {
         receivedCommits={10}
         targetGap={0}
         maxGap={0}
+        onEdit={onEdit}
+        newCommitUrl="/foo"
       />,
     );
     expect(toJson(wrapper)).toMatchSnapshot();

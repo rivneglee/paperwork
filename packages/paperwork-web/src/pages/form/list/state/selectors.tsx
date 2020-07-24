@@ -38,11 +38,13 @@ export const getEntries = createSelector(
     const targetGap = getTargetGap(entry.targetCommits, entry.receivedCommits);
     const denominator = entry.targetCommits || entry.maxCommits;
     const progress = denominator ? `${Math.trunc((receivedCommits / denominator) * 100)}%` : '';
+    const newCommitUrl = `${location.origin}/f/${entry.id}/c/new`;
     return ({
       ...entry,
       maxGap,
       targetGap,
       progress,
+      newCommitUrl,
       status: entry.status.toUpperCase(),
       closeDate: entry.closeDate ? entry.closeDate : '--/--/--',
       targetCommits: entry.targetCommits ? entry.targetCommits : '--',

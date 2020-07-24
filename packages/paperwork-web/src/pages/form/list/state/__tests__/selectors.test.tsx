@@ -80,6 +80,7 @@ describe('form list page selector', () => {
           maxGap: 140,
           targetGap: 90,
           progress: '10%',
+          newCommitUrl: 'http://localhost/f/1/c/new',
         },
         {
           author: { displayName: 'LI,CHENG', id: '1' },
@@ -97,6 +98,7 @@ describe('form list page selector', () => {
           maxGap: 0,
           targetGap: 0,
           progress: '',
+          newCommitUrl: 'http://localhost/f/2/c/new',
         },
         {
           author: { displayName: 'LI,CHENG', id: '1' },
@@ -114,6 +116,7 @@ describe('form list page selector', () => {
           maxGap: 0,
           targetGap: 90,
           progress: '10%',
+          newCommitUrl: 'http://localhost/f/3/c/new',
         },
       ];
       expect(getEntries(state)).toEqual(expected);
