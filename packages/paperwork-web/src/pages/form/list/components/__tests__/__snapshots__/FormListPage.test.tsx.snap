@@ -86,7 +86,6 @@ exports[`FormListPage should render when result is not empty 1`] = `
     <u>
       <Component
         key="1"
-        onClick={[Function]}
       >
         <FormInfoCard
           closeDate="30/07/2020"
@@ -96,6 +95,8 @@ exports[`FormListPage should render when result is not empty 1`] = `
           maxCommits={250}
           maxGap={0}
           name="Employee engagement survey"
+          newCommitUrl="/foo"
+          onEdit={[Function]}
           receivedCommits={10}
           status="OPEN"
           statusBadgeColor="secondary"

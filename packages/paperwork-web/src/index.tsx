@@ -35,7 +35,7 @@ ReactDOM.render(
           <Route exact component={withAuthValidation(TemplateDetailPage)} path="/templates/:templateId"/>
           <Route exact component={withAuthValidation(FormListPage)} path="/forms"/>
           <Route exact component={withAuthValidation(FormDetailPage)} path="/forms/:formId"/>
-          <Route exact component={CommitDetailPage} path="/forms/:formId/commit/:commitId"/>
+          <Route exact component={CommitDetailPage} path="/f/:formId/c/:commitId"/>
           <Route component={PageNotFound}/>
         </Switch>
       </ConnectedRouter>

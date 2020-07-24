@@ -54,6 +54,7 @@ describe('FormListPage', () => {
             theme: 'purple',
             maxGap: 0,
             targetGap: 0,
+            newCommitUrl: '/foo',
           },
         ]} filterOptions={filterOptions}
       />,
