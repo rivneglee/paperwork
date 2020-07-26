@@ -1,7 +1,9 @@
 import { createSelector } from 'reselect';
+import { FormMode } from '@paperwork/ui-widgets';
 
 import { CommitDetailPageState } from './reducers';
 import { getPageSection } from '../../../../store/selectors';
+import { CommitDetail } from '../../../../schema/Commit';
 
 const getPage = createSelector(
   getPageSection,
@@ -31,4 +33,9 @@ export const getCommitDetail = createSelector(
 export const getSucceedMessage = createSelector(
   getPage,
   (page: CommitDetailPageState) => page.succeedMessage,
+);
+
+export const getFormMode = createSelector(
+  getCommitDetail,
+  (commit: CommitDetail) => commit.id ? FormMode.READONLY : FormMode.EDIT,
 );

@@ -18,7 +18,7 @@ const Combobox: FunctionComponent<Props> = ({ onChange, value, id, mode, isRequi
   return (
     <LabelAccessor label={label} labelPlacement={labelPlacement} isRequired={isRequired}>
       <Select
-        readOnly={mode === FormMode.READONLY}
+        disabled={mode === FormMode.READONLY}
         key={id}
         selectedValue={value}
         isRequired={isRequired}

@@ -2,7 +2,6 @@ import { LayoutNodeTypes } from '@paperwork/ui-widgets';
 import { TemplateDetail } from '../../../../schema/Template';
 import { LOAD_TEMPLATE_DETAIL, LoadTemplateDetailAction, UPDATE_TEMPLATE, UpdateTemplateAction } from './actions';
 import { PageState } from '../../../../store';
-import { PaperType } from '../../../../schema/Paper';
 
 export interface TemplateDetailPageState {
   template: TemplateDetail;
@@ -20,7 +19,6 @@ export const defaultState: TemplateDetailPageState = {
     },
     heroImage: '',
     theme: undefined,
-    type: PaperType.FORM,
     visibility: 'private',
     tags: [],
     layout: [

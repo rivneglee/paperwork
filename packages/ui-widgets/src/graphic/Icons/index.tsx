@@ -65,6 +65,7 @@ import Share from './Share';
 import Archive from './Archive';
 import Commit from './Commit';
 import QRCode from './QRCode';
+import Pass from './Pass';
 
 export default {
   Add,
@@ -134,4 +135,5 @@ export default {
   Archive,
   Commit,
   QRCode,
+  Pass,
 };
