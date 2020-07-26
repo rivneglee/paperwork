@@ -1,8 +1,7 @@
 import { LayoutNodeTypes } from '@paperwork/ui-widgets';
 import { FormDetail, Scope, Status } from '../../../../schema/Form';
 import { PageState } from '../../../../store';
-import { PaperType } from '../../../../schema/Paper';
-import { LOAD_FORM_DETAIL, LoadFormDetailAction, UpdateFormAction, UPDATE_FORM } from './actions';
+import { LOAD_FORM_DETAIL, LoadFormDetailAction, UPDATE_FORM, UpdateFormAction } from './actions';
 
 export interface FormDetailPageState {
   form: FormDetail;
@@ -12,7 +11,6 @@ export interface FormDetailPageState {
 export const defaultState: FormDetailPageState = {
   form: {
     id: '',
-    type: PaperType.FORM,
     name: 'New Form',
     author: {
       id: '',

@@ -12,12 +12,14 @@ interface Props extends FormProps {
   layoutComponentMap: {[layoutType: string]: ComponentType<any>};
   itemMetadataMap: {[itemType: string]: ItemMetadata};
   onChange?: (itemId: string, value: any) => void;
+  mode?: FormMode;
 }
 
 const FormEditor: FunctionComponent<Props> = ({
   layoutComponentMap,
   itemMetadataMap,
   onChange,
+  mode = FormMode.EDIT,
   ...otherProps
 }) => {
   const handleValueChange = (itemProps: Item) => {
@@ -26,7 +28,7 @@ const FormEditor: FunctionComponent<Props> = ({
   return (
     <Context>
       <Form
-        mode={FormMode.EDIT}
+        mode={mode}
         layoutComponentMap={layoutComponentMap}
         itemMetadataMap={itemMetadataMap}
         {...otherProps}
