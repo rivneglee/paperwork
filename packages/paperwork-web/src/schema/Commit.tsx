@@ -6,6 +6,7 @@ export interface Commit {
   id: string;
   name: string;
   committer: User;
+  collector: User;
   createdAt: string;
   sourceFormId: string;
 }

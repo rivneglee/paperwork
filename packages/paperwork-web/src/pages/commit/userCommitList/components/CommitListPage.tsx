@@ -1,11 +1,12 @@
 import React, { FunctionComponent } from 'react';
-import { Card, PageState, PaginationTemplate, Search, Table } from '@paperwork/ui-widgets';
+import { Badge, Card, PageState, PaginationTemplate, Search, Table } from '@paperwork/ui-widgets';
 
 import Spinner from '../../../../components/PageTransitionSpinner/Spinner';
 import { Commit } from '../../../../schema/Commit';
 import AppBar from '../../../../components/AppBar/AppBar';
 import StickySideBar from '../../../../components/StickySideBar/StickySideBar';
 
+import './CommitListPage.scss';
 const noResultFoundImg = require('../../../../assets/no-results-found.svg');
 
 interface Props {
@@ -71,10 +72,11 @@ const UserCommitList: FunctionComponent<Props> = ({
         }
         {
           entries.length > 0 && (
-            <Table>
+            <Table className="pwapp-user-commit-list">
               <Table.Header>
                 <Table.HeaderItem>Form name</Table.HeaderItem>
-                <Table.HeaderItem>Date</Table.HeaderItem>
+                <Table.HeaderItem>Form owner</Table.HeaderItem>
+                <Table.HeaderItem className="pwapp-user-commit-list__date">Date</Table.HeaderItem>
               </Table.Header>
               <Table.Body>
                 {
@@ -83,7 +85,14 @@ const UserCommitList: FunctionComponent<Props> = ({
                       <Table.RowItem columnName="Form name">
                         {entry.name}
                       </Table.RowItem>
-                      <Table.RowItem columnName="Date">{entry.createdAt}</Table.RowItem>
+                      <Table.RowItem columnName="Form owner">
+                        {entry.collector.displayName}
+                      </Table.RowItem>
+                      <Table.RowItem columnName="Date" className="pwapp-user-commit-list__date">
+                        <Badge color="secondary">
+                          {entry.createdAt}
+                        </Badge>
+                      </Table.RowItem>
                     </Table.Row>
                   ))
                 }
