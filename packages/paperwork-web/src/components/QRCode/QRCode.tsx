@@ -12,13 +12,17 @@ interface Props {
 
 export default ({ url, className }: Props) => {
   const [isCopied, setIsCopied] = useState(false);
+  const onCopy = () => {
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 2000);
+  };
   return (
     <div className={classNames('pwapp-qrcode', className)}>
       <div className="pwapp-qrcode__inner">
         <QRCode value={url}/>
       </div>
       <div className="pwapp-qrcode__buttons">
-        <CopyToClipboard text={url} onCopy={() => setIsCopied(true)}>
+        <CopyToClipboard text={url} onCopy={onCopy}>
           <Button
             className="pwapp-qrcode__button"
             type="link"

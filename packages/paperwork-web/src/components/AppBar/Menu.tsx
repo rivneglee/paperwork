@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { Icons, Menu as MenuWidget } from '@paperwork/ui-widgets';
 import { Link } from 'react-router-dom';
+import NotificationMenuItem from './NotificationMenuItem';
 
 interface Props {
   activeMenuId?: string;
@@ -45,6 +46,13 @@ const Menu: FunctionComponent<Props> = ({ activeMenuId }) => (
       </MenuWidget.Item>
     </MenuWidget.Group>
     <MenuWidget.Item id="report" active={activeMenuId === 'report'} icon={<Icons.Chart/>}>Report</MenuWidget.Item>
+    <MenuWidget.Item
+      id="notifications"
+      active={activeMenuId === 'notifications'}
+      icon={<Icons.Message/>}
+    >
+      <NotificationMenuItem/>
+    </MenuWidget.Item>
   </MenuWidget>
 );
 

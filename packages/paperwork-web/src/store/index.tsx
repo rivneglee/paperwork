@@ -3,9 +3,15 @@ import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { applyMiddleware, combineReducers, createStore as createReduxStore } from 'redux';
 import { enableBatching } from 'redux-batched-actions';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { pageReducer, authenticationReducer, navigationReducer, defaultPageState } from './reducers';
 import { StoreState } from './types';
 import { authenticationStorge } from '../service/authentication';
+import {
+  pageReducer,
+  authenticationReducer,
+  navigationReducer,
+  defaultPageState,
+  notificationUpdateReducer,
+} from './reducers';
 
 const browserHistory = createBrowserHistory();
 
@@ -17,6 +23,7 @@ const initState: StoreState = {
   authentication,
   page: defaultPageState,
   navigation: {},
+  notificationUpdate: { unread: 0 },
 };
 
 export const createStore = () => createReduxStore(
@@ -25,6 +32,7 @@ export const createStore = () => createReduxStore(
     authentication: authenticationReducer,
     router: connectRouter(getHistory()),
     navigation: navigationReducer,
+    notificationUpdate: notificationUpdateReducer,
   })),
   initState,
   composeWithDevTools(

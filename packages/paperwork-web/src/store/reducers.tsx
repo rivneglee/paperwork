@@ -7,7 +7,12 @@ import { mapping as FormDetailPageActionMapping, defaultState as formDetail } fr
 import { mapping as CommitDetailPageActionMapping, defaultState as commitDetail } from '../pages/commit/detail/state/reducers';
 import { mapping as CommitListPageActionMapping, defaultState as commitList } from '../pages/commit/list/state/reducers';
 import { PageState } from './types';
-import { SetActiveMenuAction, SET_ACTIVE_MENU_ID } from './actions';
+import {
+  SetActiveMenuAction,
+  SET_ACTIVE_MENU_ID,
+  LoadNotificationUpdateAction,
+  LOAD_NOTIFICATION_UPDATE,
+} from './actions';
 
 const mapping = {
   ...DataSourceListPageActionMapping,
@@ -48,6 +53,19 @@ export const navigationReducer = (state = {}, action: SetActiveMenuAction) => {
       return ({
         ...state,
         activeMenuId: action.menuId,
+      });
+      break;
+  }
+  return state;
+};
+
+export const notificationUpdateReducer = (state = {}, action: LoadNotificationUpdateAction) => {
+  const { type } = action;
+  switch (type) {
+    case LOAD_NOTIFICATION_UPDATE:
+      return ({
+        ...state,
+        ...action.notificationUpdate,
       });
       break;
   }

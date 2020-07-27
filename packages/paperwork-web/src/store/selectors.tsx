@@ -6,4 +6,6 @@ export const getPageSection = (state: StoreState) => state.page;
 
 export const getActiveMenuId = (state: StoreState) => state.navigation.activeMenuId;
 
+export const getUnreadNotifications = (state: StoreState) => state.notificationUpdate.unread;
+
 export const getRoutingState = (state: StoreState) => state.router;

@@ -1,5 +1,29 @@
 .pw-balloon {
-  position: absolute;
-  transform: scale(1) translate(-30%, -70%);
-  transform-origin: 100% 0%;
+  display: inline-block;
+  position: relative;
+  &__badge {
+    position: absolute;
+    height: 20px;
+    display: flex;
+    padding: 0 6px;
+    z-index: 1;
+    flex-wrap: wrap;
+    font-size: 0.75rem;
+    min-width: 20px;
+    box-sizing: border-box;
+    transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    align-items: center;
+    font-weight: 500;
+    line-height: 1;
+    align-content: center;
+    border-radius: 10px;
+    flex-direction: row;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    transform: scale(1) translate(50%, -50%);
+    transform-origin: 100% 0%;
+    background: $pw-palette-berry;
+    color: white;
+  }
 }
