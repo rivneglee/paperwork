@@ -27,6 +27,19 @@
     }
   }
 
+  &__right {
+    position: absolute;
+    right: 1rem;
+    .pw-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+    .pw-balloon__badge {
+      top: 10px;
+      right: 10px;
+    }
+  }
+
   &__center {
     flex-grow: 1;
     display: flex;

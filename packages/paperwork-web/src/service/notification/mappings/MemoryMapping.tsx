@@ -11,7 +11,7 @@ const MemoryMapping = {
   [LOAD_NOTIFICATION_LIST]: ({ params }: any) => {
     const { keyword = '' } = params;
     const { pagination, entries } = loadNotificationList;
-    const filteredEntries = entries.filter(entry => entry.name.indexOf(keyword) !== -1);
+    const filteredEntries = entries.filter(entry => entry.subject.indexOf(keyword) !== -1);
     const page = filteredEntries.length === 0 ? 0 : params.page + 1;
     return ({
       entries: filteredEntries,

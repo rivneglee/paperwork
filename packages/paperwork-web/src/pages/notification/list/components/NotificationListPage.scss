@@ -1,0 +1,12 @@
+.pwapp-notification-list {
+  &__date {
+    max-width: 70px;
+  }
+  &__sender {
+    max-width: 150px;
+  }
+  &__unread {
+    min-width: 70px;
+    max-width: 70px;
+  }
+}

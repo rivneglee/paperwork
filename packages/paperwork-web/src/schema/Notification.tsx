@@ -1,9 +1,10 @@
 import { Pagination } from './Pagination';
+import { User } from './User';
 
 export interface Notification {
   id: string;
-  subjectTemplate: string;
-  subjectVariables: {[key: string]: any};
+  subject: string;
+  sender: User;
   isUnread: boolean;
   receivedAt: string;
 }

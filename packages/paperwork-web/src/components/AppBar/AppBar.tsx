@@ -4,6 +4,7 @@ import { IconButton, Icons, Drawer, Button, Scrollable } from '@paperwork/ui-wid
 import './AppBar.scss';
 import { Authentication } from '../../schema/User';
 import Menu from './Menu';
+import Actions from './Actions';
 const appName = require('../../assets/paperwork.png');
 
 interface Props {
@@ -25,6 +26,9 @@ const AppBar: FunctionComponent<Props> = ({ activeMenuId, secondaryMenu }) => {
         <div className="pwapp-appbar-primary__center">
           <Icons.Logo className="pwapp-appbar-primary__logo"/>
           <img src={appName} height={25} width={150}/>
+        </div>
+        <div className="pwapp-appbar-primary__right">
+          <Actions/>
         </div>
       </div>
       <Drawer
