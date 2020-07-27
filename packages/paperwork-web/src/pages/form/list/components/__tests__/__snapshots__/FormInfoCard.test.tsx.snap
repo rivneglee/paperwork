@@ -126,7 +126,9 @@ exports[`FormInfoCard should not render progress chart 1`] = `
             content="Commits"
             placement="top"
           >
-            <p>
+            <p
+              onClick={[Function]}
+            >
               <Commit />
             </p>
           </Component>
@@ -271,7 +273,9 @@ exports[`FormInfoCard should not render public badge 1`] = `
             content="Commits"
             placement="top"
           >
-            <p>
+            <p
+              onClick={[Function]}
+            >
               <Commit />
             </p>
           </Component>
@@ -426,7 +430,9 @@ exports[`FormInfoCard should render public badge 1`] = `
             content="Commits"
             placement="top"
           >
-            <p>
+            <p
+              onClick={[Function]}
+            >
               <Commit />
             </p>
           </Component>

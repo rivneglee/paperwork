@@ -43,11 +43,13 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
       };
 
       const onEdit = (id: string) => dispatch(push(`/forms/${id}`));
+      const onViewCommits = (id: string) => dispatch(push(`/forms/${id}/commits`));
       const onCreateNew = () => dispatch(push('/forms/new'));
 
       return (
         <PageView
           isProcessing={isProcessing}
+          onViewCommits={onViewCommits}
           onLoadNextPage={onLoadNextPage}
           onFilterChange={onFilterChange}
           onApplyFilter={onApplyFilter}

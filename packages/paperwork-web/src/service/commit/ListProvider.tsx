@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { LOAD_COMMIT_LIST_BY_COMMITTER } from './intents';
+import { LOAD_COMMIT_LIST_BY_COMMITTER, LOAD_COMMIT_LIST_BY_FORM } from './intents';
 import { CommitList } from '../../schema/Commit';
 import { Integration } from '../../integration';
 
@@ -37,9 +37,9 @@ export default class extends React.Component<Props> {
   private list = async (options: ListOptions = {}, page = 0) => {
     const { integration, userId } = this.props;
     const { committerId, formId, keyword } = options;
-    // const intent = committerId ? LOAD_COMMIT_LIST_BY_COMMITTER : LOAD_COMMIT_LIST_BY_FORM;
+    const intent = committerId ? LOAD_COMMIT_LIST_BY_COMMITTER : LOAD_COMMIT_LIST_BY_FORM;
     const commitList = await integration.send({
-      intent: LOAD_COMMIT_LIST_BY_COMMITTER,
+      intent,
       method: 'GET',
       urlParams: {
         userId,

@@ -5,7 +5,7 @@ import { mapping as TemplateDetailPageActionMapping, defaultState as templateDet
 import { mapping as FormListPageActionMapping, defaultState as formList } from '../pages/form/list/state/reducers';
 import { mapping as FormDetailPageActionMapping, defaultState as formDetail } from '../pages/form/detail/state/reducers';
 import { mapping as CommitDetailPageActionMapping, defaultState as commitDetail } from '../pages/commit/detail/state/reducers';
-import { mapping as UserCommitListPageActionMapping, defaultState as userCommitList } from '../pages/commit/userCommitList/state/reducers';
+import { mapping as CommitListPageActionMapping, defaultState as commitList } from '../pages/commit/list/state/reducers';
 import { PageState } from './types';
 import { SetActiveMenuAction, SET_ACTIVE_MENU_ID } from './actions';
 
@@ -17,7 +17,7 @@ const mapping = {
   ...FormListPageActionMapping,
   ...FormDetailPageActionMapping,
   ...CommitDetailPageActionMapping,
-  ...UserCommitListPageActionMapping,
+  ...CommitListPageActionMapping,
 };
 
 export const defaultPageState = {
@@ -28,7 +28,7 @@ export const defaultPageState = {
   formList,
   formDetail,
   commitDetail,
-  userCommitList,
+  commitList,
 };
 
 export const authenticationReducer = (state = {}) => state;

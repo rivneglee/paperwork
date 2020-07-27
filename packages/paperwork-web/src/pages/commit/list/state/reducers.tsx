@@ -4,13 +4,13 @@ import { Pagination } from '../../../../schema/Pagination';
 import { LoadCommitListAction, LOAD_COMMIT_LIST, UPDATE_FILTER_OPTION, UpdateFilterOptionAction } from './actions';
 import { FilterOptions } from '../components/CommitListPage';
 
-export interface UserCommitListPageState {
+export interface CommitListPageState {
   entries: Commit[];
   pagination: Pagination;
   filterOptions: FilterOptions;
 }
 
-export const defaultState: UserCommitListPageState = {
+export const defaultState: CommitListPageState = {
   entries: [],
   pagination: { page: 0, total: 0 },
   filterOptions: {},
@@ -25,10 +25,10 @@ const loadCommitList = (
   if (page > 1) {
     return {
       ...state,
-      userCommitList: {
-        ...state.userCommitList,
+      commitList: {
+        ...state.commitList,
         entries: [
-          ...state.userCommitList.entries,
+          ...state.commitList.entries,
           ...action.data.entries,
         ],
         pagination: action.data.pagination,
@@ -37,8 +37,8 @@ const loadCommitList = (
   }
   return ({
     ...state,
-    userCommitList: {
-      ...state.userCommitList,
+    commitList: {
+      ...state.commitList,
       ...action.data,
     },
   });
@@ -49,10 +49,10 @@ const updateFilterOption = (
   action: UpdateFilterOptionAction,
 ) => ({
   ...state,
-  userCommitList: {
-    ...state.userCommitList,
+  commitList: {
+    ...state.commitList,
     filterOptions: {
-      ...state.userCommitList.filterOptions,
+      ...state.commitList.filterOptions,
       [action.key]: action.value,
     },
   },

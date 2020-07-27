@@ -6,6 +6,7 @@ import FormInfoCard from '../FormInfoCard';
 
 describe('FormInfoCard', () => {
   const onEdit = jest.fn();
+  const onViewCommits = jest.fn();
   it('should render public badge', () => {
     const wrapper: ShallowWrapper = shallow(
       <FormInfoCard
@@ -21,6 +22,7 @@ describe('FormInfoCard', () => {
         targetGap={10}
         maxGap={100}
         onEdit={onEdit}
+        onViewCommits={onViewCommits}
         newCommitUrl="/foo"
       />,
     );
@@ -41,6 +43,7 @@ describe('FormInfoCard', () => {
         targetGap={10}
         maxGap={100}
         onEdit={onEdit}
+        onViewCommits={onViewCommits}
         newCommitUrl="/foo"
       />,
     );
@@ -61,6 +64,7 @@ describe('FormInfoCard', () => {
         targetGap={0}
         maxGap={0}
         onEdit={onEdit}
+        onViewCommits={onViewCommits}
         newCommitUrl="/foo"
       />,
     );
