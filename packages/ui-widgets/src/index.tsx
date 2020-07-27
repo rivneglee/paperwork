@@ -36,6 +36,7 @@ export * from './template/PaginationTemplate';
 
 export * from './message/Tooltip';
 export * from './message/PageState';
+export * from './message/Balloon';
 
 export * from './table/Table';
 export * from './table/LineItemTable';
