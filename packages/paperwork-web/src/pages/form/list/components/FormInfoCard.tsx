@@ -27,6 +27,7 @@ export interface FormItem {
 
 interface Props extends FormItem {
   onEdit: (id: string) => void;
+  onViewCommits: (formId: string) => void;
 }
 
 const FormInfoCard: FunctionComponent<Props> = ({
@@ -46,6 +47,7 @@ const FormInfoCard: FunctionComponent<Props> = ({
   progress,
   newCommitUrl,
   onEdit,
+  onViewCommits,
 }) => {
   const showProgress = targetGap > 0 || maxGap > 0;
   const isClosed = status.toLowerCase() !== Status.CLOSED;
@@ -111,7 +113,7 @@ const FormInfoCard: FunctionComponent<Props> = ({
                 <IconButton><Icons.QRCode/></IconButton>
               </Tooltip>
               <Tooltip placement="top" content="Commits">
-                <IconButton><Icons.Commit/></IconButton>
+                <IconButton onClick={() => onViewCommits(id)}><Icons.Commit/></IconButton>
               </Tooltip>
               {
                 isClosed && (

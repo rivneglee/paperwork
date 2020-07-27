@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { ListProvider, ListProviderState } from '../../../../service/commit';
 import { StoreState } from '../../../../store';
 import { getAuthentication } from '../../../../store/selectors';
-import CommitListPage, { FilterOption, FilterOptions } from '../components/CommitListPage';
+import CommitListPage, { FilterOption, FilterOptions, GroupBy } from '../components/CommitListPage';
 import { getEntries, getPagination, getFilterOptions } from '../state/selectors';
 import { createLoadCommitListAction, createUpdateFilterOptionAction } from '../state/actions';
 
@@ -21,15 +21,23 @@ const mapStateToProviderProps = (state: StoreState, ownProps: any) => ({
 
 const View = connect(mapStateToViewProps)(CommitListPage);
 
-export default connect(mapStateToProviderProps)(({ dispatch, params }: any) => (
+export default connect(mapStateToProviderProps)(({ dispatch, params, authentication, groupBy }: any) => (
   <ListProvider
-    userId={params.userId}
-    preLoad
+    userId={authentication.user.id}
   >
     {
-      ({ commitList, isProcessing, list }: ListProviderState) => {
-        if (commitList) {
+      ({ isProcessing, list, isInitializing }: ListProviderState) => {
+        const initPage = async () => {
+          const filterMap = {
+            [GroupBy.FORM]: { formId: params.formId },
+            [GroupBy.COMMITTER]: { committerId: authentication.user.id },
+          };
+          const commitList = await list(filterMap[groupBy]);
           dispatch(createLoadCommitListAction(commitList));
+        };
+
+        if (isInitializing) {
+          initPage();
         }
 
         const onFilterChange
@@ -51,6 +59,7 @@ export default connect(mapStateToProviderProps)(({ dispatch, params }: any) => (
 
         return (
           <View
+            groupBy={groupBy}
             onLoadNextPage={onLoadNextPage}
             onFilterChange={onFilterChange}
             onApplyFilter={onApplyFilter}

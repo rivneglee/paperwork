@@ -1,11 +1,11 @@
 import { createSelector } from 'reselect';
 
 import { getPageSection } from '../../../../store/selectors';
-import { UserCommitListPageState } from './reducers';
+import { CommitListPageState } from './reducers';
 
 const getPage = createSelector(
   getPageSection,
-  page => page.userCommitList,
+  page => page.commitList,
 );
 
 export const getEntries = createSelector(
@@ -20,5 +20,5 @@ export const getPagination = createSelector(
 
 export const getFilterOptions = createSelector(
   getPage,
-  (page: UserCommitListPageState) => page.filterOptions,
+  (page: CommitListPageState) => page.filterOptions,
 );

@@ -11,6 +11,7 @@ describe('FormListPage', () => {
   const onLoadNextPage = jest.fn();
   const onCreateNew = jest.fn();
   const onEdit = jest.fn();
+  const onViewCommits = jest.fn();
   it('should render when result is empty', () => {
     const wrapper: ShallowWrapper = shallow(
       <FormListPage
@@ -19,6 +20,7 @@ describe('FormListPage', () => {
         onLoadNextPage={onLoadNextPage}
         onApplyFilter={onApplyFilter}
         onFilterChange={onFilterChange}
+        onViewCommits={onViewCommits}
         entries={[]} filterOptions={filterOptions}
         page={0}
         total={10}
@@ -34,6 +36,7 @@ describe('FormListPage', () => {
         onLoadNextPage={onLoadNextPage}
         onApplyFilter={onApplyFilter}
         onFilterChange={onFilterChange}
+        onViewCommits={onViewCommits}
         onCreateNew={onCreateNew}
         onEdit={onEdit}
         page={0}

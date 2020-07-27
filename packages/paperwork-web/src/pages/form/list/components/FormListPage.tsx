@@ -24,6 +24,7 @@ interface Props {
   onApplyFilter: (filterOptions: FilterOptions) => void;
   onFilterChange: (option: FilterOption) => void;
   filterOptions: FilterOptions;
+  onViewCommits: (formId: string) => void;
   isProcessing?: boolean;
   onEdit: (id: string) => void;
   onCreateNew: () => void;
@@ -47,6 +48,7 @@ const FormListPage: FunctionComponent<Props> = ({
   onEdit,
   onCreateNew,
   onFilterChange,
+  onViewCommits,
   filterOptions,
   page,
   total,
@@ -88,7 +90,7 @@ const FormListPage: FunctionComponent<Props> = ({
             {
               entries.map(entry => (
                 <List.Item key={entry.id}>
-                  <FormInfoCard {...entry} onEdit={onEdit}/>
+                  <FormInfoCard {...entry} onEdit={onEdit} onViewCommits={onViewCommits}/>
                 </List.Item>
               ))
             }

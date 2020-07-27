@@ -97,6 +97,7 @@ exports[`FormListPage should render when result is not empty 1`] = `
           name="Employee engagement survey"
           newCommitUrl="/foo"
           onEdit={[Function]}
+          onViewCommits={[Function]}
           receivedCommits={10}
           status="OPEN"
           statusBadgeColor="secondary"
