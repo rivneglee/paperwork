@@ -1,12 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { ListProvider, ListProviderState } from '../../../../service/notification';
+import { ListProviderState, Provider } from '../../../../service/notification';
 import { StoreState } from '../../../../store';
 import { getAuthentication } from '../../../../store/selectors';
-import NotificationListPage, { FilterOption, FilterOptions } from '../components/NotificationListPage';
-import { getEntries, getPagination, getFilterOptions } from '../state/selectors';
-import { createLoadNotificationListAction, createUpdateFilterOptionAction } from '../state/actions';
+import NotificationListPage, { FilterOption, FilterOptions, Notification } from '../components/NotificationListPage';
+import { getEntries, getFilterOptions, getPagination } from '../state/selectors';
+import {
+  createLoadNotificationListAction,
+  createMarkAsReadActionAction,
+  createUpdateFilterOptionAction,
+} from '../state/actions';
+import { NotificationEventType } from '../../../../schema/Notification';
 
 const mapStateToViewProps = (state: StoreState) => ({
   entries: getEntries(state),
@@ -22,12 +27,12 @@ const mapStateToProviderProps = (state: StoreState, ownProps: any) => ({
 const View = connect(mapStateToViewProps)(NotificationListPage);
 
 export default connect(mapStateToProviderProps)(({ dispatch, params, authentication, groupBy }: any) => (
-  <ListProvider
+  <Provider
     userId={authentication.user.id}
     preLoad
   >
     {
-      ({ notificationList, isProcessing, list }: ListProviderState) => {
+      ({ notificationList, isProcessing, list, setReadState }: ListProviderState) => {
 
         if (notificationList) {
           dispatch(createLoadNotificationListAction(notificationList));
@@ -46,8 +51,17 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
           dispatch(createLoadNotificationListAction(nextPageOfList));
         };
 
+        const onView = async (notification: Notification) => {
+          if (notification.event.type === NotificationEventType.FILLING_FORM_INVITATION) {
+            window.open(`/f/${notification.event.refId}/c/new`, '_blank');
+          }
+          await setReadState(notification.id);
+          dispatch(createMarkAsReadActionAction(notification.id));
+        };
+
         return (
           <View
+            onView={onView}
             onLoadNextPage={onLoadNextPage}
             onFilterChange={onFilterChange}
             onApplyFilter={onApplyFilter}
@@ -56,5 +70,5 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
         );
       }
     }
-  </ListProvider>
+  </Provider>
 ));

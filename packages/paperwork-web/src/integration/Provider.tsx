@@ -25,14 +25,19 @@ export default class extends React.Component<Props, State> {
     this.integration = createIntegration(mappings);
   }
 
-  private send = async (request: Request) => {
-    this.setState({
-      isProcessing: true,
-    });
-    const response = await this.integration.send(request);
-    this.setState({
-      isProcessing: false,
-    });
+  private send = async (request: Request, options = {}) => {
+    const { setLoadingState = true } = options as any;
+    if (setLoadingState) {
+      this.setState({
+        isProcessing: true,
+      });
+    }
+    const response = await this.integration.send(request, options);
+    if (setLoadingState) {
+      this.setState({
+        isProcessing: false,
+      });
+    }
     return response;
   }
 

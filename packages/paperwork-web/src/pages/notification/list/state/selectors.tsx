@@ -12,7 +12,7 @@ export const getEntries = createSelector(
   getPage,
   page => page.entries.map(entry => ({
     ...entry,
-    status: entry.isUnread ? 'Unread' : '',
+    sender: entry.sender ? entry.sender.displayName : 'SYSTEM',
   })),
 );
 

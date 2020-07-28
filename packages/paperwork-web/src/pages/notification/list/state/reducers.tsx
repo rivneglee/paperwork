@@ -1,7 +1,13 @@
 import { Notification } from '../../../../schema/Notification';
 import { PageState } from '../../../../store';
 import { Pagination } from '../../../../schema/Pagination';
-import { LoadNotificationListAction, LOAD_NOTIFICATION_LIST, UPDATE_FILTER_OPTION, UpdateFilterOptionAction } from './actions';
+import {
+  LoadNotificationListAction,
+  LOAD_NOTIFICATION_LIST,
+  UPDATE_FILTER_OPTION,
+  UpdateFilterOptionAction,
+  MARK_AS_READ, MarkAsReadAction,
+} from './actions';
 import { FilterOptions } from '../components/NotificationListPage';
 
 export interface NotificationListPageState {
@@ -58,7 +64,30 @@ const updateFilterOption = (
   },
 });
 
+const markAsRead = (
+  state: PageState,
+  action: MarkAsReadAction,
+) => {
+  const entries = state.notificationList.entries.map((entry) => {
+    if (entry.id === action.notificationId) {
+      return {
+        ...entry,
+        isUnread: false,
+      };
+    }
+    return entry;
+  });
+  return ({
+    ...state,
+    notificationList: {
+      ...state.notificationList,
+      entries,
+    },
+  });
+};
+
 export const mapping = {
   [LOAD_NOTIFICATION_LIST]: loadNotificationList,
   [UPDATE_FILTER_OPTION]: updateFilterOption,
+  [MARK_AS_READ]: markAsRead,
 };

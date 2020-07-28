@@ -1,12 +1,13 @@
 import React  from 'react';
-import { Balloon } from '@paperwork/ui-widgets';
+import { Balloon, IconButton, Icons } from '@paperwork/ui-widgets';
+import { Link } from 'react-router-dom';
 
 import { Authentication } from '../../schema/User';
 import { StoreState } from '../../store';
 import { getAuthentication, getUnreadNotifications } from '../../store/selectors';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { ListProvider, ListProviderState } from '../../service/notification';
+import { Provider, ListProviderState } from '../../service/notification';
 import { createLoadNotificationUpdateAction } from '../../store/actions';
 
 interface Props {
@@ -23,7 +24,7 @@ const mapStateToProps = (state: StoreState) => ({
 const CHECK_INTERVAL = 5000;
 
 const DataSourceSelector = ({ dispatch, authentication, unread }: Props) => (
-  <ListProvider userId={authentication.user.id}>
+  <Provider userId={authentication.user.id}>
     {({ checkUpdate, isInitializing }: ListProviderState) => {
       const periodicalCheck = async () => {
         const notificationUpdate = await checkUpdate();
@@ -38,11 +39,15 @@ const DataSourceSelector = ({ dispatch, authentication, unread }: Props) => (
       if (!unread) return <>Notification</>;
       return (
         <Balloon content={unread}>
-          Notification
+          <Link to="/notifications">
+            <IconButton>
+              <Icons.Message/>
+            </IconButton>
+          </Link>
         </Balloon>
       );
     }}
-  </ListProvider>
+  </Provider>
 );
 
 export default connect(mapStateToProps)(DataSourceSelector);

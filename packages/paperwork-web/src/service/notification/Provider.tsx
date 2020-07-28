@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { LOAD_NOTIFICATION_LIST, CHECK_NOTIFICATION_UPDATE } from './intents';
+import { LOAD_NOTIFICATION_LIST, CHECK_NOTIFICATION_UPDATE, SET_READ_STATE } from './intents';
 import { NotificationList, NotificationUpdate } from '../../schema/Notification';
 import { Integration } from '../../integration';
 
@@ -7,6 +7,7 @@ export interface ListProviderState {
   notificationList: NotificationList;
   list: (options?: ListOptions, page?: number) => Promise<NotificationList>;
   checkUpdate: () => Promise<NotificationUpdate>;
+  setReadState: (notificationId: string) => void;
   isInitializing: boolean;
   isProcessing: boolean;
 }
@@ -45,7 +46,7 @@ export default class extends React.Component<Props> {
       params: {
         keyword,
         page,
-        size: 20,
+        size: 40,
       },
     });
     this.setState({
@@ -66,6 +67,18 @@ export default class extends React.Component<Props> {
     return update;
   }
 
+  private setReadState = async (notificationId: string) => {
+    const { integration, userId } = this.props;
+    await integration.send({
+      intent: SET_READ_STATE,
+      method: 'PUT',
+      urlParams: {
+        userId,
+        notificationId,
+      },
+    }, { setLoadingState: false });
+  }
+
   async componentDidMount() {
     const { preLoad } = this.props;
     if (preLoad) {
@@ -83,6 +96,7 @@ export default class extends React.Component<Props> {
         notificationList,
         list: this.list,
         checkUpdate: this.checkUpdate,
+        setReadState: this.setReadState,
         isInitializing: this.isInitializing,
       })
     );

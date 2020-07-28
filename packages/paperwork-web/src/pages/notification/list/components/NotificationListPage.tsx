@@ -1,20 +1,22 @@
 import React, { FunctionComponent } from 'react';
-import { Badge, Card, PageState, PaginationTemplate, Search, Table } from '@paperwork/ui-widgets';
+import { Card, PageState, PaginationTemplate, Search, Table } from '@paperwork/ui-widgets';
+import classNames from 'classnames';
 
 import Spinner from '../../../../components/PageTransitionSpinner/Spinner';
 import AppBar from '../../../../components/AppBar/AppBar';
 import StickySideBar from '../../../../components/StickySideBar/StickySideBar';
-import { User } from '../../../../schema/User';
+import { NotificationEvent } from '../../../../schema/Notification';
 
 const noResultFoundImg = require('../../../../assets/no-results-found.svg');
 import './NotificationListPage.scss';
 
-interface Notification {
+export interface Notification {
   id: string;
   subject: string;
   receivedAt: string;
-  status: string;
-  sender: User;
+  sender: string;
+  event: NotificationEvent;
+  isUnread: boolean;
 }
 
 interface Props {
@@ -26,6 +28,7 @@ interface Props {
   onLoadNextPage: (filterOptions: FilterOptions, page: number) => void;
   onApplyFilter: (filterOptions: FilterOptions) => void;
   onFilterChange: (option: FilterOption) => void;
+  onView: (notification: Notification) => void;
 }
 
 export interface FilterOption {
@@ -46,38 +49,38 @@ const NotificationListPage: FunctionComponent<Props> = ({
   filterOptions,
   onFilterChange,
   onApplyFilter,
+  onView,
 }) => {
   const handleFilterChange = (key: string, handler: any) => (e: any) => handler({ key, value: e.target.value });
 
   const tableView = (
-    <Table>
+    <Table className="pwapp-notification-list">
       <Table.Header>
         <Table.HeaderItem>Subject</Table.HeaderItem>
         <Table.HeaderItem className="pwapp-notification-list__sender">Sender</Table.HeaderItem>
         <Table.HeaderItem className="pwapp-notification-list__date">Date</Table.HeaderItem>
-        <Table.HeaderItem className="pwapp-notification-list__unread"></Table.HeaderItem>
       </Table.Header>
       <Table.Body>
         {
           entries.map(entry => (
-            <Table.Row key={entry.id}>
+            <Table.Row
+              className={
+                classNames(
+                  'pwapp-notification-list__item',
+                  entry.isUnread && 'pwapp-notification-list__item--unread',
+                )
+              }
+              key={entry.id}
+              onClick={() => onView(entry)}
+            >
               <Table.RowItem columnName="Subject">
                 {entry.subject}
               </Table.RowItem>
               <Table.RowItem columnName="Sender" className="pwapp-notification-list__sender">
-                {entry.sender.displayName}
+                {entry.sender}
               </Table.RowItem>
               <Table.RowItem columnName="Date" className="pwapp-notification-list__date">
                 {entry.receivedAt}
-              </Table.RowItem>
-              <Table.RowItem columnName="Date" className="pwapp-notification-list__unread">
-                {
-                  entry.status && (
-                    <Badge color="danger">
-                      {entry.status}
-                    </Badge>
-                  )
-                }
               </Table.RowItem>
             </Table.Row>
           ))

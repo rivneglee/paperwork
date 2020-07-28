@@ -8,7 +8,11 @@
         "displayName": "LI,CHENG"
       },
       "receivedAt": "30/07/2020",
-      "isUnread": true
+      "isUnread": true,
+      "event": {
+        "type": "FILLING_FORM_INVITATION",
+        "refId": "1"
+      }
     },
     {
       "id": "2",
@@ -18,7 +22,11 @@
         "displayName": "JESSIE,LI"
       },
       "receivedAt": "30/01/2020",
-      "isUnread": false
+      "isUnread": false,
+      "event": {
+        "type": "FILLING_FORM_INVITATION",
+        "refId": "2"
+      }
     },
     {
       "id": "3",
@@ -28,7 +36,11 @@
         "displayName": "Government"
       },
       "receivedAt": "30/02/2020",
-      "isUnread": false
+      "isUnread": false,
+      "event": {
+        "type": "FILLING_FORM_INVITATION",
+        "refId": "3"
+      }
     },
     {
       "id": "1",
@@ -38,7 +50,11 @@
         "displayName": "LI,CHENG"
       },
       "receivedAt": "30/07/2020",
-      "isUnread": true
+      "isUnread": true,
+      "event": {
+        "type": "FILLING_FORM_INVITATION",
+        "refId": "1"
+      }
     },
     {
       "id": "2",
@@ -48,7 +64,11 @@
         "displayName": "JESSIE,LI"
       },
       "receivedAt": "30/01/2020",
-      "isUnread": false
+      "isUnread": false,
+      "event": {
+        "type": "FILLING_FORM_INVITATION",
+        "refId": "2"
+      }
     },
     {
       "id": "3",
@@ -58,7 +78,11 @@
         "displayName": "Government"
       },
       "receivedAt": "30/02/2020",
-      "isUnread": false
+      "isUnread": false,
+      "event": {
+        "type": "FILLING_FORM_INVITATION",
+        "refId": "3"
+      }
     },
     {
       "id": "1",
@@ -68,7 +92,11 @@
         "displayName": "LI,CHENG"
       },
       "receivedAt": "30/07/2020",
-      "isUnread": true
+      "isUnread": true,
+      "event": {
+        "type": "FILLING_FORM_INVITATION",
+        "refId": "1"
+      }
     },
     {
       "id": "2",
@@ -78,7 +106,11 @@
         "displayName": "JESSIE,LI"
       },
       "receivedAt": "30/01/2020",
-      "isUnread": false
+      "isUnread": false,
+      "event": {
+        "type": "FILLING_FORM_INVITATION",
+        "refId": "2"
+      }
     },
     {
       "id": "3",
@@ -88,7 +120,11 @@
         "displayName": "Government"
       },
       "receivedAt": "30/02/2020",
-      "isUnread": false
+      "isUnread": false,
+      "event": {
+        "type": "FILLING_FORM_INVITATION",
+        "refId": "3"
+      }
     },
     {
       "id": "1",
@@ -98,7 +134,11 @@
         "displayName": "LI,CHENG"
       },
       "receivedAt": "30/07/2020",
-      "isUnread": true
+      "isUnread": true,
+      "event": {
+        "type": "FILLING_FORM_INVITATION",
+        "refId": "1"
+      }
     },
     {
       "id": "2",
@@ -108,7 +148,11 @@
         "displayName": "JESSIE,LI"
       },
       "receivedAt": "30/01/2020",
-      "isUnread": false
+      "isUnread": false,
+      "event": {
+        "type": "FILLING_FORM_INVITATION",
+        "refId": "2"
+      }
     },
     {
       "id": "3",
@@ -118,7 +162,11 @@
         "displayName": "Government"
       },
       "receivedAt": "30/02/2020",
-      "isUnread": false
+      "isUnread": false,
+      "event": {
+        "type": "FILLING_FORM_INVITATION",
+        "refId": "3"
+      }
     },
     {
       "id": "1",
@@ -128,7 +176,11 @@
         "displayName": "LI,CHENG"
       },
       "receivedAt": "30/07/2020",
-      "isUnread": true
+      "isUnread": true,
+      "event": {
+        "type": "FILLING_FORM_INVITATION",
+        "refId": "1"
+      }
     },
     {
       "id": "2",
@@ -138,7 +190,11 @@
         "displayName": "JESSIE,LI"
       },
       "receivedAt": "30/01/2020",
-      "isUnread": false
+      "isUnread": false,
+      "event": {
+        "type": "FILLING_FORM_INVITATION",
+        "refId": "2"
+      }
     },
     {
       "id": "3",
@@ -148,7 +204,11 @@
         "displayName": "Government"
       },
       "receivedAt": "30/02/2020",
-      "isUnread": false
+      "isUnread": false,
+      "event": {
+        "type": "FILLING_FORM_INVITATION",
+        "refId": "3"
+      }
     }
   ],
   "pagination": {

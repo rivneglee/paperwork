@@ -1,4 +1,5 @@
 .pwapp-notification-list {
+  cursor: pointer;
   &__date {
     max-width: 70px;
   }
@@ -8,5 +9,10 @@
   &__unread {
     min-width: 70px;
     max-width: 70px;
+  }
+  &__item {
+    &--unread {
+      font-weight: bold;
+    }
   }
 }
