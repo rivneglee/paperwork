@@ -70,7 +70,7 @@ describe('Provider', () => {
       expect(mockIntegration.send).toBeCalledWith({
         intent: 'READ_SOMETHING',
         method: 'GET',
-      });
+      }, {});
     });
   });
 });
