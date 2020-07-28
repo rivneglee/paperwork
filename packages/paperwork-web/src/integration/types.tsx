@@ -22,5 +22,5 @@ export type RequestFunction = (options: RequestFunctionOptions) => Promise<any>;
 export type RequestFunctionMapping = {[key: string]: RequestFunction};
 
 export interface Integration {
-  send: (request: Request) => Promise<any>;
+  send: (request: Request, options?: any) => Promise<any>;
 }

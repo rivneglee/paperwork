@@ -9,6 +9,15 @@ interface Props {
 const Menu: FunctionComponent<Props> = ({ activeMenuId }) => (
   <MenuWidget>
     <MenuWidget.Item
+      active={activeMenuId === 'dashboard'}
+      id="dashboard"
+      icon={<Icons.Dashboard/>}
+    >
+      <Link to="/dashboard">
+        Home
+      </Link>
+    </MenuWidget.Item>
+    <MenuWidget.Item
       active={activeMenuId === 'datasource'}
       id="datasource"
       icon={<Icons.DataSource/>}
@@ -45,6 +54,15 @@ const Menu: FunctionComponent<Props> = ({ activeMenuId }) => (
       </MenuWidget.Item>
     </MenuWidget.Group>
     <MenuWidget.Item id="report" active={activeMenuId === 'report'} icon={<Icons.Chart/>}>Report</MenuWidget.Item>
+    <MenuWidget.Item
+      active={activeMenuId === 'organization'}
+      id="organization"
+      icon={<Icons.Organization/>}
+    >
+      <Link to="/organization">
+        Organization
+      </Link>
+    </MenuWidget.Item>
   </MenuWidget>
 );
 

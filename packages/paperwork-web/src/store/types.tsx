@@ -9,6 +9,8 @@ import { FormListPageState } from '../pages/form/list/state/reducers';
 import { FormDetailPageState } from '../pages/form/detail/state/reducers';
 import { CommitDetailPageState } from '../pages/commit/detail/state/reducers';
 import { CommitListPageState } from '../pages/commit/list/state/reducers';
+import { NotificationListPageState } from '../pages/notification/list/state/reducers';
+import { NotificationUpdate } from '../schema/Notification';
 
 export type PageState = {
   dataSourceList: DataSourceListPageState;
@@ -19,6 +21,7 @@ export type PageState = {
   formDetail: FormDetailPageState;
   commitDetail: CommitDetailPageState;
   commitList: CommitListPageState;
+  notificationList: NotificationListPageState;
 };
 
 export interface StoreState {
@@ -26,6 +29,7 @@ export interface StoreState {
   navigation: NavigationState;
   authentication?: Authentication;
   router?: RouterState;
+  notificationUpdate: NotificationUpdate;
 }
 
 export interface NavigationState {

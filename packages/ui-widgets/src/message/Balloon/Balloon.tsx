@@ -1,6 +1,5 @@
 import React, { FunctionComponent, ReactElement } from 'react';
 import classNames from 'classnames';
-import { Badge } from '../../graphic/Badge';
 
 interface Props {
   className?: string;
@@ -12,9 +11,9 @@ const Balloon: FunctionComponent<Props> = ({
  content,
  className,
 }) => (
-  <span>
+  <span className={classNames('pw-balloon', className)}>
     {children}
-    <Badge color="danger" className={classNames('pw-balloon', className)}>{content}</Badge>
+    <span className={classNames('pw-balloon__badge', className)}>{content}</span>
   </span>
 );
 
