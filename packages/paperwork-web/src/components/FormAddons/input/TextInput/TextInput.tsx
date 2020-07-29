@@ -7,7 +7,18 @@ interface Props extends Item {
   onChange: (value: any) => void;
 }
 
-const TextInput: FunctionComponent<Props> = ({ onChange, id, mode, label, isRequired, labelPlacement, value, ...item }) => {
+const TextInput: FunctionComponent<Props> = ({
+ onChange,
+ id,
+ mode,
+ label,
+ isRequired,
+ labelPlacement,
+ value,
+ enableDataBinding,
+ isCreatingDs,
+ ...item
+}) => {
   const [inputValue, setInputValue] = useState(value);
   const handleChange = () => {
     if (mode === FormMode.EDIT) {

@@ -5,7 +5,7 @@ export const getWriteRequestPayload = (form: FormDetail) => {
   const newItems = Object.keys(items).reduce((result, key) => {
     const item = items[key];
     if (!item) return result;
-    const { targetDataSource, ...restProps } = item;
+    const { targetDataSource, creatingDataSource, ...restProps } = item;
     if (targetDataSource && targetDataSource.fieldId && targetDataSource.id) {
       return {
         ...result,
@@ -13,6 +13,15 @@ export const getWriteRequestPayload = (form: FormDetail) => {
           ...restProps,
           targetDataSourceId: targetDataSource.id,
           targetFieldId: targetDataSource.fieldId,
+        },
+      };
+    }
+    if (creatingDataSource) {
+      return {
+        ...result,
+        [key]: {
+          ...restProps,
+          targetFieldName: creatingDataSource.fieldName || item.label,
         },
       };
     }

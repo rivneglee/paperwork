@@ -31,6 +31,7 @@ interface Props {
   isProcessing?: boolean;
   isCreating: boolean;
   isPageEdited: boolean;
+  isCreatingDefaultDs: boolean;
   isPublic: boolean;
   onUpdate: (template: FormDetail) => void;
   onCancel: () => void;
@@ -44,6 +45,7 @@ const FormDetailPage: FunctionComponent<Props> = ({
   isProcessing,
   isPublic,
   isCreating,
+  isCreatingDefaultDs,
   onUpdate,
   onCancel,
   onDelete,
@@ -136,7 +138,7 @@ const FormDetailPage: FunctionComponent<Props> = ({
         onChange={onUpdate}
         headerImage={form.headerImage}
         itemMetadataMap={{
-          ...getInputMap({ enableDataBinding: true }),
+          ...getInputMap({ enableDataBinding: !isCreatingDefaultDs, isCreatingDs: isCreatingDefaultDs }),
           ...getButtonMap(),
         }}
         layoutComponentMap={getLayoutMap()}

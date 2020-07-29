@@ -27,7 +27,7 @@ interface Props {
   onViewCommits: (formId: string) => void;
   isProcessing?: boolean;
   onEdit: (id: string) => void;
-  onCreateNew: () => void;
+  onCreateNew: (withDefaultDs: boolean) => void;
 }
 
 export interface FilterOption {
@@ -72,7 +72,8 @@ const FormListPage: FunctionComponent<Props> = ({
           onApply={() => onApplyFilter(filterOptions)}
         />
         <QuickAdd color="secondary">
-          <QuickAdd.Item onClick={onCreateNew} icon={<Icons.Form/>} tooltip="Create an empty form"/>
+          <QuickAdd.Item onClick={() => onCreateNew(true)} icon={<Icons.FormWithDs/>} tooltip="Create new form with default datasource"/>
+          <QuickAdd.Item onClick={() => onCreateNew(false)} icon={<Icons.Form/>} tooltip="Create new form and bind to existing datasource"/>
         </QuickAdd>
       </StickySideBar>
       {
