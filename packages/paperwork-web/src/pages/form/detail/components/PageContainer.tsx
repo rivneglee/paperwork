@@ -6,7 +6,7 @@ import { DetailProvider, DetailProviderState } from '../../../../service/form';
 import { StoreState } from '../../../../store';
 import { getAuthentication } from '../../../../store/selectors';
 import FormDetailPage from '../components/FormDetailPage';
-import { getFormDetail, getIsPageEdited, getIsPublic } from '../state/selectors';
+import { getFormDetail, getIsPageEdited, getIsPublic, getIsCreatingDefaultDs } from '../state/selectors';
 import { createLoadFormDetailAction, createUpdateFormAction } from '../state/actions';
 import { FormDetail } from '../../../../schema/Form';
 
@@ -14,6 +14,7 @@ const mapStateToViewProps = (state: StoreState) => ({
   form: getFormDetail(state),
   isPageEdited: getIsPageEdited(state),
   isPublic: getIsPublic(state),
+  isCreatingDefaultDs: getIsCreatingDefaultDs(state),
 });
 
 const mapStateToProviderProps = (state: StoreState, ownProps: any) => ({

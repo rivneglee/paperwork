@@ -44,7 +44,9 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
 
       const onEdit = (id: string) => dispatch(push(`/forms/${id}`));
       const onViewCommits = (id: string) => dispatch(push(`/forms/${id}/commits`));
-      const onCreateNew = () => dispatch(push('/forms/new'));
+      const onCreateNew = (withDefaultDs: boolean) => {
+        dispatch(push(`/forms/new?withDefaultDs=${withDefaultDs}`));
+      };
 
       return (
         <PageView

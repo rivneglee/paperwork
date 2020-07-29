@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Item, Toggle } from '@paperwork/ui-widgets';
+import { Input, Item, Toggle } from '@paperwork/ui-widgets';
 
 import LabelSettings from '../../common/LabelSettings';
 import DataBinding, { DataSourceOption } from '../../common/DataBinding';
@@ -9,7 +9,7 @@ interface Props {
   item: Item;
 }
 
-const Settings: FunctionComponent<Props> = ({ onUpdate, item }) => {
+const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBinding, isCreatingDs, ...item } }) => {
   const onToggleChange = (key: string) => (e: any) => {
     onUpdate({
       ...item,
@@ -25,8 +25,17 @@ const Settings: FunctionComponent<Props> = ({ onUpdate, item }) => {
       },
     });
   };
-  const { targetDataSource, enableDataBinding } = item;
+  const onFieldNameChange = (e: any) => {
+    onUpdate({
+      ...item,
+      creatingDataSource: {
+        fieldName: e.target.value,
+      },
+    });
+  };
+  const { targetDataSource, creatingDataSource = {} } = item;
   const { fieldId, ...dataSource } = targetDataSource || {};
+  const { fieldName = item.label } = creatingDataSource;
   return (
     <>
       <LabelSettings item={item} onUpdate={onUpdate}/>
@@ -39,6 +48,17 @@ const Settings: FunctionComponent<Props> = ({ onUpdate, item }) => {
       {
         enableDataBinding && (
           <DataBinding onBind={onBind} fieldId={targetDataSource && fieldId} dataSource={targetDataSource && dataSource}/>
+        )
+      }
+      {
+        isCreatingDs && (
+          <Input
+            label="Datasource field name"
+            labelPlacement="top"
+            isRequired
+            value={fieldName}
+            onChange={onFieldNameChange}
+          />
         )
       }
     </>

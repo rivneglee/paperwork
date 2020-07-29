@@ -68,6 +68,7 @@ import QRCode from './QRCode';
 import Pass from './Pass';
 import Message from './Message';
 import Organization from './Organization';
+import FormWithDs from './FormWithDs';
 
 export default {
   Add,
@@ -140,4 +141,5 @@ export default {
   Pass,
   Message,
   Organization,
+  FormWithDs,
 };

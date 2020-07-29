@@ -31,9 +31,14 @@ exports[`FormListPage should render when result is empty 1`] = `
         color="secondary"
       >
         <Component
+          icon={<FormWithDs />}
+          onClick={[Function]}
+          tooltip="Create new form with default datasource"
+        />
+        <Component
           icon={<Form />}
           onClick={[Function]}
-          tooltip="Create an empty form"
+          tooltip="Create new form and bind to existing datasource"
         />
       </t>
     </StickySideBar>
@@ -77,9 +82,14 @@ exports[`FormListPage should render when result is not empty 1`] = `
         color="secondary"
       >
         <Component
+          icon={<FormWithDs />}
+          onClick={[Function]}
+          tooltip="Create new form with default datasource"
+        />
+        <Component
           icon={<Form />}
           onClick={[Function]}
-          tooltip="Create an empty form"
+          tooltip="Create new form and bind to existing datasource"
         />
       </t>
     </StickySideBar>
