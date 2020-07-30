@@ -1,3 +1,4 @@
+import { createSelector } from 'reselect';
 import { StoreState } from './types';
 
 export const getAuthentication = (state: StoreState) => state.authentication;
@@ -9,3 +10,10 @@ export const getActiveMenuId = (state: StoreState) => state.navigation.activeMen
 export const getUnreadNotifications = (state: StoreState) => state.notificationUpdate.unread;
 
 export const getRoutingState = (state: StoreState) => state.router;
+export const getQueryParams = createSelector(
+  getRoutingState,
+  (routingState: any) => {
+    const { query = {} } = routingState.location;
+    return query;
+  },
+);

@@ -43,11 +43,13 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
       };
 
       const onEdit = (id: string) => dispatch(push(`/templates/${id}`));
+      const onCreateForm = (id: string) => dispatch(push(`/forms/new?sourceTemplateId=${id}&withDefaultDs=true`));
       const onCreateNew = () => dispatch(push('/templates/new'));
 
       return (
         <PageView
           onCreateNew={onCreateNew}
+          onCreateForm={onCreateForm}
           onEdit={onEdit}
           isProcessing={isProcessing}
           onLoadNextPage={onLoadNextPage}
