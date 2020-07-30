@@ -25,6 +25,7 @@ interface Props {
   onApplyFilter: (filterOptions: FilterOptions) => void;
   onEdit: (id: string) => void;
   onCreateNew: () => void;
+  onCreateForm: (id: string) => void;
   onFilterChange: (option: FilterOption) => void;
   filterOptions: FilterOptions;
   isProcessing?: boolean;
@@ -47,6 +48,7 @@ const TemplateListPage: FunctionComponent<Props> = ({
   onApplyFilter,
   onEdit,
   onCreateNew,
+  onCreateForm,
   onFilterChange,
   filterOptions,
   page,
@@ -101,7 +103,7 @@ const TemplateListPage: FunctionComponent<Props> = ({
                         <IconButton onClick={() => onEdit(entry.id)}><Icons.Edit/></IconButton>
                       </Tooltip>
                       <Tooltip placement="top" content="Use template">
-                        <IconButton><Icons.Duplicate/></IconButton>
+                        <IconButton onClick={() => onCreateForm(entry.id)}><Icons.Duplicate/></IconButton>
                       </Tooltip>
                     </div>
                   }
