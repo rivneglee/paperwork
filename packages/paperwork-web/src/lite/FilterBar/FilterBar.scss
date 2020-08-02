@@ -1,0 +1,20 @@
+.pwapp-lite-filterbar {
+  .pw-input--type-outlined {
+    padding: .1rem .8rem;
+  }
+
+  .pw-button {
+    padding: .4rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .pw-card__body {
+      align-items: center;
+      display: flex;
+    }
+
+    .pw-field-group {
+      margin: 0;
+    }
+  }
+}

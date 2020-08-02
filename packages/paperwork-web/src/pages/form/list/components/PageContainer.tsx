@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import FormListPage, { FilterOptions, FilterOption } from './FormListPage';
+import FormListPage, { FilterOptions, FilterOption } from './PageSwitcher';
 import { StoreState } from '../../../../store';
 import { getAuthentication } from '../../../../store/selectors';
 import { ListProvider, ListProviderState } from '../../../../service/form';
