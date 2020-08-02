@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { ListProviderState, Provider } from '../../../../service/notification';
 import { StoreState } from '../../../../store';
 import { getAuthentication } from '../../../../store/selectors';
-import NotificationListPage, { FilterOption, FilterOptions, Notification } from '../components/NotificationListPage';
+import NotificationListPage, { FilterOption, FilterOptions, Notification } from '../components/PageSwitcher';
 import { getEntries, getFilterOptions, getPagination } from '../state/selectors';
 import {
   createLoadNotificationListAction,

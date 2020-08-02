@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
 
-import TemplateListPage, { FilterOption, FilterOptions } from './TemplateListPage';
+import TemplateListPage, { FilterOption, FilterOptions } from './PageSwitcher';
 import { StoreState } from '../../../../store';
 import { getAuthentication } from '../../../../store/selectors';
 import { ListProvider, ListProviderState } from '../../../../service/template';

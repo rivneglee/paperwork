@@ -1,9 +1,8 @@
 import { Integration, IntegrationProfile } from './types';
-
-const profileKey = process.env.NODE_ENV;
+import getProfile from '../getProfile';
 
 export default (mappings: any): Integration => {
-  const profile: IntegrationProfile = require(`../profiles/${profileKey}`).default;
+  const profile: IntegrationProfile = getProfile();
   const factoryFunction = require(`./create${profile.integrationType}Integration`).default;
   const mapping = mappings[profile.integrationType];
   return factoryFunction(mapping, profile);

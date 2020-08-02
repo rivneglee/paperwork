@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { ListProvider, ListProviderState } from '../../../../service/commit';
 import { StoreState } from '../../../../store';
 import { getAuthentication } from '../../../../store/selectors';
-import CommitListPage, { FilterOption, FilterOptions, GroupBy } from '../components/CommitListPage';
+import CommitListPage, { FilterOption, FilterOptions, GroupBy } from '../components/PageSwitcher';
 import { getEntries, getPagination, getFilterOptions } from '../state/selectors';
 import { createLoadCommitListAction, createUpdateFilterOptionAction } from '../state/actions';
 
