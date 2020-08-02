@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { DetailProvider, DetailProviderState } from '../../../../service/commit';
 import { StoreState } from '../../../../store';
 import { getAuthentication } from '../../../../store/selectors';
-import CommitDetailPage from '../components/CommitDetailPage';
+import CommitDetailPage from '../components/PageSwitcher';
 import { getCommitDetail, getFormMode, getSucceedMessage } from '../state/selectors';
 import { createLoadCommitDetailAction, createSetSucceedMessageAction, createUpdateItemValueAction } from '../state/actions';
 import { CommitDetail } from '../../../../schema/Commit';

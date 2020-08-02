@@ -19,16 +19,16 @@ const AppBar: FunctionComponent<Props> = ({ activeMenuId, secondaryMenu }) => {
         <div className="pwapp-lite-appbar-brand"></div>
         <div className="pwapp-lite-appbar-primary__left">
           <Link to="/templates">
-            <Button size="m" icon={<Icons.Template/>} type="link" color="danger">Template</Button>
+            <Button size="m" icon={<Icons.Template/>} type="link" color="primary">Template</Button>
           </Link>
           <Link to="/forms">
-            <Button size="m" icon={<Icons.Form/>} type="link" color="danger">My forms</Button>
+            <Button size="m" icon={<Icons.Form/>} type="link" color="primary">My forms</Button>
           </Link>
           <Link to="/commits">
-            <Button size="m" icon={<Icons.Commit/>} type="link" color="danger">My commits</Button>
+            <Button size="m" icon={<Icons.Commit/>} type="link" color="primary">My commits</Button>
           </Link>
           <Link to="/reports">
-            <Button size="m" icon={<Icons.Chart/>} type="link" color="danger">My reports</Button>
+            <Button size="m" icon={<Icons.Chart/>} type="link" color="primary">My reports</Button>
           </Link>
           <Notification/>
         </div>

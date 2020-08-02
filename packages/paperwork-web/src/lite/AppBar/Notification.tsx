@@ -40,7 +40,7 @@ const DataSourceSelector = ({ dispatch, authentication, unread }: Props) => (
       return (
         <Balloon content={unread}>
           <Link to="/notifications">
-            <Button size="m" icon={<Icons.Message/>} type="link" color="danger">MESSAGE</Button>
+            <Button size="m" icon={<Icons.Message/>} type="link" color="primary">MESSAGE</Button>
           </Link>
         </Balloon>
       );

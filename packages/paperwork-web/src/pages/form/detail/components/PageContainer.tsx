@@ -9,7 +9,7 @@ import {
 } from '../../../../service/template';
 import { StoreState } from '../../../../store';
 import { getAuthentication, getQueryParams } from '../../../../store/selectors';
-import FormDetailPage from '../components/FormDetailPage';
+import FormDetailPage from '../components/PageSwitcher';
 import { getFormDetail, getIsPageEdited, getIsPublic, getIsCreatingDefaultDs } from '../state/selectors';
 import { defaultState } from '../state/reducers';
 import { createLoadFormDetailAction, createUpdateFormAction } from '../state/actions';

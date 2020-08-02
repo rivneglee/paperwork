@@ -5,7 +5,7 @@ import { push } from 'connected-react-router';
 import { DetailProvider, DetailProviderState } from '../../../../service/template';
 import { StoreState } from '../../../../store';
 import { getAuthentication } from '../../../../store/selectors';
-import TemplateDetailPage from '../components/TemplateDetailPage';
+import TemplateDetailPage from '../components/PageSwitcher';
 import { getIsPageEdited, getTemplateDetail } from '../state/selectors';
 import { createLoadTemplateDetailAction, createUpdateTemplateAction } from '../state/actions';
 import { TemplateDetail } from '../../../../schema/Template';

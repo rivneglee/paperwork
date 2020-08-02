@@ -1,4 +1,4 @@
-import React, { ComponentType, FunctionComponent } from 'react';
+import React, { ComponentType, FunctionComponent, ReactElement } from 'react';
 import {
   FormMode,
   ItemMetadata,
@@ -20,6 +20,7 @@ interface Props extends FormProps {
   statisticItems: FormItemProps[];
   onChange: (formProps: FormProps) => void;
   setRef?: (ref: HTMLDivElement) => void;
+  toolbox?: ReactElement;
 }
 
 const Designer: FunctionComponent<Props> = ({
@@ -30,6 +31,13 @@ const Designer: FunctionComponent<Props> = ({
   itemMetadataMap,
   onChange,
   setRef,
+  toolbox = (
+    <ActionBar
+      statisticItems={statisticItems}
+      fieldItems={fieldItems}
+      buttonItems={buttonItems}
+    />
+  ),
   ...otherProps
 }) => (
   <HeaderImagesProvider>
@@ -39,11 +47,7 @@ const Designer: FunctionComponent<Props> = ({
           {
             props => (
               <Card className="pwapp-designer">
-                <ActionBar
-                  statisticItems={statisticItems}
-                  fieldItems={fieldItems}
-                  buttonItems={buttonItems}
-                />
+                {toolbox}
                 <Form
                   setRef={setRef}
                   mode={FormMode.DESIGN}
