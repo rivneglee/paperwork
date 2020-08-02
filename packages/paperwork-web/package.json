@@ -30,7 +30,8 @@
     "reselect": "^4.0.0"
   },
   "scripts": {
-    "build": "node scripts/build.js",
+    "build": "export REACT_APP_UI_MODE=pretty && node scripts/build.js",
+    "build:lite": "export REACT_APP_UI_MODE=lite && node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "test:watch": "node scripts/test.js --watch --env=jsdom",
     "lint": "tslint --force --fix \"src/**/*.tsx\" \"**/__tests__/**/*.spec.tsx\" -e \"**/node_modules/**\"",
