@@ -65,7 +65,7 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
     <BaseTemplate
       isProcessing={isProcessing}
       spinner={<Spinner type="donut"/>}
-      className="pwapp-template-detail-page"
+      className="pwapp-lite-template-detail-page"
       header={<AppBar secondaryMenu={designMenu}/>}
     >
       {

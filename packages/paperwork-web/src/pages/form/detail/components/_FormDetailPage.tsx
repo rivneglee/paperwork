@@ -10,7 +10,7 @@ import {
   Scrollable,
 } from '@paperwork/ui-widgets';
 
-import './FormDetailPage.scss';
+import './_FormDetailPage.scss';
 import { FormDetail } from '../../../../schema/Form';
 import Spinner from '../../../../components/PageTransitionSpinner/Spinner';
 import { Designer, PaperThemeModal } from '../../../../components/FormDesigner';
@@ -120,7 +120,7 @@ const FormDetailPage: FunctionComponent<Props> = ({
     <BaseTemplate
       isProcessing={isProcessing}
       spinner={<Spinner type="donut"/>}
-      className="pwapp-template-detail-page"
+      className="pwapp-lite-template-detail-page"
       header={<AppBar secondaryMenu={designMenu}/>}
     >
       <Designer
