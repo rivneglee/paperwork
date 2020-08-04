@@ -53,7 +53,11 @@ const Menu: FunctionComponent<Props> = ({ activeMenuId }) => (
         </Link>
       </MenuWidget.Item>
     </MenuWidget.Group>
-    <MenuWidget.Item id="report" active={activeMenuId === 'report'} icon={<Icons.Chart/>}>Report</MenuWidget.Item>
+    <MenuWidget.Item id="reports" active={activeMenuId === 'reports'} icon={<Icons.Chart/>}>
+      <Link to="/reports">
+        Report
+      </Link>
+    </MenuWidget.Item>
     <MenuWidget.Item
       active={activeMenuId === 'organization'}
       id="organization"

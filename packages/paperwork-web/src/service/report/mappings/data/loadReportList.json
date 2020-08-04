@@ -1,0 +1,40 @@
+{
+  "entries": [
+    {
+      "id": "1",
+      "name": "Employee engagement survey",
+      "author": {
+        "id": "1",
+        "displayName": "LI,CHENG"
+      }
+    },
+    {
+      "id": "2",
+      "name": "Feedback collection",
+      "author": {
+        "id": "1",
+        "displayName": "LI,CHENG"
+      }
+    },
+    {
+      "id": "3",
+      "name": "Child support program application form",
+      "author": {
+        "id": "1",
+        "displayName": "LI,CHENG"
+      }
+    },
+    {
+      "id": "4",
+      "name": "Childcare subsidy application",
+      "author": {
+        "id": "1",
+        "displayName": "LI,CHENG"
+      }
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "total": 1
+  }
+}
