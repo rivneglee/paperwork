@@ -10,6 +10,7 @@ import { FormDetailPageState } from '../pages/form/detail/state/reducers';
 import { CommitDetailPageState } from '../pages/commit/detail/state/reducers';
 import { CommitListPageState } from '../pages/commit/list/state/reducers';
 import { NotificationListPageState } from '../pages/notification/list/state/reducers';
+import { ReportListPageState } from '../pages/report/list/state/reducers';
 import { NotificationUpdate } from '../schema/Notification';
 
 export type PageState = {
@@ -22,6 +23,7 @@ export type PageState = {
   commitDetail: CommitDetailPageState;
   commitList: CommitListPageState;
   notificationList: NotificationListPageState;
+  reportList: ReportListPageState;
 };
 
 export interface StoreState {
