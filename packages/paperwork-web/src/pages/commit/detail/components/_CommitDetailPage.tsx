@@ -8,6 +8,8 @@ import HeaderImagesProvider from '../../../../components/FormHeaderImageProvider
 import FormEditor from '../../../../components/FormEditor/FormEditor';
 import { CommitDetail } from '../../../../schema/Commit';
 
+import './_CommitDetailPage.scss';
+
 interface Props {
   commit: CommitDetail;
   succeedMessage?: SucceedMessage;
@@ -60,6 +62,7 @@ const CommitDetailPage: FunctionComponent<Props> = ({
 
   return (
     <BaseTemplate
+      className="pwapp-lite-commit-detail"
       isProcessing={isProcessing}
       spinner={<Spinner type="donut"/>}
     >
