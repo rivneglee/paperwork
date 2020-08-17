@@ -1,289 +1,64 @@
 {
-  "id": "1",
-  "name": "Childcare Center Application form",
+  "id": "",
+  "name": "Summary Report",
   "author": {
-    "id": "1",
-    "displayName": "LI,CHENG"
+    "id": "",
+    "displayName": "",
+    "username": ""
   },
   "layout": [
     {
       "id": "page",
       "childRefs": [
-        "e2hiP4XYg",
-        "-_yRfRRyL",
-        "LJhpu2uZV",
-        "6gcumM4H0",
-        "7xFna8sw4",
-        "t9PKIc9Ny",
-        "qFscFs0OV",
-        "KQw7AHwFd"
+        "6jpaFvj_v"
       ],
       "type": "page"
     },
     {
-      "id": "e2hiP4XYg",
+      "id": "6jpaFvj_v",
       "childRefs": [
-        "rA09LAdzP"
+        "KeP7IWS3F",
+        "Ek9OhK62s"
       ],
       "type": "vertical-list"
     },
     {
-      "id": "rA09LAdzP",
+      "id": "KeP7IWS3F",
       "childRefs": [],
       "type": "form-item"
     },
     {
-      "id": "-_yRfRRyL",
-      "childRefs": [
-        "levKmKVn3"
-      ],
-      "type": "horizontal-list"
-    },
-    {
-      "id": "levKmKVn3",
-      "childRefs": [],
-      "type": "form-item"
-    },
-    {
-      "id": "LJhpu2uZV",
-      "childRefs": [
-        "wTvBhoeK6",
-        "2aCdbE34l"
-      ],
-      "type": "horizontal-list"
-    },
-    {
-      "id": "wTvBhoeK6",
-      "childRefs": [],
-      "type": "form-item"
-    },
-    {
-      "id": "2aCdbE34l",
-      "childRefs": [],
-      "type": "form-item"
-    },
-    {
-      "id": "6gcumM4H0",
-      "childRefs": [
-        "Bu_9NufDl",
-        "vhJl02NCE"
-      ],
-      "type": "horizontal-list"
-    },
-    {
-      "id": "Bu_9NufDl",
-      "childRefs": [],
-      "type": "form-item"
-    },
-    {
-      "id": "vhJl02NCE",
-      "childRefs": [],
-      "type": "form-item"
-    },
-    {
-      "id": "7xFna8sw4",
-      "childRefs": [
-        "2sAWe_0Ac",
-        "Eavi_B104",
-        "rFEa9NkKD"
-      ],
-      "type": "vertical-list"
-    },
-    {
-      "id": "2sAWe_0Ac",
-      "childRefs": [],
-      "type": "form-item"
-    },
-    {
-      "id": "Eavi_B104",
-      "childRefs": [],
-      "type": "form-item"
-    },
-    {
-      "id": "rFEa9NkKD",
-      "childRefs": [],
-      "type": "form-item"
-    },
-    {
-      "id": "t9PKIc9Ny",
-      "childRefs": [
-        "NQvA_fWxj"
-      ],
-      "type": "horizontal-list"
-    },
-    {
-      "id": "NQvA_fWxj",
-      "childRefs": [],
-      "type": "form-item"
-    },
-    {
-      "id": "qFscFs0OV",
-      "childRefs": [
-        "mJYS2ueLq",
-        "jicFEV14_"
-      ],
-      "type": "horizontal-list"
-    },
-    {
-      "id": "jicFEV14_",
-      "childRefs": [],
-      "type": "form-item"
-    },
-    {
-      "id": "mJYS2ueLq",
-      "childRefs": [],
-      "type": "form-item"
-    },
-    {
-      "id": "KQw7AHwFd",
-      "childRefs": [
-        "uVw74Z-ON"
-      ],
-      "type": "vertical-list"
-    },
-    {
-      "id": "uVw74Z-ON",
+      "id": "Ek9OhK62s",
       "childRefs": [],
       "type": "form-item"
     }
   ],
   "items": {
-    "rA09LAdzP": {
-      "id": "rA09LAdzP",
-      "itemType": "text",
-      "value": "<p>Please fill and send this form back to use through:</p>\n<ol>\n<li>Mail print copy to <em>1/13 Beverly Hill Monvale,VIC 3109</em></li>\n<li>Email scanned copy to<strong> </strong>c<em>hildcare@monvale.edu</em></li>\n<li>Visit our site and give print copy to our kind staff</li>\n</ol>\n<p>Contact us at <strong>049239219</strong> if you have any question.</p>\n"
-    },
-    "levKmKVn3": {
-      "id": "levKmKVn3",
-      "itemType": "text",
-      "value": "<p><strong>PART A - Basic infomation</strong></p>\n"
-    },
-    "wTvBhoeK6": {
-      "id": "wTvBhoeK6",
-      "itemType": "input",
-      "label": "Guardian name",
-      "isRequired": true,
-      "targetDataSource": {
-        "id": "1",
-        "name": "Application Form",
-        "fieldId": "123"
+    "KeP7IWS3F": {
+      "id": "KeP7IWS3F",
+      "itemType": "data-table",
+      "dataSources": {
+        "1": {
+          "id": "1",
+          "name": "Engagement survey 2020",
+          "owner": "1",
+          "fields": [
+            {
+              "id": "123",
+              "displayName": "STAFF_NAME"
+            },
+            {
+              "id": "321",
+              "displayName": "RATING"
+            }
+          ]
+        }
       }
     },
-    "2aCdbE34l": {
-      "id": "2aCdbE34l",
-      "itemType": "input",
-      "label": "Kid name",
-      "isRequired": true,
-      "targetDataSource": {
-        "id": "1",
-        "name": "Application Form",
-        "fieldId": "321"
-      }
-    },
-    "Bu_9NufDl": {
-      "id": "Bu_9NufDl",
-      "itemType": "input",
-      "label": "Kid age",
-      "targetDataSource": {
-        "id": "2",
-        "name": "Age group",
-        "fieldId": "555"
-      }
-    },
-    "vhJl02NCE": {
-      "id": "vhJl02NCE",
-      "itemType": "select",
-      "label": "Kid gender",
-      "isRequired": true,
-      "options": [
-        {
-          "label": "Girl",
-          "id": "dAgbeokF5",
-          "value": "female"
-        },
-        {
-          "label": "Boy",
-          "id": "61deH5OO_",
-          "value": "male"
-        }
-      ]
-    },
-    "2sAWe_0Ac": {
-      "id": "2sAWe_0Ac",
-      "itemType": "text",
-      "value": "<p><strong>PART B - Care details </strong></p>\n"
-    },
-    "Eavi_B104": {
-      "id": "Eavi_B104",
-      "itemType": "select",
-      "label": "Care type",
-      "isRequired": true,
-      "options": [
-        {
-          "label": "After school care",
-          "id": "lm__OIRlo",
-          "value": "ASC"
-        },
-        {
-          "label": "Whole day care",
-          "id": "Hnk746yX0",
-          "value": "WDC"
-        }
-      ]
-    },
-    "rFEa9NkKD": {
-      "id": "rFEa9NkKD",
-      "itemType": "select",
-      "label": "Preferred days",
-      "isRequired": true,
-      "isMultipleSelect": true,
-      "options": [
-        {
-          "label": "Monday",
-          "id": "OYaD4SLt5",
-          "value": "1"
-        },
-        {
-          "label": "Tuesday",
-          "id": "y10wj3vSW",
-          "value": "2"
-        },
-        {
-          "label": "Wednesday",
-          "id": "DMdbJN7mq",
-          "value": "3"
-        },
-        {
-          "label": "Thursday",
-          "id": "G58iisvfG",
-          "value": "4"
-        },
-        {
-          "label": "Friday",
-          "id": "ZMR6DWlmA",
-          "value": "5"
-        }
-      ]
-    },
-    "NQvA_fWxj": {
-      "id": "NQvA_fWxj",
-      "itemType": "text",
-      "value": "<p><strong>PART C - Contact info (optional)</strong></p>\n"
-    },
-    "jicFEV14_": {
-      "id": "jicFEV14_",
-      "itemType": "input",
-      "label": "Mobile"
-    },
-    "mJYS2ueLq": {
-      "id": "mJYS2ueLq",
-      "itemType": "input",
-      "label": "Email"
-    },
-    "uVw74Z-ON": {
-      "id": "uVw74Z-ON",
-      "itemType": "submit",
-      "label": "Submit Application"
+    "Ek9OhK62s": {
+      "id": "Ek9OhK62s",
+      "itemType": "data-table"
     }
-  }
+  },
+  "createdAt": ""
 }

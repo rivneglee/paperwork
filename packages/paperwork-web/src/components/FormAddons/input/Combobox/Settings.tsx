@@ -53,12 +53,12 @@ const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBindin
     });
   };
 
-  const onBind = (dataSource: DataSourceOption, fieldId: string) => {
+  const onBind = (dataSource: DataSourceOption, field: SelectOption) => {
     onUpdate({
       ...item,
       targetDataSource: {
         ...dataSource,
-        fieldId,
+        fieldId: field.value,
       },
     });
   };
@@ -78,24 +78,11 @@ const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBindin
 
   return (
     <>
-      <LabelSettings item={item} onUpdate={onUpdate}/>
-      <Toggle
-        checked={isRequired}
-        label="Required"
-        labelPlacement="top"
-        onChange={onToggleChange('isRequired')}
-      />
-      <Toggle
-        checked={isMultipleSelect}
-        label="Multi-select"
-        labelPlacement="top"
-        onChange={onToggleChange('isMultipleSelect')}
-      />
       {
         enableDataBinding && (
           <DataBinding
             onBind={onBind}
-            fieldId={targetDataSource && fieldId}
+            fieldSelection={targetDataSource && fieldId}
             dataSource={targetDataSource && dataSource}
           />
         )
@@ -111,6 +98,19 @@ const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBindin
           />
         )
       }
+      <LabelSettings item={item} onUpdate={onUpdate}/>
+      <Toggle
+        checked={isRequired}
+        label="Required"
+        labelPlacement="top"
+        onChange={onToggleChange('isRequired')}
+      />
+      <Toggle
+        checked={isMultipleSelect}
+        label="Multi-select"
+        labelPlacement="top"
+        onChange={onToggleChange('isMultipleSelect')}
+      />
       <LineItemTable
         columnsConfig={columnsConfig}
         data={options}

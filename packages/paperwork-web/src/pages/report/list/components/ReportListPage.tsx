@@ -7,6 +7,7 @@ import {
   Card,
   PageState,
   List,
+  IconButton,
 } from '@paperwork/ui-widgets';
 import AppBar from '../../../../components/AppBar';
 import Spinner from '../../../../components/PageTransitionSpinner/Spinner';
@@ -88,7 +89,14 @@ const ReportListPage: FunctionComponent<Props> = ({
             {
               entries.map(entry => (
                 <List.Item>
-                    {entry.name}
+                  <div className="pwapp-report-list__row">
+                    <div className="pwapp-report-list__name">
+                      {entry.name}
+                    </div>
+                    <div className="pwapp-report-list__buttons">
+                      <IconButton onClick={() => onEdit(entry.id)}><Icons.Edit/></IconButton>
+                    </div>
+                  </div>
                 </List.Item>
               ))
             }

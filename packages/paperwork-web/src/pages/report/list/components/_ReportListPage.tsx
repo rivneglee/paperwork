@@ -93,7 +93,7 @@ const ReportListPage: FunctionComponent<Props> = ({
             <Table.Body>
               {
                 entries.map(entry => (
-                  <Table.Row key={entry.id}>
+                  <Table.Row key={entry.id} onClick={() => onEdit(entry.id)}>
                     <Table.RowItem columnName="Name">
                       {entry.name}
                     </Table.RowItem>

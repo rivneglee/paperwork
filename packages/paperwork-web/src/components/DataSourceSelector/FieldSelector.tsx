@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Select, Spinner } from '@paperwork/ui-widgets';
+import { Select, SelectOption, Spinner } from '@paperwork/ui-widgets';
 
 import { DetailProvider, DetailProviderState } from '../../service/dataSource';
 import { StoreState } from '../../store';
@@ -14,6 +14,7 @@ interface Props {
   onChange: (selection: any) => void;
   authentication: Authentication;
   dataSourceId: string;
+  isMultipleSelect?: boolean;
 }
 
 const mapStateToProps = (state: StoreState) => ({
@@ -27,6 +28,7 @@ const FieldSelector = ({
   labelPlacement,
   value,
   onChange,
+  isMultipleSelect,
 }: Props) => (
   <DetailProvider
     spinner={<Spinner type="ellipsis" size="s"/>}
@@ -42,14 +44,18 @@ const FieldSelector = ({
           value: id,
           label: name,
         }));
+        const onSelectField = (_: any, fields: SelectOption | SelectOption[]) => {
+          onChange(fields);
+        };
         return (
           <Select
             isRequired
             label={label}
             labelPlacement={labelPlacement}
             selectedValue={value}
-            onChange={onChange}
+            onChange={onSelectField}
             options={options}
+            isMultipleSelect={isMultipleSelect}
           />
         );
       }
