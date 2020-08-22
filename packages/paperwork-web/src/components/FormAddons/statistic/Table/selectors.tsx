@@ -1,5 +1,3 @@
-import { SelectOption } from '@paperwork/ui-widgets';
-
 export const getQuery = (state: any) => {
   if (!state || !state.dataSources) return;
   return (
@@ -7,7 +5,7 @@ export const getQuery = (state: any) => {
       ...result,
       [id]: {
         dataSourceId: id,
-        fields: fields.map((f: SelectOption) => f.value),
+        fields: fields.map((f: any) => f.id),
       },
     }), {})
   );

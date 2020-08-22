@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react';
 import { Integration } from '../../integration';
 import { ReportDetail } from '../../schema/Report';
 import { LOAD_REPORT_DETAIL, CREATE_REPORT, UPDATE_REPORT, DELETE_REPORT } from './intents';
+import { getSaveRequestPayload } from './selectors';
 
 export interface DetailProviderState {
   report?: ReportDetail;
@@ -55,7 +56,7 @@ export default class extends React.Component<Props> {
         userId,
         reportId,
       },
-      content: report,
+      content: getSaveRequestPayload(report),
     });
     this.setState({
       report,
@@ -71,7 +72,7 @@ export default class extends React.Component<Props> {
       urlParams: {
         userId,
       },
-      content: report,
+      content: getSaveRequestPayload(report),
     });
     this.setState({
       report,

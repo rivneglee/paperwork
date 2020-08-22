@@ -3,4 +3,10 @@
     padding: 0;
     margin-bottom: 0;
   }
+
+  .pw-draggable-list__row--dragging, .pw-draggable-list__row--dropping {
+    .pw-drawer {
+      display: none;
+    }
+  }
 }

@@ -22,7 +22,7 @@ const Settings: FunctionComponent<Props> = ({ onUpdate, item }) => {
       dataSources: {
         [dataSource.id]: {
           ...dataSource,
-          fields: fields.map((f: SelectOption) => ({ id: f.value, displayName: f.label })),
+          fields: fields.map((f: SelectOption) => ({ id: f.value, name: f.label })),
         },
       },
     });

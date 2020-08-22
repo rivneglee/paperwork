@@ -50,7 +50,6 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
           const onSave = async (report: ReportDetail) => {
             const saveHandler = params.reportId === 'new' ? create : update;
             await saveHandler(report);
-            console.log(JSON.stringify(report));
             navigateToList();
           };
 

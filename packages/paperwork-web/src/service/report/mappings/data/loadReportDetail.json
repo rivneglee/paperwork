@@ -45,11 +45,11 @@
           "fields": [
             {
               "id": "123",
-              "displayName": "STAFF_NAME"
+              "name": "STAFF_NAME"
             },
             {
               "id": "321",
-              "displayName": "RATING"
+              "name": "RATING"
             }
           ]
         }

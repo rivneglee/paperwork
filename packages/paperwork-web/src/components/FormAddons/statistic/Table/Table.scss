@@ -1,1 +1,25 @@
-.pwapp-report-data-table {}
+.pwapp-report-data-table {
+  &__content {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__toolbar {
+    background: white;
+    border-bottom: 1px solid #d4dadf;
+    padding: .3rem;
+  }
+
+  &__filter {
+    @media (min-width: 768px) {
+      width: 500px;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+  }
+}

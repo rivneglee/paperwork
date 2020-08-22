@@ -6,9 +6,21 @@ import { Integration } from '../../integration';
 
 export interface AggregatedCommitsProviderState {
   commits: AggregatedCommits;
-  load: (page: number) => Promise<AggregatedCommits>;
+  load: (page: number, filters?: FilterCondition[]) => Promise<AggregatedCommits>;
   isInitializing: boolean;
   isProcessing: boolean;
+}
+
+export interface FilterCondition {
+  filterField: string;
+  filterValue?: string;
+}
+
+export interface Query {
+  [dataSourceId: string]: {
+    dataSourceId: string;
+    fields: string[];
+  };
 }
 
 interface Props {
@@ -17,7 +29,7 @@ interface Props {
   userId: string;
   isProcessing: boolean;
   preLoad?: boolean;
-  query?: any;
+  query?: Query;
 }
 
 export default class extends React.Component<Props> {
@@ -30,13 +42,16 @@ export default class extends React.Component<Props> {
 
   private isInitializing = true;
 
-  private load = async (page = 0) => {
+  private load = async (page = 0, filters = []) => {
     const { integration, userId, query } = this.props;
     if (!query) return;
     const commits = await integration.send({
       intent: QUERY_COMMITS,
       method: 'POST',
-      content: query,
+      content: {
+        query,
+        filters,
+      },
       urlParams: {
         userId,
       },

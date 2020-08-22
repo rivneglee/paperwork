@@ -58,7 +58,9 @@ const Select: FunctionComponent<Props> = ({
     }
 
     if (onChange) {
-      onChange(currentValue, selection);
+      let newSelection = selection;
+      if (isMultipleSelect || !selection) newSelection = [];
+      onChange(currentValue, newSelection);
     }
   };
 

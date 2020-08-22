@@ -1,7 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { AggregatedCommitsProviderState, AggregatedCommitsProvider } from '../../../../service/statistic';
+import {
+  AggregatedCommitsProviderState,
+  AggregatedCommitsProvider,
+  FilterCondition,
+} from '../../../../service/statistic';
 import { StoreState } from '../../../../store';
 import { getAuthentication } from '../../../../store/selectors';
 import Table from './Table';
@@ -20,9 +24,17 @@ const View = ({ authentication, dispatch, query, ...props }: any) => (
     userId={authentication.userId}
   >
     {
-      ({ commits, isProcessing }: AggregatedCommitsProviderState) => {
+      ({ commits, isProcessing, load }: AggregatedCommitsProviderState) => {
+        const onApplyFilter = async (filters: FilterCondition[]) => {
+          await load(0, filters);
+        };
+
+        const onPageChange = async (page: number, filters: FilterCondition[]) => {
+          await load(page, filters);
+        };
+
         return (
-          <Table {...props} data={commits} isProcessing={isProcessing}/>
+          <Table onPageChange={onPageChange} onApplyFilter={onApplyFilter} {...props} data={commits} isProcessing={isProcessing}/>
         );
       }
     }
