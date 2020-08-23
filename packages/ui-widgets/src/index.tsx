@@ -8,6 +8,7 @@ export * from './layout/PictureChip';
 
 export * from './navigation/Menu';
 export * from './navigation/InfinityScroller';
+export * from './navigation/Paginator';
 
 export * from './graphic/Avater';
 export * from './graphic/Spinner';

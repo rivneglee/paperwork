@@ -2,12 +2,13 @@ import React, { ReactElement } from 'react';
 import { Integration } from '../../integration';
 import { ReportDetail } from '../../schema/Report';
 import { LOAD_REPORT_DETAIL, CREATE_REPORT, UPDATE_REPORT, DELETE_REPORT } from './intents';
+import { getSaveRequestPayload } from './selectors';
 
 export interface DetailProviderState {
   report?: ReportDetail;
   load: () => Promise<ReportDetail>;
-  update: (form: ReportDetail) => Promise<void>;
-  create: (form: ReportDetail) => Promise<void>;
+  update: (report: ReportDetail) => Promise<void>;
+  create: (report: ReportDetail) => Promise<void>;
   remove: () => Promise<void>;
   isInitializing: boolean;
   isProcessing: boolean;
@@ -32,7 +33,7 @@ export default class extends React.Component<Props> {
   private load = async () => {
     const { reportId, userId } = this.props;
     const { integration } = this.props;
-    const form = await integration.send({
+    const report = await integration.send({
       intent: LOAD_REPORT_DETAIL,
       method: 'GET',
       urlParams: {
@@ -41,9 +42,9 @@ export default class extends React.Component<Props> {
       },
     });
     this.setState({
-      form,
+      report,
     });
-    return form;
+    return report;
   }
 
   private update = async (report: ReportDetail) => {
@@ -55,7 +56,7 @@ export default class extends React.Component<Props> {
         userId,
         reportId,
       },
-      content: report,
+      content: getSaveRequestPayload(report),
     });
     this.setState({
       report,
@@ -71,7 +72,7 @@ export default class extends React.Component<Props> {
       urlParams: {
         userId,
       },
-      content: report,
+      content: getSaveRequestPayload(report),
     });
     this.setState({
       report,

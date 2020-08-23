@@ -69,6 +69,8 @@ import Pass from './Pass';
 import Message from './Message';
 import Organization from './Organization';
 import FormWithDs from './FormWithDs';
+import Table from './Table';
+import Filter from './Filter';
 
 export default {
   Add,
@@ -142,4 +144,6 @@ export default {
   Message,
   Organization,
   FormWithDs,
+  Table,
+  Filter,
 };

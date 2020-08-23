@@ -5,6 +5,7 @@
   "dependencies": {
     "@paperwork/ui-styles": "0.1.0",
     "@paperwork/ui-widgets": "0.1.0",
+    "@types/deep-equal": "^1.0.1",
     "@types/qrcode.react": "^1.0.1",
     "@types/react-copy-to-clipboard": "^4.3.0",
     "asset-require-hook": "^1.2.0",
@@ -12,6 +13,7 @@
     "classnames": "^2.2.6",
     "connected-react-router": "^6.8.0",
     "css-modules-require-hook": "^4.2.3",
+    "deep-equal": "^2.0.3",
     "express": "^4.17.1",
     "html-to-image": "^0.1.1",
     "jsdom": "^16.2.2",

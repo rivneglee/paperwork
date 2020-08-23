@@ -104,10 +104,6 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
                 buttonItems={[
                   { icon: <Icons.Submit/>, itemType: ButtonItemTypes.SUBMIT },
                 ]}
-                statisticItems={[
-                  { icon: <Icons.PieChart/>, itemType: 'pie-chart' },
-                  { icon: <Icons.LineChart/>, itemType: 'line-chart' },
-                ]}
               />
             }
           />

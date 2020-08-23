@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
 import { DataSourceSelector, FieldSelector } from '../../DataSourceSelector';
+import { SelectOption } from '@paperwork/ui-widgets';
 
 export interface DataSourceOption {
   id: string;
@@ -8,40 +9,47 @@ export interface DataSourceOption {
 
 interface Props {
   dataSource?: DataSourceOption;
-  fieldId?: string;
-  onBind?: (dataSource: DataSourceOption, fieldId: string) => void;
+  fieldSelection?: string | string[];
+  onBind?: (dataSource: DataSourceOption, fields: SelectOption | SelectOption[]) => void;
+  dataSourceLabel?: string;
+  dataFieldLabel?: string;
+  multipleFields?: boolean;
 }
 
 const DataBinding: FunctionComponent<Props> = ({
   dataSource,
-  fieldId,
+  fieldSelection,
   onBind,
+  dataSourceLabel = 'Datasource',
+  dataFieldLabel = 'Field',
+  multipleFields,
 }) => {
   const [selectedDataSource, setSelectedDataSource] = useState(dataSource);
   const onSelectDatasource = (selection: DataSourceOption) => {
     setSelectedDataSource(selection);
   };
 
-  const onSelectField = (fieldId: string) => {
-    onBind && onBind(selectedDataSource as DataSourceOption, fieldId as string);
+  const onSelectField = (fields: SelectOption | SelectOption[]) => {
+    onBind && onBind(selectedDataSource as DataSourceOption, fields);
   };
 
   return (
     <>
       <DataSourceSelector
         value={selectedDataSource}
-        label="Target datasource"
+        label={dataSourceLabel}
         labelPlacement="top"
         onChange={onSelectDatasource}
       />
       {
         selectedDataSource && (
           <FieldSelector
-            value={fieldId}
+            value={fieldSelection}
             dataSourceId={selectedDataSource.id}
-            label="Target field"
+            label={dataFieldLabel}
             labelPlacement="top"
             onChange={onSelectField}
+            isMultipleSelect={!!multipleFields}
           />
         )
       }

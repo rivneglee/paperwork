@@ -1,2 +1,15 @@
 .pwapp-report-list {
+  &__row {
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+
+  &__name {
+    flex-grow: 1;
+  }
+
+  &__buttons {
+    display: flex;
+  }
 }

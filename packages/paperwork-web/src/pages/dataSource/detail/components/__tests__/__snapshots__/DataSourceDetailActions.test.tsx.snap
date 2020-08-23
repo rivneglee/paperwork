@@ -1,24 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DataSourceDetailActions should render properly when creating new 1`] = `
-<Mi
+<wi
   primary={
     Array [
-      <ai
+      <si
         color="primary"
         icon={<Save />}
         onClick={[Function]}
         size="m"
     >
         Save
-    </ai>,
-      <ai
+    </si>,
+      <si
         icon={<Cancel />}
         onClick={[Function]}
         size="m"
     >
         Cancel
-    </ai>,
+    </si>,
     ]
   }
   secondary={Array []}
@@ -26,16 +26,16 @@ exports[`DataSourceDetailActions should render properly when creating new 1`] = 
 `;
 
 exports[`DataSourceDetailActions should render properly when editing collaborative datasource 1`] = `
-<Mi
+<wi
   primary={
     Array [
-      <ai
+      <si
         icon={<Cancel />}
         onClick={[Function]}
         size="m"
     >
         Cancel
-    </ai>,
+    </si>,
     ]
   }
   secondary={Array []}
@@ -43,36 +43,36 @@ exports[`DataSourceDetailActions should render properly when editing collaborati
 `;
 
 exports[`DataSourceDetailActions should render properly when editing owned datasource 1`] = `
-<Mi
+<wi
   primary={
     Array [
-      <ai
+      <si
         color="primary"
         icon={<Save />}
         onClick={[Function]}
         size="m"
     >
         Save
-    </ai>,
-      <ai
+    </si>,
+      <si
         icon={<Cancel />}
         onClick={[Function]}
         size="m"
     >
         Cancel
-    </ai>,
+    </si>,
     ]
   }
   secondary={
     Array [
-      <ai
+      <si
         color="danger"
         icon={<Delete />}
         onClick={[Function]}
         size="m"
     >
         Delete
-    </ai>,
+    </si>,
     ]
   }
 />

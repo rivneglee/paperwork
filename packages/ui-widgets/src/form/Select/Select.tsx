@@ -20,7 +20,7 @@ interface Props {
   isRequired?: boolean;
   labelAccessory?: ReactElement;
   isMultipleSelect?: boolean;
-  onChange?: (value: SelectedValue) => void;
+  onChange?: (value: SelectedValue, option?: SelectOption | SelectOption[]) => void;
   size?: 'xs' | 's' | 'm' | 'l' | 'xl';
   labelPlacement?: 'left' | 'top';
 }
@@ -58,7 +58,9 @@ const Select: FunctionComponent<Props> = ({
     }
 
     if (onChange) {
-      onChange(currentValue);
+      let newSelection = selection;
+      if (isMultipleSelect || !selection) newSelection = [];
+      onChange(currentValue, newSelection);
     }
   };
 

@@ -8,6 +8,7 @@ import { mapping as CommitDetailPageActionMapping, defaultState as commitDetail 
 import { mapping as CommitListPageActionMapping, defaultState as commitList } from '../pages/commit/list/state/reducers';
 import { mapping as NotificationListPageActionMapping, defaultState as notificationList } from '../pages/notification/list/state/reducers';
 import { mapping as ReportListPageActionMapping, defaultState as reportList } from '../pages/report/list/state/reducers';
+import { mapping as ReportDetailPageActionMapping, defaultState as reportDetail } from '../pages/report/detail/state/reducers';
 import { PageState } from './types';
 import {
   SetActiveMenuAction,
@@ -27,6 +28,7 @@ const mapping = {
   ...CommitListPageActionMapping,
   ...NotificationListPageActionMapping,
   ...ReportListPageActionMapping,
+  ...ReportDetailPageActionMapping,
 };
 
 export const defaultPageState = {
@@ -40,6 +42,7 @@ export const defaultPageState = {
   commitList,
   notificationList,
   reportList,
+  reportDetail,
 };
 
 export const authenticationReducer = (state = {}) => state;

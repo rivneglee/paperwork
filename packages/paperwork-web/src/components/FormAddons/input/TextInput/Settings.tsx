@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Input, Item, Toggle } from '@paperwork/ui-widgets';
+import { Input, Item, SelectOption, Toggle } from '@paperwork/ui-widgets';
 
 import LabelSettings from '../../common/LabelSettings';
 import DataBinding, { DataSourceOption } from '../../common/DataBinding';
@@ -16,12 +16,12 @@ const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBindin
       [key]: e.target.checked,
     });
   };
-  const onBind = (dataSource: DataSourceOption, fieldId: string) => {
+  const onBind = (dataSource: DataSourceOption, field: SelectOption) => {
     onUpdate({
       ...item,
       targetDataSource: {
         ...dataSource,
-        fieldId,
+        fieldId: field.value,
       },
     });
   };
@@ -38,16 +38,13 @@ const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBindin
   const { fieldName = item.label } = creatingDataSource;
   return (
     <>
-      <LabelSettings item={item} onUpdate={onUpdate}/>
-      <Toggle
-        checked={item.isRequired}
-        label="Required"
-        labelPlacement="top"
-        onChange={onToggleChange('isRequired')}
-      />
       {
         enableDataBinding && (
-          <DataBinding onBind={onBind} fieldId={targetDataSource && fieldId} dataSource={targetDataSource && dataSource}/>
+          <DataBinding
+            onBind={onBind}
+            fieldSelection={targetDataSource && fieldId}
+            dataSource={targetDataSource && dataSource}
+          />
         )
       }
       {
@@ -61,6 +58,13 @@ const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBindin
           />
         )
       }
+      <LabelSettings item={item} onUpdate={onUpdate}/>
+      <Toggle
+        checked={item.isRequired}
+        label="Required"
+        labelPlacement="top"
+        onChange={onToggleChange('isRequired')}
+      />
     </>
   );
 };

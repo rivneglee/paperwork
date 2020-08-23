@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DataSourceListPage should render when result is empty 1`] = `
-<Pi
+<Ai
   header={
     <Connect(AppBar)
       activeMenuId="datasource"
@@ -17,7 +17,7 @@ exports[`DataSourceListPage should render when result is empty 1`] = `
     }
   >
     <StickySideBar>
-      <bi
+      <Mi
         onApply={[Function]}
         onChange={[Function]}
         placeholder="Search"
@@ -32,17 +32,17 @@ exports[`DataSourceListPage should render when result is empty 1`] = `
         />
       </t>
     </StickySideBar>
-    <ji
+    <Hi
       description="Please try to improve your filter and create some data"
       image="no-results-found.svg"
       title="No results found"
     />
   </i>
-</Pi>
+</Ai>
 `;
 
 exports[`DataSourceListPage should render when result is not empty 1`] = `
-<Pi
+<Ai
   header={
     <Connect(AppBar)
       activeMenuId="datasource"
@@ -58,7 +58,7 @@ exports[`DataSourceListPage should render when result is not empty 1`] = `
     }
   >
     <StickySideBar>
-      <bi
+      <Mi
         onApply={[Function]}
         onChange={[Function]}
         placeholder="Search"
@@ -87,11 +87,11 @@ exports[`DataSourceListPage should render when result is not empty 1`] = `
             key="Collaborative"
             placement="top"
           >
-            <F
+            <B
               color="secondary"
             >
               Collaborative
-            </F>
+            </B>
           </Component>
         </Link>
       </Component>
@@ -107,5 +107,5 @@ exports[`DataSourceListPage should render when result is not empty 1`] = `
       </Component>
     </u>
   </i>
-</Pi>
+</Ai>
 `;

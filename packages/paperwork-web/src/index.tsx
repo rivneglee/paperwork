@@ -19,6 +19,7 @@ import CommitDetailPage from './pages/commit/detail';
 import { UserCommitListPage, FormCommitListPage } from './pages/commit/list';
 import NotificationListPage from './pages/notification/list';
 import ReportListPage from './pages/report/list';
+import ReportDetailPage from './pages/report/detail';
 import SignInPage from './pages/signIn';
 import { PageNotFound } from './pages/error';
 
@@ -43,6 +44,7 @@ ReactDOM.render(
           <Route exact component={withAuthValidation(FormCommitListPage)} path="/forms/:formId/commits"/>
           <Route exact component={withAuthValidation(NotificationListPage)} path="/notifications"/>
           <Route exact component={withAuthValidation(ReportListPage)} path="/reports"/>
+          <Route exact component={withAuthValidation(ReportDetailPage)} path="/reports/:reportId"/>
           <Route component={PageNotFound}/>
         </Switch>
       </ConnectedRouter>

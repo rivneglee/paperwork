@@ -15,9 +15,9 @@ import HeaderImagesProvider from '../FormHeaderImageProvider/HeaderImagesProvide
 interface Props extends FormProps {
   layoutComponentMap: {[layoutType: string]: ComponentType<any>};
   itemMetadataMap: {[itemType: string]: ItemMetadata};
-  fieldItems: FormItemProps[];
-  buttonItems: FormItemProps[];
-  statisticItems: FormItemProps[];
+  fieldItems?: FormItemProps[];
+  buttonItems?: FormItemProps[];
+  statisticItems?: FormItemProps[];
   onChange: (formProps: FormProps) => void;
   setRef?: (ref: HTMLDivElement) => void;
   toolbox?: ReactElement;

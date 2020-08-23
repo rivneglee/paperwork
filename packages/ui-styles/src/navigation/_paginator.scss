@@ -1,0 +1,20 @@
+.pw-paginator {
+  display: flex;
+  background: white;
+  padding: .5rem;
+  font-weight: bold;
+  color: $pw-palette-dusk-130;
+  svg {
+    fill: $pw-palette-dusk-130;
+  }
+
+  &__link {
+    margin: 0;
+    width: 33px;
+    height: 33px;
+    &--active {
+      background: $pw-palette-dusk-130;
+      color: white;
+    }
+  }
+}

@@ -9,9 +9,9 @@ export interface FormItemProps {
 }
 
 interface Props {
-  fieldItems: FormItemProps[];
-  buttonItems: FormItemProps[];
-  statisticItems: FormItemProps[];
+  fieldItems?: FormItemProps[];
+  buttonItems?: FormItemProps[];
+  statisticItems?: FormItemProps[];
 }
 
 const ActionBar: FunctionComponent<Props> = ({ fieldItems, statisticItems, buttonItems }) => (
@@ -31,54 +31,66 @@ const ActionBar: FunctionComponent<Props> = ({ fieldItems, statisticItems, butto
         <LaunchPad.Item><Icons.Columns/></LaunchPad.Item>
       </ToolkitItem>
     </LaunchPad>
-    <LaunchPad placement="right" itemPerRow={3} useOverlay={true} renderTrigger={() => (
-      <Avater
-        size="large"
-        shadow
-        className="pwapp-designer-action-bar__action pwapp-designer-action-bar__action--green">
-        <Icons.Control/>
-      </Avater>
-    )}>
-      {
-        fieldItems.map(item => (
-          <ToolkitItem key={item.itemType} id={item.itemType} type={DragAndDropType.ITEM}>
-            <LaunchPad.Item label={item.label}>{item.icon}</LaunchPad.Item>
-          </ToolkitItem>
-        ))
-      }
-    </LaunchPad>
-    <LaunchPad placement="right" itemPerRow={3} useOverlay={true} renderTrigger={() => (
-      <Avater
-        size="large"
-        shadow
-        className="pwapp-designer-action-bar__action pwapp-designer-action-bar__action--blue">
-        <Icons.Chart/>
-      </Avater>
-    )}>
-      {
-        statisticItems.map(item => (
-          <ToolkitItem key={item.itemType} id={item.itemType} type={DragAndDropType.ITEM}>
-            <LaunchPad.Item label={item.label}>{item.icon}</LaunchPad.Item>
-          </ToolkitItem>
-        ))
-      }
-    </LaunchPad>
-    <LaunchPad placement="right" itemPerRow={3} useOverlay={true} renderTrigger={() => (
-      <Avater
-        size="large"
-        shadow
-        className="pwapp-designer-action-bar__action pwapp-designer-action-bar__action--red">
-        <Icons.Button/>
-      </Avater>
-    )}>
-      {
-        buttonItems.map(item => (
-          <ToolkitItem key={item.itemType} id={item.itemType} type={DragAndDropType.ITEM}>
-            <LaunchPad.Item label={item.label}>{item.icon}</LaunchPad.Item>
-          </ToolkitItem>
-        ))
-      }
-    </LaunchPad>
+    {
+      fieldItems && (
+        <LaunchPad placement="right" itemPerRow={3} useOverlay={true} renderTrigger={() => (
+          <Avater
+            size="large"
+            shadow
+            className="pwapp-designer-action-bar__action pwapp-designer-action-bar__action--green">
+            <Icons.Control/>
+          </Avater>
+        )}>
+          {
+            fieldItems.map(item => (
+              <ToolkitItem key={item.itemType} id={item.itemType} type={DragAndDropType.ITEM}>
+                <LaunchPad.Item label={item.label}>{item.icon}</LaunchPad.Item>
+              </ToolkitItem>
+            ))
+          }
+        </LaunchPad>
+      )
+    }
+    {
+      statisticItems && (
+        <LaunchPad placement="right" itemPerRow={3} useOverlay={true} renderTrigger={() => (
+          <Avater
+            size="large"
+            shadow
+            className="pwapp-designer-action-bar__action pwapp-designer-action-bar__action--blue">
+            <Icons.Chart/>
+          </Avater>
+        )}>
+          {
+            statisticItems.map(item => (
+              <ToolkitItem key={item.itemType} id={item.itemType} type={DragAndDropType.ITEM}>
+                <LaunchPad.Item label={item.label}>{item.icon}</LaunchPad.Item>
+              </ToolkitItem>
+            ))
+          }
+        </LaunchPad>
+      )
+    }
+    {
+      buttonItems && (
+        <LaunchPad placement="right" itemPerRow={3} useOverlay={true} renderTrigger={() => (
+          <Avater
+            size="large"
+            shadow
+            className="pwapp-designer-action-bar__action pwapp-designer-action-bar__action--red">
+            <Icons.Button/>
+          </Avater>
+        )}>
+          {
+            buttonItems.map(item => (
+              <ToolkitItem key={item.itemType} id={item.itemType} type={DragAndDropType.ITEM}>
+                <LaunchPad.Item label={item.label}>{item.icon}</LaunchPad.Item>
+              </ToolkitItem>
+            ))
+          }
+        </LaunchPad>
+      )
+    }
   </div>
 );
 
