@@ -33,8 +33,19 @@ const View = ({ authentication, dispatch, query, ...props }: any) => (
           await load(page, filters);
         };
 
+        const onOpen = (formId: string, commitId: string) => {
+          window.open(`/f/${formId}/c/${commitId}`, '_blank');
+        };
+
         return (
-          <Table onPageChange={onPageChange} onApplyFilter={onApplyFilter} {...props} data={commits} isProcessing={isProcessing}/>
+          <Table
+            onPageChange={onPageChange}
+            onApplyFilter={onApplyFilter}
+            onOpen={onOpen}
+            data={commits}
+            isProcessing={isProcessing}
+            {...props}
+          />
         );
       }
     }

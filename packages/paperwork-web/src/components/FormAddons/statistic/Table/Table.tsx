@@ -2,7 +2,6 @@ import React, { FunctionComponent, useState } from 'react';
 
 import {
   Button,
-  IconButton,
   Item,
   PageState,
   Spinner,
@@ -24,6 +23,7 @@ import Filter from '../../common/Filter';
 
 interface Props extends Item {
   dataSources: {[key: string]: DataSource};
+  onOpen: (formId: string, commitId: string) => void;
   onApplyFilter: (filters: FilterCondition[]) => void;
   onPageChange: (page: number, filters: FilterCondition[]) => void;
 }
@@ -39,6 +39,7 @@ const TableView: FunctionComponent<Props> = ({
  dataSources = {},
  onApplyFilter,
  onPageChange,
+ onOpen,
  ...item
 }) => {
   const [dataSource] = Object.values(dataSources);
@@ -73,46 +74,42 @@ const TableView: FunctionComponent<Props> = ({
                   Filter
                 </Button>
               </div>
-              <Table className="pwapp-report-data-table__content">
-                <Table.Header>
+              <Scrollable className="pwapp-report-data-table__content">
+                <Table>
+                  <Table.Header>
+                    {
+                      fields.map((field: any) => (
+                        <Table.HeaderItem className="pwapp-report-data-table__data-col">{field.name}</Table.HeaderItem>
+                      ))
+                    }
+                  </Table.Header>
                   {
-                    fields.map((field: any) => (
-                      <Table.HeaderItem>{field.name}</Table.HeaderItem>
-                    ))
+                    isEmpty ? (
+                      <PageState
+                        image={noResultsFound}
+                        title="No results found"
+                        description=""
+                      />
+                    ) : (
+                        <Table.Body>
+                          {
+                            entries.map(entry => (
+                              <Table.Row onClick={() => onOpen(entry[dataSourceId].sourceFormId, entry[dataSourceId].id)}>
+                                {
+                                  fields.map((field: any) => (
+                                    <Table.RowItem className="pwapp-report-data-table__data-col" columnName={field.name}>
+                                      {entry[dataSourceId].values[field.id].toString()}
+                                    </Table.RowItem>
+                                  ))
+                                }
+                              </Table.Row>
+                            ))
+                          }
+                        </Table.Body>
+                    )
                   }
-                  <Table.HeaderItem>Action</Table.HeaderItem>
-                </Table.Header>
-                {
-                  isEmpty ? (
-                    <PageState
-                      image={noResultsFound}
-                      title="No results found"
-                      description=""
-                    />
-                  ) : (
-                    <Scrollable>
-                      <Table.Body>
-                        {
-                          entries.map(entry => (
-                            <Table.Row>
-                              {
-                                fields.map((field: any) => (
-                                  <Table.RowItem columnName={field.name}>
-                                    {entry[dataSourceId].values[field.id].toString()}
-                                  </Table.RowItem>
-                                ))
-                              }
-                              <Table.RowItem columnName="Action">
-                                <IconButton><Icons.Form/></IconButton>
-                              </Table.RowItem>
-                            </Table.Row>
-                          ))
-                        }
-                      </Table.Body>
-                    </Scrollable>
-                  )
-                }
-              </Table>
+                </Table>
+              </Scrollable>
               <Paginator
                 onNavigate={page => onPageChange(page, filters)}
                 current={pagination.page}

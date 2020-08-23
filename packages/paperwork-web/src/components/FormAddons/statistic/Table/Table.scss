@@ -22,4 +22,18 @@
     justify-content: flex-end;
     margin-top: 1rem;
   }
+
+  @media (min-width: 768px) {
+    &__data-col {
+      min-width: 200px;
+    }
+
+    .pw-table__row {
+      display: -ms-inline-flexbox;
+      display: -webkit-inline-flex;
+      display: inline-flex;
+      min-width: 100%;
+      border-radius: 0;
+    }
+  }
 }
