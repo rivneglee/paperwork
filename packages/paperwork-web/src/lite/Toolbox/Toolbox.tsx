@@ -6,9 +6,9 @@ import { FormItemProps } from '../../components/FormDesigner/ActionBar';
 import { LayoutItemTypes } from '../../components/FormAddons';
 
 interface Props {
-  fieldItems: FormItemProps[];
-  buttonItems: FormItemProps[];
-  statisticItems: FormItemProps[];
+  fieldItems?: FormItemProps[];
+  buttonItems?: FormItemProps[];
+  statisticItems?: FormItemProps[];
 }
 
 interface ItemProps {
@@ -42,30 +42,60 @@ const Toolbox: FunctionComponent<Props> = ({ fieldItems, statisticItems, buttonI
         <Item icon={<Icons.Columns/>}/>
       </ToolkitItem>
     </div>
-    <div className="pwapp-lite-toolbox__group">
-      Inputs
-    </div>
-    <div>
-      {
-        fieldItems.map(item => (
-          <ToolkitItem key={item.itemType} id={item.itemType} type={DragAndDropType.ITEM}>
-            <Item icon={item.icon} text={item.label}/>
-          </ToolkitItem>
-        ))
-      }
-    </div>
-    <div className="pwapp-lite-toolbox__group">
-      Buttons
-    </div>
-    <div>
-      {
-        buttonItems.map(item => (
-          <ToolkitItem key={item.itemType} id={item.itemType} type={DragAndDropType.ITEM}>
-            <Item icon={item.icon} text={item.label}/>
-          </ToolkitItem>
-        ))
-      }
-    </div>
+    {
+      fieldItems && (
+        <>
+          <div className="pwapp-lite-toolbox__group">
+            Inputs
+          </div>
+          <div>
+            {
+              fieldItems.map(item => (
+                <ToolkitItem key={item.itemType} id={item.itemType} type={DragAndDropType.ITEM}>
+                  <Item icon={item.icon} text={item.label}/>
+                </ToolkitItem>
+              ))
+            }
+          </div>
+        </>
+      )
+    }
+    {
+      buttonItems && (
+        <>
+          <div className="pwapp-lite-toolbox__group">
+            Buttons
+          </div>
+          <div>
+            {
+              buttonItems.map(item => (
+                <ToolkitItem key={item.itemType} id={item.itemType} type={DragAndDropType.ITEM}>
+                  <Item icon={item.icon} text={item.label}/>
+                </ToolkitItem>
+              ))
+            }
+          </div>
+        </>
+      )
+    }
+    {
+      statisticItems && (
+        <>
+          <div className="pwapp-lite-toolbox__group">
+            Statistic
+          </div>
+          <div>
+            {
+              statisticItems.map(item => (
+                <ToolkitItem key={item.itemType} id={item.itemType} type={DragAndDropType.ITEM}>
+                  <Item icon={item.icon} text={item.label}/>
+                </ToolkitItem>
+              ))
+            }
+          </div>
+        </>
+      )
+    }
   </div>
 );
 

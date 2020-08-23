@@ -27,7 +27,7 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
   const detailPageWrapper = (
     <DetailProvider
       userId={authentication.user.id}
-      formId={params.formId}
+      reportId={params.reportId}
       preLoad
     >
       {
