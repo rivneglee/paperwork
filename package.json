@@ -26,7 +26,8 @@
     "build": "lerna run build",
     "lint": "tslint --force --fix \"packages/**/src/**/*.tsx\" \"packages/**/test/**/*.tsx\" -e \"**/node_modules/**\"",
     "bootstrap": "lerna bootstrap",
-    "storybook": "start-storybook -p 9009 -c packages/ui-widgets/.storybook"
+    "storybook": "start-storybook -p 9009 -c packages/ui-widgets/.storybook",
+    "deploy": "node ./buildtasks/deploy.js"
   },
   "pre-push": [
     "lint",
@@ -86,7 +87,8 @@
     "webpack": "3.8.1",
     "webpack-dev-server": "2.11.3",
     "webpack-manifest-plugin": "1.3.2",
-    "whatwg-fetch": "2.0.3"
+    "whatwg-fetch": "2.0.3",
+    "aliyun-oss": "^2.0.0"
   },
   "babel": {
     "presets": [

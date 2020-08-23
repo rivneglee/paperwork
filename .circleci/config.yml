@@ -13,7 +13,7 @@ jobs:
           command: yarn lint
       - run:
           command: yarn test
-  build:
+  deploy:
     docker:
       - image: circleci/node:11.10.1
     steps:
@@ -24,10 +24,10 @@ jobs:
           path: ./builds/paperwork-web
           destination: paperwork-web
       - deploy:
-          command: ./buildtasks/deploy.sh
+          command: yarn deploy prod ./builds/paperwork-web/
 workflows:
   version: 2
-  test_and_build:
+  test_and_deploy:
     jobs:
       - test
       - hold:
@@ -37,7 +37,7 @@ workflows:
           type: approval
           requires:
             - test
-      - build:
+      - deploy:
           filters:
             branches:
               only: master
