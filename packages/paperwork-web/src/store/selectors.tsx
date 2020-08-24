@@ -17,3 +17,7 @@ export const getQueryParams = createSelector(
     return query;
   },
 );
+export const getCurrentUserId = createSelector(
+  getAuthentication,
+  authentication => authentication && authentication.user ? authentication.user.id : undefined,
+);
