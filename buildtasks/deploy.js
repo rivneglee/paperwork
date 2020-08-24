@@ -2,8 +2,8 @@ const fs = require('fs');
 const OSS = require('aliyun-oss');
 
 const option = {
-  accessKeyId: 'LTAI4GFNwzZcW6pvpZ4Xwj72',
-  accessKeySecret: 'l35KyejFT8Fjkg2l0uFoDs1hcNhSXC',
+  accessKeyId: process.env['ALI_API_KEY_ID'],
+  accessKeySecret: process.env['ALI_API_KEY_SECRET'],
   host: 'oss-cn-beijing.aliyuncs.com'
 };
 
