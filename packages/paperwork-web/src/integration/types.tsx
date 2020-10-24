@@ -7,7 +7,7 @@ export interface Request {
   intent: string;
   method: 'GET' | 'POST' | 'DELETE' | 'PUT';
   params?: object;
-  urlParams?: object;
+  urlParams?: any;
   content?: any;
 }
 
