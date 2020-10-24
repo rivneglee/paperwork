@@ -26,6 +26,7 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
   <DetailProvider
     userId={authentication.user.id}
     templateId={params.templateId}
+    useThumbnail={false}
     preLoad
   >
     {

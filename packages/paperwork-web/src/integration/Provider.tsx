@@ -1,6 +1,8 @@
 import React, { ReactElement } from 'react';
 import createIntegration from './createIntegration';
 import { Integration, Request } from './types';
+import IntegrationHttpError from './IntegrationHttpError';
+import { PageNotFound } from '../pages/error';
 
 interface Props {
   mappings: any;
@@ -10,6 +12,10 @@ interface Props {
 
 interface State {
   isProcessing: boolean;
+  error?: {
+    statusCode?: number;
+    message?: string;
+  };
 }
 
 export default class extends React.Component<Props, State> {
@@ -17,6 +23,7 @@ export default class extends React.Component<Props, State> {
 
   state = {
     isProcessing: false,
+    error: undefined,
   };
 
   constructor(props: Props) {
@@ -26,25 +33,53 @@ export default class extends React.Component<Props, State> {
   }
 
   private send = async (request: Request, options = {}) => {
-    const { setLoadingState = true } = options as any;
-    if (setLoadingState) {
-      this.setState({
-        isProcessing: true,
-      });
+    const { setLoadingState = true, onError } = options as any;
+    try {
+      if (setLoadingState) {
+        this.setState({
+          isProcessing: true,
+        });
+      }
+      const response = await this.integration.send(request, options);
+      if (setLoadingState) {
+        this.setState({
+          isProcessing: false,
+        });
+      }
+      return response;
+    } catch (error) {
+      if (error instanceof IntegrationHttpError) {
+        if (onError) {
+          this.setState({
+            isProcessing: false,
+          });
+          onError(error);
+        } else {
+          this.setState({
+            isProcessing: false,
+            error: {
+              statusCode: error.status(),
+            },
+          });
+        }
+        return;
+      }
+      throw error;
     }
-    const response = await this.integration.send(request, options);
-    if (setLoadingState) {
-      this.setState({
-        isProcessing: false,
-      });
+  }
+
+  private getErrorView = (error: any) => {
+    if (error && error.statusCode === 404) {
+      return <PageNotFound />;
     }
-    return response;
+    return null;
   }
 
   render() {
     const { children, spinner = null } = this.props;
-    const { isProcessing } = this.state;
-    return (
+    const { isProcessing, error } = this.state;
+    const errorView = this.getErrorView(error);
+    const view = (
       <>
         { isProcessing && spinner }
         {
@@ -54,5 +89,6 @@ export default class extends React.Component<Props, State> {
         }
       </>
     );
+    return error ? errorView : view;
   }
 }
