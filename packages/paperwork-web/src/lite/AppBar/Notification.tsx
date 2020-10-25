@@ -36,12 +36,17 @@ const DataSourceSelector = ({ dispatch, authentication, unread }: Props) => (
         periodicalCheck();
       }
 
-      if (!unread) return <>Notification</>;
+      const button = (
+        <Link to="/notifications">
+          <Button size="m" icon={<Icons.Message/>} type="link" color="primary">MESSAGE</Button>
+        </Link>
+      );
+
+      if (!unread) return button;
+
       return (
         <Balloon content={unread}>
-          <Link to="/notifications">
-            <Button size="m" icon={<Icons.Message/>} type="link" color="primary">MESSAGE</Button>
-          </Link>
+          {button}
         </Balloon>
       );
     }}

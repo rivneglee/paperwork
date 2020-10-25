@@ -12,10 +12,12 @@ const createHttpIntegration = (mapping: RequestFunctionMapping): Integration => 
     const { intent, method, content, params = {} } = request;
     const getPath = mapping[intent] as any;
     const url = `${profile.gatewayUrl}${getPath(request)}?${getQueryParams(params)}`;
+    const accessToken = localStorage.getItem('Authorization') || '';
     const response = await fetch(url, {
       method,
       mode: 'cors',
       headers: {
+        Authorization: accessToken,
         'Content-Type': 'application/json',
       },
       body: content ? JSON.stringify(content) : undefined,
