@@ -27,6 +27,7 @@ const mapStateToProviderProps = (state: StoreState, ownProps: any) => ({
   params: ownProps.match.params,
   authentication: getAuthentication(state),
   queryParams: getQueryParams(state),
+  isCreatingDefaultDs: getIsCreatingDefaultDs(state),
 });
 
 const View = connect(mapStateToViewProps)(FormDetailPage);
@@ -80,7 +81,7 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
     return (
       <TemplateProvider
         userId={authentication.user.id}
-        formId={params.formId}
+        templateId={queryParams.sourceTemplateId}
         preLoad
         spinner={<Spinner/>}
       >

@@ -36,17 +36,16 @@ export default class extends React.Component<Props> {
 
   private list = async (options: ListOptions = {}, page = 0) => {
     const { integration, userId } = this.props;
-    const { committerId, formId, keyword } = options;
+    const { committerId, formId, keyword = '' } = options;
     const intent = committerId ? LOAD_COMMIT_LIST_BY_COMMITTER : LOAD_COMMIT_LIST_BY_FORM;
     const commitList = await integration.send({
       intent,
       method: 'GET',
       urlParams: {
         userId,
+        formId,
       },
       params: {
-        committerId,
-        formId,
         keyword,
         page,
         size: 50,

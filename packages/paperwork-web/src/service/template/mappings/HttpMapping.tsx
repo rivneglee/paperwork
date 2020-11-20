@@ -1,35 +1,19 @@
+import { Request } from '../../../integration/types';
+
 import {
   LOAD_TEMPLATE_LIST,
   LOAD_TEMPLATE_DETAIL,
-  DELETE_TEMPLATE,
-  UPDATE_TEMPLATE,
   CREATE_TEMPLATE,
-  LOAD_THUMBNAIL,
+  UPDATE_TEMPLATE,
+  DELETE_TEMPLATE,
 } from '../intents';
-import loadTemplateList from './data/loadTemplateList.json';
-import loadTemplateDetail from './data/loadTemplateDetail.json';
-import loadThumbnail from './data/loadThumbnail.json';
 
-const MemoryMapping = {
-  [LOAD_TEMPLATE_LIST]: ({ params }: any) => {
-    const { keyword = '' } = params;
-    const { pagination, entries } = loadTemplateList;
-    const filteredEntries = entries.filter(entry => entry.name.indexOf(keyword) !== -1);
-    const page = filteredEntries.length === 0 ? 0 : params.page + 1;
-    return ({
-      entries: filteredEntries,
-      pagination: {
-        ...pagination,
-        page,
-        total: filteredEntries.length > 0 ? pagination.total : 0,
-      },
-    });
-  },
-  [LOAD_TEMPLATE_DETAIL]: () => loadTemplateDetail,
-  [LOAD_THUMBNAIL]: () => loadThumbnail,
-  [UPDATE_TEMPLATE]: () => {},
-  [CREATE_TEMPLATE]: () => {},
-  [DELETE_TEMPLATE]: () => {},
+const HttpMapping = {
+  [LOAD_TEMPLATE_LIST]: ({ urlParams }: Request) => `/api/${urlParams.userId}/templates`,
+  [CREATE_TEMPLATE]: ({ urlParams }: Request) => `/api/${urlParams.userId}/templates`,
+  [LOAD_TEMPLATE_DETAIL]: ({ urlParams }: Request) => `/api/${urlParams.userId}/templates/${urlParams.templateId}`,
+  [UPDATE_TEMPLATE]: ({ urlParams }: Request) => `/api/${urlParams.userId}/templates/${urlParams.templateId}`,
+  [DELETE_TEMPLATE]: ({ urlParams }: Request) => `/api/${urlParams.userId}/templates/${urlParams.templateId}`,
 };
 
-export default MemoryMapping;
+export default HttpMapping;

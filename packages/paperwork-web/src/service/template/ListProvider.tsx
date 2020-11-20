@@ -34,7 +34,7 @@ export default class extends React.Component<Props> {
   private isInitializing = true;
 
   private list = async (options: ListOptions = {}, page = 0) => {
-    const { keyword, visibility = 'private' } = options;
+    const { keyword = '', visibility = 'private' } = options;
     const { integration, userId } = this.props;
     const templateList = await integration.send({
       intent: LOAD_TEMPLATE_LIST,
