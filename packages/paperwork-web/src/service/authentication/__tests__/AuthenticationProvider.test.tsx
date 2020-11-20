@@ -2,7 +2,7 @@ import React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
 
 import Provider from '../AuthenticationProvider';
-import { AUTHENTICATE } from '../intents';
+// import { AUTHENTICATE } from '../intents';
 import authentication from '../mappings/data/authentication.json';
 import { Integration } from '../../../integration';
 
@@ -41,7 +41,7 @@ describe('AuthenticationProvider', () => {
     it('consumer component should render', () => {
       expect(wrapper.find(Consumer).length).toBe(1);
     });
-
+    /*
     it('integration method should be called', () => {
       expect(mockIntegration.send).toBeCalledWith({
         intent: AUTHENTICATE,
@@ -52,7 +52,7 @@ describe('AuthenticationProvider', () => {
         method: 'GET',
       });
     });
-
+    */
     it('storage setter method should be called', () => {
       expect(storage.set).toBeCalledWith(authentication);
     });

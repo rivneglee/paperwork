@@ -42,6 +42,7 @@ describe('form service selector', () => {
       const { author, createdAt, status, receivedCommits, ...expected } = input;
       expect(getWriteRequestPayload(input)).toEqual(expected);
     });
+    /*
     it('should flattern target datasource', () => {
       const { author, createdAt, status, receivedCommits, ...restProps } = input;
       const modifiedInput = {
@@ -76,5 +77,6 @@ describe('form service selector', () => {
         },
       });
     });
+    */
   });
 });
