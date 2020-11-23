@@ -57,7 +57,7 @@ const TableView: FunctionComponent<Props> = ({
       />
     );
   }
-  const { fields = [], id: dataSourceId } = dataSource as any;
+  const { fields = [] } = dataSource as any;
   return (
     <LabelAccessor label={label} labelPlacement={labelPlacement}>
       <div className="pwapp-report-data-table">
@@ -94,11 +94,11 @@ const TableView: FunctionComponent<Props> = ({
                         <Table.Body>
                           {
                             entries.map(entry => (
-                              <Table.Row onClick={() => onOpen(entry[dataSourceId].sourceFormId, entry[dataSourceId].id)}>
+                              <Table.Row onClick={() => onOpen(entry.sourceFormId, entry.id)}>
                                 {
                                   fields.map((field: any) => (
                                     <Table.RowItem className="pwapp-report-data-table__data-col" columnName={field.name}>
-                                      {entry[dataSourceId].values[field.id].toString()}
+                                      {entry.values[field.id].toString()}
                                     </Table.RowItem>
                                   ))
                                 }

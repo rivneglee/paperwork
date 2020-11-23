@@ -31,7 +31,7 @@ export default class extends React.Component<Props> {
   private isInitializing = true;
 
   private list = async (options: ListOptions = {}) => {
-    const { keyword } = options;
+    const { keyword = '' } = options;
     const { integration, userId } = this.props;
     const dataSourceList = await integration.send({
       intent: LOAD_DATASOURCE_LIST,
