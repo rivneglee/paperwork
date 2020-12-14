@@ -37,8 +37,8 @@
     "test": "node scripts/test.js --env=jsdom",
     "test:watch": "node scripts/test.js --watch --env=jsdom",
     "lint": "tslint --force --fix \"src/**/*.tsx\" \"**/__tests__/**/*.spec.tsx\" -e \"**/node_modules/**\"",
-    "start": "export NODE_ENV=development && export REACT_APP_UI_MODE=pretty && export REACT_APP_INTEGRATION_TYPE=Memory && node scripts/start.js",
-    "start:lite": "export NODE_ENV=development && export REACT_APP_UI_MODE=lite && export REACT_APP_INTEGRATION_TYPE=Memory && node scripts/start.js",
+    "start": "export NODE_ENV=development && export REACT_APP_UI_MODE=pretty && node scripts/start.js",
+    "start:lite": "export NODE_ENV=development && export REACT_APP_UI_MODE=lite && node scripts/start.js",
     "server:prod": "export NODE_ENV=production &&  ts-node --project tsconfig.server.json ./src/server/index.tsx",
     "server:dev": "export NODE_ENV=development && export REACT_APP_INTEGRATION_TYPE=Memory && ts-node --project tsconfig.server.json ./src/server/index.tsx"
   },

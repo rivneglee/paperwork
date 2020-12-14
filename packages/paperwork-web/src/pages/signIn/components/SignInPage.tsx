@@ -5,6 +5,8 @@ import './SignInPage.scss';
 
 interface Props {
   onSignIn: (username: string, password: string) => void;
+  errorMessage?: string;
+  isProcessing: boolean;
 }
 
 class SignInPage extends React.Component<Props> {
@@ -12,7 +14,6 @@ class SignInPage extends React.Component<Props> {
   state = {
     username: '',
     password: '',
-    isProcessing: false,
   };
 
   updateCredential = (key: string, value: string) => {
@@ -24,14 +25,12 @@ class SignInPage extends React.Component<Props> {
   private onSignIn = () => {
     const { onSignIn } = this.props;
     const { username, password } = this.state;
-    this.setState({
-      isProcessing: true,
-    });
     onSignIn(username, password);
   }
 
   render() {
-    const { username, password, isProcessing } = this.state;
+    const { isProcessing, errorMessage } = this.props;
+    const { username, password } = this.state;
     return (
       <div className="pwapp-logon-page">
         <Card
@@ -53,6 +52,7 @@ class SignInPage extends React.Component<Props> {
             </div>
           }
         >
+          {errorMessage && <div className="pwapp-logon-page__error">{errorMessage}</div>}
           <Input
             value={username}
             placeholder="USERNAME"

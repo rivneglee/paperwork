@@ -6,13 +6,15 @@ export const getWriteRequestPayload = (form: FormDetail) => {
     const item = items[key];
     if (!item) return result;
     const { targetDataSource, creatingDataSource, ...restProps } = item;
-    if (targetDataSource && targetDataSource.fieldId && targetDataSource.id) {
+    if (targetDataSource && targetDataSource.name) {
       return {
         ...result,
         [key]: {
           ...restProps,
-          targetDataSourceId: targetDataSource.id,
-          targetFieldId: targetDataSource.fieldId,
+          targetDataSource: {
+            id: targetDataSource.id,
+            fieldId: targetDataSource.fieldId,
+          },
         },
       };
     }

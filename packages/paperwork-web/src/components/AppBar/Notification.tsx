@@ -22,7 +22,7 @@ const mapStateToProps = (state: StoreState) => ({
 
 const CHECK_INTERVAL = 5000;
 
-const DataSourceSelector = ({ dispatch, userId, unread }: Props) => (
+const Notifications = ({ dispatch, userId, unread }: Props) => (
   userId ? <Provider userId={userId}>
     {({ checkUpdate, isInitializing }: ListProviderState) => {
       const periodicalCheck = async () => {
@@ -35,18 +35,22 @@ const DataSourceSelector = ({ dispatch, userId, unread }: Props) => (
         periodicalCheck();
       }
 
-      if (!unread) return <>Notification</>;
+      const button = (
+        <Link to="/notifications">
+          <IconButton>
+            <Icons.Message/>
+          </IconButton>
+        </Link>
+      );
+
+      if (!unread) return button;
       return (
         <Balloon content={unread}>
-          <Link to="/notifications">
-            <IconButton>
-              <Icons.Message/>
-            </IconButton>
-          </Link>
+          {button}
         </Balloon>
       );
     }}
   </Provider> : null
 );
 
-export default connect(mapStateToProps)(DataSourceSelector);
+export default connect(mapStateToProps)(Notifications);

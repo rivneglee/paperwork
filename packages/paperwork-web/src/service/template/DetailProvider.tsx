@@ -20,6 +20,7 @@ interface Props {
   integration: Integration;
   isProcessing: boolean;
   preLoad?: boolean;
+  useThumbnail?: boolean;
 }
 
 export default class extends React.Component<Props> {
@@ -59,8 +60,8 @@ export default class extends React.Component<Props> {
   }
 
   private update = async (template: TemplateDetail) => {
-    const { templateId, userId, integration } = this.props;
-    const thumbnail = await this.loadThumbnail(template);
+    const { templateId, userId, integration, useThumbnail } = this.props;
+    const thumbnail = useThumbnail ? await this.loadThumbnail(template) : null;
     await integration.send({
       intent: UPDATE_TEMPLATE,
       method: 'PUT',
@@ -79,9 +80,8 @@ export default class extends React.Component<Props> {
   }
 
   private create = async (template: TemplateDetail) => {
-    const { userId } = this.props;
-    const { integration } = this.props;
-    const thumbnail = await this.loadThumbnail(template);
+    const { userId, integration, useThumbnail } = this.props;
+    const thumbnail = useThumbnail ? await this.loadThumbnail(template) : null;
     await integration.send({
       intent: CREATE_TEMPLATE,
       method: 'POST',
