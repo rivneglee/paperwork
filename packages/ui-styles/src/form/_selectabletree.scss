@@ -1,0 +1,32 @@
+.pw-selectable-tree {
+  padding: .3rem;
+  display: flex;
+  flex-direction: column;
+
+  .rct-node-icon {
+    display: none;
+  }
+
+  .pw-selectable-tree-icon {
+    fill: $pw-palette-dusk-130;
+    width: 1.2rem;
+    height: 1.2rem;
+    position: relative;
+    top: .25rem;
+  }
+
+  .pw-field-group__input {
+    padding-left: .6rem;
+  }
+}
+
+.pw-selectable-tree--close {
+  transform: rotateZ(-90deg);
+}
+
+.pw-selectable-tree-search {
+  width: 90%;
+  .pw-icon {
+    fill: $pw-palette-dusk-130;
+  }
+}

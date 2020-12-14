@@ -31,6 +31,7 @@ export * from './form/ButtonRow';
 export * from './form/AutoComplete';
 export * from './form/LaunchPad';
 export * from './form/DatePicker';
+export * from './form/SelectableTree';
 
 export * from './template/BaseTemplate';
 export * from './template/PaginationTemplate';
