@@ -96,11 +96,14 @@ const TableView: FunctionComponent<Props> = ({
                             entries.map(entry => (
                               <Table.Row onClick={() => onOpen(entry.sourceFormId, entry.id)}>
                                 {
-                                  fields.map((field: any) => (
-                                    <Table.RowItem className="pwapp-report-data-table__data-col" columnName={field.name}>
-                                      {entry.values[field.id].toString()}
-                                    </Table.RowItem>
-                                  ))
+                                  fields.map((field: any) => {
+                                    const value = entry.values[field.id] || '';
+                                    return (
+                                      <Table.RowItem className="pwapp-report-data-table__data-col" columnName={field.name}>
+                                        {value.toString()}
+                                      </Table.RowItem>
+                                    );
+                                  })
                                 }
                               </Table.Row>
                             ))
