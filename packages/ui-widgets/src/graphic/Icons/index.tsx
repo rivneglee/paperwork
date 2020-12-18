@@ -74,6 +74,7 @@ import Filter from './Filter';
 import Unselected from './Unselected';
 import Selected from './Selected';
 import SelectedAll from './SelectedAll';
+import Ellipsis from './Ellipsis';
 
 export default {
   Add,
@@ -152,4 +153,5 @@ export default {
   Selected,
   SelectedAll,
   Unselected,
+  Ellipsis,
 };

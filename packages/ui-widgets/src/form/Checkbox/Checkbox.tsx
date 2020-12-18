@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import classNames from 'classnames';
 import Icons from '../../graphic/Icons';
 
 export type CheckState = 'checked' | 'unchecked' | 'half-checked';
@@ -8,6 +9,7 @@ interface Props {
   label?: string;
   onChange?: (newValue: CheckState) => void;
   enableIntermediateState?: boolean;
+  className?: string;
 }
 
 export type CheckboxComponent = FunctionComponent<Props>;
@@ -21,6 +23,7 @@ const Checkbox: CheckboxComponent = ({
  onChange,
  label = '',
  enableIntermediateState = false,
+ className,
 }) => {
   const handleStateChange = () => {
     const states = enableIntermediateState ? tuple3 : tuple2;
@@ -29,7 +32,7 @@ const Checkbox: CheckboxComponent = ({
   };
 
   return (
-    <button className="pw-checkbox" onClick={handleStateChange}>
+    <button className={classNames('pw-checkbox', className)} onClick={handleStateChange}>
       {
         value === 'checked' && <Icons.SelectedAll className="pw-checkbox__input"/>
       }

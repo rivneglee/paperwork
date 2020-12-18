@@ -1,44 +1,150 @@
 import React, { FunctionComponent, useState } from 'react';
 import classNames from 'classnames';
-// @ts-ignore
-import CheckboxTree from 'react-checkbox-tree';
-import 'react-checkbox-tree/lib/react-checkbox-tree.css';
 import Icons from '../../graphic/Icons';
 import { Input } from '../Input';
+import { Checkbox, CheckState } from '../Checkbox';
+import { Dropdown } from '../Dropdown';
 
 export type SelectableTreeComponent = FunctionComponent<Props>;
 
 export interface SelectableTreeNode {
   value: string;
   label: string;
-}
-
-export interface SelectableTreeParent extends SelectableTreeNode{
-  children: SelectableTreeNode[];
+  children?: SelectableTreeNode[];
 }
 
 interface Props {
-  treeNodes: SelectableTreeParent[] | SelectableTreeNode[];
+  treeNodes: SelectableTreeNode[];
   showSearch?: boolean;
-  checkModel?: 'leaf' | 'all';
-  noCascade?: boolean;
-  onCheck?: (checked: string[]) => void;
-  checked?: string[];
+  onCheck?: (checked: object) => void;
+  checked?: object;
 }
 
 const SelectableTree: SelectableTreeComponent = ({
   treeNodes,
   showSearch = false,
-  noCascade = false,
-  checkModel = 'all',
-  checked = [],
+  checked = {},
   onCheck,
 }) => {
-  const [expanded, setExpanded] = useState<string[]>([]);
   const [keyword, setKeyword] = useState<string>('');
-  const handleOnCheck = (checked: string[]) => {
-    onCheck && onCheck(checked);
+  const [expandState, setExpandState] = useState<object>({});
+  const [checkState, setCheckState] = useState<object>({});
+  const handleOnCheck = (key: string, value: string) => {
+    const newCheckState = {
+      ...checkState,
+      [key]: value,
+    };
+    setCheckState(newCheckState);
+    onCheck && onCheck(newCheckState);
   };
+
+  const handleMenuAction = (treeNode: SelectableTreeNode, state: CheckState) => {
+    const newCheckState = {};
+    const { children = [] } = treeNode;
+    const setSubTreeState = (subTreeNodes: SelectableTreeNode[]) => {
+      subTreeNodes.forEach((subTreeNode) => {
+        newCheckState[subTreeNode.value] = state;
+        const { children = [] } = subTreeNode;
+        if (children.length > 0) {
+          setSubTreeState(children);
+        }
+      });
+    };
+    if (children.length > 0) {
+      setSubTreeState(children);
+    }
+    setCheckState({ ...checkState, ...newCheckState });
+    onCheck && onCheck({ ...checkState, ...newCheckState });
+  };
+
+  const onClickArrow = (key: string) => {
+    const isExpanded = expandState[key];
+    if (isExpanded) {
+      setExpandState({
+        ...expandState,
+        [key]: false,
+      });
+    } else {
+      setExpandState({
+        ...expandState,
+        [key]: true,
+      });
+    }
+  };
+
+  const getArrowByState = (key: string) => (
+    expandState[key] ?
+      <Icons.ArrowDown className="pw-selectable-tree-icon pw-selectable-tree--open"/>
+      : <Icons.ArrowDown className="pw-selectable-tree-icon pw-selectable-tree--close"/>
+  );
+
+  const renderTree = (treeNode: SelectableTreeNode) => {
+    const { children = [], value, label } = treeNode;
+    const subTrees = children
+      .map(child => renderTree(child))
+      .filter(child => !!child);
+    if (showSearch
+      && subTrees.length === 0
+      && label.toLowerCase().indexOf(keyword.toLowerCase()) === -1) {
+      return null;
+    }
+    return (
+      <div key={value} className="pw-selectable-tree__parent">
+        <div className="pw-selectable-tree__row">
+          {
+            <button
+              className={
+                classNames(
+                  'pw-selectable-tree__arrow',
+                  subTrees.length > 0 && 'pw-selectable-tree__arrow--show',
+                )
+              }
+              onClick={() => onClickArrow(value)}>
+              {getArrowByState(value)}
+            </button>
+          }
+          <Checkbox
+            value={checkState[value]}
+            onChange={state => handleOnCheck(value, state)}
+            className="pw-selectable-tree__checkbox"
+            label={label}
+          />
+          {
+            children.length > 0 && (
+              <div className="pw-selectable-tree__menu">
+                <Dropdown items={[
+                  <Dropdown.Item
+                    key="select-all"
+                    onClick={() => handleMenuAction(treeNode, 'checked')}>
+                    Select all
+                  </Dropdown.Item>,
+                  <Dropdown.Item
+                    key="deselect-all"
+                    onClick={() => handleMenuAction(treeNode, 'unchecked')}>
+                    Deselect all
+                  </Dropdown.Item>,
+                ]}>
+                  <Icons.Ellipsis
+                    className="pw-selectable-tree-icon pw-selectable-tree__menu-icon"
+                  />
+                </Dropdown>
+              </div>
+            )
+          }
+        </div>
+        {subTrees.length > 0 && (
+          <div
+            className={classNames(
+              'pw-selectable-tree__children',
+              expandState[value] && 'pw-selectable-tree__children--expanded',
+            )}>
+            {subTrees}
+          </div>)
+        }
+      </div>
+    );
+  };
+
   return (
     <div className={classNames('pw-selectable-tree')}>
       {
@@ -52,28 +158,9 @@ const SelectableTree: SelectableTreeComponent = ({
           />
         )
       }
-      <CheckboxTree
-        icons={{
-          check: <Icons.SelectedAll className="pw-selectable-tree-icon pw-selectable-tree--checked-all"/>,
-          uncheck: <Icons.Unselected className="pw-selectable-tree-icon pw-selectable-tree--unchecked"/>,
-          halfCheck: <Icons.Selected className="pw-selectable-tree-icon pw-selectable-tree--checked"/>,
-          expandClose: <Icons.ArrowDown className="pw-selectable-tree-icon pw-selectable-tree--close"/>,
-          expandOpen: <Icons.ArrowDown className="pw-selectable-tree-icon pw-selectable-tree--open"/>,
-          expandAll: <></>,
-          collapseAll: <></>,
-          parentClose: <></>,
-          parentOpen: <></>,
-          leaf: <></>,
-        }}
-        optimisticToggle={true}
-        noCascade={noCascade}
-        checkModel={checkModel}
-        nodes={treeNodes}
-        checked={checked}
-        expanded={expanded}
-        onCheck={checked => handleOnCheck(checked)}
-        onExpand={expanded => setExpanded(expanded)}
-      />
+      {
+        treeNodes.map(treeNode => renderTree(treeNode))
+      }
     </div>
   );
 };

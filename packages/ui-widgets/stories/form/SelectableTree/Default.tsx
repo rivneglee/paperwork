@@ -4,30 +4,31 @@ import { SelectableTree } from '../../../src';
 
 const nodes = [
   {
-    value: 'mars',
-    label: 'Mars',
+    value: 'mobile',
+    label: 'Mobile',
     children: [
-    { value: 'phobos', label: 'Phobos' },
-    { value: 'deimos', label: 'Deimos' },
+      { value: 'ios', label: 'IOS', children: [{ value: 'objectc', label: 'Object C' }] },
+      { value: 'android', label: 'Android' },
     ],
   },
   {
-    value: 'marsx',
-    label: 'Mars',
+    value: 'web',
+    label: 'Web',
     children: [
-    { value: 'phobosx', label: 'Phobos' },
-    { value: 'deimosx', label: 'Deimos' },
+      { value: 'react', label: 'React' },
+      { value: 'vuejs', label: 'Vue.js' },
     ],
   },
 ];
 
 export default () => {
-  const [checked, setChecked] = useState<string[]>([]);
+  const [checkState, setCheckState] = useState<object>({});
   return (
     <SelectableTree
+      showSearch
       treeNodes={nodes}
-      checked={checked}
-      onCheck={checked => setChecked(checked)}
+      checked={checkState}
+      onCheck={checked => setCheckState(checked)}
     />
   );
 };
