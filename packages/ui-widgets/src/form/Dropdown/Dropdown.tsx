@@ -14,7 +14,8 @@ const Dropdown: DropdownComponent = ({ children, items, align = 'left' }) => {
   const [showMenu, setMenuShowState] = useState(false);
 
   const openMenu = () => setMenuShowState(true);
-  const closeMenu = () => setMenuShowState(false);
+  const closeMenu = () =>
+    setTimeout(() => setMenuShowState(false), 0);
 
   const triggerContent = children;
 

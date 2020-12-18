@@ -1,0 +1,19 @@
+.pw-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  outline: none;
+  border: 0;
+  padding: 0;
+  &__input {
+    cursor: pointer;
+    fill: $pw-palette-dusk-70;
+    width: 1.2rem;
+    height: 1.2rem;
+    padding: .2rem .5rem;
+  }
+  &__label {
+    cursor: pointer;
+  }
+}

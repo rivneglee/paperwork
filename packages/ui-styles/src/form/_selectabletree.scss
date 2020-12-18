@@ -1,0 +1,80 @@
+.pw-selectable-tree {
+  padding: .3rem;
+  display: flex;
+  flex-direction: column;
+
+  &__children {
+    padding: 0.1rem 0 0.1rem 1rem;
+    height: 0;
+    overflow: hidden;
+    &--expanded {
+      height: auto;
+      overflow: visible;
+    }
+  }
+
+  &__row {
+    display: flex;
+
+    .pw-selectable-tree__menu {
+      display: none;
+    }
+
+    &:hover {
+      .pw-selectable-tree__menu {
+        display: inline-block;
+      }
+    }
+  }
+
+  &__label {
+    margin-top: 5px;
+    font-size: 16px;
+  }
+
+  &__arrow {
+    border: 0;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    .pw-icon {
+      visibility: hidden;
+    }
+    &--show {
+      .pw-icon {
+        visibility: visible;
+      }
+    }
+  }
+
+  .pw-selectable-tree-icon {
+    fill: $pw-palette-dusk-70;
+    width: 1.2rem;
+    height: 1.2rem;
+    position: relative;
+    top: 1px;
+  }
+
+  .pw-field-group__input {
+    padding-left: .6rem;
+  }
+
+  .pw-selectable-tree__menu-icon {
+    padding-left: .5rem;
+    padding-top: .1rem;
+    cursor: pointer;
+    fill: $pw-palette-dusk-72;
+  }
+}
+
+.pw-selectable-tree--close {
+  transform: rotateZ(-90deg);
+}
+
+.pw-selectable-tree-search {
+  width: 90%;
+  .pw-icon {
+    fill: $pw-palette-dusk-70;
+  }
+}
