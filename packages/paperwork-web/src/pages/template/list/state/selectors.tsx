@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-import { getPageSection } from '../../../../store/selectors';
+import { getPageSection, getAuthentication } from '../../../../store/selectors';
 import { TemplateListPageState } from './reducers';
 
 export const getPage = createSelector(
@@ -10,7 +10,11 @@ export const getPage = createSelector(
 
 export const getEntries = createSelector(
   getPage,
-  page => page.entries,
+  getAuthentication,
+  (page, authentication) => page.entries.map(entry => ({
+    ...entry,
+    isOwner: authentication && authentication.user.id === entry.author.id,
+  })),
 );
 
 export const getPagination = createSelector(

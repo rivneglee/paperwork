@@ -1,9 +1,10 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, ReactElement, useState } from 'react';
 import classNames from 'classnames';
 import Icons from '../../graphic/Icons';
 import { Input } from '../Input';
 import { Checkbox, CheckState } from '../Checkbox';
 import { Dropdown } from '../Dropdown';
+import { FieldGroup } from '../FieldGroup';
 
 export type SelectableTreeComponent = FunctionComponent<Props>;
 
@@ -14,10 +15,16 @@ export interface SelectableTreeNode {
 }
 
 interface Props {
+  label?: string;
+  isRequired?: boolean;
+  labelAccessory?: ReactElement;
+  labelPlacement?: 'left' | 'top';
+  size?: 'xs' | 's' | 'm' | 'l' | 'xl';
   treeNodes: SelectableTreeNode[];
   showSearch?: boolean;
   onCheck?: (checked: object) => void;
   checked?: object;
+  menuAlignment?: 'left' | 'right';
 }
 
 const SelectableTree: SelectableTreeComponent = ({
@@ -25,16 +32,20 @@ const SelectableTree: SelectableTreeComponent = ({
   showSearch = false,
   checked = {},
   onCheck,
+  label,
+  size,
+  isRequired,
+  labelAccessory,
+  labelPlacement = 'top',
+  menuAlignment = 'right',
 }) => {
   const [keyword, setKeyword] = useState<string>('');
   const [expandState, setExpandState] = useState<object>({});
-  const [checkState, setCheckState] = useState<object>({});
   const handleOnCheck = (key: string, value: string) => {
     const newCheckState = {
-      ...checkState,
+      ...checked,
       [key]: value,
     };
-    setCheckState(newCheckState);
     onCheck && onCheck(newCheckState);
   };
 
@@ -53,8 +64,7 @@ const SelectableTree: SelectableTreeComponent = ({
     if (children.length > 0) {
       setSubTreeState(children);
     }
-    setCheckState({ ...checkState, ...newCheckState });
-    onCheck && onCheck({ ...checkState, ...newCheckState });
+    onCheck && onCheck({ ...checked, ...newCheckState });
   };
 
   const onClickArrow = (key: string) => {
@@ -104,7 +114,7 @@ const SelectableTree: SelectableTreeComponent = ({
             </button>
           }
           <Checkbox
-            value={checkState[value]}
+            value={checked[value]}
             onChange={state => handleOnCheck(value, state)}
             className="pw-selectable-tree__checkbox"
             label={label}
@@ -112,7 +122,7 @@ const SelectableTree: SelectableTreeComponent = ({
           {
             children.length > 0 && (
               <div className="pw-selectable-tree__menu">
-                <Dropdown items={[
+                <Dropdown align={menuAlignment} items={[
                   <Dropdown.Item
                     key="select-all"
                     onClick={() => handleMenuAction(treeNode, 'checked')}>
@@ -146,22 +156,30 @@ const SelectableTree: SelectableTreeComponent = ({
   };
 
   return (
-    <div className={classNames('pw-selectable-tree')}>
-      {
-        showSearch && (
-          <Input
-            className="pw-selectable-tree-search"
-            type="underlined"
-            left={<Icons.Search />}
-            value={keyword}
-            onChange={(e: any) => setKeyword(e.target.value)}
-          />
-        )
-      }
-      {
-        treeNodes.map(treeNode => renderTree(treeNode))
-      }
-    </div>
+    <FieldGroup
+      size={size}
+      label={label}
+      isRequired={isRequired}
+      labelAccessory={labelAccessory}
+      labelPlacement={labelPlacement}
+    >
+      <div className={classNames('pw-selectable-tree')}>
+        {
+          showSearch && (
+            <Input
+              className="pw-selectable-tree-search"
+              type="underlined"
+              left={<Icons.Search />}
+              value={keyword}
+              onChange={(e: any) => setKeyword(e.target.value)}
+            />
+          )
+        }
+        {
+          treeNodes.map(treeNode => renderTree(treeNode))
+        }
+      </div>
+    </FieldGroup>
   );
 };
 

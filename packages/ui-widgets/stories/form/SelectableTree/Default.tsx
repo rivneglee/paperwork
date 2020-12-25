@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { SelectableTree } from '../../../src';
+import { SelectableTree, Card } from '../../../src';
 
 const nodes = [
   {
@@ -24,11 +24,17 @@ const nodes = [
 export default () => {
   const [checkState, setCheckState] = useState<object>({});
   return (
-    <SelectableTree
-      showSearch
-      treeNodes={nodes}
-      checked={checkState}
-      onCheck={checked => setCheckState(checked)}
-    />
+    <div style={{ background: '#ebeef1', padding: '2.4rem' }}>
+      <Card>
+        <SelectableTree
+          showSearch
+          label="Select book category"
+          menuAlignment="left"
+          treeNodes={nodes}
+          checked={checkState}
+          onCheck={checked => setCheckState(checked)}
+        />
+      </Card>
+    </div>
   );
 };

@@ -8,7 +8,11 @@ describe('DataSourceDetailPage', () => {
   const dataSource = {
     id: '1',
     name: 'Engagement survey 2020',
-    owner: '1',
+    owner: {
+      id: '1',
+      displayName: 'Alex Li',
+      username: 'alexli',
+    },
     fields: [
       {
         id: '123',

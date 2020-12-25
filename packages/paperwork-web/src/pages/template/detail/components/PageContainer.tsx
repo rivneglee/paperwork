@@ -6,13 +6,15 @@ import { DetailProvider, DetailProviderState } from '../../../../service/templat
 import { StoreState } from '../../../../store';
 import { getAuthentication } from '../../../../store/selectors';
 import TemplateDetailPage from '../components/PageSwitcher';
-import { getIsPageEdited, getTemplateDetail } from '../state/selectors';
+import { getIsPageEdited, getTemplateDetail, getIsPublic, getIsReadOnly } from '../state/selectors';
 import { createLoadTemplateDetailAction, createUpdateTemplateAction } from '../state/actions';
 import { TemplateDetail } from '../../../../schema/Template';
 
 const mapStateToViewProps = (state: StoreState) => ({
   template: getTemplateDetail(state),
   isPageEdited: getIsPageEdited(state),
+  isPublic: getIsPublic(state),
+  isReadOnly: getIsReadOnly(state),
 });
 
 const mapStateToProviderProps = (state: StoreState, ownProps: any) => ({

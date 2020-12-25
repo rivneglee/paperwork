@@ -31,7 +31,11 @@ export const defaultState: DataSourceDetailPageState = {
   data: {
     id: '',
     name: '',
-    owner: '',
+    owner: {
+      id: '',
+      displayName: '',
+      username: '',
+    },
     fields: [],
   },
   isPageEdited: false,

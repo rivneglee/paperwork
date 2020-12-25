@@ -31,6 +31,7 @@ export const defaultState: FormDetailPageState = {
     maxCommits: undefined,
     receivedCommits: 0,
     succeedMessage: {},
+    participates: [],
   },
   isPageEdited: false,
 };

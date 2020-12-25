@@ -35,7 +35,7 @@ export default class extends React.Component<Props> {
   private isInitializing = true;
 
   private list = async (options: ListOptions = {}, page = 0) => {
-    const { keyword } = options;
+    const { keyword = '' } = options;
     const { integration, userId } = this.props;
     const notificationList = await integration.send({
       intent: LOAD_NOTIFICATION_LIST,

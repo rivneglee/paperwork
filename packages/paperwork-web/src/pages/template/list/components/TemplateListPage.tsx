@@ -7,7 +7,7 @@ import {
   Icons,
   PictureChip,
   IconButton,
-  Tooltip, PageState,
+  Tooltip, PageState, Badge,
 } from '@paperwork/ui-widgets';
 import AppBar from '../../../../components/AppBar';
 import Spinner from '../../../../components/PageTransitionSpinner/Spinner';
@@ -39,6 +39,15 @@ export interface FilterOption {
 export interface FilterOptions {
   keyword?: string;
 }
+
+const ChipBody = ({ entry }: { entry: Template }) => (
+  <div className="pwapp-template-list__card-content">
+    <div>
+      <span className="pwapp-template-list__field-name">Created by: </span>
+      <span>{entry.author.displayName}</span>
+    </div>
+  </div>
+);
 
 const handleFilterChange = (key: string, handler: any) => (e: any) => handler({ key, value: e.target.value });
 
@@ -94,14 +103,27 @@ const TemplateListPage: FunctionComponent<Props> = ({
                   className="pwapp-template-list__card"
                   color={entry.theme}
                   title={entry.name}
-                  subTitle={entry.author.displayName}
+                  subTitle={
+                    <Badge color="secondary">{entry.isOwner ? 'Private' : 'Public'}</Badge>
+                  }
                   imageUrl={entry.heroImage}
-                  content={entry.name}
+                  content={<ChipBody entry={entry}/>}
                   footer={
                     <div className="pwapp-template-list__card-footer">
-                      <Tooltip placement="top" content="Edit template">
-                        <IconButton onClick={() => onEdit(entry.id)}><Icons.Edit/></IconButton>
-                      </Tooltip>
+                      {
+                        entry.isOwner && (
+                          <Tooltip placement="top" content="Edit template">
+                            <IconButton onClick={() => onEdit(entry.id)}><Icons.Edit/></IconButton>
+                          </Tooltip>
+                        )
+                      }
+                      {
+                        !entry.isOwner && (
+                          <Tooltip placement="top" content="Preview template">
+                            <IconButton onClick={() => onEdit(entry.id)}><Icons.Preview/></IconButton>
+                          </Tooltip>
+                        )
+                      }
                       <Tooltip placement="top" content="Use template">
                         <IconButton onClick={() => onCreateForm(entry.id)}><Icons.Duplicate/></IconButton>
                       </Tooltip>

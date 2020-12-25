@@ -25,6 +25,7 @@ import {
   getLayoutMap,
   InputItemTypes,
 } from '../../../../components/FormAddons';
+import { OrganisationSelector } from '../../../../components/OrganisationSelector';
 
 interface Props {
   form: FormDetail;
@@ -98,9 +99,12 @@ const FormDetailPage: FunctionComponent<Props> = ({
   };
 
   const onPublicToggleChange = (e: any) => {
+    const scope = e.target.checked ? Scope.PUBLIC : Scope.PRIVATE;
+    const participates =  e.target.checked ? [] : form.participates;
     onUpdate({
       ...form,
-      scope: e.target.checked ? Scope.PUBLIC : Scope.PRIVATE,
+      scope,
+      participates,
     });
   };
 
@@ -124,6 +128,13 @@ const FormDetailPage: FunctionComponent<Props> = ({
         ...succeedMessage,
         [key]: value,
       },
+    });
+  };
+
+  const onUpdateParticipates = (participates: string[]) => {
+    onUpdate({
+      ...form,
+      participates,
     });
   };
 
@@ -228,6 +239,15 @@ const FormDetailPage: FunctionComponent<Props> = ({
             labelPlacement="top"
             onChange={onPublicToggleChange}
           />
+          {
+            form.scope !== Scope.PUBLIC && (
+              <OrganisationSelector
+                label="Select participates"
+                onSelect={onUpdateParticipates}
+                selections={form.participates}
+              />
+            )
+          }
         </Scrollable>
       </Drawer>
     </BaseTemplate>

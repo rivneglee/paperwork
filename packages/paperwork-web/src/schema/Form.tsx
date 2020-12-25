@@ -19,6 +19,7 @@ export interface Form extends Paper {
   targetCommits?: number;
   maxCommits?: number;
   receivedCommits: number;
+  participates?: string[];
 }
 
 export interface FormList {

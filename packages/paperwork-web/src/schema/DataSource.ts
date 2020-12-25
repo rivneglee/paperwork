@@ -55,6 +55,6 @@ export type DataSourceList = {
 export interface DataSource {
   id: string;
   name: string;
-  owner: UserIdentifier;
+  owner: User;
   fields: Field[];
 }
