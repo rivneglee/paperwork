@@ -1,5 +1,14 @@
 import React, { FunctionComponent, useState } from 'react';
-import { BaseTemplate, FormMode, FormThemeColors, IconButton, Icons } from '@paperwork/ui-widgets';
+import {
+  BaseTemplate,
+  Drawer,
+  FormMode,
+  FormThemeColors,
+  IconButton,
+  Icons,
+  Scrollable,
+  Toggle,
+} from '@paperwork/ui-widgets';
 
 import AppBar from '../../../../components/AppBar';
 
@@ -16,6 +25,8 @@ interface Props {
   isProcessing?: boolean;
   isCreating: boolean;
   isPageEdited: boolean;
+  isPublic: boolean;
+  isReadOnly: boolean;
   onUpdate: (template: TemplateDetail) => void;
   onCancel: () => void;
   onSave: (template: TemplateDetail) => void;
@@ -27,6 +38,8 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
   isPageEdited,
   isProcessing,
   isCreating,
+  isPublic,
+  isReadOnly,
   onUpdate,
   onCancel,
   onDelete,
@@ -34,14 +47,22 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
 }) => {
   const [modalType, setModalType] = useState('');
   const [mode, setMode] = useState(FormMode.DESIGN);
-
+  const [showDrawer, setShowDrawer] = useState(false);
   const onCloseModal = () => setModalType('');
 
+  const onOpenDrawer = () => setShowDrawer(true);
+
+  const onCloseDrawer = () => setShowDrawer(false);
+
   const onClickCancel = () => {
-    if (isPageEdited) {
-      setModalType('unsave');
+    if (mode === FormMode.DESIGN) {
+      if (isPageEdited) {
+        setModalType('unsave');
+      } else {
+        onCancel();
+      }
     } else {
-      onCancel();
+      setMode(FormMode.DESIGN);
     }
   };
 
@@ -67,20 +88,27 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
     });
   };
 
+  const onPublicToggleChange = (e: any) => {
+    const visibility = e.target.checked ? 'public' : 'private';
+    onUpdate({
+      ...template,
+      visibility,
+    });
+  };
+
   const designMenu = (
     <>
       <IconButton onClick={onClickCancel}><Icons.Cancel/></IconButton>
-      <IconButton onClick={onClickSave}><Icons.Save/></IconButton>
-      <IconButton onClick={() => setMode(FormMode.EDIT)}><Icons.Preview/></IconButton>
-      <IconButton onClick={onClickTheme}><Icons.Theme/></IconButton>
-      {
-        !isCreating && <IconButton onClick={onClickDelete}><Icons.Delete/></IconButton>
+      { mode === FormMode.DESIGN && !isReadOnly && (
+        <>
+          <IconButton onClick={onClickSave}><Icons.Save/></IconButton>
+          <IconButton onClick={() => setMode(FormMode.EDIT)}><Icons.Preview/></IconButton>
+          <IconButton onClick={onOpenDrawer}><Icons.Settings/></IconButton>
+          <IconButton onClick={onClickTheme}><Icons.Theme/></IconButton>
+          {!isCreating && <IconButton onClick={onClickDelete}><Icons.Delete/></IconButton>}
+        </>)
       }
     </>
-  );
-
-  const previewMenu = (
-    <IconButton onClick={() => setMode(FormMode.DESIGN)}><Icons.Cancel/></IconButton>
   );
 
   return (
@@ -88,12 +116,10 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
       isProcessing={isProcessing}
       spinner={<Spinner/>}
       className="pwapp-template-detail-page"
-      header={<AppBar activeMenuId="templates" secondaryMenu={
-        mode === FormMode.DESIGN ? designMenu : previewMenu
-      }/>}
+      header={<AppBar activeMenuId="templates" secondaryMenu={designMenu}/>}
     >
       {
-        mode === FormMode.DESIGN ? (
+        mode === FormMode.DESIGN && !isReadOnly ? (
           <Designer
             onChange={onUpdate}
             headerImage={template.headerImage}
@@ -137,6 +163,21 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
           />
         )
       }
+      <Drawer
+        placement="right"
+        header={<h3>Template Settings</h3>}
+        isShow={showDrawer}
+        onClose={onCloseDrawer}
+      >
+        <Scrollable className="pwapp-form-settings">
+          <Toggle
+            checked={isPublic}
+            label="Make it public"
+            labelPlacement="top"
+            onChange={onPublicToggleChange}
+          />
+        </Scrollable>
+      </Drawer>
     </BaseTemplate>
   );
 };

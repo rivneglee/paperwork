@@ -18,15 +18,6 @@ const Menu: FunctionComponent<Props> = ({ activeMenuId }) => (
       </Link>
     </MenuWidget.Item>
     <MenuWidget.Item
-      active={activeMenuId === 'datasource'}
-      id="datasource"
-      icon={<Icons.DataSource/>}
-    >
-      <Link to="/datasource">
-        Datasource
-      </Link>
-    </MenuWidget.Item>
-    <MenuWidget.Item
       id="templates"
       icon={<Icons.Template/>}
       active={activeMenuId === 'templates'}
@@ -35,29 +26,61 @@ const Menu: FunctionComponent<Props> = ({ activeMenuId }) => (
         Templates
       </Link>
     </MenuWidget.Item>
-    <MenuWidget.Group id="form" icon={<Icons.Form/>} label="Form">
-      <MenuWidget.Item
-        id="forms"
-        active={activeMenuId === 'forms'}
-      >
-        <Link to="/forms">
-          My forms
-        </Link>
-      </MenuWidget.Item>
-      <MenuWidget.Item
-        id="commits"
-        active={activeMenuId === 'commits'}
-      >
-        <Link to="/commits">
-          My commits
-        </Link>
-      </MenuWidget.Item>
-    </MenuWidget.Group>
+    <MenuWidget.Item
+      id="forms"
+      active={activeMenuId === 'forms'}
+      icon={<Icons.Form/>}
+    >
+      <Link to="/forms">
+        Forms
+      </Link>
+    </MenuWidget.Item>
+    <MenuWidget.Item
+      id="commits"
+      active={activeMenuId === 'commits'}
+      icon={<Icons.DataSource/>}
+    >
+      <Link to="/commits">
+        Commits
+      </Link>
+    </MenuWidget.Item>
+    {
+      /*
+      <MenuWidget.Group id="form" icon={<Icons.Form/>} label="Form">
+        <MenuWidget.Item
+          id="forms"
+          active={activeMenuId === 'forms'}
+        >
+          <Link to="/forms">
+            My forms
+          </Link>
+        </MenuWidget.Item>
+        <MenuWidget.Item
+          id="commits"
+          active={activeMenuId === 'commits'}
+        >
+          <Link to="/commits">
+            My commits
+          </Link>
+        </MenuWidget.Item>
+      </MenuWidget.Group>
+      */
+    }
     <MenuWidget.Item id="reports" active={activeMenuId === 'reports'} icon={<Icons.Chart/>}>
       <Link to="/reports">
         Report
       </Link>
     </MenuWidget.Item>
+    <MenuWidget.Item
+      active={activeMenuId === 'datasource'}
+      id="datasource"
+      icon={<Icons.DataSource/>}
+    >
+      <Link to="/datasource">
+        Datasource
+      </Link>
+    </MenuWidget.Item>
+    {/*
     <MenuWidget.Item
       active={activeMenuId === 'organization'}
       id="organization"
@@ -67,6 +90,7 @@ const Menu: FunctionComponent<Props> = ({ activeMenuId }) => (
         Organization
       </Link>
     </MenuWidget.Item>
+    */}
   </MenuWidget>
 );
 

@@ -36,6 +36,6 @@ export const getIsOwner = createSelector(
     if (!auth) return false;
     const { user } = auth;
     const { owner } = dataSource;
-    return owner === user.id || owner === '';
+    return !owner || owner.id === user.id || owner.id === '';
   },
 );

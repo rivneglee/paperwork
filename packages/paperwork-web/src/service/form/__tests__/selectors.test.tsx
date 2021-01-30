@@ -31,6 +31,7 @@ describe('form service selector', () => {
       },
     ],
     name: 'New Form',
+    targetCommits: 0,
     receivedCommits: 0,
     maxCommits: 100,
     scope: 'private',

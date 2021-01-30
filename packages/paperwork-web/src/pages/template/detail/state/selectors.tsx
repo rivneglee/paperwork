@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 
 import { TemplateDetailPageState } from './reducers';
-import { getPageSection } from '../../../../store/selectors';
+import { getAuthentication, getPageSection } from '../../../../store/selectors';
 
 const getPage = createSelector(
   getPageSection,
@@ -16,4 +16,19 @@ export const getTemplateDetail = createSelector(
 export const getIsPageEdited = createSelector(
   getPage,
   page => page.isPageEdited,
+);
+
+export const getIsPublic = createSelector(
+  getPage,
+  page => page.template.visibility === 'public',
+);
+
+export const getIsReadOnly = createSelector(
+  getPage,
+  getAuthentication,
+  (page, authentication) => (
+    (authentication
+      && page.template.author.id !== ''
+      && page.template.author.id !== authentication.user.id)
+  ),
 );

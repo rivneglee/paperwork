@@ -1,5 +1,4 @@
 .pw-selectable-tree {
-  padding: .3rem;
   display: flex;
   flex-direction: column;
 
@@ -17,12 +16,13 @@
     display: flex;
 
     .pw-selectable-tree__menu {
-      display: none;
+      visibility: hidden;
+      z-index: 999;
     }
 
     &:hover {
       .pw-selectable-tree__menu {
-        display: inline-block;
+        visibility: visible;
       }
     }
   }
@@ -54,10 +54,6 @@
     height: 1.2rem;
     position: relative;
     top: 1px;
-  }
-
-  .pw-field-group__input {
-    padding-left: .6rem;
   }
 
   .pw-selectable-tree__menu-icon {

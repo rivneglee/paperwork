@@ -24,6 +24,7 @@ import {
 } from '../../../../components/FormAddons';
 import Toolbox from '../../../../lite/Toolbox/Toolbox';
 import AppBar from '../../../../lite/AppBar/AppBar';
+import { OrganisationSelector } from '../../../../components/OrganisationSelector';
 
 interface Props {
   form: FormDetail;
@@ -91,6 +92,13 @@ const FormDetailPage: FunctionComponent<Props> = ({
     onUpdate({
       ...form,
       headerImage,
+    });
+  };
+
+  const onUpdateParticipates = (participates: string[]) => {
+    onUpdate({
+      ...form,
+      participates,
     });
   };
 
@@ -223,6 +231,11 @@ const FormDetailPage: FunctionComponent<Props> = ({
             labelPlacement="top"
             value={form.succeedMessage.subTitle}
             onChange={(e: any) => onUpdateSucceedMessage('subTitle', e.target.value)}
+          />
+          <OrganisationSelector
+            label="Select participates"
+            onSelect={onUpdateParticipates}
+            selections={form.participates}
           />
         </Scrollable>
       </Drawer>
