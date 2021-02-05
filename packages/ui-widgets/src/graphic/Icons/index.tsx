@@ -75,6 +75,8 @@ import Unselected from './Unselected';
 import Selected from './Selected';
 import SelectedAll from './SelectedAll';
 import Ellipsis from './Ellipsis';
+import CSV from './CSV';
+import Formula from './Formula';
 
 export default {
   Add,
@@ -154,4 +156,6 @@ export default {
   SelectedAll,
   Unselected,
   Ellipsis,
+  CSV,
+  Formula,
 };

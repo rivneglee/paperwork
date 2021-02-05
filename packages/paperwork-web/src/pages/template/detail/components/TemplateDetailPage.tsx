@@ -17,7 +17,14 @@ import { TemplateDetail } from '../../../../schema/Template';
 import Spinner from '../../../../components/PageTransitionSpinner/Spinner';
 import { Designer, PaperThemeModal } from '../../../../components/FormDesigner';
 import { ConfirmModal } from '../../../../components/Modal';
-import { getInputMap, getLayoutMap, getButtonMap, InputItemTypes, ButtonItemTypes } from '../../../../components/FormAddons';
+import {
+  getInputMap,
+  getLayoutMap,
+  getButtonMap,
+  getExpressionMap,
+  InputItemTypes,
+  ButtonItemTypes, ExpressionItemTypes,
+} from '../../../../components/FormAddons';
 import Preview from './Preview';
 
 interface Props {
@@ -126,6 +133,7 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
             itemMetadataMap={{
               ...getInputMap(),
               ...getButtonMap(),
+              ...getExpressionMap({ items: template.items }),
             }}
             layoutComponentMap={getLayoutMap()}
             name={template.name}
@@ -138,7 +146,7 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
               { icon: <Icons.ComboBox/>, itemType: InputItemTypes.COMBOBOX },
               { icon: <Icons.TextArea/>, itemType: 'textarea' },
               { icon: <Icons.Attachment/>, itemType: 'attachment' },
-              { icon: <Icons.Rate/>, itemType: 'rating' },
+              { icon: <Icons.Formula/>, itemType: ExpressionItemTypes.FORMULA },
             ]}
             buttonItems={[
               { icon: <Icons.Submit/>, itemType: ButtonItemTypes.SUBMIT },

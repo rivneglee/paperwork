@@ -23,7 +23,9 @@ import {
   getButtonMap,
   getInputMap,
   getLayoutMap,
+  getExpressionMap,
   InputItemTypes,
+  ExpressionItemTypes,
 } from '../../../../components/FormAddons';
 import { OrganisationSelector } from '../../../../components/OrganisationSelector';
 
@@ -151,6 +153,7 @@ const FormDetailPage: FunctionComponent<Props> = ({
         itemMetadataMap={{
           ...getInputMap({ enableDataBinding: !isCreatingDefaultDs, isCreatingDs: isCreatingDefaultDs }),
           ...getButtonMap(),
+          ...getExpressionMap({ items: form.items }),
         }}
         layoutComponentMap={getLayoutMap()}
         name={form.name}
@@ -163,7 +166,7 @@ const FormDetailPage: FunctionComponent<Props> = ({
           { icon: <Icons.ComboBox/>, itemType: InputItemTypes.COMBOBOX },
           { icon: <Icons.TextArea/>, itemType: 'textarea' },
           { icon: <Icons.Attachment/>, itemType: 'attachment' },
-          { icon: <Icons.Rate/>, itemType: 'rating' },
+          { icon: <Icons.Formula/>, itemType: ExpressionItemTypes.FORMULA },
         ]}
         buttonItems={[
           { icon: <Icons.Submit/>, itemType: ButtonItemTypes.SUBMIT },

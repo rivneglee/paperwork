@@ -3452,10 +3452,6 @@ lodash.sortby@^4.7.0:
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
 
-lodash@^4.17.10:
-  version "4.17.20"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
-
 lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
@@ -3730,7 +3726,7 @@ nan@^2.12.1:
   version "2.14.1"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.1.tgz#d7be34dfa3105b91494c3147089315eff8874b01"
 
-nanoid@^2.0.0, nanoid@^2.1.0:
+nanoid@^2.1.0:
   version "2.1.11"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-2.1.11.tgz#ec24b8a758d591561531b4176a01e3ab4f0f0280"
 
@@ -4474,15 +4470,6 @@ react-beautiful-dnd@^8.0.5:
     react-redux "^5.0.7"
     redux "^4.0.0"
     tiny-invariant "^0.0.3"
-
-react-checkbox-tree@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/react-checkbox-tree/-/react-checkbox-tree-1.6.0.tgz#6c471a610f1598c5f2e2c7b50bf11036159f5285"
-  dependencies:
-    classnames "^2.2.5"
-    lodash "^4.17.10"
-    nanoid "^2.0.0"
-    prop-types "^15.5.8"
 
 react-content-loader@*, react-content-loader@^5.0.4:
   version "5.0.4"
