@@ -19,26 +19,7 @@ export const getIsCreatingDefaultDs = createSelector(
 
 export const getFormDetail = createSelector(
   getPage,
-  getIsCreatingDefaultDs,
-  (page: FormDetailPageState, isCreatingDefaultDs) => {
-    const newItems = Object.values(page.form.items).reduce((acc, current) => {
-      let newItem = current;
-      if (current.itemType !== 'text' && isCreatingDefaultDs && !current.creatingDataSource) {
-        newItem = {
-          ...current,
-          creatingDataSource: {},
-        };
-      }
-      return {
-        ...acc,
-        [current.id]: newItem,
-      };
-    }, {});
-    return {
-      ...page.form,
-      items: newItems,
-    };
-  },
+  (page: FormDetailPageState) => page.form,
 );
 
 export const getIsPageEdited = createSelector(

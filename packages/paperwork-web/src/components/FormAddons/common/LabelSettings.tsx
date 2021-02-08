@@ -27,8 +27,6 @@ const LabelSettings: FunctionComponent<LabelProps> = ({
         options={[
           { value: 'top', label: 'Top' },
           { value: 'left', label: 'Left' },
-          { value: 'right', label: 'Right' },
-          { value: 'bottom', label: 'Bottom' },
         ]}
       />
     </>

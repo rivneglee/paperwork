@@ -3,8 +3,9 @@ import { Item, LineItemTable, Input, SelectOption, Select } from '@paperwork/ui-
 
 import LabelSettings from '../../common/LabelSettings';
 import DataBinding, { DataSourceOption } from '../../common/DataBinding';
-import { ExpressionItemTypes, InputItemTypes } from '../../index';
+import { InputItemTypes } from '../../index';
 import ComboBoxMappings from './ComboBoxMappings';
+import FormulaEditor from './FormulaEditor';
 
 interface Props {
   onUpdate: (newItem: Item) => void;
@@ -16,7 +17,7 @@ const columnsConfig = [
   { columnName: 'Mapping' },
 ];
 
-const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBinding, isCreatingDs, ...item }  }) => {
+const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBinding, ...item }  }) => {
   const { itemValueMappings = [] } = item;
 
   const onAddItemMapping = (option: SelectOption, key: string, value: any) => {
@@ -61,22 +62,26 @@ const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBindin
   const onFieldNameChange = (e: any) => {
     onUpdate({
       ...item,
-      creatingDataSource: {
-        fieldName: e.target.value,
-      },
+      fieldName: e.target.value,
     });
   };
 
-  const { targetDataSource, creatingDataSource = {}, items = {} } = item;
+  const { targetDataSource, fieldName, items = {} } = item;
   const { fieldId, ...dataSource } = targetDataSource || {};
-  const { fieldName = item.label } = creatingDataSource;
-  const excludeItemTypes = [InputItemTypes.RICH_TEXT, ExpressionItemTypes.FORMULA];
-  const availableItems = Object
+  const mappingTypes = [InputItemTypes.COMBOBOX];
+  const mappingItems = Object
       .values(items)
-      .filter(({ itemType }) => !excludeItemTypes.includes(itemType))
-      .map(({ id, label }) => ({ label: label || id, value: id }));
+      .filter(({ itemType }) => mappingTypes.includes(itemType))
+      .map(({ id, fieldName }) => ({ label: fieldName || id, value: id }));
   return (
     <>
+      <Input
+          label="Name"
+          labelPlacement="top"
+          isRequired
+          value={fieldName}
+          onChange={onFieldNameChange}
+      />
       {
         enableDataBinding && (
           <DataBinding
@@ -86,18 +91,8 @@ const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBindin
           />
         )
       }
-      {
-        isCreatingDs && (
-          <Input
-            label="Datasource field name"
-            labelPlacement="top"
-            isRequired
-            value={fieldName}
-            onChange={onFieldNameChange}
-          />
-        )
-      }
       <LabelSettings item={item} onUpdate={onUpdate}/>
+      <FormulaEditor item={item} />
       <LineItemTable
         columnsConfig={columnsConfig}
         data={itemValueMappings}
@@ -114,7 +109,7 @@ const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBindin
                   <Select
                       selectedValue={itemId}
                       onChange={itemId => onChange('itemId', itemId)}
-                      options={availableItems}
+                      options={mappingItems}
                   />
                 </LineItemTable.Item>
                 <LineItemTable.Item>

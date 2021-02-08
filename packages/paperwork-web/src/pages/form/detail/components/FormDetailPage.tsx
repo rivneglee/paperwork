@@ -153,7 +153,7 @@ const FormDetailPage: FunctionComponent<Props> = ({
         itemMetadataMap={{
           ...getInputMap({ enableDataBinding: !isCreatingDefaultDs, isCreatingDs: isCreatingDefaultDs }),
           ...getButtonMap(),
-          ...getExpressionMap({ items: form.items }),
+          ...getExpressionMap({ items: form.items, enableDataBinding: !isCreatingDefaultDs, isCreatingDs: isCreatingDefaultDs }),
         }}
         layoutComponentMap={getLayoutMap()}
         name={form.name}

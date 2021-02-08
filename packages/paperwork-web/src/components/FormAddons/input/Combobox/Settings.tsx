@@ -14,13 +14,13 @@ const columnsConfig = [
   { columnName: 'Value' },
 ];
 
-const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBinding, isCreatingDs, ...item }  }) => {
+const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBinding, ...item }  }) => {
   const { options = [], isRequired, isMultipleSelect } = item;
 
-  const onAddOption = (option: SelectOption, key: string, value: any) => {
+  const onAddOption = (option: any, key: string, value: any) => {
     onUpdate({
       ...item,
-      options: [...options, { [key]: value }],
+      options: [...options, { id: option.id, [key]: value }],
     });
   };
 
@@ -66,36 +66,29 @@ const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBindin
   const onFieldNameChange = (e: any) => {
     onUpdate({
       ...item,
-      creatingDataSource: {
-        fieldName: e.target.value,
-      },
+      fieldName: e.target.value,
     });
   };
 
-  const { targetDataSource, creatingDataSource = {} } = item;
+  const { targetDataSource, fieldName } = item;
   const { fieldId, ...dataSource } = targetDataSource || {};
-  const { fieldName = item.label } = creatingDataSource;
 
   return (
     <>
+      <Input
+          label="Name"
+          labelPlacement="top"
+          isRequired
+          value={fieldName}
+          onChange={onFieldNameChange}
+      />
       {
         enableDataBinding && (
-          <DataBinding
-            onBind={onBind}
-            fieldSelection={targetDataSource && fieldId}
-            dataSource={targetDataSource && dataSource}
-          />
-        )
-      }
-      {
-        isCreatingDs && (
-          <Input
-            label="Datasource field name"
-            labelPlacement="top"
-            isRequired
-            value={fieldName}
-            onChange={onFieldNameChange}
-          />
+            <DataBinding
+                onBind={onBind}
+                fieldSelection={targetDataSource && fieldId}
+                dataSource={targetDataSource && dataSource}
+            />
         )
       }
       <LabelSettings item={item} onUpdate={onUpdate}/>
