@@ -1,10 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import { Item, LineItemTable, Input, SelectOption, Select } from '@paperwork/ui-widgets';
+import { Item, Input, SelectOption } from '@paperwork/ui-widgets';
 
 import LabelSettings from '../../common/LabelSettings';
 import DataBinding, { DataSourceOption } from '../../common/DataBinding';
-import { InputItemTypes } from '../../index';
-import ComboBoxMappings from './ComboBoxMappings';
 import FormulaEditor from './FormulaEditor';
 
 interface Props {
@@ -12,42 +10,7 @@ interface Props {
   item: Item;
 }
 
-const columnsConfig = [
-  { columnName: 'Field' },
-  { columnName: 'Mapping' },
-];
-
 const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBinding, ...item }  }) => {
-  const { itemValueMappings = [] } = item;
-
-  const onAddItemMapping = (option: SelectOption, key: string, value: any) => {
-    onUpdate({
-      ...item,
-      itemValueMappings: [...itemValueMappings, { [key]: value }],
-    });
-  };
-
-  const onUpdateItemMapping = (index: number, key: string, value: any) => {
-    const newMappings = itemValueMappings.map((option: SelectOption, i: number) => {
-      if (i !== index) return option;
-      return {
-        ...option,
-        [key]: value,
-      };
-    });
-    onUpdate({
-      ...item,
-      itemValueMappings: newMappings,
-    });
-  };
-
-  const onRemoveItemMapping = (index: number) => {
-    const newMappings = itemValueMappings.filter((_: SelectOption, i: number) => i !== index);
-    onUpdate({
-      ...item,
-      itemValueMappings: newMappings,
-    });
-  };
 
   const onBind = (dataSource: DataSourceOption, field: SelectOption) => {
     onUpdate({
@@ -65,14 +28,9 @@ const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBindin
       fieldName: e.target.value,
     });
   };
-
-  const { targetDataSource, fieldName, items = {} } = item;
+  const { targetDataSource, fieldName } = item;
   const { fieldId, ...dataSource } = targetDataSource || {};
-  const mappingTypes = [InputItemTypes.COMBOBOX];
-  const mappingItems = Object
-      .values(items)
-      .filter(({ itemType }) => mappingTypes.includes(itemType))
-      .map(({ id, fieldName }) => ({ label: fieldName || id, value: id }));
+  debugger;
   return (
     <>
       <Input
@@ -92,42 +50,7 @@ const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBindin
         )
       }
       <LabelSettings item={item} onUpdate={onUpdate}/>
-      <FormulaEditor item={item} />
-      <LineItemTable
-        columnsConfig={columnsConfig}
-        data={itemValueMappings}
-        onAddRow={onAddItemMapping}
-        onUpdateRow={onUpdateItemMapping}
-        onRemoveRow={onRemoveItemMapping}
-        renderRow={(index, data, onChange) => {
-          const { itemId, valueMappings } = data;
-          const selectedItem = items[itemId];
-          const { itemType } = selectedItem || {};
-          return (
-              <LineItemTable.Row columnsConfig={columnsConfig}>
-                <LineItemTable.Item>
-                  <Select
-                      selectedValue={itemId}
-                      onChange={itemId => onChange('itemId', itemId)}
-                      options={mappingItems}
-                  />
-                </LineItemTable.Item>
-                <LineItemTable.Item>
-                  {
-                    itemType === InputItemTypes.COMBOBOX && (
-                        <ComboBoxMappings
-                            valueMappings={valueMappings}
-                            onUpdate={valueMappings =>
-                                onChange('valueMappings', { ...valueMappings, [itemId]: valueMappings })}
-                            comboboxItem={selectedItem}
-                        />
-                    )
-                  }
-                </LineItemTable.Item>
-              </LineItemTable.Row>
-          );
-        }}
-      />
+      <FormulaEditor item={item} onUpdate={onUpdate}/>
     </>
   );
 };

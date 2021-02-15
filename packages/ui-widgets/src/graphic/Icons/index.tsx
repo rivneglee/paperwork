@@ -77,6 +77,8 @@ import SelectedAll from './SelectedAll';
 import Ellipsis from './Ellipsis';
 import CSV from './CSV';
 import Formula from './Formula';
+import Mapping from './Mapping';
+import Warning from './Warning';
 
 export default {
   Add,
@@ -158,4 +160,6 @@ export default {
   Ellipsis,
   CSV,
   Formula,
+  Mapping,
+  Warning,
 };

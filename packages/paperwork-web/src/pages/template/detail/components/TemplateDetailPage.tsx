@@ -133,7 +133,7 @@ const TemplateDetailPage: FunctionComponent<Props> = ({
             itemMetadataMap={{
               ...getInputMap(),
               ...getButtonMap(),
-              ...getExpressionMap({ items: template.items }),
+              ...getExpressionMap({ items: { ...template.items } }),
             }}
             layoutComponentMap={getLayoutMap()}
             name={template.name}

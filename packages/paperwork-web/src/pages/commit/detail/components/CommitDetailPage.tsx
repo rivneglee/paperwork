@@ -3,7 +3,7 @@ import { BaseTemplate, FormMode } from '@paperwork/ui-widgets';
 
 import { SucceedMessage } from '../../../../schema/Form';
 import Spinner from '../../../../components/PageTransitionSpinner/Spinner';
-import { getInputMap, getLayoutMap, getButtonMap } from '../../../../components/FormAddons';
+import { getInputMap, getLayoutMap, getButtonMap, getExpressionMap } from '../../../../components/FormAddons';
 import HeaderImagesProvider from '../../../../components/FormHeaderImageProvider/HeaderImagesProvider';
 import FormEditor from '../../../../components/FormEditor/FormEditor';
 import SucceedState from '../../../../components/FormEditor/SucceedState';
@@ -38,6 +38,7 @@ const CommitDetailPage: FunctionComponent<Props> = ({
             itemMetadataMap={{
               ...getInputMap(),
               ...getButtonMap({ onSubmit: handleSubmit }),
+              ...getExpressionMap({ values: commit.values }),
             }}
             layoutComponentMap={getLayoutMap()}
             onChange={onChange}

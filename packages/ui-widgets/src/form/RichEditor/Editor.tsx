@@ -1,5 +1,5 @@
-import React, { ReactElement } from 'react';
-import { EditorState, ContentState, convertToRaw, convertFromHTML } from 'draft-js';
+import React, { Component, FunctionComponent, ReactElement } from 'react';
+import { EditorState, ContentState, convertToRaw, convertFromRaw, convertFromHTML, RawDraftContentState } from 'draft-js';
 // @ts-ignore
 import Editor from 'draft-js-plugins-editor';
 // @ts-ignore
@@ -12,10 +12,12 @@ import decorator from './defaultDecorator';
 // @ts-ignore
 import draftToHtml from 'draftjs-to-html';
 import { FieldGroup } from '../FieldGroup';
+import Mention from './Mention';
 
 export interface Props {
   onChange?: (contentHtml: string, rawContent?: object) => void;
   contentHtml?: string;
+  content?: RawDraftContentState;
   alignment?: 'left' | 'right' | 'center';
   labelPlacement?: 'left' | 'top';
   className?: string;
@@ -27,6 +29,8 @@ export interface Props {
   placeholder?: string;
   mentions?: any[];
   showToolbar?: boolean;
+  onClickMention?: (mention: any) => void;
+  mentionComponent?: Component | FunctionComponent;
 }
 
 interface State {
@@ -49,20 +53,29 @@ class BangEditor extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    const { contentHtml = '<span></span>' } = props;
-    const blocksFromHTML = convertFromHTML(contentHtml);
-    const contentState = blocksFromHTML.contentBlocks ? ContentState.createFromBlockArray(
-      blocksFromHTML.contentBlocks,
-      blocksFromHTML.entityMap,
-    ) : ContentState.createFromText('');
+    const { contentHtml = '<span></span>', content, mentionComponent = Mention } = props;
+    const contentState = content ? this.getContentStateFromRawJson(content) : this.getContentStateFromHtml(contentHtml);
     this.state = {
       editorState: EditorState.createWithContent(contentState, decorator),
       hasFocus: false,
       suggestions: [],
     };
     this.mentionPlugin = createMentionPlugin({
+      mentionComponent,
       entityMutability: 'IMMUTABLE',
     });
+  }
+
+  private getContentStateFromHtml = (html: string) => {
+    const blocksFromHTML = convertFromHTML(html);
+    return blocksFromHTML.contentBlocks ? ContentState.createFromBlockArray(
+        blocksFromHTML.contentBlocks,
+        blocksFromHTML.entityMap,
+    ) : ContentState.createFromText('');
+  }
+
+  private getContentStateFromRawJson = (content: RawDraftContentState) => {
+    return convertFromRaw(content);
   }
 
   private onChange = (editorState: EditorState) => {
@@ -119,6 +132,7 @@ class BangEditor extends React.Component<Props, State> {
       labelPlacement = 'left',
       placeholder,
       showToolbar = true,
+      onClickMention,
     } = this.props;
     const { MentionSuggestions } = this.mentionPlugin;
     const enableMentionPlugin = mentions && mentions.length > 0;
@@ -156,6 +170,7 @@ class BangEditor extends React.Component<Props, State> {
                 onSearchChange={this.onSearchChange}
                 suggestions={suggestions}
                 onAddMention={this.onAddMention}
+                onClickMention={onClickMention}
             />
           }
           {
