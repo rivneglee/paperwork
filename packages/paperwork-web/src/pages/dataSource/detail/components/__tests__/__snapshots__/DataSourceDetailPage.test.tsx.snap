@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DataSourceDetailPage should render properly if logged in as owner 1`] = `
-<zi
+<Wi
   header={
     <Connect(AppBar)
       activeMenuId="datasource"
@@ -67,11 +67,11 @@ exports[`DataSourceDetailPage should render properly if logged in as owner 1`] =
       className="pwapp-field-grants-table"
     />
   </_>
-</zi>
+</Wi>
 `;
 
 exports[`DataSourceDetailPage should render properly if not datasource owner 1`] = `
-<zi
+<Wi
   header={
     <Connect(AppBar)
       activeMenuId="datasource"
@@ -138,11 +138,11 @@ exports[`DataSourceDetailPage should render properly if not datasource owner 1`]
       className="pwapp-field-grants-table"
     />
   </_>
-</zi>
+</Wi>
 `;
 
 exports[`DataSourceDetailPage should render properly when grantField is given 1`] = `
-<zi
+<Wi
   header={
     <Connect(AppBar)
       activeMenuId="datasource"
@@ -221,5 +221,5 @@ exports[`DataSourceDetailPage should render properly when grantField is given 1`
       />
     </v>
   </_>
-</zi>
+</Wi>
 `;
