@@ -5,6 +5,7 @@ import VerticalList from './layout/VerticalList';
 import HorizontalList from './layout/HorizontalList';
 import submitButton from './button/Submit';
 import table from './statistic/Table';
+import formula from './expression/Formula';
 
 export enum InputItemTypes {
   RICH_TEXT = 'text', TEXT_INPUT = 'input', COMBOBOX = 'select',
@@ -16,6 +17,10 @@ export enum StatisticItemTypes {
 
 export enum ButtonItemTypes {
   SUBMIT = 'submit',
+}
+
+export enum ExpressionItemTypes {
+  FORMULA = 'formula',
 }
 
 export enum LayoutItemTypes {
@@ -39,4 +44,8 @@ export const getStatisticMap = () => ({
 
 export const getButtonMap = (commonProps: object = {}) => ({
   [ButtonItemTypes.SUBMIT]: { ...submitButton, defaultProps: { label: 'Submit', ...commonProps } },
+});
+
+export const getExpressionMap = (commonProps: object = {}) => ({
+  [ExpressionItemTypes.FORMULA]: { ...formula, defaultProps: { label: 'Formula', ...commonProps } },
 });

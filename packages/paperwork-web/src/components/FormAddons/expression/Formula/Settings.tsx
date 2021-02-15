@@ -1,21 +1,17 @@
 import React, { FunctionComponent } from 'react';
-import { Input, Item, SelectOption, Toggle } from '@paperwork/ui-widgets';
+import { Item, Input, SelectOption } from '@paperwork/ui-widgets';
 
 import LabelSettings from '../../common/LabelSettings';
 import DataBinding, { DataSourceOption } from '../../common/DataBinding';
+import FormulaEditor from './FormulaEditor';
 
 interface Props {
   onUpdate: (newItem: Item) => void;
   item: Item;
 }
 
-const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBinding, ...item } }) => {
-  const onToggleChange = (key: string) => (e: any) => {
-    onUpdate({
-      ...item,
-      [key]: e.target.checked,
-    });
-  };
+const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBinding, ...item }  }) => {
+
   const onBind = (dataSource: DataSourceOption, field: SelectOption) => {
     onUpdate({
       ...item,
@@ -25,6 +21,7 @@ const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBindin
       },
     });
   };
+
   const onFieldNameChange = (e: any) => {
     onUpdate({
       ...item,
@@ -33,6 +30,7 @@ const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBindin
   };
   const { targetDataSource, fieldName } = item;
   const { fieldId, ...dataSource } = targetDataSource || {};
+  debugger;
   return (
     <>
       <Input
@@ -44,20 +42,15 @@ const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBindin
       />
       {
         enableDataBinding && (
-            <DataBinding
-                onBind={onBind}
-                fieldSelection={targetDataSource && fieldId}
-                dataSource={targetDataSource && dataSource}
-            />
+          <DataBinding
+            onBind={onBind}
+            fieldSelection={targetDataSource && fieldId}
+            dataSource={targetDataSource && dataSource}
+          />
         )
       }
       <LabelSettings item={item} onUpdate={onUpdate}/>
-      <Toggle
-        checked={item.isRequired}
-        label="Required"
-        labelPlacement="top"
-        onChange={onToggleChange('isRequired')}
-      />
+      <FormulaEditor item={item} onUpdate={onUpdate}/>
     </>
   );
 };

@@ -14,7 +14,8 @@
       "5"
     ],
     "mJYS2ueLq": "rivneg@Outlook.com",
-    "jicFEV14_": "044838123123"
+    "jicFEV14_": "044838123123",
+    "7AjEkPZPu": 3
   },
   "layout": [
     {
@@ -34,6 +35,7 @@
     {
       "id": "e2hiP4XYg",
       "childRefs": [
+        "7AjEkPZPu",
         "rA09LAdzP"
       ],
       "type": "vertical-list"
@@ -156,6 +158,11 @@
       "id": "uVw74Z-ON",
       "childRefs": [],
       "type": "form-item"
+    },
+    {
+      "id": "7AjEkPZPu",
+      "childRefs": [],
+      "type": "form-item"
     }
   ],
   "items": {
@@ -174,9 +181,9 @@
       "itemType": "input",
       "label": "Guardian name",
       "isRequired": true,
+      "fieldName": "GUARDIAN_NAME",
       "targetDataSource": {
         "id": "1",
-        "name": "Application Form",
         "fieldId": "123"
       }
     },
@@ -185,9 +192,9 @@
       "itemType": "input",
       "label": "Kid name",
       "isRequired": true,
+      "fieldName": "KID_NAME",
       "targetDataSource": {
         "id": "1",
-        "name": "Application Form",
         "fieldId": "321"
       }
     },
@@ -197,7 +204,6 @@
       "label": "Kid age",
       "targetDataSource": {
         "id": "2",
-        "name": "Age group",
         "fieldId": "555"
       }
     },
@@ -217,7 +223,8 @@
           "id": "61deH5OO_",
           "value": "male"
         }
-      ]
+      ],
+      "fieldName": "KID_GENDER"
     },
     "2sAWe_0Ac": {
       "id": "2sAWe_0Ac",
@@ -240,7 +247,8 @@
           "id": "Hnk746yX0",
           "value": "WDC"
         }
-      ]
+      ],
+      "fieldName": "CARE_TYPE"
     },
     "rFEa9NkKD": {
       "id": "rFEa9NkKD",
@@ -274,7 +282,8 @@
           "id": "ZMR6DWlmA",
           "value": "5"
         }
-      ]
+      ],
+      "fieldName": "PREFERRED_DAYS"
     },
     "NQvA_fWxj": {
       "id": "NQvA_fWxj",
@@ -295,6 +304,220 @@
       "id": "uVw74Z-ON",
       "itemType": "submit",
       "label": "Submit Application"
+    },
+    "7AjEkPZPu": {
+      "id": "7AjEkPZPu",
+      "itemType": "formula",
+      "label": "Score",
+      "items": {
+        "rA09LAdzP": {
+          "id": "rA09LAdzP",
+          "itemType": "text",
+          "value": "<p>Please fill and send this form back to use through:</p>\n<ol>\n<li>Mail print copy to <em>1/13 Beverly Hill Monvale,VIC 3109</em></li>\n<li>Email scanned copy to<strong> </strong>c<em>hildcare@monvale.edu</em></li>\n<li>Visit our site and give print copy to our kind staff</li>\n</ol>\n<p>Contact us at <strong>049239219</strong> if you have any question.</p>\n"
+        },
+        "levKmKVn3": {
+          "id": "levKmKVn3",
+          "itemType": "text",
+          "value": "<p><strong>PART A - Basic infomation</strong></p>\n"
+        },
+        "wTvBhoeK6": {
+          "id": "wTvBhoeK6",
+          "itemType": "input",
+          "label": "Guardian name",
+          "isRequired": true,
+          "targetDataSource": {
+            "id": "1",
+            "name": "Application Form",
+            "fieldId": "123"
+          },
+          "fieldName": "GUARDIAN_NAME"
+        },
+        "2aCdbE34l": {
+          "id": "2aCdbE34l",
+          "itemType": "input",
+          "label": "Kid name",
+          "isRequired": true,
+          "targetDataSource": {
+            "id": "1",
+            "name": "Application Form",
+            "fieldId": "321"
+          },
+          "fieldName": "KID_NAME"
+        },
+        "Bu_9NufDl": {
+          "id": "Bu_9NufDl",
+          "itemType": "input",
+          "label": "Kid age",
+          "targetDataSource": {
+            "id": "2",
+            "name": "Age group",
+            "fieldId": "555"
+          }
+        },
+        "vhJl02NCE": {
+          "id": "vhJl02NCE",
+          "itemType": "select",
+          "label": "Kid gender",
+          "isRequired": true,
+          "options": [
+            {
+              "label": "Girl",
+              "id": "dAgbeokF5",
+              "value": "female"
+            },
+            {
+              "label": "Boy",
+              "id": "61deH5OO_",
+              "value": "male"
+            }
+          ],
+          "fieldName": "KID_GENDER"
+        },
+        "2sAWe_0Ac": {
+          "id": "2sAWe_0Ac",
+          "itemType": "text",
+          "value": "<p><strong>PART B - Care details </strong></p>\n"
+        },
+        "Eavi_B104": {
+          "id": "Eavi_B104",
+          "itemType": "select",
+          "label": "Care type",
+          "isRequired": true,
+          "options": [
+            {
+              "label": "After school care",
+              "id": "lm__OIRlo",
+              "value": "ASC"
+            },
+            {
+              "label": "Whole day care",
+              "id": "Hnk746yX0",
+              "value": "WDC"
+            }
+          ],
+          "fieldName": "CARE_TYPE"
+        },
+        "rFEa9NkKD": {
+          "id": "rFEa9NkKD",
+          "itemType": "select",
+          "label": "Preferred days",
+          "isRequired": true,
+          "isMultipleSelect": true,
+          "options": [
+            {
+              "label": "Monday",
+              "id": "OYaD4SLt5",
+              "value": "1"
+            },
+            {
+              "label": "Tuesday",
+              "id": "y10wj3vSW",
+              "value": "2"
+            },
+            {
+              "label": "Wednesday",
+              "id": "DMdbJN7mq",
+              "value": "3"
+            },
+            {
+              "label": "Thursday",
+              "id": "G58iisvfG",
+              "value": "4"
+            },
+            {
+              "label": "Friday",
+              "id": "ZMR6DWlmA",
+              "value": "5"
+            }
+          ],
+          "fieldName": "PREFERRED_DAYS"
+        },
+        "NQvA_fWxj": {
+          "id": "NQvA_fWxj",
+          "itemType": "text",
+          "value": "<p><strong>PART C - Contact info (optional)</strong></p>\n"
+        },
+        "jicFEV14_": {
+          "id": "jicFEV14_",
+          "itemType": "input",
+          "label": "Mobile"
+        },
+        "mJYS2ueLq": {
+          "id": "mJYS2ueLq",
+          "itemType": "input",
+          "label": "Email"
+        },
+        "uVw74Z-ON": {
+          "id": "uVw74Z-ON",
+          "itemType": "submit",
+          "label": "Submit Application"
+        },
+        "7AjEkPZPu": {
+          "id": "7AjEkPZPu",
+          "itemType": "formula"
+        }
+      },
+      "isCreatingDs": "",
+      "fieldName": "Score",
+      "expression": {
+        "blocks": [
+          {
+            "key": "b05si",
+            "text": "GUARDIAN_NAME + KID_GENDER ",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [
+              {
+                "offset": 0,
+                "length": 13,
+                "key": 0
+              },
+              {
+                "offset": 16,
+                "length": 10,
+                "key": 1
+              }
+            ],
+            "data": {}
+          }
+        ],
+        "entityMap": {
+          "0": {
+            "type": "mention",
+            "mutability": "IMMUTABLE",
+            "data": {
+              "mention": {
+                "id": "wTvBhoeK6",
+                "itemType": "input",
+                "name": "GUARDIAN_NAME"
+              }
+            }
+          },
+          "1": {
+            "type": "mention",
+            "mutability": "IMMUTABLE",
+            "data": {
+              "mention": {
+                "id": "vhJl02NCE",
+                "itemType": "select",
+                "name": "KID_GENDER"
+              }
+            }
+          }
+        }
+      },
+      "plainExpression": "GUARDIAN_NAME + KID_GENDER ",
+      "fieldsMappings": {
+        "vhJl02NCE": {
+          "female": 1,
+          "male": 2
+        }
+      },
+      "targetDataSource": {
+        "id": "1",
+        "fieldId": "123"
+      }
     }
   },
   "headerImage": "header3"

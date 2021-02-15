@@ -35,6 +35,21 @@
     cursor: pointer;
   }
 
+  &__mention {
+    background-color: $pw-palette-dusk-60;
+    padding: 0.1rem .3rem;
+    border-radius: 0.1rem;
+    cursor: pointer;
+    user-select: none;
+    appearance: none;
+    outline: none;
+    border: none;
+    &:hover {
+      background-color: $pw-palette-dusk-70;
+      color: $pw-palette-storm-10;
+    }
+  }
+
   .DraftEditor-root {
     width: 100%;
   }

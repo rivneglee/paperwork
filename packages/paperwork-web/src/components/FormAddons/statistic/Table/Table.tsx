@@ -73,6 +73,13 @@ const TableView: FunctionComponent<Props> = ({
                 >
                   Filter
                 </Button>
+                <Button
+                    type="link"
+                    color="primary"
+                    icon={<Icons.CSV/>}
+                >
+                    Export
+                </Button>
               </div>
               <Scrollable className="pwapp-report-data-table__content">
                 <Table>

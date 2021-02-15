@@ -26,7 +26,9 @@ const CollaboratorFieldsTable: FunctionComponent<Props> = ({
         fields.map(field => (
           <Table.Row>
             <Table.RowItem columnName="Name">{field.name}</Table.RowItem>
-            <Table.RowItem columnName="Access">{grantLevelMapping[field.grants[0].level]}</Table.RowItem>
+            <Table.RowItem columnName="Access">
+                {field.grants[0] && grantLevelMapping[field.grants[0].level]}
+            </Table.RowItem>
           </Table.Row>
         ))
       }
