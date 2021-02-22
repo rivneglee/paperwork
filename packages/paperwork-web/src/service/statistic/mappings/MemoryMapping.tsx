@@ -1,5 +1,5 @@
 import {
-  QUERY_COMMITS,
+  QUERY_COMMITS, EXPORT_CSV,
 } from '../intents';
 import queryCommitsResponse from './data/queryCommitsResponse.json';
 
@@ -14,6 +14,7 @@ const MemoryMapping = {
       },
     };
   },
+  [EXPORT_CSV]: () => {},
 };
 
 export default MemoryMapping;

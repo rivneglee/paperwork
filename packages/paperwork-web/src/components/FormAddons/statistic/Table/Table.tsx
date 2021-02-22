@@ -25,6 +25,7 @@ interface Props extends Item {
   dataSources: {[key: string]: DataSource};
   onOpen: (formId: string, commitId: string) => void;
   onApplyFilter: (filters: FilterCondition[]) => void;
+  onExport: (filters: FilterCondition[]) => void;
   onPageChange: (page: number, filters: FilterCondition[]) => void;
 }
 
@@ -38,6 +39,7 @@ const TableView: FunctionComponent<Props> = ({
  labelPlacement,
  dataSources = {},
  onApplyFilter,
+ onExport,
  onPageChange,
  onOpen,
  ...item
@@ -74,11 +76,12 @@ const TableView: FunctionComponent<Props> = ({
                   Filter
                 </Button>
                 <Button
-                    type="link"
-                    color="primary"
-                    icon={<Icons.CSV/>}
+                  onClick={() => onExport(filters)}
+                  type="link"
+                  color="primary"
+                  icon={<Icons.CSV/>}
                 >
-                    Export
+                  Export
                 </Button>
               </div>
               <Scrollable className="pwapp-report-data-table__content">

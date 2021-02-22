@@ -21,12 +21,16 @@ const View = ({ authentication, dispatch, query, ...props }: any) => (
   <AggregatedCommitsProvider
     query={query}
     preLoad
-    userId={authentication.userId}
+    user={authentication.user}
   >
     {
-      ({ commits, isProcessing, load }: AggregatedCommitsProviderState) => {
+      ({ commits, isProcessing, load, exportCSV }: AggregatedCommitsProviderState) => {
         const onApplyFilter = async (filters: FilterCondition[]) => {
           await load(0, filters);
+        };
+
+        const onExport = async (filters: FilterCondition[]) => {
+          await exportCSV(filters);
         };
 
         const onPageChange = async (page: number, filters: FilterCondition[]) => {
@@ -37,10 +41,13 @@ const View = ({ authentication, dispatch, query, ...props }: any) => (
           window.open(`/f/${formId}/c/${commitId}`, '_blank');
         };
 
+        console.log(authentication);
+
         return (
           <Table
             onPageChange={onPageChange}
             onApplyFilter={onApplyFilter}
+            onExport={onExport}
             onOpen={onOpen}
             data={commits}
             isProcessing={isProcessing}

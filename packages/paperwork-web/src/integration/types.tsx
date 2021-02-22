@@ -24,3 +24,7 @@ export type RequestFunctionMapping = {[key: string]: RequestFunction};
 export interface Integration {
   send: (request: Request, options?: any) => Promise<any>;
 }
+
+export enum ResponseType {
+  JSON = 'json', BLOB = 'blob',
+}
