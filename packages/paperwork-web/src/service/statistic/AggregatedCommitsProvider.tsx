@@ -1,12 +1,16 @@
 import React, { ReactElement } from 'react';
+import download from 'downloadjs';
 import equal from 'deep-equal';
-import { QUERY_COMMITS } from './intents';
+import { QUERY_COMMITS, EXPORT_CSV } from './intents';
 import { AggregatedCommits } from '../../schema/Statistic';
-import { Integration } from '../../integration';
+import { Integration, ResponseType } from '../../integration';
+import { User } from '../../schema/User';
+import { getAffiliateIds } from './selectors';
 
 export interface AggregatedCommitsProviderState {
   commits: AggregatedCommits;
   load: (page: number, filters?: FilterCondition[]) => Promise<AggregatedCommits>;
+  exportCSV: (filters?: FilterCondition[]) => Promise<any>;
   isInitializing: boolean;
   isProcessing: boolean;
 }
@@ -26,7 +30,7 @@ export interface Query {
 interface Props {
   children: (integrationState: AggregatedCommitsProviderState) => ReactElement | null;
   integration: Integration;
-  userId: string;
+  user: User;
   isProcessing: boolean;
   preLoad?: boolean;
   query?: Query;
@@ -43,7 +47,7 @@ export default class extends React.Component<Props> {
   private isInitializing = true;
 
   private load = async (page = 0, filters = []) => {
-    const { integration, userId, query } = this.props;
+    const { integration, user, query } = this.props;
     if (!query) return;
     const commits = await integration.send({
       intent: QUERY_COMMITS,
@@ -51,10 +55,9 @@ export default class extends React.Component<Props> {
       content: {
         query,
         filters,
+        affiliates: getAffiliateIds(user),
       },
-      urlParams: {
-        userId,
-      },
+      urlParams: {},
       params: {
         page,
         size: 50,
@@ -64,6 +67,23 @@ export default class extends React.Component<Props> {
       commits,
     });
     return commits;
+  }
+
+  private exportCSV = async (filters = []) => {
+    const { integration, user, query } = this.props;
+    if (!query) return;
+    const blob = await integration.send({
+      intent: EXPORT_CSV,
+      method: 'POST',
+      content: {
+        query,
+        filters,
+        affiliates: getAffiliateIds(user),
+      },
+      urlParams: {},
+    }, { responseType: ResponseType.BLOB });
+
+    download(blob, 'Export.csv', 'application/csv');
   }
 
   async componentDidMount() {
@@ -89,6 +109,7 @@ export default class extends React.Component<Props> {
         isProcessing,
         commits,
         load: this.load,
+        exportCSV: this.exportCSV,
         isInitializing: this.isInitializing,
       })
     );

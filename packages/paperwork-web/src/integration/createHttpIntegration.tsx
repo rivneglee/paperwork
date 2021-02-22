@@ -1,4 +1,4 @@
-import { Request, Integration, RequestFunctionMapping } from './types';
+import { Integration, Request, RequestFunctionMapping, ResponseType } from './types';
 import getProfile from '../getProfile';
 import IntegrationHttpError from './IntegrationHttpError';
 
@@ -23,6 +23,10 @@ const createHttpIntegration = (mapping: RequestFunctionMapping): Integration => 
       body: content ? JSON.stringify(content) : undefined,
     });
     if (response.status < 300) {
+      const { responseType = ResponseType.JSON } = options;
+      if (responseType === ResponseType.BLOB) {
+        return await response.blob();
+      }
       return await response.json();
     }
     throw new IntegrationHttpError(response);
