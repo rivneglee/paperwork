@@ -3,7 +3,7 @@
 exports[`DataSourceDetailPage should render properly if logged in as owner 1`] = `
 <Wi
   header={
-    <Connect(AppBar)
+    <Connect(Component)
       activeMenuId="datasource"
     />
   }
@@ -73,7 +73,7 @@ exports[`DataSourceDetailPage should render properly if logged in as owner 1`] =
 exports[`DataSourceDetailPage should render properly if not datasource owner 1`] = `
 <Wi
   header={
-    <Connect(AppBar)
+    <Connect(Component)
       activeMenuId="datasource"
     />
   }
@@ -144,7 +144,7 @@ exports[`DataSourceDetailPage should render properly if not datasource owner 1`]
 exports[`DataSourceDetailPage should render properly when grantField is given 1`] = `
 <Wi
   header={
-    <Connect(AppBar)
+    <Connect(Component)
       activeMenuId="datasource"
     />
   }

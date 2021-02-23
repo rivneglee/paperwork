@@ -2,7 +2,6 @@ import React, { ReactElement } from 'react';
 import createIntegration from './createIntegration';
 import { Integration, Request } from './types';
 import IntegrationHttpError from './IntegrationHttpError';
-import SignIn from '../pages/signIn';
 import { PageNotFound, ServerError } from '../pages/error';
 
 interface Props {
@@ -74,7 +73,8 @@ export default class extends React.Component<Props, State> {
       return <PageNotFound/>;
     }
     if (error && error.statusCode === 401) {
-      return <SignIn/>;
+      window.location.href = '/signin';
+      return null;
     }
     return <ServerError/>;
   }
