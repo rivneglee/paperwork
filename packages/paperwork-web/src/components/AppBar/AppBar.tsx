@@ -4,6 +4,8 @@ import { IconButton, Icons, Drawer, Button, Scrollable } from '@paperwork/ui-wid
 import './AppBar.scss';
 import { Authentication } from '../../schema/User';
 import Menu from './Menu';
+import SignOutModal from '../Modal/SignOutModal';
+import AuthenticationStorage from '../../service/authentication/AuthenticationStorage';
 const appName = require('../../assets/paperwork.png');
 
 interface Props {
@@ -15,6 +17,12 @@ interface Props {
 
 const AppBar: FunctionComponent<Props> = ({ activeMenuId, secondaryMenu, actions }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isShowSignOutModal, setIsShowSignOutModal] = useState(false);
+  const signOut = () => {
+    AuthenticationStorage.clear();
+    setIsShowSignOutModal(false);
+    window.location.reload();
+  };
   return (
     <div className="pwapp-appbar">
       <div className="pwapp-appbar-primary">
@@ -38,6 +46,7 @@ const AppBar: FunctionComponent<Props> = ({ activeMenuId, secondaryMenu, actions
             icon={<Icons.PowerOff/>}
             color="danger"
             type="link"
+            onClick={() => setIsShowSignOutModal(true)}
           >Sign out</Button>
         }
         isShow={isMenuOpen}
@@ -47,6 +56,7 @@ const AppBar: FunctionComponent<Props> = ({ activeMenuId, secondaryMenu, actions
           <Menu activeMenuId={activeMenuId}/>
         </Scrollable>
       </Drawer>
+      {isShowSignOutModal && <SignOutModal onConfirm={signOut} onCancel={() => setIsShowSignOutModal(false)}/>}
       {secondaryMenu && <div className="pwapp-appbar-secondary">{secondaryMenu}</div>}
     </div>
   );
