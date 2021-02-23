@@ -1,3 +1,3 @@
-import AppBar from './AppBarContainer';
+import AppBarContainer from './AppBarContainer';
 
-export default AppBar;
+export default AppBarContainer;

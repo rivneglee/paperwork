@@ -2,7 +2,8 @@ import React, { ReactElement } from 'react';
 import createIntegration from './createIntegration';
 import { Integration, Request } from './types';
 import IntegrationHttpError from './IntegrationHttpError';
-// import { PageNotFound } from '../pages/error';
+import SignIn from '../pages/signIn';
+import { PageNotFound, ServerError } from '../pages/error';
 
 interface Props {
   mappings: any;
@@ -70,9 +71,12 @@ export default class extends React.Component<Props, State> {
 
   private getErrorView = (error: any) => {
     if (error && error.statusCode === 404) {
-      return null;
+      return <PageNotFound/>;
     }
-    return null;
+    if (error && error.statusCode === 401) {
+      return <SignIn/>;
+    }
+    return <ServerError/>;
   }
 
   render() {

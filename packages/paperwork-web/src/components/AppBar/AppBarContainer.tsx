@@ -1,8 +1,10 @@
+import React from 'react';
 import { connect } from 'react-redux';
 
 import { StoreState } from '../../store';
 import { getAuthentication } from '../../store/selectors';
 import { createSetActiveMenuAction } from '../../store/actions';
+import Actions from './Actions';
 
 import AppBar from './AppBar';
 
@@ -14,4 +16,4 @@ const mapDispatchToProps = (dispatch: any) => ({
   onMenuClick: (menuId: string) => dispatch(createSetActiveMenuAction(menuId)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppBar);
+export default connect(mapStateToProps, mapDispatchToProps)((props: any) => <AppBar {...props} actions={<Actions/>}/>);

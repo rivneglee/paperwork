@@ -24,6 +24,7 @@ describe('AuthenticationProvider', () => {
     const storage = {
       get: jest.fn(() => undefined),
       set: jest.fn(),
+      clear: jest.fn(),
     };
 
     beforeEach(() => {
@@ -62,6 +63,7 @@ describe('AuthenticationProvider', () => {
     const storage = {
       get: jest.fn(() => authentication),
       set: jest.fn(),
+      clear: jest.fn(),
     };
 
     beforeEach(() => {
