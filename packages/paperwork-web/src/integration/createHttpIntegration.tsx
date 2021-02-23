@@ -1,6 +1,7 @@
 import { Integration, Request, RequestFunctionMapping, ResponseType } from './types';
 import getProfile from '../getProfile';
 import IntegrationHttpError from './IntegrationHttpError';
+import AuthenticationStorage from '../service/authentication/AuthenticationStorage';
 
 const getQueryParams = (params: object = {}) => Object.keys(params)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
@@ -12,7 +13,7 @@ const createHttpIntegration = (mapping: RequestFunctionMapping): Integration => 
     const { intent, method, content, params = {} } = request;
     const getPath = mapping[intent] as any;
     const url = `${profile.gatewayUrl}${getPath(request)}?${getQueryParams(params)}`;
-    const accessToken = localStorage.getItem('Authorization') || '';
+    const { accessToken = '' } = AuthenticationStorage.get() || {};
     const response = await fetch(url, {
       method,
       mode: 'cors',
@@ -28,6 +29,9 @@ const createHttpIntegration = (mapping: RequestFunctionMapping): Integration => 
         return await response.blob();
       }
       return await response.json();
+    }
+    if (response.status === 401) {
+      AuthenticationStorage.clear();
     }
     throw new IntegrationHttpError(response);
   },

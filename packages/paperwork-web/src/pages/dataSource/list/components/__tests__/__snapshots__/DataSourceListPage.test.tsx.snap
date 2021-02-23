@@ -3,7 +3,7 @@
 exports[`DataSourceListPage should render when result is empty 1`] = `
 <Wi
   header={
-    <Connect(AppBar)
+    <Connect(Component)
       activeMenuId="datasource"
     />
   }
@@ -44,7 +44,7 @@ exports[`DataSourceListPage should render when result is empty 1`] = `
 exports[`DataSourceListPage should render when result is not empty 1`] = `
 <Wi
   header={
-    <Connect(AppBar)
+    <Connect(Component)
       activeMenuId="datasource"
     />
   }

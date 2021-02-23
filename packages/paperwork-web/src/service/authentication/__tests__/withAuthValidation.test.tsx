@@ -15,6 +15,7 @@ describe('withAuthValidation', () => {
       const storage = {
         get: jest.fn(() => null),
         set: jest.fn(),
+        clear: jest.fn(),
       };
       const DecoratedPage = withAuthValidation(Page, storage);
       wrapper = shallow(<DecoratedPage {...targetProps} />);
@@ -34,6 +35,7 @@ describe('withAuthValidation', () => {
       const storage = {
         get: jest.fn(() => authentication),
         set: jest.fn(),
+        clear: jest.fn(),
       };
       const DecoratedPage = withAuthValidation(Page, storage);
       wrapper = shallow(<DecoratedPage {...targetProps} />);

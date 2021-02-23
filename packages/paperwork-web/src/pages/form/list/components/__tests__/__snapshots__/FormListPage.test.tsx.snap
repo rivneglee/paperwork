@@ -4,7 +4,7 @@ exports[`FormListPage should render when result is empty 1`] = `
 <Vi
   className="pwapp-form-list"
   header={
-    <Connect(AppBar)
+    <Connect(Component)
       activeMenuId="forms"
     />
   }
@@ -55,7 +55,7 @@ exports[`FormListPage should render when result is not empty 1`] = `
 <Vi
   className="pwapp-form-list"
   header={
-    <Connect(AppBar)
+    <Connect(Component)
       activeMenuId="forms"
     />
   }
