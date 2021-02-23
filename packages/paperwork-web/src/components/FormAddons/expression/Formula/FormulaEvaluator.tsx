@@ -27,7 +27,11 @@ const FormulaEvaluator: FunctionComponent<Props> = ({
         const { id, name, itemType } = variable;
         let value = values[id];
         if (itemType === InputItemTypes.COMBOBOX) {
-          value = fieldsMappings[id][value];
+          if (value instanceof Array) {
+            value = value.reduce((results, current) => results + fieldsMappings[id][current], 0);
+          } else {
+            value = fieldsMappings[id][value];
+          }
         }
         if (isNaN(value)) {
           throw Error('Invalid inputs');
