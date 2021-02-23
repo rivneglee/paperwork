@@ -30,7 +30,6 @@ const Settings: FunctionComponent<Props> = ({ onUpdate, item: { enableDataBindin
   };
   const { targetDataSource, fieldName } = item;
   const { fieldId, ...dataSource } = targetDataSource || {};
-  debugger;
   return (
     <>
       <Input
