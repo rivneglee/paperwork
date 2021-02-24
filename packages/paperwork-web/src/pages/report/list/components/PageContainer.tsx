@@ -43,6 +43,7 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
       };
 
       const onEdit = (id: string) => dispatch(push(`/reports/${id}`));
+      const onView = (id: string) => window.open(`/r/${id}`, '_blank');
       const onCreateNew = () => dispatch(push('/reports/new'));
 
       return (
@@ -52,6 +53,7 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
           onFilterChange={onFilterChange}
           onApplyFilter={onApplyFilter}
           onEdit={onEdit}
+          onView={onView}
           onCreateNew={onCreateNew}
         />);
     }}

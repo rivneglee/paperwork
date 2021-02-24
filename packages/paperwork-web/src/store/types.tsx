@@ -13,6 +13,7 @@ import { NotificationListPageState } from '../pages/notification/list/state/redu
 import { ReportListPageState } from '../pages/report/list/state/reducers';
 import { ReportDetailPageState } from '../pages/report/detail/state/reducers';
 import { NotificationUpdate } from '../schema/Notification';
+import { ViewReportPageState } from '../pages/report/viewer/state/reducers';
 
 export type PageState = {
   dataSourceList: DataSourceListPageState;
@@ -26,6 +27,7 @@ export type PageState = {
   notificationList: NotificationListPageState;
   reportList: ReportListPageState;
   reportDetail: ReportDetailPageState;
+  viewReportDetail: ViewReportPageState;
 };
 
 export interface StoreState {

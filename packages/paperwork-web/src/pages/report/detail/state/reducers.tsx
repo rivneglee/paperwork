@@ -23,6 +23,7 @@ export const defaultState: ReportDetailPageState = {
     ],
     items: {},
     createdAt: '',
+    sharedWith: [],
   },
   isPageEdited: false,
 };

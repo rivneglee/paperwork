@@ -3,6 +3,7 @@ import { User } from './User';
 
 export enum NotificationEventType {
   FILLING_FORM_INVITATION = 'FILLING_FORM_INVITATION',
+  SHARED_REPORT = 'SHARED_REPORT',
 }
 
 export interface NotificationEvent {
