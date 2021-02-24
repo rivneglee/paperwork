@@ -27,6 +27,7 @@ interface Props {
   filterOptions: FilterOptions;
   isProcessing?: boolean;
   onEdit: (id: string) => void;
+  onView: (id: string) => void;
   onCreateNew: () => void;
 }
 
@@ -45,6 +46,7 @@ const ReportListPage: FunctionComponent<Props> = ({
   entries,
   onLoadNextPage,
   onApplyFilter,
+  onView,
   onEdit,
   onCreateNew,
   onFilterChange,
@@ -95,6 +97,7 @@ const ReportListPage: FunctionComponent<Props> = ({
                     </div>
                     <div className="pwapp-report-list__buttons">
                       <IconButton onClick={() => onEdit(entry.id)}><Icons.Edit/></IconButton>
+                      <IconButton onClick={() => onView(entry.id)}><Icons.Preview/></IconButton>
                     </div>
                   </div>
                 </List.Item>

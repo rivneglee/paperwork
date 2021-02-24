@@ -14,4 +14,4 @@ export interface ReportList {
   pagination: Pagination;
 }
 
-export type ReportDetail = PaperAppearance & Report;
+export type ReportDetail = PaperAppearance & Report & { sharedWith: string[] };

@@ -39,7 +39,6 @@ export default connect(mapStateToProviderProps)(({ dispatch, params }: any) => (
         );
 
         const onSubmit = async (commit: CommitDetail) => {
-          console.log(JSON.stringify(commit));
           const succeedMessage = await create(commit);
           dispatch(createSetSucceedMessageAction(succeedMessage));
         };

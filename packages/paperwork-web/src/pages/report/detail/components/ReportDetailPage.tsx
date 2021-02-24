@@ -1,9 +1,11 @@
 import React, { FunctionComponent, useState } from 'react';
 import {
   BaseTemplate,
+  Drawer,
   FormThemeColors,
   IconButton,
   Icons,
+  Scrollable,
 } from '@paperwork/ui-widgets';
 
 import AppBar from '../../../../components/AppBar';
@@ -17,6 +19,7 @@ import {
   getLayoutMap,
   getStatisticMap,
 } from '../../../../components/FormAddons';
+import { OrganisationSelector } from '../../../../components/OrganisationSelector';
 
 interface Props {
   report: ReportDetail;
@@ -40,6 +43,11 @@ const ReportDetailPage: FunctionComponent<Props> = ({
   onSave,
 }) => {
   const [modalType, setModalType] = useState('');
+  const [showDrawer, setShowDrawer] = useState(false);
+
+  const onOpenDrawer = () => setShowDrawer(true);
+
+  const onCloseDrawer = () => setShowDrawer(false);
 
   const onCloseModal = () => setModalType('');
 
@@ -73,11 +81,19 @@ const ReportDetailPage: FunctionComponent<Props> = ({
     });
   };
 
+  const onUpdateSharedWith = (sharedWith: string[]) => {
+    onUpdate({
+      ...report,
+      sharedWith,
+    });
+  };
+
   const designMenu = (
     <>
       <IconButton onClick={onClickCancel}><Icons.Cancel/></IconButton>
       <IconButton onClick={onClickSave}><Icons.Save/></IconButton>
       <IconButton onClick={onClickTheme}><Icons.Theme/></IconButton>
+      <IconButton onClick={onOpenDrawer}><Icons.Share/></IconButton>
       {
         !isCreating && <IconButton onClick={onClickDelete}><Icons.Delete/></IconButton>
       }
@@ -121,6 +137,20 @@ const ReportDetailPage: FunctionComponent<Props> = ({
           />
         )
       }
+      <Drawer
+          placement="right"
+          header={<h3>Share your report</h3>}
+          isShow={showDrawer}
+          onClose={onCloseDrawer}
+      >
+        <Scrollable className="pwapp-form-settings">
+          <OrganisationSelector
+              label="Select who can view this report"
+              onSelect={onUpdateSharedWith}
+              selections={report.sharedWith}
+          />
+        </Scrollable>
+      </Drawer>
     </BaseTemplate>
   );
 };

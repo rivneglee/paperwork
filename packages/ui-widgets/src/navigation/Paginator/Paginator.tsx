@@ -33,7 +33,7 @@ const Paginator: FunctionComponent<Props> = ({ current, total, onNavigate }) => 
     const pageIdx = i + 1;
     const className = classNames('pw-paginator__link', pageIdx === current && 'pw-paginator__link--active');
     buttons.push(
-      <IconButton className={className} onClick={() => onNavigate(pageIdx)}>
+      <IconButton className={className} onClick={() => onNavigate(pageIdx - 1)}>
         {pageIdx}
       </IconButton>,
     );

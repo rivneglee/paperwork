@@ -26,6 +26,7 @@ interface Props {
   filterOptions: FilterOptions;
   isProcessing?: boolean;
   onEdit: (id: string) => void;
+  onView: (id: string) => void;
   onCreateNew: () => void;
 }
 
@@ -44,6 +45,7 @@ const ReportListPage: FunctionComponent<Props> = ({
   entries,
   onLoadNextPage,
   onApplyFilter,
+  onView,
   onEdit,
   onCreateNew,
   onFilterChange,
