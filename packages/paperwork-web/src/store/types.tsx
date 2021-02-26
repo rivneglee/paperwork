@@ -14,6 +14,7 @@ import { ReportListPageState } from '../pages/report/list/state/reducers';
 import { ReportDetailPageState } from '../pages/report/detail/state/reducers';
 import { NotificationUpdate } from '../schema/Notification';
 import { ViewReportPageState } from '../pages/report/viewer/state/reducers';
+import { DashboardPageState } from '../pages/dashboard/state/reducers';
 
 export type PageState = {
   dataSourceList: DataSourceListPageState;
@@ -28,6 +29,7 @@ export type PageState = {
   reportList: ReportListPageState;
   reportDetail: ReportDetailPageState;
   viewReportDetail: ViewReportPageState;
+  dashboard: DashboardPageState;
 };
 
 export interface StoreState {

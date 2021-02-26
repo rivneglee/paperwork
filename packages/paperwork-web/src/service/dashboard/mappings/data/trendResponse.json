@@ -1,0 +1,24 @@
+{
+  "commits": [
+    {
+      "date": "2021/01/01",
+      "received": 5,
+      "submitted": 5
+    },
+    {
+      "date": "2021/01/05",
+      "received": 15,
+      "submitted": 7
+    },
+    {
+      "date": "2021/01/20",
+      "received": 8,
+      "submitted": 20
+    },
+    {
+      "date": "2021/01/30",
+      "received": 1,
+      "submitted": 5
+    }
+  ]
+}

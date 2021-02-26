@@ -1,0 +1,21 @@
+.pwapp-form-info {
+  display: flex;
+  &__primary {
+    display: flex;
+    flex-direction: column;
+  }
+  &__title {
+    color: #03313f;
+    font-size: 2rem;
+    font-family: "Gliko Modern L";
+    font-weight: inherit;
+    padding: 16px 0px;
+  }
+  &__description {
+    flex: 2;
+    padding-bottom: .5rem;
+  }
+  &__secondary {
+
+  }
+}

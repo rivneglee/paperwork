@@ -22,6 +22,7 @@ import ReportListPage from './pages/report/list';
 import ReportDetailPage from './pages/report/detail';
 import ViewReportPage from './pages/report/viewer';
 import SignInPage from './pages/signIn';
+import DashboardPage from './pages/dashboard';
 import { PageNotFound } from './pages/error';
 
 import './index.scss';
@@ -33,7 +34,9 @@ ReactDOM.render(
     <Provider store={store}>
       <ConnectedRouter history={getHistory()}>
         <Switch>
+          <Route exact component={withAuthValidation(DashboardPage)} path="/"/>
           <Route exact component={SignInPage} path="/signin/"/>
+          <Route exact component={withAuthValidation(DashboardPage)} path="/dashboard/"/>
           <Route exact component={withAuthValidation(DataSourceListPage)} path="/datasource/"/>
           <Route exact component={withAuthValidation(DataSourceDetailPage)} path="/datasource/:dataSourceId"/>
           <Route exact component={withAuthValidation(TemplateListPage)} path="/templates"/>

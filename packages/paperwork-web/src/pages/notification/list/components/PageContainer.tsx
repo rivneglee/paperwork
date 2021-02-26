@@ -11,7 +11,7 @@ import {
   createMarkAsReadActionAction,
   createUpdateFilterOptionAction,
 } from '../state/actions';
-import { NotificationEventType } from '../../../../schema/Notification';
+import handleNotificationAction from '../handleNotificationAction';
 
 const mapStateToViewProps = (state: StoreState) => ({
   entries: getEntries(state),
@@ -52,12 +52,7 @@ export default connect(mapStateToProviderProps)(({ dispatch, params, authenticat
         };
 
         const onView = async (notification: Notification) => {
-          if (notification.event.type === NotificationEventType.FILLING_FORM_INVITATION) {
-            window.open(`/f/${notification.event.refId}/c/new`, '_blank');
-          }
-          if (notification.event.type === NotificationEventType.SHARED_REPORT) {
-            window.open(`/r/${notification.event.refId}`, '_blank');
-          }
+          handleNotificationAction(notification);
           await setReadState(notification.id);
           dispatch(createMarkAsReadActionAction(notification.id));
         };

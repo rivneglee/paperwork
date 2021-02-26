@@ -41,8 +41,6 @@ const View = ({ authentication, dispatch, query, ...props }: any) => (
           window.open(`/f/${formId}/c/${commitId}`, '_blank');
         };
 
-        console.log(authentication);
-
         return (
           <Table
             onPageChange={onPageChange}
