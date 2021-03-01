@@ -20,7 +20,7 @@ const mapStateToProps = (state: StoreState) => ({
   unread: getUnreadNotifications(state),
 });
 
-const CHECK_INTERVAL = 5000;
+const CHECK_INTERVAL = 10000;
 
 const Notifications = ({ dispatch, userId, unread }: Props) => (
   userId ? <Provider userId={userId}>

@@ -168,8 +168,8 @@ const FormDetailPage: FunctionComponent<Props> = ({
           { icon: <Icons.Text/>, itemType: InputItemTypes.RICH_TEXT },
           { icon: <Icons.TextInput/>, itemType: InputItemTypes.TEXT_INPUT },
           { icon: <Icons.ComboBox/>, itemType: InputItemTypes.COMBOBOX },
-          { icon: <Icons.TextArea/>, itemType: 'textarea' },
-          { icon: <Icons.Attachment/>, itemType: 'attachment' },
+          // { icon: <Icons.TextArea/>, itemType: 'textarea' },
+          // { icon: <Icons.Attachment/>, itemType: 'attachment' },
           { icon: <Icons.Formula/>, itemType: ExpressionItemTypes.FORMULA },
         ]}
         buttonItems={[
@@ -203,6 +203,7 @@ const FormDetailPage: FunctionComponent<Props> = ({
             labelPlacement="top"
             value={form.closeDate}
             onChange={(date: string) => onUpdateSettings('closeDate', date)}
+            format="YYYY-MM-DD"
           />
           <Input
             size="s"

@@ -1,0 +1,13 @@
+.pwapp-reminder {
+  &__keyword {
+    font-weight: bold;
+    color: #7B1FA2;
+    padding: 0 .3rem;
+  }
+  &__icon {
+    fill: #9F2AD0;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0 .5rem;
+  }
+}

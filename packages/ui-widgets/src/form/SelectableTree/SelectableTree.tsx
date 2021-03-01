@@ -89,7 +89,7 @@ const SelectableTree: SelectableTreeComponent = ({
   );
 
   const renderTree = (treeNode: SelectableTreeNode) => {
-    const { children = [], value, label } = treeNode;
+    const { children = [], value = '', label = '' } = treeNode;
     const subTrees = children
       .map(child => renderTree(child))
       .filter(child => !!child);

@@ -38,7 +38,7 @@ const Menu: FunctionComponent<Props> = ({ activeMenuId }) => (
     <MenuWidget.Item
       id="commits"
       active={activeMenuId === 'commits'}
-      icon={<Icons.DataSource/>}
+      icon={<Icons.Commit/>}
     >
       <Link to="/commits">
         Commits

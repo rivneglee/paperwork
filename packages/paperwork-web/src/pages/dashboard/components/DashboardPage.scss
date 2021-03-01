@@ -1,0 +1,18 @@
+.pwapp-dashboard {
+  &__primary {
+  }
+
+  &__secondary {
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+    &__primary {
+      flex: 2;
+    }
+    &__secondary {
+      padding-left: 1rem;
+      flex: 1;
+    }
+  }
+}

@@ -10,6 +10,7 @@ import { mapping as NotificationListPageActionMapping, defaultState as notificat
 import { mapping as ReportListPageActionMapping, defaultState as reportList } from '../pages/report/list/state/reducers';
 import { mapping as ReportDetailPageActionMapping, defaultState as reportDetail } from '../pages/report/detail/state/reducers';
 import { mapping as ViewReportPageActionMapping, defaultState as viewReportDetail } from '../pages/report/viewer/state/reducers';
+import { mapping as DashboardPageActionMapping, defaultState as dashboard } from '../pages/dashboard/state/reducers';
 import { PageState } from './types';
 import {
   SetActiveMenuAction,
@@ -31,6 +32,7 @@ const mapping = {
   ...ReportListPageActionMapping,
   ...ReportDetailPageActionMapping,
   ...ViewReportPageActionMapping,
+  ...DashboardPageActionMapping,
 };
 
 export const defaultPageState = {
@@ -46,6 +48,7 @@ export const defaultPageState = {
   reportList,
   reportDetail,
   viewReportDetail,
+  dashboard,
 };
 
 export const authenticationReducer = (state = {}) => state;

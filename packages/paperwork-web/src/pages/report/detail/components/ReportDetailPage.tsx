@@ -118,8 +118,8 @@ const ReportDetailPage: FunctionComponent<Props> = ({
         items={report.items}
         statisticItems={[
           { icon: <Icons.Table/>, itemType: 'data-table' },
-          { icon: <Icons.PieChart/>, itemType: 'pie-chart' },
-          { icon: <Icons.LineChart/>, itemType: 'line-chart' },
+          // { icon: <Icons.PieChart/>, itemType: 'pie-chart' },
+          // { icon: <Icons.LineChart/>, itemType: 'line-chart' },
         ]}
       />
       <ConfirmModal
