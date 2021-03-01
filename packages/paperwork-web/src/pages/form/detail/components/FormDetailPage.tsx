@@ -203,6 +203,7 @@ const FormDetailPage: FunctionComponent<Props> = ({
             labelPlacement="top"
             value={form.closeDate}
             onChange={(date: string) => onUpdateSettings('closeDate', date)}
+            format="YYYY-MM-DD"
           />
           <Input
             size="s"

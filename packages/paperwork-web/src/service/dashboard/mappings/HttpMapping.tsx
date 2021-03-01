@@ -3,10 +3,10 @@ import { Request } from '../../../integration';
 
 const HttpMapping = {
   [LOAD_REMINDER]: ({ urlParams }: Request) => (
-    `/api/dashboard/${urlParams.userId}/reminder`
+    `/api/${urlParams.userId}/dashboard/reminder`
   ),
   [LOAD_TREND]: ({ urlParams }: Request) => (
-    `/api/dashboard/${urlParams.userId}/trend`
+    `/api/${urlParams.userId}/dashboard/trend`
   ),
 };
 
