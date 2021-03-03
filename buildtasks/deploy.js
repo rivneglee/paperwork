@@ -54,9 +54,9 @@ console.log(process.argv);
 
 const deploy = async () => {
   await deployToOss('',`paperwork-prod`, './builds/paperwork-web/');
-  await deployToOss('static/css/',`paperwork-stage`, './builds/paperwork-web/');
-  await deployToOss('static/js/',`paperwork-stage`, './builds/paperwork-web/');
-  await deployToOss('static/media/',`paperwork-stage`, './builds/paperwork-web/');
+  await deployToOss('static/css/',`paperwork-prod`, './builds/paperwork-web/');
+  await deployToOss('static/js/',`paperwork-prod`, './builds/paperwork-web/');
+  await deployToOss('static/media/',`paperwork-prod`, './builds/paperwork-web/');
 }
 
 deploy();
