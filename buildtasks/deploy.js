@@ -25,12 +25,17 @@ const deployToOss = async (folder, bucket, root) => {
   const files = fs.readdirSync(folderPath);
   for (let i = 0; i < files.length; i++) {
     const file = files[i];
-    const isBundleGz = `${cssBundle}.gz`.indexOf(file) !== -1 || `${jsBundle}.gz`.indexOf(file) !== -1;
+    const isCssBundleGz = `${cssBundle}.gz`.indexOf(file) !== -1;
+    const isJsBundleGz = `${jsBundle}.gz`.indexOf(file) !== -1;
+    const isBundleGz = isCssBundleGz || isJsBundleGz;
     const source = `${folderPath}${file}`;
     const object = isBundleGz ? `${folder}${file.replace('.gz', '')}` : `${folder}${file}`;
     const isDir = fs.lstatSync(source).isDirectory();
     const shouldSkip = shouldIgnore(source);
-    const headers = isBundleGz ? { 'Content-Encoding': 'gzip' } : {};
+    const headers = isBundleGz ? {
+      'Content-Type': isJsBundleGz ? 'application/javascript' : 'text/css',
+      'Content-Encoding': 'gzip'
+    } : {};
     if (!isDir && !shouldSkip) {
       console.log(`Start uploading ${source} to ${object}`);
       try {
