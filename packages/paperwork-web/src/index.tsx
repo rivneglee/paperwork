@@ -34,7 +34,7 @@ ReactDOM.render(
     <Provider store={store}>
       <ConnectedRouter history={getHistory()}>
         <Switch>
-          <Route exact component={withAuthValidation(DashboardPage)} path="/"/>
+          <Route exact component={withAuthValidation(DashboardPage)} path="/X"/>
           <Route exact component={SignInPage} path="/signin/"/>
           <Route exact component={withAuthValidation(DashboardPage)} path="/dashboard/"/>
           <Route exact component={withAuthValidation(DataSourceListPage)} path="/datasource/"/>
