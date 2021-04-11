@@ -62,6 +62,8 @@ const deploy = async () => {
   await deployToOss('static/css/',`paperwork-prod`, './builds/paperwork-web/');
   await deployToOss('static/js/',`paperwork-prod`, './builds/paperwork-web/');
   await deployToOss('static/media/',`paperwork-prod`, './builds/paperwork-web/');
+  await deployToOss('',`ui-widgets`, './builds/ui-widgets/');
+  await deployToOss('sb_dll/',`ui-widgets`, './builds/ui-widgets/');
 }
 
 deploy();
